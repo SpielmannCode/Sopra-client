@@ -1,0 +1,8 @@
+.table tr:nth-child(even) {
+  background-color: #ddd;
+}
+
+.table.selectable tr:hover {
+  cursor: pointer;
+  background-color: #5bc0de;
+}

@@ -1,0 +1,59 @@
+<div id="lobby" class="row">
+  <div class="col-md-5">
+    <table class="table selectable">
+      <tr>
+        <th>Status</th>
+        <th>Game Name</th>
+        <th>Players</th>
+      </tr>
+      <tr *ngFor="let game of games" (click)="selectGame(game)">
+        <td *ngIf="game.isRunning">Running</td>
+        <td *ngIf="!game.isRunning">Searching</td>
+        <td>{{game._name}}</td>
+        <td>{{game._numberOfPlayers}}</td>
+      </tr>
+    </table>
+  </div>
+  <div class="col-md-4">
+    <div id="join-game">
+      <h3 *ngIf="selectedGame">{{selectedGame._name}}</h3>
+      <h3 *ngIf="!selectedGame">No Game Selected</h3>
+      <button class="btn btn-sm btn-primary btn-block">Join Game (no wörk yet)</button>
+    </div>
+    <div id="game-settings">
+      <h3>Settings</h3>
+      <form action="">
+        <label for="2-players">2 Players</label>
+        <input id="2-players" type="radio" value="2">
+        <label for="3-players">3 Players</label>
+        <input id="3-players" type="radio" value="2">
+        <label for="4-players">4 Players</label>
+        <input id="4-players" type="radio" value="2">
+        <label for="game-name">Game Name</label>
+        <input id="game-name" type="text">
+        <button class="btn btn-sm btn-primary btn-block">Save Settings (backend pls)</button>
+      </form>
+    </div>
+    <div id="current-game">
+      <h3>Start Game</h3>
+      <table class="table">
+        <tr>
+          <th>Players</th>
+        </tr>
+        <tr>
+          <td>Hardcoded User</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <table class="table">
+      <tr>
+        <th>People In Lobby</th>
+      </tr>
+      <tr *ngFor="let user of users">
+        <td>{{user.name}} {{user.username}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
