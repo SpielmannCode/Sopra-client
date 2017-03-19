@@ -23,12 +23,14 @@
     <div id="game-settings">
       <h3>Settings</h3>
       <form action="">
+        <!-- TODO Data Binding -->
         <label for="2-players">2 Players</label>
-        <input id="2-players" type="radio" value="2">
+        <input id="2-players" name="numOfPlayers" type="radio" value="2">
         <label for="3-players">3 Players</label>
-        <input id="3-players" type="radio" value="2">
+        <input id="3-players" name="numOfPlayers" type="radio" value="3">
         <label for="4-players">4 Players</label>
-        <input id="4-players" type="radio" value="2">
+        <input id="4-players" name="numOfPlayers" type="radio" value="2">
+        <br>
         <label for="game-name">Game Name</label>
         <input id="game-name" type="text">
         <button class="btn btn-sm btn-primary btn-block">Save Settings (backend pls)</button>
@@ -41,7 +43,7 @@
           <th>Players</th>
         </tr>
         <tr>
-          <td>Hardcoded User</td>
+          <td>Hardcoded Player</td>
         </tr>
       </table>
     </div>

@@ -2,7 +2,7 @@
   background-color: #ddd;
 }
 
-.table.selectable tr:hover {
+.table.selectable tr:not(:first-child):hover {
   cursor: pointer;
   background-color: #5bc0de;
 }
