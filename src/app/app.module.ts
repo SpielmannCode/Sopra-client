@@ -12,6 +12,8 @@ import {LoginComponent} from "./login/login.component";
 import {GameComponent} from "./game/game.component";
 import { LobbyComponent } from './lobby/lobby.component';
 import { InfoComponent } from './info/info.component';
+import {GameService} from "./shared/services/game.service";
+import {ApiService} from "./shared/services/api.service";
 
 @NgModule({
   declarations: [
@@ -29,7 +31,7 @@ import { InfoComponent } from './info/info.component';
     JsonpModule,
     routing
   ],
-  providers: [AuthenticationService,AuthGuardService,UserService],
+  providers: [AuthenticationService,AuthGuardService,UserService,GameService,ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
