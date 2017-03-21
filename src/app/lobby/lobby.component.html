@@ -28,10 +28,9 @@
         <th>Players</th>
       </tr>
       <tr *ngFor="let game of games" (click)="selectGame(game)">
-        <td *ngIf="game.isRunning">Running</td>
-        <td *ngIf="!game.isRunning">Searching</td>
+        <td>{{game.status}}</td>
         <td>{{game.name}}</td>
-        <td>{{game._numberOfPlayers}}</td>
+        <td>{{game.players.length}}/{{game.playerCountSetting}}</td>
       </tr>
     </table>
   </div>
@@ -39,28 +38,24 @@
     <div id="join-game">
       <h3 *ngIf="selectedGame">{{selectedGame.name}}</h3>
       <h3 *ngIf="!selectedGame">No Game Selected</h3>
-      <button class="btn btn-sm btn-primary btn-block">Join Game (no wörk yet)</button>
+      <button class="btn btn-sm btn-primary btn-block">Join Game</button>
     </div>
     <div id="game-settings">
       <h3>Settings</h3>
 
-
-
-
       <form [formGroup]="createGameForm" (submit)="createGame()">
-
 
         <label for="name">Game Name</label>
         <input id="name" name="name" formControlName="name" type="text">
 
         <br>
-        <input id="2-players" name="numOfPlayers" type="radio" value="2">
+        <input id="2-players" formControlName="playerCountSettings" name="playerCountSettings" type="radio" value="2">
         <label for="2-players"> 2 Players &nbsp;</label>
-        <input id="3-players" name="numOfPlayers" type="radio" value="3">
+        <input id="3-players" formControlName="playerCountSettings" name="playerCountSettings" type="radio" value="3">
         <label for="3-players"> 3 Players&nbsp; </label>
-        <input id="4-players" name="numOfPlayers" type="radio" value="2">
+        <input id="4-players" formControlName="playerCountSettings" name="playerCountSettings" type="radio" value="2">
         <label for="4-players"> 4 Players&nbsp; </label>
-        <button class="btn btn-sm btn-primary btn-block">Save Settings (backend pls)</button>
+        <button class="btn btn-sm btn-primary btn-block">Save Settings</button>
       </form>
 
 
@@ -68,12 +63,12 @@
     </div>
     <div id="current-game">
       <h3>Start Game</h3>
-      <table class="table">
+      <table *ngIf="selectedGame" class="table">
         <tr>
           <th>Players</th>
         </tr>
-        <tr>
-          <td>Hardcoded Player</td>
+        <tr *ngFor="let player of selectedGame.players">
+          <td>{{player.name}}</td>
         </tr>
       </table>
     </div>

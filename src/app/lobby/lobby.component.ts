@@ -4,13 +4,8 @@ import {UserService} from "../shared/services/user.service";
 import {User} from "../shared/models/user";
 import { FormGroup, FormControl, Validators, FormBuilder }  from '@angular/forms';
 import {Http, RequestOptions, Headers, Response} from "@angular/http";
-
-// Backend noch nix funktionere, darum ich habe gemacht diese
-const GAMES: Game[] = [
-  new Game("Game1", true, 4),
-  new Game("Game2", false, 3),
-  new Game("Game3", false, 2)
-];
+import {GameService} from "../shared/services/game.service";
+import {ApiService} from "../shared/services/api.service";
 
 @Component({
   selector: 'app-lobby',
@@ -19,15 +14,19 @@ const GAMES: Game[] = [
 })
 export class LobbyComponent implements OnInit {
   users: User[] = [];
-  games: Game[] = GAMES;
+  games: Game[] = [];
   selectedGame: Game;
   createGameForm: FormGroup;
 
   constructor(private userService: UserService,
+              private gameService: GameService,
+              private apiService: ApiService,
               private fb: FormBuilder,
               private http: Http) {
+
     this.createGameForm = fb.group({
-      name: ["", Validators.required]
+      name: ["", Validators.required],
+      playerCountSettings:[]
     });
   }
 
@@ -36,6 +35,11 @@ export class LobbyComponent implements OnInit {
     this.userService.getUsers()
       .subscribe(users => {
         this.users = users;
+      });
+
+    this.gameService.getGames()
+      .subscribe(games => {
+        this.games = games;
       });
   }
 
@@ -48,8 +52,7 @@ export class LobbyComponent implements OnInit {
     let options = new RequestOptions({ headers: headers });
     let userToken = JSON.parse(localStorage.getItem('currentUser')).token;
 
-
-    return this.http.post('http://localhost:8080/games?token=' + userToken,
-      JSON.stringify(this.createGameForm.value), options).subscribe();
+    this.http.post(this.apiService.apiUrl + '/games?token=' + userToken,
+      JSON.stringify(this.createGameForm.value), options).subscribe(() => this.ngOnInit());
   }
 }

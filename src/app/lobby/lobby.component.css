@@ -7,7 +7,8 @@
   background-color: #5bc0de;
 }
 #whole {
-  width:1366px ; height:768px;
+  max-width:1366px ;
+  max-height:768px;
 }
 #Titeltext {
 padding: 15px 0;
