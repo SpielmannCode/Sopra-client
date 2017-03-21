@@ -3,13 +3,13 @@
 <div id="Titel">
 
   <div id="Image">
-    <img src="Imhotep-Featured.jpg" alt="some_text" style="width:200px;height:80px;">
+    <img src="src\Images\Imhotep-Featured.jpg" alt="some_text" style="width:200px;height:80px;">
   </div>
 
   <div id="Titeltext">
     Online | Lobby
     <div id="InfoQuit">
-      Info | <a [routerLink]="['/login']">Quit</a> <br>
+      <a [routerLink]="['/info']">Info</a> | <a [routerLink]="['/login']">Quit</a> <br>
       logged in as
     </div>
   </div>
@@ -45,15 +45,15 @@
       <h3>Settings</h3>
       <form action="">
         <!-- TODO Data Binding -->
-        <label for="2-players">2 Players</label>
-        <input id="2-players" name="numOfPlayers" type="radio" value="2">
-        <label for="3-players">3 Players</label>
-        <input id="3-players" name="numOfPlayers" type="radio" value="3">
-        <label for="4-players">4 Players</label>
-        <input id="4-players" name="numOfPlayers" type="radio" value="2">
-        <br>
         <label for="game-name">Game Name</label>
         <input id="game-name" type="text">
+        <br>
+        <input id="2-players" name="numOfPlayers" type="radio" value="2">
+        <label for="2-players"> 2 Players &nbsp;</label>
+        <input id="3-players" name="numOfPlayers" type="radio" value="3">
+        <label for="3-players"> 3 Players&nbsp; </label>
+        <input id="4-players" name="numOfPlayers" type="radio" value="2">
+        <label for="4-players"> 4 Players&nbsp; </label>
         <button class="btn btn-sm btn-primary btn-block">Save Settings (backend pls)</button>
       </form>
     </div>
