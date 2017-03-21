@@ -19,7 +19,7 @@
 
 
 
-<div id="lobby" class="row">
+<div id="lobby" class="row bg-white">
   <div class="col-md-5">
     <table class="table selectable">
       <tr>
@@ -38,7 +38,7 @@
     <div id="join-game">
       <h3 *ngIf="selectedGame">{{selectedGame.name}}</h3>
       <h3 *ngIf="!selectedGame">No Game Selected</h3>
-      <button class="btn btn-sm btn-primary btn-block">Join Game</button>
+      <button class="btn-basic center full-width">Join Game</button>
     </div>
     <div id="game-settings">
       <h3>Settings</h3>
@@ -55,7 +55,7 @@
         <label for="3-players"> 3 Players&nbsp; </label>
         <input id="4-players" formControlName="playerCountSettings" name="playerCountSettings" type="radio" value="4">
         <label for="4-players"> 4 Players&nbsp; </label>
-        <button class="btn btn-sm btn-primary btn-block">Save Settings</button>
+        <button class="btn-basic center full-width">Save Settings</button>
       </form>
 
 

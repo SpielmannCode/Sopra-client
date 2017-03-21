@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+  background: #F2994A; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #F2994A , #F2C94C); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #F2994A , #F2C94C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.bg-white {
+  background-color: #fff;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.4);
+  opacity: 0.96;
+}
+
+.inline {
+  display: inline !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.btn-basic {
+  background-color: #38AAB5;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid transparent;
+  display: block;
+  font-size: 1.5em;
+  font-weight: 300;
+  opacity: 0.7;
+  padding: 0 10px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-basic:hover {
+  background-color: #1B8F9A;
+}

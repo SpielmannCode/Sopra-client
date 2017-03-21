@@ -1,10 +1,19 @@
+#lobby {
+  margin-top: 20px;
+  min-height: 420px;
+}
+.table > tbody > tr > td {
+  border-top: none;
+}
+
 .table tr:nth-child(even) {
-  background-color: #ddd;
+  background-color: #eee;
+
 }
 
 .table.selectable tr:not(:first-child):hover {
   cursor: pointer;
-  background-color: #5bc0de;
+  background-color: #ddd;
 }
 #whole {
   max-width:1366px ;
@@ -21,11 +30,14 @@ float: left;
 }
 #Titel{
 height: 80px;
-background-color: #e8b709;
 }
 #InfoQuit{
 padding: 10px 0;
 float: right;
 font-size: 15px;
  color: black;
+}
+
+input[type='radio'] {
+
 }
