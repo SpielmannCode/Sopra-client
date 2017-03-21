@@ -43,10 +43,16 @@
     </div>
     <div id="game-settings">
       <h3>Settings</h3>
-      <form action="">
-        <!-- TODO Data Binding -->
-        <label for="game-name">Game Name</label>
-        <input id="game-name" type="text">
+
+
+
+
+      <form [formGroup]="createGameForm" (submit)="createGame()">
+
+
+        <label for="name">Game Name</label>
+        <input id="name" name="name" formControlName="name" type="text">
+
         <br>
         <input id="2-players" name="numOfPlayers" type="radio" value="2">
         <label for="2-players"> 2 Players &nbsp;</label>
@@ -56,6 +62,9 @@
         <label for="4-players"> 4 Players&nbsp; </label>
         <button class="btn btn-sm btn-primary btn-block">Save Settings (backend pls)</button>
       </form>
+
+
+
     </div>
     <div id="current-game">
       <h3>Start Game</h3>
