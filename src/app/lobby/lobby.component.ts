@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Game} from "../shared/models/game";
 import {UserService} from "../shared/services/user.service";
 import {User} from "../shared/models/user";
-import {Game} from "../shared/models/game";
-
 
 // Backend noch nix funktionere, darum ich habe gemacht diese
 const GAMES: Game[] = [
