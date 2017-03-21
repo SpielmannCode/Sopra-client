@@ -16,6 +16,7 @@ const GAMES: Game[] = [
   styleUrls: ['./lobby.component.css']
 })
 export class LobbyComponent implements OnInit {
+  currentuser: String = JSON.parse(localStorage.getItem('currentUser')).username;
   users: User[] = [];
   games: Game[] = GAMES;
   selectedGame: Game;
