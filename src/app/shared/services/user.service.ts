@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, isDevMode } from '@angular/core';
 import {Http, Headers, RequestOptions, Response} from "@angular/http";
 import {AuthenticationService} from "./authentication.service";
 import {Observable} from "rxjs";
@@ -13,7 +13,11 @@ export class UserService {
     private authenticationService: AuthenticationService) {
 
     //TODO fill in your heroku-backend URL
-    this.apiUrl = 'https://sopra-fs17-group12.herokuapp.com';
+    if (isDevMode()) {
+      this.apiUrl = 'http://localhost:8080';
+    } else {
+      this.apiUrl = 'https://sopra-fs17-group12.herokuapp.com';
+    }
   }
 
   getUsers(): Observable<User[]> {
@@ -22,7 +26,7 @@ export class UserService {
     let options = new RequestOptions({ headers: headers });
 
     // get users from api
-    return this.http.get(this.apiUrl +'/user', options)
+    return this.http.get(this.apiUrl +'/users', options)
       .map((response: Response) => response.json());
   }
 }
