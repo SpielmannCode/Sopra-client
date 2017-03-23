@@ -8,7 +8,7 @@ import {InfoComponent} from "./info/info.component";
 
 const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
-    { path: 'lobby', component: LobbyComponent},
+    { path: 'lobby', component: LobbyComponent, canActivate: [AuthGuardService]},
     { path: 'info', component: InfoComponent},
     { path: '', component: GameComponent, canActivate: [AuthGuardService] },
 
