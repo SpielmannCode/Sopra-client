@@ -16,6 +16,7 @@ export class LobbyComponent implements OnInit {
   users: User[] = [];
   games: Game[] = [];
   selectedGame: Game;
+  currentGame: Game;
   createGameForm: FormGroup;
 
   constructor(private userService: UserService,
@@ -26,7 +27,7 @@ export class LobbyComponent implements OnInit {
 
     this.createGameForm = fb.group({
       name: ["", Validators.required],
-      playerCountSettings:[]
+      playerCountSetting:[]
     });
   }
 
@@ -52,7 +53,21 @@ export class LobbyComponent implements OnInit {
     let options = new RequestOptions({ headers: headers });
     let userToken = JSON.parse(localStorage.getItem('currentUser')).token;
 
+    // Create a new game
     this.http.post(this.apiService.apiUrl + '/games?token=' + userToken,
-      JSON.stringify(this.createGameForm.value), options).subscribe(() => this.ngOnInit());
+      JSON.stringify(this.createGameForm.value), options).subscribe(res => {
+
+      // Extract the game id from the response
+      let gameId = res['_body'].replace(/\/games\//, '');
+
+      // Find the newly created game by id
+      this.gameService.getGame(gameId)
+        .subscribe(game => {
+
+          // Set the max player count
+          game.playerCountSetting = this.createGameForm.value.playerCountSetting;
+          this.gameService.changeSettings(game).subscribe(() => this.ngOnInit());
+        });
+      });
   }
 }
