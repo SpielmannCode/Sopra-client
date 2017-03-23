@@ -10,7 +10,7 @@ const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'lobby', component: LobbyComponent},
     { path: 'info', component: InfoComponent},
-    { path: '', component: GameComponent, canActivate: [AuthGuardService] },
+    { path: 'game/:id', component: GameComponent, canActivate: [AuthGuardService] },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
