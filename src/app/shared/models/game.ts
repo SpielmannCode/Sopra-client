@@ -1,36 +1,16 @@
-import {User} from "./user";
 
 export class Game {
   private _id:number;
-  private _numberOfPlayers:number;
-  private _isRunning:boolean;
   private _name:string;
-  private _host:User;
-
-  constructor(_name, _isRunning, _numberOfPlayers){
-    this._name = _name;
-    this._isRunning = _isRunning;
-    this._numberOfPlayers = _numberOfPlayers;
-  }
+  private _owner:string;
+  private _status:string;
+  private _currentPlayer:number;
+  private _moves;
+  private _players;
+  private _playerCountSetting:number;
 
   get id(): number {
     return this._id;
-  }
-
-  get numberOfPlayers(): number {
-    return this._numberOfPlayers;
-  }
-
-  set numberOfPlayers(value: number) {
-    this._numberOfPlayers = value;
-  }
-
-  get isRunning(): boolean {
-    return this._isRunning;
-  }
-
-  set isRunning(value: boolean) {
-    this._isRunning = value;
   }
 
   get name(): string {
@@ -41,11 +21,51 @@ export class Game {
     this._name = value;
   }
 
-  get host(): User {
-    return this._host;
+  get owner(): string {
+    return this._owner;
   }
 
-  set host(value: User) {
-    this._host = value;
+  set owner(value: string) {
+    this._owner = value;
+  }
+
+  get status(): string {
+    return this._status;
+  }
+
+  set status(value: string) {
+    this._status = value;
+  }
+
+  get currentPlayer(): number {
+    return this._currentPlayer;
+  }
+
+  set currentPlayer(value: number) {
+    this._currentPlayer = value;
+  }
+
+  get moves() {
+    return this._moves;
+  }
+
+  set moves(value) {
+    this._moves = value;
+  }
+
+  get players() {
+    return this._players;
+  }
+
+  set players(value) {
+    this._players = value;
+  }
+
+  get playerCountSetting(): number {
+    return this._playerCountSetting;
+  }
+
+  set playerCountSetting(value: number) {
+    this._playerCountSetting = value;
   }
 }

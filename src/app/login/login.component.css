@@ -5,10 +5,17 @@ body {
 }
 
 .form-signin {
+  background-color: #fff;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.4);
   max-width: 330px;
   padding: 15px;
-  margin: 0 auto;
+  margin: 50px auto;
 }
+
+.form-signin input {
+  border-radius: 0;
+}
+
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
   margin-bottom: 10px;
@@ -27,6 +34,7 @@ body {
 }
 .form-signin .form-control:focus {
   z-index: 2;
+  border-color: #5B86A9;
 }
 .form-signin input[type="email"] {
   margin-bottom: -1px;

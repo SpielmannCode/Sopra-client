@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpModule, JsonpModule} from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -12,6 +12,8 @@ import {LoginComponent} from "./login/login.component";
 import {GameComponent} from "./game/game.component";
 import { LobbyComponent } from './lobby/lobby.component';
 import { InfoComponent } from './info/info.component';
+import {GameService} from "./shared/services/game.service";
+import {ApiService} from "./shared/services/api.service";
 
 @NgModule({
   declarations: [
@@ -24,11 +26,12 @@ import { InfoComponent } from './info/info.component';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     JsonpModule,
     routing
   ],
-  providers: [AuthenticationService,AuthGuardService,UserService],
+  providers: [AuthenticationService,AuthGuardService,UserService,GameService,ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
