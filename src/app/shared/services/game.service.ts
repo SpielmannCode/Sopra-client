@@ -11,10 +11,6 @@ export class GameService {
               private apiService: ApiService) {}
 
 
-  createGame() {
-
-  }
-
   getGames(): Observable<Game[]> {
     // add authorization header with token
 
@@ -33,6 +29,14 @@ export class GameService {
     let options = new RequestOptions({ headers: headers });
 
     return this.http.post(this.apiService.apiUrl + '/games/' + game.id + '/settings?name=' + game.name +'&playercount=' + game.playerCountSetting, null, options);
+  }
+
+  addPlayer(game): Observable<Response> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    let currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
+
+    return this.http.post(this.apiService.apiUrl + '/games/' + game.id + '/players?token=' + currentUserToken, null, options);
   }
 
 }

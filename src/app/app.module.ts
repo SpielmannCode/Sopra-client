@@ -14,6 +14,7 @@ import { LobbyComponent } from './lobby/lobby.component';
 import { InfoComponent } from './info/info.component';
 import {GameService} from "./shared/services/game.service";
 import {ApiService} from "./shared/services/api.service";
+import {NavigationComponent} from "./navigation/navigation.component";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {ApiService} from "./shared/services/api.service";
     LoginComponent,
     GameComponent,
     LobbyComponent,
+    NavigationComponent,
     InfoComponent
   ],
   imports: [
