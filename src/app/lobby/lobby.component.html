@@ -1,24 +1,4 @@
-<div id="whole">
-
-<div id="Titel">
-
-  <div id="Image">
-    <img src="https://imothep-4bb36.firebaseapp.com/assets/Images/Imhotep-Featured.jpg" alt="some_text" style="width:200px;height:80px;">
-  </div>
-
-  <div id="Titeltext">
-    Online | Lobby
-    <div id="InfoQuit">
-      <a [routerLink]="['/info']">Info</a> | <a [routerLink]="['/login']">Quit</a> <br>
-      logged in as
-    </div>
-  </div>
-
-
-</div>
-
-
-
+<app-navigation></app-navigation>
 <div id="lobby" class="row bg-white">
   <div class="col-md-5">
     <table class="table selectable">
@@ -38,7 +18,7 @@
     <div id="join-game">
       <h3 *ngIf="selectedGame">{{selectedGame.name}}</h3>
       <h3 *ngIf="!selectedGame">No Game Selected</h3>
-      <button class="btn-basic center full-width">Join Game</button>
+      <button class="btn-basic center full-width" (click)="addPlayer(selectedGame)">Join Game</button>
     </div>
     <div id="game-settings">
       <h3>Settings</h3>
@@ -57,9 +37,6 @@
         <label for="4-players"> 4 Players&nbsp; </label>
         <button class="btn-basic center full-width">Save Settings</button>
       </form>
-
-
-
     </div>
     <div id="current-game">
       <h3>Start Game</h3>
@@ -83,5 +60,4 @@
       </tr>
     </table>
   </div>
-</div>
 </div>
