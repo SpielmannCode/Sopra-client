@@ -3,10 +3,7 @@ import {Game} from "../shared/models/game";
 import {UserService} from "../shared/services/user.service";
 import {User} from "../shared/models/user";
 import { FormGroup, FormControl, Validators, FormBuilder }  from '@angular/forms';
-import {Http, RequestOptions, Headers, Response} from "@angular/http";
 import {GameService} from "../shared/services/game.service";
-import {ApiService} from "../shared/services/api.service";
-import {Modal} from "angular2-modal";
 
 @Component({
   selector: 'app-lobby',
@@ -14,7 +11,6 @@ import {Modal} from "angular2-modal";
   styleUrls: ['./lobby.component.css']
 })
 export class LobbyComponent implements OnInit {
-  currentuser: String = JSON.parse(localStorage.getItem('currentUser')).username;
   users: User[] = [];
   games: Game[] = [];
   selectedGame: Game;
@@ -22,10 +18,7 @@ export class LobbyComponent implements OnInit {
 
   constructor(private userService: UserService,
               private gameService: GameService,
-              private apiService: ApiService,
-              private fb: FormBuilder,
-              private http: Http,
-              private modal: Modal) {
+              private fb: FormBuilder) {
 
     this.createGameForm = fb.group({
       name: ["", Validators.required],
@@ -51,30 +44,25 @@ export class LobbyComponent implements OnInit {
   }
 
   createGame() {
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
-    let userToken = JSON.parse(localStorage.getItem('currentUser')).token;
+    let currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
 
-    // Create a new game
-    this.http.post(this.apiService.apiUrl + '/games?token=' + userToken,
-      JSON.stringify(this.createGameForm.value), options).subscribe(res => {
+    this.gameService.createGame(this.createGameForm.value, currentUserToken)
+      .subscribe(res => {
+        // Extract the game id from the response
+        let gameId = res['_body'].replace(/\/games\//, '');
 
-      // Extract the game id from the response
-      let gameId = res['_body'].replace(/\/games\//, '');
-
-      // Find the newly created game by id
-      this.gameService.getGame(gameId)
-        .subscribe(game => {
-
-          // Set the max player count
+        this.gameService.getGame(gameId).subscribe(game => {
+          // Set the playerCountSetting from the form
           game.playerCountSetting = this.createGameForm.value.playerCountSetting;
           this.gameService.changeSettings(game).subscribe(() => this.ngOnInit());
-        });
+        })
       });
   }
 
   addPlayer() {
-    this.gameService.addPlayer(this.selectedGame)
+    let currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
+
+    this.gameService.addPlayer(this.selectedGame, currentUserToken)
       .subscribe(() => this.ngOnInit());
   }
 }

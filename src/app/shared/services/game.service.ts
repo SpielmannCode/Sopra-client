@@ -10,6 +10,13 @@ export class GameService {
   constructor(private http: Http,
               private apiService: ApiService) {}
 
+  createGame(nameAndPlayerCount, currentUserToken): Observable<Response> {
+
+
+    // Create a new game
+    return this.http.post(this.apiService.apiUrl + '/games?token=' + currentUserToken,
+      JSON.stringify(nameAndPlayerCount), this.apiService.options);
+  }
 
   getGames(): Observable<Game[]> {
     // add authorization header with token
@@ -25,18 +32,14 @@ export class GameService {
   }
 
   changeSettings(game): Observable<Response> {
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
-
-    return this.http.post(this.apiService.apiUrl + '/games/' + game.id + '/settings?name=' + game.name +'&playercount=' + game.playerCountSetting, null, options);
+    return this.http.post(this.apiService.apiUrl + '/games/' + game.id + '/settings?name=' + game.name +'&playercount=' + game.playerCountSetting,
+      null, this.apiService.options);
   }
 
-  addPlayer(game): Observable<Response> {
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
-    let currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
+  addPlayer(game, currentUserToken): Observable<Response> {
 
-    return this.http.post(this.apiService.apiUrl + '/games/' + game.id + '/players?token=' + currentUserToken, null, options);
+    return this.http.post(this.apiService.apiUrl + '/games/' + game.id + '/players?token=' + currentUserToken,
+      null, this.apiService.options);
   }
 
 }
