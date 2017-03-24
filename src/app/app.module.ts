@@ -14,6 +14,23 @@ import { LobbyComponent } from './lobby/lobby.component';
 import { InfoComponent } from './info/info.component';
 import {GameService} from "./shared/services/game.service";
 import {ApiService} from "./shared/services/api.service";
+import { PlayingfieldComponent } from './game/playingfield/playingfield.component';
+import { StatsboardComponent } from './game/statsboard/statsboard.component';
+import { HeaderComponent } from './game/header/header.component';
+import { PlayerstatsComponent } from './game/statsboard/playerstats/playerstats.component';
+import { CardstackComponent } from './game/statsboard/cardstack/cardstack.component';
+import { CardComponent } from './game/statsboard/cardstack/card/card.component';
+import { StoneComponent } from './game/playingfield/stone/stone.component';
+import { ShipComponent } from './game/playingfield/ship/ship.component';
+import { UserinputfieldComponent } from './game/playingfield/userinputfield/userinputfield.component';
+import { SiteComponent } from './game/playingfield/site/site.component';
+import { MarketComponent } from './game/playingfield/site/market/market.component';
+import { TempleComponent } from './game/playingfield/site/temple/temple.component';
+import { ObeliskComponent } from './game/playingfield/site/obelisk/obelisk.component';
+import { BurialchamberComponent } from './game/playingfield/site/burialchamber/burialchamber.component';
+import { SledComponent } from './game/playingfield/userinputfield/sled/sled.component';
+import { ButtonfieldComponent } from './game/playingfield/userinputfield/buttonfield/buttonfield.component';
+import { GetstonesComponent } from './game/playingfield/userinputfield/buttonfield/getstones/getstones.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +38,24 @@ import {ApiService} from "./shared/services/api.service";
     LoginComponent,
     GameComponent,
     LobbyComponent,
-    InfoComponent
+    InfoComponent,
+    PlayingfieldComponent,
+    StatsboardComponent,
+    HeaderComponent,
+    PlayerstatsComponent,
+    CardstackComponent,
+    CardComponent,
+    StoneComponent,
+    ShipComponent,
+    UserinputfieldComponent,
+    SiteComponent,
+    MarketComponent,
+    TempleComponent,
+    ObeliskComponent,
+    BurialchamberComponent,
+    SledComponent,
+    ButtonfieldComponent,
+    GetstonesComponent
   ],
   imports: [
     BrowserModule,

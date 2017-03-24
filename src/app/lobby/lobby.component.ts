@@ -17,7 +17,6 @@ export class LobbyComponent implements OnInit {
   users: User[] = [];
   games: Game[] = [];
   selectedGame: Game;
-  currentGame: Game;
   createGameForm: FormGroup;
 
   constructor(private userService: UserService,
@@ -70,5 +69,10 @@ export class LobbyComponent implements OnInit {
           this.gameService.changeSettings(game).subscribe(() => this.ngOnInit());
         });
       });
+  }
+
+  addPlayer() {
+    this.gameService.addPlayer(this.selectedGame)
+      .subscribe(() => this.ngOnInit());
   }
 }

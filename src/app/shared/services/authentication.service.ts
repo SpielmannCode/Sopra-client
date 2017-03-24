@@ -2,13 +2,14 @@ import { Injectable, isDevMode } from '@angular/core';
 import {Http, Response, Headers, RequestOptions, Jsonp} from "@angular/http";
 import {User} from "../models/user";
 import {Observable} from 'rxjs/Rx';
+import {Router} from "@angular/router";
 
 @Injectable()
 export class AuthenticationService {
   public token: string;
   private apiUrl:string;
 
-  constructor(private http: Http, private jsonp: Jsonp) {
+  constructor(private http: Http, private jsonp: Jsonp, private router: Router) {
     // set token if saved in local storage
     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.token = currentUser && currentUser.token;
@@ -52,6 +53,7 @@ export class AuthenticationService {
     // clear token remove user from local storage to log user out
     this.token = null;
     localStorage.removeItem('currentUser');
+    this.router.navigate(['/login']);
   }
 
 }
