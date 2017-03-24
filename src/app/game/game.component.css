@@ -1,0 +1,22 @@
+.game {
+  background-color: #4D9FCE;
+  background-position: left top;
+  
+<!-- for inserting gif instead of background color
+background: url(http://payload273.cargocollective.com/1/15/499437/7771379/Jamaica-Ocean800px_o.gif);
+-->
+  padding-top: 0px;
+  padding-right: 0px;
+}
+
+.boardleft{
+  float: left;
+  width: 64px;
+  height: 64px;
+}
+.boardright{
+  float: right;
+  width: 64px;
+  height: 64px;
+}
+
