@@ -6,6 +6,7 @@ import { FormGroup, FormControl, Validators, FormBuilder }  from '@angular/forms
 import {Http, RequestOptions, Headers, Response} from "@angular/http";
 import {GameService} from "../shared/services/game.service";
 import {ApiService} from "../shared/services/api.service";
+import {Modal} from "angular2-modal";
 
 @Component({
   selector: 'app-lobby',
@@ -23,7 +24,8 @@ export class LobbyComponent implements OnInit {
               private gameService: GameService,
               private apiService: ApiService,
               private fb: FormBuilder,
-              private http: Http) {
+              private http: Http,
+              private modal: Modal) {
 
     this.createGameForm = fb.group({
       name: ["", Validators.required],
