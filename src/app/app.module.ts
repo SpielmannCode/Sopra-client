@@ -15,6 +15,7 @@ import { InfoComponent } from './info/info.component';
 import {GameService} from "./shared/services/game.service";
 import {ApiService} from "./shared/services/api.service";
 import {NavigationComponent} from "./navigation/navigation.component";
+import { PlayingfieldComponent } from './playingfield/playingfield.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {NavigationComponent} from "./navigation/navigation.component";
     GameComponent,
     LobbyComponent,
     NavigationComponent,
-    InfoComponent
+    InfoComponent,
+    PlayingfieldComponent
   ],
   imports: [
     BrowserModule,
