@@ -12,7 +12,7 @@ const appRoutes: Routes = [
     { path: 'lobby', component: LobbyComponent, canActivate: [AuthGuardService]},
     { path: 'info', component: InfoComponent},
     { path: 'game/:id', component: PlayingfieldComponent, canActivate: [AuthGuardService]},
-    { path: '', component: GameComponent, canActivate: [AuthGuardService] },
+    { path: '', component: LoginComponent },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
