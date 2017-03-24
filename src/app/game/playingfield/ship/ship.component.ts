@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ship.component.css']
 })
 export class ShipComponent implements OnInit {
+  size ;
+  picloc: string = ('/assets/Images/Ship/Ship_' + this.size + 'er.png');
 
-  constructor() { }
+
+constructor() { }
 
   ngOnInit() {
+    this.size = 1
+    this.picloc = ('/assets/Images/Ship/Ship_' + this.size + 'er.png');
   }
 
 }
