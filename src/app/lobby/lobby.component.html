@@ -49,6 +49,16 @@
       <td>{{player.name}} {{player.username}}</td>
     </tr>
   </table>
+  <button class="btn-basic" (click)="leaveGameModal.open()">Leave Game</button>
+  <modal #leaveGameModal>
+    <modal-content>
+      <div class="center" style="max-width: 150px">
+        <p>Are you sure?</p>
+        <button class="btn-basic inline" (click)="removePlayer(selectedGame)">Yes</button>
+        <button class="btn-basic inline" (click)="leaveGameModal.close()">No</button>
+      </div>
+    </modal-content>
+  </modal>
 </div>
 
 

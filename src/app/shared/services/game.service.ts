@@ -12,7 +12,6 @@ export class GameService {
 
   createGame(nameAndPlayerCount, currentUserToken): Observable<Response> {
 
-
     // Create a new game
     return this.http.post(this.apiService.apiUrl + '/games?token=' + currentUserToken,
       JSON.stringify(nameAndPlayerCount), this.apiService.options);
@@ -37,9 +36,12 @@ export class GameService {
   }
 
   addPlayer(game, currentUserToken): Observable<Response> {
-
     return this.http.post(this.apiService.apiUrl + '/games/' + game.id + '/players?token=' + currentUserToken,
       null, this.apiService.options);
+  }
+
+  removePlayer(game, currentUserToken): Observable<Response> {
+    return this.http.delete(this.apiService.apiUrl + '/games/' + game.id + '/players?token=' + currentUserToken);
   }
 
 }
