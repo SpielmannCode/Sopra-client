@@ -31,6 +31,8 @@ import { BurialchamberComponent } from './game/playingfield/site/burialchamber/b
 import { SledComponent } from './game/playingfield/userinputfield/sled/sled.component';
 import { ButtonfieldComponent } from './game/playingfield/userinputfield/buttonfield/buttonfield.component';
 import { GetstonesComponent } from './game/playingfield/userinputfield/buttonfield/getstones/getstones.component';
+import {LobbyService} from "./shared/services/lobby.service";
+import {ModalModule} from "ng2-modal";
 
 @NgModule({
   declarations: [
@@ -63,9 +65,16 @@ import { GetstonesComponent } from './game/playingfield/userinputfield/buttonfie
     ReactiveFormsModule,
     HttpModule,
     JsonpModule,
-    routing
+    routing,
+    ModalModule
   ],
-  providers: [AuthenticationService,AuthGuardService,UserService,GameService,ApiService],
+  providers: [
+    AuthenticationService,
+    AuthGuardService,
+    UserService,
+    GameService,
+    ApiService,
+    LobbyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
