@@ -4,6 +4,8 @@ import {UserService} from "../shared/services/user.service";
 import {User} from "../shared/models/user";
 import { FormGroup, FormControl, Validators, FormBuilder }  from '@angular/forms';
 import {GameService} from "../shared/services/game.service";
+import {ActivatedRoute, Router} from "@angular/router";
+import {ModalModule} from "ng2-modal";
 
 @Component({
   selector: 'app-lobby',
@@ -15,10 +17,14 @@ export class LobbyComponent implements OnInit {
   games: Game[] = [];
   selectedGame: Game;
   createGameForm: FormGroup;
+  gameId;
 
   constructor(private userService: UserService,
               private gameService: GameService,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private route: ActivatedRoute,
+              private modal: ModalModule,
+              private router: Router) {
 
     this.createGameForm = fb.group({
       name: ["", Validators.required],
@@ -37,6 +43,16 @@ export class LobbyComponent implements OnInit {
       .subscribe(games => {
         this.games = games;
       });
+
+    this.route.params.subscribe(params => {
+      this.gameId = params['id'];
+      if (this.gameId) {
+        this.gameService.getGame(this.gameId)
+          .subscribe(game => {
+            this.selectedGame = game;
+          })
+      }
+    });
   }
 
   selectGame(game: Game) {
@@ -59,10 +75,12 @@ export class LobbyComponent implements OnInit {
       });
   }
 
-  addPlayer() {
+  addPlayer(game: Game) {
     let currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
 
-    this.gameService.addPlayer(this.selectedGame, currentUserToken)
-      .subscribe(() => this.ngOnInit());
+    this.gameService.addPlayer(game, currentUserToken)
+      .subscribe(() => {
+        this.router.navigateByUrl('/lobby/' + game.id);
+      });
   }
 }
