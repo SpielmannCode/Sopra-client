@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {Game} from "../shared/models/game";
 import {UserService} from "../shared/services/user.service";
-import {User} from "../shared/models/user";
 import { FormGroup, FormControl, Validators, FormBuilder }  from '@angular/forms';
 import {GameService} from "../shared/services/game.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ModalModule} from "ng2-modal";
+import {Observable} from 'rxjs/Rx';
 
 @Component({
   selector: 'app-lobby',
@@ -13,7 +13,6 @@ import {ModalModule} from "ng2-modal";
   styleUrls: ['./lobby.component.css']
 })
 export class LobbyComponent implements OnInit {
-  users: User[] = [];
   games: Game[] = [];
   selectedGame: Game;
   createGameForm: FormGroup;
@@ -33,16 +32,12 @@ export class LobbyComponent implements OnInit {
   }
 
   ngOnInit() {
-    // get users from secure api end point
-    this.userService.getUsers()
-      .subscribe(users => {
-        this.users = users;
-      });
 
-    this.gameService.getGames()
-      .subscribe(games => {
-        this.games = games;
-      });
+    this.getGames();
+
+    Observable.interval(5000).subscribe(() => {
+      this.getGames();
+    });
 
     this.route.params.subscribe(params => {
       this.gameId = params['id'];
@@ -53,6 +48,13 @@ export class LobbyComponent implements OnInit {
           })
       }
     });
+  }
+
+  getGames() {
+    this.gameService.getGames()
+      .subscribe(games => {
+        this.games = games;
+      });
   }
 
   selectGame(game: Game) {
@@ -82,5 +84,14 @@ export class LobbyComponent implements OnInit {
       .subscribe(() => {
         this.router.navigateByUrl('/lobby/' + game.id);
       });
+  }
+
+  removePlayer(game: Game) {
+    let currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
+
+    this.gameService.removePlayer(game, currentUserToken).subscribe(() => {
+      this.router.navigateByUrl('/lobby');
+    })
+
   }
 }
