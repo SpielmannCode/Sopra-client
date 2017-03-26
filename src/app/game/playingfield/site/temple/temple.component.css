@@ -1,0 +1,25 @@
+#Temple {
+  position: relative;
+}
+.templeStone{
+  position: absolute;
+  top: 37px;
+  width: 30px;
+  height: 30px;
+}
+#Stone1{
+  left: 223px;
+}
+#Stone2{
+  left: 253px;
+}
+#Stone3{
+  left: 283px;
+}
+#Stone4{
+  left: 313px;
+}
+#Stone5{
+  left: 343px;
+}
+

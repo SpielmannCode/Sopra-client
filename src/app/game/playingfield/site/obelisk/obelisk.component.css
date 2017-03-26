@@ -1,0 +1,25 @@
+#Obelisk {
+  position: relative;
+}
+.ObeliskStone{
+  position: absolute;
+  width: 34px;
+  height: 32px;
+}
+#ObeliskStoneBlack{
+  top: 11px;
+  left: 192px;
+}
+#ObeliskStoneWhite{
+  top: 23px;
+  left: 247px;
+}
+#ObeliskStoneOrange{
+  top: 34px;
+  left: 302px;
+}
+#ObeliskStoneGrey{
+  top: 49px;
+  left: 357px;
+
+}
