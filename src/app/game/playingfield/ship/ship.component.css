@@ -1,6 +1,29 @@
-.shipsize{
-  max-width: 100px;
+#Ship{
+  height: 200px;
+  width: 100px;
+  position: relative;
+}
+#Ship img{
   max-height: 200px;
+  max-width: 100px;
   max-width: 100%;
   max-height: 100%;
+}
+#ShipStone1{
+  max-width: 100%;
+  max-height: 100%;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: -14px;
+  left: 26px;
+}
+#ShipStone2{
+  max-width: 100%;
+  max-height: 100%;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 36px;
+  left: 26px;
 }
