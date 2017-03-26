@@ -34,7 +34,7 @@ import { GetstonesComponent } from './game/playingfield/userinputfield/buttonfie
 import {LobbyService} from './shared/services/lobby.service';
 import {ModalModule} from 'ng2-modal';
 import { PyramidComponent } from './game/playingfield/site/pyramid/pyramid.component';
-import {DragulaModule} from 'ng2-dragula/ng2-dragula';
+import {DragulaModule} from 'ng2-dragula';
 
 @NgModule({
   declarations: [
