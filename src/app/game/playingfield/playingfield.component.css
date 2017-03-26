@@ -1,0 +1,20 @@
+#userinputfield{
+  width: 650px;
+  height: 160px;
+  position: absolute;
+  bottom: 15px;
+  left: 490px;
+  background-color: whitesmoke;
+}
+#Ships{
+  width: 450px;
+  height: 200px;
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  background-color: blue;
+}
+#playing-field{
+  width: 1166px;
+  height: 688px;
+}

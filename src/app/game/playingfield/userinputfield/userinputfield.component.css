@@ -1,9 +1,13 @@
 #userinputfield {
-  max-width: 266px;
-  padding: 10px 30px;
+  width: 650px;
+  height: 160px;
 }
 
 #userinputfield img {
-  width: 40px;
+  width: 130px;
   padding: 5px;
+}
+.position1{
+  position: relative;
+  top: 15px;
 }

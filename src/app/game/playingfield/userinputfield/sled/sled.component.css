@@ -1,7 +1,7 @@
 #Sled{
-  width: 64px;
-  height: 100px;
-}
-#Sled img{
-  width: 100%;
+  width: 175px;
+  padding: 5px;
+  position: relative;
+  top: 13px;
+
 }

@@ -1,15 +1,22 @@
 
-<div class="bg-white row">
   <div id="playing-field" class="col-md-9">
-
-
-  <app-ship></app-ship>
-
-
     <app-site></app-site>
-
-
-    <app-userinputfield></app-userinputfield>
-
+    <div id="Ships" class="text-center" >
+      <div id="ship1" class="inline" [dragula]='"first-bag"'>
+        <app-ship></app-ship>
+      </div>
+      <div id="ship2" class="inline" [dragula]='"first-bag"'>
+        <app-ship></app-ship>
+      </div>
+      <div id="ship3" class="inline" [dragula]='"first-bag"'>
+        <app-ship></app-ship>
+      </div>
+      <div id="ship4" class="inline" [dragula]='"first-bag"'>
+        <app-ship></app-ship>
+      </div>
+    </div>
+    <div id="userinputfield">
+      <app-userinputfield></app-userinputfield>
+    </div>
   </div>
-</div>
+

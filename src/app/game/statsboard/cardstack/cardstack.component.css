@@ -1,0 +1,9 @@
+#card-stack {
+  max-width: 300px;
+  height: 192px;
+  overflow: scroll;
+}
+
+app-card {
+  padding: 5px;
+}
