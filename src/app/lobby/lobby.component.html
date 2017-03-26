@@ -1,30 +1,14 @@
 <app-header></app-header>
-<div id="lobby" class="row bg-white">
-  <div class="col-md-5">
-    <table class="table selectable">
-      <tr>
-        <th>Status</th>
-        <th>Game Name</th>
-        <th>Players</th>
-      </tr>
-      <tr *ngFor="let game of games" (click)="selectGame(game)">
-        <td>{{game.status}}</td>
-        <td>{{game.name}}</td>
-        <td>{{game.players.length}}/{{game.playerCountSetting}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="col-md-4">
-    <div id="join-game">
-      <h3 *ngIf="selectedGame">{{selectedGame.name}}</h3>
-      <h3 *ngIf="!selectedGame">No Game Selected</h3>
-      <button class="btn-basic center full-width" (click)="addPlayer(selectedGame)">Join Game</button>
-    </div>
-    <div id="game-settings">
-      <h3>Settings</h3>
 
+
+<div id="lobby" class="bg-white" *ngIf="!gameId">
+  <button class="btn-basic" (click)="createGameModal.open()">+</button>
+  <modal #createGameModal>
+    <modal-header>
+      <h3>Create new Game</h3>
+    </modal-header>
+    <modal-content>
       <form [formGroup]="createGameForm" (submit)="createGame()">
-
         <label for="name">Game Name</label>
         <input id="name" name="name" formControlName="name" type="text">
 
@@ -35,30 +19,56 @@
         <label for="3-players"> 3 Players&nbsp; </label>
         <input id="4-players" formControlName="playerCountSetting" name="playerCountSetting" type="radio" value="4">
         <label for="4-players"> 4 Players&nbsp; </label>
-        <button class="btn-basic center full-width">Save Settings</button>
+        <button class="btn-basic center full-width" (click)="createGameModal.close()">Save Settings</button>
       </form>
-    </div>
-    <div id="current-game">
-      <h3>Start Game</h3>
-      <table *ngIf="selectedGame" class="table">
-        <tr>
-          <th>Players</th>
-        </tr>
-        <tr *ngFor="let player of selectedGame.players">
-          <td>{{player.name}}</td>
-        </tr>
-      </table>
-    </div>
-  </div>
-  <div class="col-md-3">
-    <table class="table">
-      <tr>
-        <th>People In Lobby</th>
+    </modal-content>
+  </modal>
+
+  <table class="table selectable">
+    <tr>
+      <th>Status</th>
+      <th>Game Name</th>
+      <th>Players</th>
+    </tr>
+    <ng-container *ngFor="let game of games">
+      <tr (dblclick)="addPlayer(game)" *ngIf="isInGame(game)" class="current">
+        <td>{{game.status}}</td>
+        <td>{{game.name}}</td>
+        <td>{{game.players.length}}/{{game.playerCountSetting}}</td>
       </tr>
-      <tr *ngFor="let user of users">
-        <td>{{user.name}} {{user.username}}</td>
+      <tr (dblclick)="addPlayer(game)" *ngIf="!isInGame(game)">
+        <td>{{game.status}}</td>
+        <td>{{game.name}}</td>
+        <td>{{game.players.length}}/{{game.playerCountSetting}}</td>
       </tr>
-    </table>
-  </div>
+    </ng-container>
+  </table>
 </div>
+
+
+<div id="waiting-lobby" class="bg-white center" *ngIf="selectedGame && gameId">
+  <h3>Players in Game: {{selectedGame.name}} ({{selectedGame.players.length}}/{{selectedGame.playerCountSetting}})</h3>
+  <h4 *ngIf="selectedGame.players.length < selectedGame.playerCountSetting">Waiting for more players...</h4>
+  <table class="table">
+    <tr>
+      <th>Player Name</th>
+    </tr>
+    <tr *ngFor="let player of selectedGame.players">
+      <td>{{player.name}} {{player.username}}</td>
+    </tr>
+  </table>
+  <button class="btn-basic" (click)="leaveGameModal.open()">Leave Game</button>
+  <modal #leaveGameModal>
+    <modal-content>
+      <div class="center" style="max-width: 150px">
+        <p>Are you sure?</p>
+        <button class="btn-basic inline" (click)="removePlayer(selectedGame)">Yes</button>
+        <button class="btn-basic inline" (click)="leaveGameModal.close()">No</button>
+      </div>
+    </modal-content>
+  </modal>
+</div>
+
+
+
 

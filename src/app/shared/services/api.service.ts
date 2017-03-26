@@ -1,8 +1,11 @@
 import {Injectable, isDevMode} from '@angular/core';
+import {Http, Headers, RequestOptions, Response} from "@angular/http";
 
 @Injectable()
 export class ApiService {
   apiUrl: String;
+  headers = new Headers({ 'Content-Type': 'application/json' });
+  options = new RequestOptions({ headers: this.headers });
 
   constructor() {
 
