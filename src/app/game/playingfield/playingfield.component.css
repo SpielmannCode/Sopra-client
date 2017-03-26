@@ -1,9 +1,9 @@
 #userinputfield{
-  width: 650px;
+  width: 675px;
   height: 160px;
   position: absolute;
   bottom: 15px;
-  left: 490px;
+  left: 475px;
   background-color: whitesmoke;
 }
 #Ships{
@@ -12,7 +12,7 @@
   position: absolute;
   bottom: 5px;
   left: 5px;
-  background-color: blue;
+  background-color: inherit;
 }
 #playing-field{
   width: 1166px;
@@ -21,4 +21,5 @@
 .shipsize1{
   height: 200px;
   width: 100px;
+  position: relative;
 }
