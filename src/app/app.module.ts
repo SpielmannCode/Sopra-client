@@ -4,16 +4,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpModule, JsonpModule} from '@angular/http';
 
 import { AppComponent } from './app.component';
-import {AuthGuardService} from "./shared/services/auth-guard.service";
-import {UserService} from "./shared/services/user.service";
-import {routing} from "./app.routing";
-import {AuthenticationService} from "./shared/services/authentication.service";
-import {LoginComponent} from "./login/login.component";
-import {GameComponent} from "./game/game.component";
+import {AuthGuardService} from './shared/services/auth-guard.service';
+import {UserService} from './shared/services/user.service';
+import {routing} from './app.routing';
+import {AuthenticationService} from './shared/services/authentication.service';
+import {LoginComponent} from './login/login.component';
+import {GameComponent} from './game/game.component';
 import { LobbyComponent } from './lobby/lobby.component';
 import { InfoComponent } from './info/info.component';
-import {GameService} from "./shared/services/game.service";
-import {ApiService} from "./shared/services/api.service";
+import {GameService} from './shared/services/game.service';
+import {ApiService} from './shared/services/api.service';
 import { PlayingfieldComponent } from './game/playingfield/playingfield.component';
 import { StatsboardComponent } from './game/statsboard/statsboard.component';
 import { HeaderComponent } from './game/header/header.component';
@@ -31,9 +31,10 @@ import { BurialchamberComponent } from './game/playingfield/site/burialchamber/b
 import { SledComponent } from './game/playingfield/userinputfield/sled/sled.component';
 import { ButtonfieldComponent } from './game/playingfield/userinputfield/buttonfield/buttonfield.component';
 import { GetstonesComponent } from './game/playingfield/userinputfield/buttonfield/getstones/getstones.component';
-import {LobbyService} from "./shared/services/lobby.service";
-import {ModalModule} from "ng2-modal";
+import {LobbyService} from './shared/services/lobby.service';
+import {ModalModule} from 'ng2-modal';
 import { PyramidComponent } from './game/playingfield/site/pyramid/pyramid.component';
+import {DragulaModule} from 'ng2-dragula/ng2-dragula';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { PyramidComponent } from './game/playingfield/site/pyramid/pyramid.compo
     HttpModule,
     JsonpModule,
     routing,
-    ModalModule
+    ModalModule,
+    DragulaModule
   ],
   providers: [
     AuthenticationService,
