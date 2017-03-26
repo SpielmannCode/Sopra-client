@@ -32,22 +32,21 @@ export class LobbyComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.getGames();
 
     Observable.interval(5000).subscribe(() => {
       this.getGames();
     });
 
-    // this.route.params.subscribe(params => {
-    //   this.gameId = params['id'];
-    //   if (this.gameId) {
-    //     this.getGame(this.gameId);
-    //     Observable.interval(5000).subscribe(() => {
-    //       this.getGame(this.gameId);
-    //     });
-    //   }
-    // });
+    this.route.params.subscribe(params => {
+      this.gameId = params['id'];
+      if (this.gameId) {
+        this.getGame(this.gameId);
+        Observable.interval(5000).subscribe(() => {
+          this.getGame(this.gameId);
+        });
+      }
+    });
   }
 
   getGame(id) {
