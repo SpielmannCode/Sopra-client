@@ -53,7 +53,25 @@ html, body {
 .modal-backdrop {
   display: none;
 }
+.Dockright{
+   position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+   left: -50px;
+   width: 50px;
+   height: 120px;
+ }
+.Dockleft{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -50px;
+  width: 50px;
+  height: 120px;
+}
+.Dockright img{
 
+}
 .site img {
   width: 480px;
 }
