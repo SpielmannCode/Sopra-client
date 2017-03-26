@@ -6,7 +6,7 @@ html, body {
 
 .bg-white {
   background-color: #fff;
-  box-shadow: 0 4px 4px rgba(0,0,0,0.4);
+  box-shadow: 0 2px 2px rgba(0,0,0,0.4);
   opacity: 0.96;
 }
 
@@ -53,6 +53,17 @@ html, body {
 .modal-backdrop {
   display: none;
 }
+
+.site img {
+  width: 400px;
+}
+.siteLeft{
+  float: left;
+}
+.siteRight{
+  float: right;
+}
+
 .gu-mirror {
   position: fixed !important;
   margin: 0 !important;
@@ -75,4 +86,3 @@ html, body {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
   filter: alpha(opacity=20);
 }
-
