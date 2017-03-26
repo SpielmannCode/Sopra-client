@@ -1,6 +1,10 @@
 
 #dragular{
   height: 200px;
-  width: 200px;
+  width: 100px;
   background-color: #c7ddef;
+}
+#dragular img{
+  height: 200px;
+
 }

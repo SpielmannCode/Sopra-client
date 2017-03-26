@@ -13,7 +13,7 @@ export class ShipComponent implements OnInit {
 constructor() { }
 
   ngOnInit() {
-    this.size = 1
+    this.size = 4
     this.picloc = ('/assets/Images/Ship/Ship_' + this.size + 'er.png');
   }
 

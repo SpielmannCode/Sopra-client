@@ -1,9 +1,9 @@
 #userinputfield {
-  max-width: 266px;
-  padding: 10px 30px;
+  width: 500px;
+  height: 100px;
 }
 
 #userinputfield img {
-  width: 40px;
+  width: 64px;
   padding: 5px;
 }
