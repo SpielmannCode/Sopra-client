@@ -53,3 +53,13 @@ html, body {
 .modal-backdrop {
   display: none;
 }
+
+.site img {
+  width: 400px;
+}
+.siteLeft{
+  float: left;
+}
+.siteRight{
+  float: right;
+}
