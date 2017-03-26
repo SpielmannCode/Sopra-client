@@ -30,13 +30,21 @@
       <th>Game Name</th>
       <th>Players</th>
     </tr>
-    <tr *ngFor="let game of games" (dblclick)="addPlayer(game)">
-      <td>{{game.status}}</td>
-      <td>{{game.name}}</td>
-      <td>{{game.players.length}}/{{game.playerCountSetting}}</td>
-    </tr>
+    <ng-container *ngFor="let game of games">
+      <tr (dblclick)="addPlayer(game)" *ngIf="isInGame(game)" class="current">
+        <td>{{game.status}}</td>
+        <td>{{game.name}}</td>
+        <td>{{game.players.length}}/{{game.playerCountSetting}}</td>
+      </tr>
+      <tr (dblclick)="addPlayer(game)" *ngIf="!isInGame(game)">
+        <td>{{game.status}}</td>
+        <td>{{game.name}}</td>
+        <td>{{game.players.length}}/{{game.playerCountSetting}}</td>
+      </tr>
+    </ng-container>
   </table>
 </div>
+
 
 <div id="waiting-lobby" class="bg-white center" *ngIf="selectedGame && gameId">
   <h3>Players in Game: {{selectedGame.name}} ({{selectedGame.players.length}}/{{selectedGame.playerCountSetting}})</h3>

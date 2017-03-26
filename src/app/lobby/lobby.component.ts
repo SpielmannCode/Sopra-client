@@ -18,12 +18,12 @@ export class LobbyComponent implements OnInit {
   createGameForm: FormGroup;
   gameId;
 
-  constructor(private userService: UserService,
-              private gameService: GameService,
-              private fb: FormBuilder,
-              private route: ActivatedRoute,
-              private modal: ModalModule,
-              private router: Router) {
+  constructor(protected userService: UserService,
+              protected gameService: GameService,
+              protected fb: FormBuilder,
+              protected route: ActivatedRoute,
+              protected modal: ModalModule,
+              protected router: Router) {
 
     this.createGameForm = fb.group({
       name: ["", Validators.required],
@@ -39,15 +39,22 @@ export class LobbyComponent implements OnInit {
       this.getGames();
     });
 
-    this.route.params.subscribe(params => {
-      this.gameId = params['id'];
-      if (this.gameId) {
-        this.gameService.getGame(this.gameId)
-          .subscribe(game => {
-            this.selectedGame = game;
-          })
-      }
-    });
+    // this.route.params.subscribe(params => {
+    //   this.gameId = params['id'];
+    //   if (this.gameId) {
+    //     this.getGame(this.gameId);
+    //     Observable.interval(5000).subscribe(() => {
+    //       this.getGame(this.gameId);
+    //     });
+    //   }
+    // });
+  }
+
+  getGame(id) {
+    this.gameService.getGame(id)
+      .subscribe(game => {
+        this.selectedGame = game;
+      });
   }
 
   getGames() {
@@ -55,6 +62,18 @@ export class LobbyComponent implements OnInit {
       .subscribe(games => {
         this.games = games;
       });
+  }
+
+  isInGame(game: Game): boolean {
+    let currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
+
+    for (let player of game.players) {
+      if (player.token === currentUserToken) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   selectGame(game: Game) {
