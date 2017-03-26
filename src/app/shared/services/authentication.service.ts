@@ -7,7 +7,7 @@ import {Router} from "@angular/router";
 @Injectable()
 export class AuthenticationService {
   public token: string;
-  private apiUrl:string;
+  private apiUrl: string;
 
   constructor(private http: Http, private jsonp: Jsonp, private router: Router) {
     // set token if saved in local storage
