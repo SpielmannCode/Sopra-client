@@ -1,10 +1,4 @@
-
-#dragular{
-  height: 200px;
-  width: 100px;
-  background-color: #c7ddef;
-}
-#dragular img{
-  height: 200px;
-
+.shipsize{
+  max-width: 100px;
+  max-height: 200px;
 }

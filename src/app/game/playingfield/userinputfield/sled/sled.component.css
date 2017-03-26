@@ -1,4 +1,7 @@
 #Sled{
-  width: 100px;
+  width: 175px;
   padding: 5px;
+  position: relative;
+  top: 13px;
+
 }
