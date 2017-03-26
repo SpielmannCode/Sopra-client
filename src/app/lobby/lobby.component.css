@@ -22,6 +22,10 @@
   background-color: #ddd;
 }
 
+.current {
+  background-color: #85DBE3;
+}
+
 #whole {
   max-width:1366px;
   max-height:768px;
