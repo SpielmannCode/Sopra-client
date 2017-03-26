@@ -2,6 +2,12 @@
   margin-top: 20px;
   min-height: 420px;
 }
+
+#waiting-lobby {
+  padding: 20px;
+  max-width: 500px;
+}
+
 .table > tbody > tr > td {
   border-top: none;
 }
@@ -15,8 +21,13 @@
   cursor: pointer;
   background-color: #ddd;
 }
+
+.current {
+  background-color: #85DBE3;
+}
+
 #whole {
-  max-width:1366px ;
+  max-width:1366px;
   max-height:768px;
 }
 #Titeltext {

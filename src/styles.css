@@ -44,3 +44,12 @@ html, body {
 .btn-basic:hover {
   background-color: #1B8F9A;
 }
+
+.modal-content {
+  border-radius: 0;
+  margin-top: 100px;
+}
+
+.modal-backdrop {
+  display: none;
+}

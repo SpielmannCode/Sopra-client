@@ -4,9 +4,12 @@ import {AuthenticationService} from "./authentication.service";
 import {Observable} from "rxjs";
 import {User} from "../models/user";
 import {ApiService} from "./api.service";
+import {Game} from "../models/game";
 
 @Injectable()
 export class UserService {
+  headers = new Headers({ 'Authorization': 'Bearer ' + this.authenticationService.token });
+  options = new RequestOptions({ headers: this.headers });
 
   constructor(
     private http: Http,
@@ -15,12 +18,9 @@ export class UserService {
   }
 
   getUsers(): Observable<User[]> {
-    // add authorization header with token
-    let headers = new Headers({ 'Authorization': 'Bearer ' + this.authenticationService.token });
-    let options = new RequestOptions({ headers: headers });
 
     // get users from api
-    return this.http.get(this.apiService.apiUrl +'/users', options)
+    return this.http.get(this.apiService.apiUrl +'/users', this.options)
       .map((response: Response) => response.json());
   }
 }
