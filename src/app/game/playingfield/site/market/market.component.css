@@ -1,1 +1,24 @@
-
+#Market {
+  position: relative;
+}
+.MarketCard{
+  position: absolute;
+  width: 130px;
+  height: 82px;
+}
+#MarketCard1{
+  top: 8px;
+  left: 29px;
+}
+#MarketCard2{
+  top: 104px;
+  left: 29px;
+}
+#MarketCard3{
+  top: 8px;
+  left: 170px;
+}
+#MarketCard4{
+  top: 104px;
+  left: 170px;
+}
