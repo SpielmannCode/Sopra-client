@@ -33,6 +33,7 @@ import { ButtonfieldComponent } from './game/playingfield/userinputfield/buttonf
 import { GetstonesComponent } from './game/playingfield/userinputfield/buttonfield/getstones/getstones.component';
 import {LobbyService} from "./shared/services/lobby.service";
 import {ModalModule} from "ng2-modal";
+import { PyramidComponent } from './game/playingfield/site/pyramid/pyramid.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import {ModalModule} from "ng2-modal";
     BurialchamberComponent,
     SledComponent,
     ButtonfieldComponent,
-    GetstonesComponent
+    GetstonesComponent,
+    PyramidComponent
   ],
   imports: [
     BrowserModule,
