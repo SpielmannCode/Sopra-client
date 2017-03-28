@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./userinputfield.component.css']
 })
 export class UserinputfieldComponent implements OnInit {
+  showCardStack: boolean = false;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  toggleCardStack() {
+    this.showCardStack = !this.showCardStack;
+  }
 }
