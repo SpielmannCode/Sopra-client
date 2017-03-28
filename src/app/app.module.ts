@@ -35,6 +35,7 @@ import {LobbyService} from './shared/services/lobby.service';
 import {ModalModule} from 'ng2-modal';
 import { PyramidComponent } from './game/playingfield/site/pyramid/pyramid.component';
 import {DragulaModule} from 'ng2-dragula';
+import { LobbyHeaderComponent } from './lobby/lobby-header/lobby-header.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import {DragulaModule} from 'ng2-dragula';
     SledComponent,
     ButtonfieldComponent,
     GetstonesComponent,
-    PyramidComponent
+    PyramidComponent,
+    LobbyHeaderComponent
   ],
   imports: [
     BrowserModule,
