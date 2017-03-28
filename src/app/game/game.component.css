@@ -1,18 +1,18 @@
 app-statsboard {
-  width: 150px;
-  height: 688px;
+  width: 400px;
+  height: 276px;
   position: absolute;
-  top: 80px;
+  top: 492px;
   left: 0;
   background-color: #449d44;
 }
 
 app-playingfield {
-  width: 1216px;
+  width: 1366px;
   height: 768px;
   position: absolute;
   top: 0px;
-  left: 150px;
+  left: 0px;
   background-image: url("/assets/Images/HintergrundbildWasser.jpg");
 }
 
