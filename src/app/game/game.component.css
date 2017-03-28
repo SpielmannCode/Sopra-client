@@ -18,4 +18,12 @@ app-playingfield {
 #whole{
   position: relative;
 }
+app-header{
+  width: 100x;
+  height: 80px;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  z-index: 30;
+}
 

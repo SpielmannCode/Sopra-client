@@ -76,9 +76,11 @@ html, body {
   width: 600px;
 }
 .siteLeft{
+  position:relative ;
   float: left;
 }
 .siteRight{
+  position: relative;
   float: right;
 }
 
