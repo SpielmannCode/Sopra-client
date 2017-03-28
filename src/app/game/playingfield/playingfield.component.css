@@ -3,20 +3,20 @@
   height: 160px;
   position: absolute;
   bottom: 15px;
-  left: 475px;
+  right: 0px;
   background-color: whitesmoke;
 }
 #Ships{
-  width: 450px;
-  height: 200px;
+  width: 550px;
+  height: 250px;
   position: absolute;
   bottom: 5px;
   left: 5px;
   background-color: inherit;
 }
 #playing-field{
-  width: 1166px;
-  height: 688px;
+  width: 1216px;
+  height: 768px;
 }
 .shipsize1{
   height: 200px;

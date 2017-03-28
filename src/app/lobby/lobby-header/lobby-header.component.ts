@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from '../../shared/services/authentication.service';
 
 @Component({
-  selector: 'app-header',
+  selector: 'app-lobbyheader',
   templateUrl: './lobby-header.component.html',
   styleUrls: ['./lobby-header.component.css']
 })

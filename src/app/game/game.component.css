@@ -1,5 +1,5 @@
 app-statsboard {
-  width: 200px;
+  width: 150px;
   height: 688px;
   position: absolute;
   top: 80px;
@@ -8,11 +8,11 @@ app-statsboard {
 }
 
 app-playingfield {
-  width: 1166px;
-  height: 688px;
+  width: 1216px;
+  height: 768px;
   position: absolute;
-  top: 80px;
-  left: 200px;
+  top: 0px;
+  left: 150px;
   background-image: url("/assets/Images/HintergrundbildWasser.jpg");
 }
 
