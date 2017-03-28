@@ -1,4 +1,4 @@
-#Statsboard{
+app-statsboard {
   width: 200px;
   height: 688px;
   position: absolute;
@@ -6,7 +6,8 @@
   left: 0;
   background-color: #449d44;
 }
-#Playingfield{
+
+app-playingfield {
   width: 1166px;
   height: 688px;
   position: absolute;
@@ -14,6 +15,7 @@
   left: 200px;
   background-image: url("/assets/Images/HintergrundbildWasser.jpg");
 }
+
 #whole{
   position: relative;
 }
