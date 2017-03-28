@@ -12,8 +12,8 @@ export class PlayingfieldComponent implements OnInit {
   gameId: number;
   game: Game;
 
-  constructor(private gameService: GameService,
-              private route: ActivatedRoute) { }
+  constructor(protected gameService: GameService,
+              protected route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -28,5 +28,4 @@ export class PlayingfieldComponent implements OnInit {
 
 
   }
-
 }
