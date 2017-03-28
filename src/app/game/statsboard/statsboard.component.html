@@ -1,19 +1,24 @@
-
 <ng-container *ngIf="game">
-  <ng-container *ngFor="let player of game.players; let i=index">
+  <div *ngFor="let player of game.players; let i=index" class="player-stat bg-white">
     <table class="table">
       <tr>
         <td>{{i+1}}. {{player.name}}</td>
         <td>120 points</td>
       </tr>
       <tr>
-        <td>Supply Sled</td>
+        <td>Sled</td>
         <td>3/5</td>
       </tr>
       <tr>
         <td>Quarry</td>
         <td>35</td>
       </tr>
+      <tr>
     </table>
-  </ng-container>
+    <div class="card-stats center">
+      <span class="cards green inline-block"></span> x3
+      <span class="cards blue inline-block"></span> x4
+      <span class="cards pink inline-block"></span> x5
+    </div>
+  </div>
 </ng-container>
