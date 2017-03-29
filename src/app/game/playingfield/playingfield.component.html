@@ -1,10 +1,11 @@
 <div id="playing-field">
   <app-site></app-site>
   <div id="Ships">
-    <app-ship id="ship1" class="inline shipsize1" [dragula]='"first-bag"'></app-ship>
-    <app-ship id="ship2" class="inline shipsize1" [dragula]='"first-bag"'></app-ship>
-    <app-ship id="ship3" class="inline shipsize1" [dragula]='"first-bag"'></app-ship>
-    <app-ship id="ship4" class="inline shipsize1" [dragula]='"first-bag"'></app-ship>
+    <ng-container *ngIf="game">
+      <ng-container *ngFor="let ship of game.gameBoard.availableShips; let i = index;">
+        <app-ship id="ship{{i+1}}" class="inline shipsize{{ship.stones.length}}" [stones]="ship.stones" [dragula]='"first-bag"'></app-ship>
+      </ng-container>
+    </ng-container>
   </div>
 
   <div id="userinputfield">
