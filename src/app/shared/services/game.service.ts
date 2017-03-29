@@ -17,6 +17,10 @@ export class GameService {
       JSON.stringify(nameAndPlayerCount), this.apiService.options);
   }
 
+  initBoard(game: Game): Observable<Response> {
+    return this.http.post(this.apiService.apiUrl + '/games/' + game.id + '?token=' + game.owner, null, this.apiService.options);
+  }
+
   getGames(): Observable<Game[]> {
     // add authorization header with token
 
