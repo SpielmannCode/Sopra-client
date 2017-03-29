@@ -88,6 +88,13 @@ html, body {
   float: right;
 }
 
+.drop-border {
+  border: 4px solid #F0DC07;
+  border-radius: 10px;
+  opacity: 0.8;
+  box-shadow: 0 0 4px #F0DC07;
+}
+
 .gu-mirror {
   position: fixed !important;
   margin: 0 !important;
