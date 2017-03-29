@@ -1,25 +1,58 @@
-#Ship{
-  height: 200px;
-  width: 100px;
+/*#Ship{*/
+  /*height: 200px;*/
+  /*width: 100px;*/
+  /*position: relative;*/
+/*}*/
+/*#Ship img{*/
+  /*max-height: 200px;*/
+  /*max-width: 100px;*/
+  /*max-width: 100%;*/
+  /*max-height: 100%;*/
+/*}*/
+/*#ShipStone1{*/
+  /*width: 40px;*/
+  /*height: 40px;*/
+  /*position: absolute;*/
+  /*top: -14px;*/
+  /*left: 26px;*/
+/*}*/
+/*#ShipStone2{*/
+  /*width: 40px;*/
+  /*height: 40px;*/
+  /*position: absolute;*/
+  /*top: 36px;*/
+  /*left: 26px;*/
+/*}*/
+
+
+
+img {
+  width: 100%;
+}
+
+.ship-wrapper {
   position: relative;
 }
-#Ship img{
-  max-height: 200px;
-  max-width: 100px;
-  max-width: 100%;
-  max-height: 100%;
-}
-#ShipStone1{
-  width: 40px;
-  height: 40px;
+
+.stones {
   position: absolute;
-  top: -14px;
-  left: 26px;
+  top: 50px;
+  left: 16px;
 }
-#ShipStone2{
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  top: 36px;
-  left: 26px;
+
+.fields1 div {
+  margin-top: 15px;
+}
+
+.fields2 div {
+  margin-top: 4px;
+}
+
+.fields4 div {
+  margin-top: 8px;
+}
+
+.ship-stone {
+  width: 32px;
+  height: 32px;
 }

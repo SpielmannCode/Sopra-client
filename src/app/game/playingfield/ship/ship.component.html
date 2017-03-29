@@ -1,8 +1,9 @@
-<div id="Ship" class="inline">
-  <img src="{{picloc}}" alt="Ship {{size}}er" class="shipsize2">
-  <div id="ShipStone1" [dragula]='"second-bag"'>
-  </div>
-  <div id="ShipStone2" [dragula]='"second-bag"'>
+<div class="ship-wrapper">
+  <img src="{{picloc}}" alt="Ship {{size}}er">
+
+  <div class="stones fields{{size}}">
+    <div *ngFor="let stone of stones; let i = index;" class="ship-stone" [dragula]='"second-bag"'></div>
   </div>
 </div>
+
 
