@@ -32,7 +32,8 @@ export class GameComponent  implements OnInit {
 
       this.gameService.getGame(this.gameId).subscribe(game => {
         this.game = game;
-        console.log(game);
+
+        this.gameService.initBoard(game).subscribe(() => console.log(game));
       });
     });
   }
