@@ -36,31 +36,43 @@ export class PlayingfieldComponent implements OnInit {
   ngOnInit() {
   }
 
-  private onDrag(args) {
+  protected onDrag(args) {
     let [e, el] = args;
     // do something
   }
 
-  private onDrop(args) {
+  protected onDrop(args) {
     let [e, el] = args;
-    this.removeClass(el, 'drop-border');  
+    this.removeClass(el, 'drop-border');
+
+    let audio = new Audio();
+
+    if (e.classList.contains('ship-wrapper')) {
+      audio.src ='/assets/musik/fx/32304__acclivity__shipsbell.wav';
+    } else {
+      audio.src ='/assets/musik/fx/25847__freqman__concrete-blocks-moving3.wav';
+    }
+
+    audio.load();
+    audio.play();
   }
 
-  private onOver(args) {
+  protected onOver(args) {
     let [e, el, container] = args;
     this.addClass(el , 'drop-border');
   }
 
-  private onOut(args) {
+  protected onOut(args) {
     let [e, el, container] = args;
     this.removeClass(el, 'drop-border');
   }
 
-  private addClass(el: any, name: string) {
+  protected addClass(el: any, name: string) {
     el.className = el.className ? [el.className, name].join(' ') : name;
   }
 
-  private removeClass(el: any, name: string) {
+  protected removeClass(el: any, name: string) {
     el.className = el.className.replace(new RegExp('(?:^|\\s+)' + name + '(?:\\s+|$)', 'g'), '');
   }
+
 }
