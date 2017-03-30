@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./burialchamber.component.css']
 })
 export class BurialchamberComponent implements OnInit {
+  fields;
 
-  constructor() { }
+  constructor() {
+    this.fields = Array(24).fill(0);
+
+  }
 
   ngOnInit() {
   }
