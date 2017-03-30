@@ -2,68 +2,35 @@
   position: relative;
 }
 .PyramidLevel1{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
   position: absolute;
-  top: 22px;
-  left: 162px;
-  width: 88px;
-  height: 88px;
+  top: 32px;
+  left: 242px;
+  width: 135px;
+  height: 135px;
 }
 .PyramidLevel2{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
   position: absolute;
-  top: 36.66px;
-  left: 176.66px;
-  width: 58.66px;
-  height: 58.66px;
+  top: 55px;
+  left: 265px;
+  width: 90px;
+  height: 90px;
 }
-.PyramidStone{
-  position: absolute;
-  width:29.33px;
-  height:29.33px;
+.PyramidStone {
+  width:45px;
+  height:45px;
 }
-#PyramidLevel1Stone1{
-}
-#PyramidLevel1Stone2{
-  top:29.33px;
-}
-#PyramidLevel1Stone3{
-  top:58.66px;
-}
-#PyramidLevel1Stone4{
-  left:29.33px;
-}
-#PyramidLevel1Stone5{
-  left:29.33px;
-  top:29.33px;
-}
-#PyramidLevel1Stone6{
-  left:29.33px;
-  top:58.66px;
-}
-#PyramidLevel1Stone7{
-  left:58.66px;
-}
-#PyramidLevel1Stone8{
-  left:58.66px;
-  top:29.33px;
-}
-#PyramidLevel1Stone9{
-  left:58.66px;
-  top:58.66px;
-}
-#PyramidLevel2Stone1{
-}
-#PyramidLevel2Stone2{
-  top:29.33px;
-}
-#PyramidLevel2Stone3{
-  left:29.33px;
-}
-#PyramidLevel2Stone4{
-  left:29.33px;
-  top:29.33px;
-}
+
 #PyramidLevel3Stone1{
-  left:191.66px;
-  top:51.66px;
+  position: absolute;
+  left: 287px;
+  top: 78px;
 }
 

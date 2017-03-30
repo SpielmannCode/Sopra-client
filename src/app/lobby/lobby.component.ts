@@ -95,6 +95,10 @@ export class LobbyComponent implements OnInit {
       });
   }
 
+  startGame(game: Game) {
+    this.gameService.initBoard(game).subscribe(() => this.router.navigateByUrl('/game/' + game.id));
+  }
+
   addPlayer(game: Game) {
     let currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
 

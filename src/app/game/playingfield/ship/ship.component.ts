@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-ship',
@@ -6,14 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ship.component.css']
 })
 export class ShipComponent implements OnInit {
-  size = 4;
+  size: number;
+  @Input('stones') stones;
   picloc: string = ('/assets/Images/Ship/Ship_' + this.size + 'er.png');
 
 
 constructor() { }
 
   ngOnInit() {
-    this.size = 4;
+    this.size = this.stones.length;
     this.picloc = ('/assets/Images/Ship/Ship_' + this.size + 'er.png');
   }
 

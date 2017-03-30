@@ -1,25 +1,19 @@
-#userinputfield{
+app-userinputfield {
   width: 485px;
   height: 160px;
   position: absolute;
   bottom: 15px;
-  right: 0px;
-  background-color: whitesmoke;
+  right: 0;
 }
 #Ships{
-  width: 300px;
+  width: 345px;
   height: 250px;
   position: absolute;
-  bottom: 5px;
+  bottom: 10px;
   left: 450px;
   background-color: inherit;
 }
 #playing-field{
   width: 1366px;
   height: 768px;
-}
-.shipsize1{
-  height: 200px;
-  width: 100px;
-  position: relative;
 }
