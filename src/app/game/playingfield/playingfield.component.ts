@@ -14,30 +14,27 @@ export class PlayingfieldComponent implements OnInit {
 
   constructor(protected dragulaService: DragulaService) {
     dragulaService.drag.subscribe((value) => {
-      console.log(`drag: ${value[0]}`);
       this.onDrag(value.slice(1));
     });
     dragulaService.drop.subscribe((value) => {
-      console.log(`drop: ${value[0]}`);
       this.onDrop(value.slice(1));
     });
     dragulaService.over.subscribe((value) => {
-      console.log(`over: ${value[0]}`);
       this.onOver(value.slice(1));
     });
     dragulaService.out.subscribe((value) => {
-      console.log(`out: ${value[0]}`);
       this.onOut(value.slice(1));
     });
 
     let self = this;
-    this.dragulaService.setOptions('first-bag',{
+    dragulaService.setOptions('first-bag',{
       moves: function(el, source, handle, sibling) {
         let userToken = JSON.parse(localStorage.getItem('currentUser')).token;
         // returns true if it is current players turn
         return self.game.players[self.game.currentPlayerIndex].token === userToken;
       }
     });
+
   }
 
   ngOnInit() {
@@ -51,17 +48,20 @@ export class PlayingfieldComponent implements OnInit {
 
   protected onDrop(args) {
     let [e, el] = args;
+    let audio = new Audio();
     this.removeClass(el, 'drop-border');
 
-    console.log(el.id);
-    SiteComponent.placeStonesOn(el.id);
+    switch (e.tagName) {
+      case 'APP-SHIP': {
+        audio.src ='/assets/musik/fx/32304__acclivity__shipsbell.wav';
+        SiteComponent.placeStonesOn(el.id);
+        break;
+      }
+      case 'APP-STONE': {
+        audio.src ='/assets/musik/fx/25847__freqman__concrete-blocks-moving3.wav';
 
-    let audio = new Audio();
-
-    if (e.classList.contains('ship-wrapper')) {
-      audio.src ='/assets/musik/fx/32304__acclivity__shipsbell.wav';
-    } else {
-      audio.src ='/assets/musik/fx/25847__freqman__concrete-blocks-moving3.wav';
+        break;
+      }
     }
 
     audio.load();
@@ -85,5 +85,4 @@ export class PlayingfieldComponent implements OnInit {
   protected removeClass(el: any, name: string) {
     el.className = el.className.replace(new RegExp('(?:^|\\s+)' + name + '(?:\\s+|$)', 'g'), '');
   }
-
 }

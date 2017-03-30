@@ -2,9 +2,9 @@
   <app-site></app-site>
   <div id="Ships">
     <div class="row" *ngIf="game">
-        <ng-container *ngFor="let ship of game.gameBoard.availableShips; let i = index;">
-            <app-ship id="ship{{i+1}}" class="shipsize{{ship.stones.length}} col-md-3" [stones]="ship.stones" [dragula]='"first-bag"'></app-ship>
-        </ng-container>
+        <div class="col-md-3" *ngFor="let ship of game.gameBoard.availableShips; let i = index;" [dragula]='"first-bag"'>
+            <app-ship id="ship{{i+1}}" class="shipsize{{ship.stones.length}}" [stones]="ship.stones"></app-ship>
+        </div>
     </div>
   </div>
 

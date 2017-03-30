@@ -13,7 +13,6 @@ export class SiteComponent implements OnInit {
   }
 
   static placeStonesOn(dockName: string) {
-
     switch(dockName) {
       case 'MarketDock': {
         console.log('market');
@@ -36,6 +35,5 @@ export class SiteComponent implements OnInit {
         break;
       }
     }
-
   }
 }
