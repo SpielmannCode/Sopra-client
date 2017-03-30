@@ -34,9 +34,8 @@ export class PlayingfieldComponent implements OnInit {
     this.dragulaService.setOptions('first-bag',{
       moves: function(el, source, handle, sibling) {
         let userToken = JSON.parse(localStorage.getItem('currentUser')).token;
-
         // returns true if it is current players turn
-        return self.game.players[self.game.currentPlayer].token === userToken;
+        return self.game.players[self.game.currentPlayerIndex].token === userToken;
       }
     });
   }
@@ -44,7 +43,6 @@ export class PlayingfieldComponent implements OnInit {
   ngOnInit() {
 
   }
-
 
   protected onDrag(args) {
     let [e, el] = args;

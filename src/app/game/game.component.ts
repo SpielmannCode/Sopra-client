@@ -10,7 +10,7 @@ import {Game} from "../shared/models/game";
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css']
 })
-export class GameComponent  implements OnInit {
+export class GameComponent implements OnInit {
   protected users: User[] = [];
   protected gameId: number;
   protected game: Game;
@@ -28,12 +28,11 @@ export class GameComponent  implements OnInit {
 
     this.route.params.subscribe(params => {
       this.gameId = params['id'];
-      console.log(this.gameId);
 
       this.gameService.getGame(this.gameId).subscribe(game => {
         this.game = game;
 
-        this.gameService.initBoard(game).subscribe(() => console.log(game));
+
       });
     });
   }

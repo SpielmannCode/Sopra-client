@@ -36,6 +36,7 @@ import {ModalModule} from 'ng2-modal';
 import { PyramidComponent } from './game/playingfield/site/pyramid/pyramid.component';
 import {DragulaModule} from 'ng2-dragula';
 import { LobbyHeaderComponent } from './lobby/lobby-header/lobby-header.component';
+import {MoveService} from "./shared/services/move.service";
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { LobbyHeaderComponent } from './lobby/lobby-header/lobby-header.componen
     UserService,
     GameService,
     ApiService,
-    LobbyService],
+    LobbyService,
+    MoveService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
