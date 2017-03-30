@@ -1,10 +1,9 @@
-#userinputfield{
+app-userinputfield {
   width: 485px;
   height: 160px;
   position: absolute;
   bottom: 15px;
   right: 0;
-  background-color: whitesmoke;
 }
 #Ships{
   width: 345px;

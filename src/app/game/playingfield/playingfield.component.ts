@@ -1,7 +1,6 @@
-import {Component, ElementRef, Input, OnInit, ViewChild, ViewChildren} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Game} from "../../shared/models/game";
 import {DragulaService} from "ng2-dragula";
-import {PyramidComponent} from "./site/pyramid/pyramid.component";
 import {SiteComponent} from "./site/site.component";
 
 @Component({
@@ -12,7 +11,6 @@ import {SiteComponent} from "./site/site.component";
 export class PlayingfieldComponent implements OnInit {
 
   @Input('game') game: Game;
-  @ViewChild(SiteComponent) site: SiteComponent;
 
   constructor(protected dragulaService: DragulaService) {
     dragulaService.drag.subscribe((value) => {
@@ -31,10 +29,22 @@ export class PlayingfieldComponent implements OnInit {
       console.log(`out: ${value[0]}`);
       this.onOut(value.slice(1));
     });
+
+    let self = this;
+    this.dragulaService.setOptions('first-bag',{
+      moves: function(el, source, handle, sibling) {
+        let userToken = JSON.parse(localStorage.getItem('currentUser')).token;
+
+        // returns true if it is current players turn
+        return self.game.players[self.game.currentPlayer].token === userToken;
+      }
+    });
   }
 
   ngOnInit() {
+
   }
+
 
   protected onDrag(args) {
     let [e, el] = args;
@@ -44,6 +54,9 @@ export class PlayingfieldComponent implements OnInit {
   protected onDrop(args) {
     let [e, el] = args;
     this.removeClass(el, 'drop-border');
+
+    console.log(el.id);
+    SiteComponent.placeStonesOn(el.id);
 
     let audio = new Audio();
 
