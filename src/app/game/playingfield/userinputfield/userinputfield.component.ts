@@ -36,8 +36,9 @@ export class UserinputfieldComponent implements OnInit {
   getStones(){
     let moveJson = {
       "type": "TakeStoneMove"
-    }
-  this.moveService.addMove(this.game,moveJson).subscribe(() => console.log('ok'));
+    };
+
+    this.moveService.addMove(this.game,moveJson).subscribe(() => console.log('ok'));
   }
   toggleCardStack() {
     this.showCardStack = !this.showCardStack;
