@@ -13,8 +13,12 @@
   left: 6px;
   text-align: center;
   vertical-align: middle;
-  color: #ffae00;
+  color: orange;
   font-size: 200%;
+
+}
+.site .ObeliskStone :hover {
+  opacity: 1.0;
 }
 
 
@@ -22,22 +26,38 @@
   top: 15px;
   left: 290px;
   background: black;
+  opacity: 0.5;
+
 }
 #ObeliskStoneWhite{
   top: 33px;
   left: 372px;
   background: white;
+  opacity: 0.5;
+
 
 }
 #ObeliskStoneBrown{
   top: 51px;
   left: 454px;
   background: brown;
+  opacity: 0.5;
+
 }
 
 #ObeliskStoneGrey{
   top: 72px;
   left: 536px;
   background: grey;
+  opacity: 0.5;
+
 }
+#ObeliskStoneTotal{
+  top: 15px;
+  left: 170px;
+  background: lawngreen;
+  opacity: 0.8;
+
+}
+
 
