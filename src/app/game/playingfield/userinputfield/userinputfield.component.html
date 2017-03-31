@@ -1,6 +1,13 @@
-<div id="userinputfield" class="text-center" >
+<div id="userinputfield" class="bg-white text-center">
+  <app-cardstack *ngIf="showCardStack"></app-cardstack>
   <app-sled></app-sled>
-    <button class="btn-basic inline text-center position1"><img src="/assets/Images/icons/hand-holding-two-soccer-cards.svg" alt=""></button>
-    <button class="btn-basic inline text-center position1"><img src="/assets/Images/icons/cold-ice-cubes.svg" alt=""></button>
-    <button class="btn-basic inline text-center position1"><img src="/assets/Images/icons/ic_history_black_24px.svg" alt="History Log"></button>
+    <button class="btn-basic inline text-center position1" (click)="toggleCardStack()">
+      <img src="/assets/Images/icons/hand-holding-two-soccer-cards.svg" alt="Play Cards">
+    </button>
+    <button class="btn-basic inline text-center position1">
+      <img src="/assets/Images/icons/cold-ice-cubes.svg" alt="Get Stones">
+    </button>
+    <button class="btn-basic inline text-center position1">
+      <img src="/assets/Images/icons/ic_history_black_24px.svg" alt="History Log">
+    </button>
 </div>

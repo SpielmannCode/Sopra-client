@@ -1,13 +1,19 @@
 #userinputfield {
-  width: 650px;
-  height: 160px;
+  width: 100%;
+  height: 100%;
 }
 
 #userinputfield img {
-  width: 130px;
+  width: 70px;
   padding: 5px;
 }
 .position1{
   position: relative;
   top: 15px;
+}
+
+app-cardstack {
+  position: absolute;
+  top: -190px;
+  left: 150px
 }

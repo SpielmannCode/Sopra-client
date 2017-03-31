@@ -1,4 +1,30 @@
-.shipsize{
-  max-width: 100px;
-  max-height: 200px;
+img {
+  width: 100%;
+}
+
+.ship-wrapper {
+  position: relative;
+}
+
+.stones {
+  position: absolute;
+  top: 50px;
+  left: 16px;
+}
+
+.fields1 div {
+  margin-top: 15px;
+}
+
+.fields2 div {
+  margin-top: 4px;
+}
+
+.fields4 div {
+  margin-top: 8px;
+}
+
+.ship-stone {
+  width: 32px;
+  height: 32px;
 }

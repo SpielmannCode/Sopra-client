@@ -4,7 +4,7 @@ export class Game {
   private _name:string;
   private _owner:string;
   private _status:string;
-  private _currentPlayer:number;
+  private _currentPlayerIndex:number;
   private _moves;
   private _players;
   private _playerCountSetting:number;
@@ -37,12 +37,12 @@ export class Game {
     this._status = value;
   }
 
-  get currentPlayer(): number {
-    return this._currentPlayer;
+  get currentPlayerIndex(): number {
+    return this._currentPlayerIndex;
   }
 
-  set currentPlayer(value: number) {
-    this._currentPlayer = value;
+  set currentPlayerIndex(value: number) {
+    this._currentPlayerIndex = value;
   }
 
   get moves() {

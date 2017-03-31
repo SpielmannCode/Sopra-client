@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-lobbyheader></app-lobbyheader>
 
 
 <div id="lobby" class="bg-white" *ngIf="!gameId">
@@ -58,6 +58,7 @@
     </tr>
   </table>
   <button class="btn-basic" (click)="leaveGameModal.open()">Leave Game</button>
+  <button class="btn-basic" (click)="startGame(selectedGame)">Start Game</button>
   <modal #leaveGameModal>
     <modal-content>
       <div class="center" style="max-width: 150px">

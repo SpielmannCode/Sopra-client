@@ -1,3 +1,24 @@
-<p>
-  statsboard works!
-</p>
+<ng-container *ngIf="game">
+  <div *ngFor="let player of game.players; let i=index" class="player-stat bg-white">
+    <table class="table">
+      <tr>
+        <td>{{i+1}}. {{player.name}}</td>
+        <td>120 points</td>
+      </tr>
+      <tr>
+        <td>Sled</td>
+        <td>{{player.stoneSupply}}/5</td>
+      </tr>
+      <tr>
+        <td>Quarry</td>
+        <td>{{player.stoneQuerry}}</td>
+      </tr>
+      <tr>
+    </table>
+    <div class="card-stats center">
+      <span class="cards green inline-block"></span> x3
+      <span class="cards blue inline-block"></span> x4
+      <span class="cards pink inline-block"></span> x5
+    </div>
+  </div>
+</ng-container>

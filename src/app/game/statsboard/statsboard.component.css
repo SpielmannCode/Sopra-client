@@ -1,0 +1,36 @@
+.table {
+  margin-bottom: 0;
+}
+
+.player-stat {
+  width: 170px;
+}
+
+.card-stats {
+  max-width: 200px;
+  margin-bottom: 5px;
+}
+
+.cards {
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  opacity: 0.7;
+  z-index: 10;
+  margin: 0 5px;
+}
+
+.green {
+  background-color: #65C400;
+  box-shadow: 0 2px 2px #65C400;
+}
+
+.blue {
+  background-color: #16BEF4;
+  box-shadow: 0 2px 2px #16BEF4;
+}
+
+.pink {
+  background-color: #AE5F9F;
+  box-shadow: 0 2px 2px #AE5F9F;
+}

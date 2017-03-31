@@ -3,5 +3,43 @@
   padding: 5px;
   position: relative;
   top: 13px;
+}
+#Sled img{
+  width: 175px;
 
+}
+#SledStone1{
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  top: -33px;
+  left: 47px;
+}
+#SledStone2{
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  top: -33px;
+  left: 92px;
+}
+#SledStone3{
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  top: 16px;
+  left: 24px;
+}
+#SledStone4{
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  top: 16px;
+  left: 70px;
+}
+#SledStone5{
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  top: 16px;
+  left: 116px;
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Game} from "../../shared/models/game";
 
 @Component({
   selector: 'app-statsboard',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatsboardComponent implements OnInit {
 
-  constructor() { }
+  @Input('game') game: Game;
+
+  constructor() {
+  }
 
   ngOnInit() {
+
   }
 
 }

@@ -1,22 +1,13 @@
-
-  <div id="playing-field" class="col-md-9">
-    <app-site></app-site>
-    <div id="Ships" class="text-center" >
-      <div id="ship1" class="inline" [dragula]='"first-bag"'>
-        <app-ship></app-ship>
-      </div>
-      <div id="ship2" class="inline" [dragula]='"first-bag"'>
-        <app-ship></app-ship>
-      </div>
-      <div id="ship3" class="inline" [dragula]='"first-bag"'>
-        <app-ship></app-ship>
-      </div>
-      <div id="ship4" class="inline" [dragula]='"first-bag"'>
-        <app-ship></app-ship>
-      </div>
-    </div>
-    <div id="userinputfield">
-      <app-userinputfield></app-userinputfield>
+<div id="playing-field">
+  <app-site></app-site>
+  <div id="Ships">
+    <div class="row" *ngIf="game">
+        <div class="col-md-3" *ngFor="let ship of game.gameBoard.availableShips; let i = index;" [dragula]='"first-bag"'>
+            <app-ship id="ship{{i+1}}" class="shipsize{{ship.stones.length}}" [stones]="ship.stones"></app-ship>
+        </div>
     </div>
   </div>
+
+  <app-userinputfield></app-userinputfield>
+</div>
 

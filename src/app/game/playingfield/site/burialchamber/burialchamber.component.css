@@ -1,61 +1,19 @@
 #Burial_Chamber {
   position: relative;
 }
-.BurialField{
+
+#BurialField{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   position: absolute;
-  top: 21px;
-  left: 154px;
-  width: 234px;
-  height: 90px;
-}
-.BurialFieldColumn{
-  position: absolute;
-  width: 29px;
-  height: 90px;
-  top: 0px;
-}
-#BurialFieldColumn1{
-  left: 0px;
-}
-#BurialFieldColumn2{
-  left: 29px;
-}
-#BurialFieldColumn3{
-  left: 58px;
-}
-#BurialFieldColumn4{
-  left: 87px;
-}
-#BurialFieldColumn5{
-  left: 116px;
-}
-#BurialFieldColumn6{
-  left: 145px;
-}
-#BurialFieldColumn7{
-  left: 176px;
-}
-#BurialFieldColumn8{
-  left: 205px;
-}
-.BurialFieldStoneTop{
-  position: absolute;
-  width: 29px;
-  height: 30px;
-  top: 0px;
-}
-.BurialFieldStoneMiddle{
-  position: absolute;
-  width: 29px;
-  height: 30px;
   top: 30px;
-
-}
-.BurialFieldStoneBottom{
-  position: absolute;
-  width: 29px;
-  height: 30px;
-  top: 60px;
-
+  right: 15px;
+  width: 360px;
+  height: 135px;
 }
 
+.BurialFieldStone {
+  width: 45px;
+  height: 45px;
+}

@@ -1,22 +1,12 @@
-#whole {
-  max-width:1366px ;
-  max-height:768px;
-}
-#Titeltext {
-  padding: 15px 0;
-  text-align: center;
-  font-size: 40px;
-  color: white;
-}
-#Image {
-  float: left;
-}
-#Titel{
-  height: 80px;
-}
 #InfoQuit{
-  padding: 10px 0;
-  float: right;
+  padding: px px;
+  float: left;
   font-size: 15px;
-  color: black;
+  color: red;
+}
+#info{
+  color: greenyellow;
+}
+#quit{
+  color: red;
 }

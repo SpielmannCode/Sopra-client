@@ -1,20 +1,30 @@
-#Statsboard{
-  width: 200px;
-  height: 688px;
+app-statsboard {
   position: absolute;
-  top: 80px;
+  top: 492px;
   left: 0;
-  background-color: #449d44;
+  display: flex;
+  width: 350px;
+  flex-wrap: wrap;
 }
-#Playingfield{
-  width: 1166px;
-  height: 688px;
+
+app-playingfield {
+  width: 1366px;
+  height: 768px;
   position: absolute;
-  top: 80px;
-  left: 200px;
-  background-color: #c9302c;
+  top: 0px;
+  left: 0px;
+  background-image: url("/assets/Images/HintergrundbildWasser.jpg");
 }
+
 #whole{
   position: relative;
+}
+app-header{
+  width: 100x;
+  height: 80px;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  z-index: 30;
 }
 
