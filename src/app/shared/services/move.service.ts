@@ -11,9 +11,9 @@ export class MoveService {
               private apiService: ApiService) { }
 
 
-  addMove(game: Game): Observable<Response> {
+  addMove(game: Game, moveJson): Observable<Response> {
     return this.http.post(this.apiService.apiUrl + '/games/' + game.id + '/moves?token=' + game.players[game.currentPlayerIndex].token,
-      null, this.apiService.options);
+      JSON.stringify(moveJson), this.apiService.options);
   }
 
 }
