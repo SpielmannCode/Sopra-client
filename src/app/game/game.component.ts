@@ -27,6 +27,7 @@ export class GameComponent implements OnInit,OnDestroy {
       .subscribe(users => {
         this.users = users;
       });
+
     this.route.params.subscribe(params => {
       this.gameId = params['id'];
 
