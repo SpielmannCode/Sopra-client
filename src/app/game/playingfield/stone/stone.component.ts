@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Game} from "../../../shared/models/game";
 
 @Component({
   selector: 'app-stone',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./stone.component.css']
 })
 export class StoneComponent implements OnInit {
+  @Input('stoneColor') stoneColor;
 
   constructor() { }
 
