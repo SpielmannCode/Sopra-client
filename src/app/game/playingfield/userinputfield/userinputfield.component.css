@@ -17,3 +17,8 @@ app-cardstack {
   top: -190px;
   left: 150px
 }
+#buttons{
+  position:absolute;
+  top: 30px;
+  left: 190px;
+}

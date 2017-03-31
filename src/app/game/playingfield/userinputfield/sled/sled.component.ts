@@ -10,6 +10,7 @@ export class SledComponent implements OnInit {
   @Input('game') game: Game;
   stoneColor: string;
   currentPlayer;
+  stones;
 
   constructor() { }
 
@@ -21,9 +22,9 @@ export class SledComponent implements OnInit {
       if (player.token === currentUserToken) {
         this.currentPlayer = player;
         this.stoneColor = player.stoneColor;
+        this.stones = Array(player.stoneSupply).fill(3);
 
       }
     }
   }
-
 }
