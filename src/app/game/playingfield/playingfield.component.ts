@@ -3,6 +3,7 @@ import {Game} from "../../shared/models/game";
 import {DragulaService} from "ng2-dragula";
 import {SiteComponent} from "./site/site.component";
 import {MoveService} from "../../shared/services/move.service";
+import {GameService} from "../../shared/services/game.service";
 
 @Component({
   selector: 'app-playingfield',
@@ -14,6 +15,7 @@ export class PlayingfieldComponent implements OnInit {
   @Input('game') game: Game;
 
   constructor(protected dragulaService: DragulaService,
+              private gameService: GameService,
               private moveService: MoveService) {
     dragulaService.drag.subscribe((value) => {
       this.onDrag(value.slice(1));
@@ -63,13 +65,15 @@ export class PlayingfieldComponent implements OnInit {
       case 'APP-STONE': {
         audio.src ='/assets/musik/fx/25847__freqman__concrete-blocks-moving3.wav';
 
+        let stonePos = e.parentElement.id.match(/(\d+)-(\d+)/);
+
         let moveJson = {
           "type": "PutStoneMove",
-          "stoneIndex": 0,
-          "shipIndex": 0
+          "shipIndex": stonePos[1],
+          "stoneIndex": stonePos[2]
         };
 
-        this.moveService.addMove(this.game, moveJson, currentUserToken).subscribe(() => console.log('ok'));
+        this.moveService.addMove(this.game, moveJson, currentUserToken).subscribe(() => console.log('put stone done'));
 
         break;
       }

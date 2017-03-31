@@ -2,8 +2,6 @@
   <img src="{{picloc}}" alt="Ship {{size}}er">
 
   <div class="stones fields{{size}}">
-    <div *ngFor="let stone of stones; let i = index;" class="ship-stone" [dragula]='"second-bag"'></div>
+    <div *ngFor="let stone of stones; let i = index;" class="ship-stone" id="stone-{{shipIndex}}-{{i}}" [dragula]='"second-bag"'></div>
   </div>
 </div>
-
-
