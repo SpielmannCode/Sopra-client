@@ -27,12 +27,14 @@ export class UserinputfieldComponent implements OnInit {
             this.Playingstatus = 'You are next, prepare!';
           }
           else{
-            this.Playingstatus = ( this.game.players[this.game.currentPlayerIndex].usernamee + 'Is currently playing');
+            this.Playingstatus = ( this.game.players[this.game.currentPlayerIndex].username + 'Is currently playing');
           }
       }
     }
   }
+  getStones(){
 
+  }
   toggleCardStack() {
     this.showCardStack = !this.showCardStack;
   }
