@@ -50,6 +50,7 @@ export class PlayingfieldComponent implements OnInit {
 
   protected onDrop(args) {
     let [e, el] = args;
+    let currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
     let audio = new Audio();
     this.removeClass(el, 'drop-border');
 
@@ -68,7 +69,7 @@ export class PlayingfieldComponent implements OnInit {
           "shipIndex": 0
         };
 
-        this.moveService.addMove(this.game, moveJson).subscribe(() => console.log('ok'));
+        this.moveService.addMove(this.game, moveJson, currentUserToken).subscribe(() => console.log('ok'));
 
         break;
       }
