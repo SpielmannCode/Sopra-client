@@ -23,7 +23,6 @@ export class SledComponent implements OnInit {
         this.currentPlayer = player;
         this.stoneColor = player.stoneColor;
         this.stones = Array(player.stoneSupply).fill(3);
-
       }
     }
   }
