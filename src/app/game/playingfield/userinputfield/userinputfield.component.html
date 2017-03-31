@@ -2,6 +2,7 @@
   <app-cardstack *ngIf="showCardStack"></app-cardstack>
   <app-sled [game]="game"></app-sled>
   <div id="buttons">
+    {{Playingstatus}}<br>
     <button class="btn-basic inline text-center position1" (click)="toggleCardStack()">
       <img src="/assets/Images/icons/hand-holding-two-soccer-cards.svg" alt="Play Cards">
     </button>
