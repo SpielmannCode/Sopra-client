@@ -1,73 +1,30 @@
-#shipImage{
-  max-width: 100%;
+img {
+  width: 100%;
 }
-#Ship1Stone1{
-  width: 12%;
-  height: 27%;
+
+.ship-wrapper {
   position: relative;
-  top: -90px;
-  left: 8%;
 }
-#Ship2Stone1{
-  width: 40px;
-  height: 40px;
+
+.stones {
   position: absolute;
-  top: -14px;
-  left: 26px;
+  top: 50px;
+  left: 16px;
 }
-#Ship2Stone2{
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  top: -14px;
-  left: 26px;
+
+.fields1 div {
+  margin-top: 15px;
 }
-#Ship3Stone1{
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  top: -14px;
-  left: 26px;
+
+.fields2 div {
+  margin-top: 4px;
 }
-#Ship3Stone2{
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  top: -14px;
-  left: 26px;
+
+.fields4 div {
+  margin-top: 8px;
 }
-#Ship3Stone3{
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  top: 36px;
-  left: 26px;
-}
-#Ship4Stone1{
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  top: -14px;
-  left: 26px;
-}
-#Ship4Stone2{
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  top: -14px;
-  left: 26px;
-}
-#Ship4Stone3{
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    top: 36px;
-    left: 26px;
-  }
-#Ship4Stone4{
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  top: 36px;
-  left: 26px;
+
+.ship-stone {
+  width: 32px;
+  height: 32px;
 }

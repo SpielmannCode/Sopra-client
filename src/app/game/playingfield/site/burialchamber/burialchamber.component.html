@@ -3,69 +3,10 @@
   </div>
   <img src="/assets/Images/Site_boards/Burial_Chamber.png " alt="Burial_Chamber">
   <div id="BurialField" class="BurialField">
-    <div id="BurialFieldColumn1" class="BurialFieldColumn">
-      <div class="BurialFieldStoneTop">
-      </div>
-      <div  class="BurialFieldStoneMiddle">
-      </div>
-      <div class="BurialFieldStoneBottom">
-      </div>
-    </div>
-    <div id="BurialFieldColumn2" class="BurialFieldColumn">
-      <div class="BurialFieldStoneTop">
-      </div>
-      <div  class="BurialFieldStoneMiddle">
-      </div>
-      <div class="BurialFieldStoneBottom">
-      </div>
-    </div>
-    <div id="BurialFieldColumn3" class="BurialFieldColumn">
-      <div class="BurialFieldStoneTop">
-      </div>
-      <div  class="BurialFieldStoneMiddle">
-      </div>
-      <div class="BurialFieldStoneBottom">
-      </div>
-    </div>
-    <div id="BurialFieldColumn4" class="BurialFieldColumn">
-      <div class="BurialFieldStoneTop">
-      </div>
-      <div  class="BurialFieldStoneMiddle">
-      </div>
-      <div class="BurialFieldStoneBottom">
-      </div>
-    </div>
-    <div id="BurialFieldColumn5" class="BurialFieldColumn">
-      <div class="BurialFieldStoneTop">
-      </div>
-      <div  class="BurialFieldStoneMiddle">
-      </div>
-      <div class="BurialFieldStoneBottom">
-      </div>
-    </div>
-    <div id="BurialFieldColumn6" class="BurialFieldColumn">
-      <div class="BurialFieldStoneTop">
-      </div>
-      <div  class="BurialFieldStoneMiddle">
-      </div>
-      <div class="BurialFieldStoneBottom">
-      </div>
-    </div>
-    <div id="BurialFieldColumn7" class="BurialFieldColumn">
-      <div class="BurialFieldStoneTop">
-      </div>
-      <div  class="BurialFieldStoneMiddle">
-      </div>
-      <div class="BurialFieldStoneBottom">
-      </div>
-    </div>
-    <div id="BurialFieldColumn8" class="BurialFieldColumn">
-      <div class="BurialFieldStoneTop">
-      </div>
-      <div  class="BurialFieldStoneMiddle">
-      </div>
-      <div class="BurialFieldStoneBottom">
-      </div>
-    </div>
+
+    <ng-container *ngFor="let field of fields; let i = index;">
+      <div id="burialField{{i+1}}" class="BurialFieldStone"></div>
+    </ng-container>
+
   </div>
 </div>

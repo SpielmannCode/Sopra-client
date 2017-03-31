@@ -1,53 +1,19 @@
-#userinputfield{
+app-userinputfield {
   width: 485px;
   height: 160px;
   position: absolute;
   bottom: 15px;
-  right: 0px;
-  background-color: whitesmoke;
+  right: 0;
 }
 #Ships{
-  width: 400px;
-  height: 200px;
+  width: 345px;
+  height: 250px;
   position: absolute;
-  bottom: 5px;
+  bottom: 10px;
   left: 450px;
   background-color: inherit;
-}
-app-ship{
-  width: 100%;
 }
 #playing-field{
   width: 1366px;
   height: 768px;
 }
-#ship1{
-  width: 100px;
-  height: 200px;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-}
-#ship2{
-  width: 100px;
-  height: 200px;
-  position: absolute;
-  top: 0px;
-  left: 100px;
-}
-#ship3{
-  width: 100px;
-  height: 200px;
-  position: absolute;
-  top: 0px;
-  left: 200px;
-}
-#ship4{
-  width: 100px;
-  height: 200px;
-  position: absolute;
-  top: 0px;
-  left: 300px;
-}
-
-
