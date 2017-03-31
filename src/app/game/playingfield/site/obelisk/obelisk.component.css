@@ -3,23 +3,41 @@
 }
 .ObeliskStone{
   position: absolute;
-  width: 34px;
-  height: 32px;
-}
-#ObeliskStoneBlack{
-  top: 11px;
-  left: 192px;
-}
-#ObeliskStoneWhite{
-  top: 23px;
-  left: 247px;
-}
-#ObeliskStoneOrange{
-  top: 34px;
-  left: 302px;
-}
-#ObeliskStoneGrey{
-  top: 49px;
-  left: 357px;
+  width: 48px;
+  height: 48px;
 
 }
+.NumberStone{
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  text-align: center;
+  vertical-align: middle;
+  color: #ffae00;
+  font-size: 200%;
+}
+
+
+#ObeliskStoneBlack{
+  top: 15px;
+  left: 290px;
+  background: black;
+}
+#ObeliskStoneWhite{
+  top: 33px;
+  left: 372px;
+  background: white;
+
+}
+#ObeliskStoneBrown{
+  top: 51px;
+  left: 454px;
+  background: brown;
+}
+
+#ObeliskStoneGrey{
+  top: 72px;
+  left: 536px;
+  background: grey;
+}
+
