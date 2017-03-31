@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Game} from "../../../shared/models/game";
 
 @Component({
   selector: 'app-userinputfield',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserinputfieldComponent implements OnInit {
   showCardStack: boolean = false;
+  @Input('game') game: Game;
 
   constructor() {
   }
