@@ -28,7 +28,7 @@ export class GameComponent implements OnInit {
       });
     this.route.params.subscribe(params => {
       this.gameId = params['id'];
-      Observable.interval(5000).subscribe(() => {
+      Observable.interval(10000).subscribe(() => {
         this.gameService.getGame(this.gameId).subscribe(game => {
           this.game = game;
         });
