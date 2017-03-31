@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Game} from "../shared/models/game";
 import {UserService} from "../shared/services/user.service";
 import { FormGroup, FormControl, Validators, FormBuilder }  from '@angular/forms';
@@ -12,10 +12,12 @@ import {Observable} from 'rxjs/Rx';
   templateUrl: './lobby.component.html',
   styleUrls: ['./lobby.component.css']
 })
-export class LobbyComponent implements OnInit {
+export class LobbyComponent implements OnInit, OnDestroy {
   games: Game[] = [];
   selectedGame: Game;
   createGameForm: FormGroup;
+  gameObservable;
+  gamesObservable;
   gameId;
 
   constructor(protected userService: UserService,
@@ -34,7 +36,7 @@ export class LobbyComponent implements OnInit {
   ngOnInit() {
     this.getGames();
 
-    Observable.interval(5000).subscribe(() => {
+    this.gamesObservable = Observable.interval(5000).subscribe(() => {
       this.getGames();
     });
 
@@ -42,11 +44,16 @@ export class LobbyComponent implements OnInit {
       this.gameId = params['id'];
       if (this.gameId) {
         this.getGame(this.gameId);
-        Observable.interval(5000).subscribe(() => {
+        this.gameObservable = Observable.interval(5000).subscribe(() => {
           this.getGame(this.gameId);
         });
       }
     });
+  }
+
+  ngOnDestroy() {
+    this.gameObservable.unsubscribe();
+    this.gamesObservable.unsubscribe();
   }
 
   getGame(id) {
