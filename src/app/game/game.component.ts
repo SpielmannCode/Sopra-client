@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {UserService} from '../shared/services/user.service';
 import {User} from '../shared/models/user';
 import {ActivatedRoute} from '@angular/router';
@@ -11,10 +11,11 @@ import {Observable} from 'rxjs/Rx';
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css']
 })
-export class GameComponent implements OnInit {
+export class GameComponent implements OnInit,OnDestroy {
   protected users: User[] = [];
   protected gameId: number;
   protected game: Game;
+  private gameObservable;
 
   constructor(protected userService: UserService,
               protected gameService: GameService,
@@ -26,13 +27,23 @@ export class GameComponent implements OnInit {
       .subscribe(users => {
         this.users = users;
       });
+
     this.route.params.subscribe(params => {
       this.gameId = params['id'];
-      Observable.interval(5000).subscribe(() => {
+
+      this.gameService.getGame(this.gameId).subscribe(game => {
+        this.game = game;
+      });
+
+      this.gameObservable = Observable.interval(3000).subscribe(() => {
         this.gameService.getGame(this.gameId).subscribe(game => {
           this.game = game;
         });
       });
     });
+  }
+
+  ngOnDestroy() {
+    this.gameObservable.unsubscribe();
   }
 }
