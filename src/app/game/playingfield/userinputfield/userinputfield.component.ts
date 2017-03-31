@@ -34,7 +34,6 @@ export class UserinputfieldComponent implements OnInit, OnChanges {
     }
   }
   ngOnChanges(changes: SimpleChanges){
-    console.log(this.game.players[0].username);
     let currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
     for (let player of this.game.players) {
       if (player.token === currentUserToken) {
