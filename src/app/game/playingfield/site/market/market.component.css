@@ -3,22 +3,25 @@
 }
 .MarketCard{
   position: absolute;
-  width: 130px;
-  height: 82px;
+  width: 210px;
+  padding:1px;
 }
 #MarketCard1{
-  top: 8px;
-  left: 29px;
+  top: 11px;
+  left: 41px;
 }
 #MarketCard2{
-  top: 104px;
-  left: 29px;
+  top: 154px;
+  left: 41px;
 }
 #MarketCard3{
-  top: 8px;
-  left: 170px;
+  top: 11px;
+  left: 251px;
 }
 #MarketCard4{
-  top: 104px;
-  left: 170px;
+  top: 154px;
+  left: 251px;
 }
+
+.site .MarketCard:hover {
+  border: 3px solid #f9ff0d;  }
