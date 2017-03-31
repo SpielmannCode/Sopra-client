@@ -8,6 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class ShipComponent implements OnInit {
   size: number;
   @Input('stones') stones;
+  @Input('shipIndex') shipIndex;
   picloc: string = ('/assets/Images/Ship/Ship_' + this.size + 'er.png');
 
 

@@ -3,7 +3,7 @@
   <div id="Ships">
     <div class="row">
         <div class="col-md-3" *ngFor="let ship of game.gameBoard.availableShips; let i = index;" [dragula]='"first-bag"'>
-            <app-ship id="ship{{i+1}}" class="shipsize{{ship.stones.length}}" [stones]="ship.stones"></app-ship>
+            <app-ship id="ship{{i+1}}" class="shipsize{{ship.stones.length}}" [shipIndex]="i" [stones]="ship.stones"></app-ship>
         </div>
     </div>
   </div>
