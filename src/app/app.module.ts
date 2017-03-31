@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpModule, JsonpModule} from '@angular/http';
+import { HighlightDirective } from './highlight.directive';
+
 
 import { AppComponent } from './app.component';
 import {AuthGuardService} from './shared/services/auth-guard.service';
@@ -63,7 +65,8 @@ import {MoveService} from "./shared/services/move.service";
     ButtonfieldComponent,
     GetstonesComponent,
     PyramidComponent,
-    LobbyHeaderComponent
+    LobbyHeaderComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
