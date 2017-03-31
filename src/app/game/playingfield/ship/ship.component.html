@@ -1,9 +1,41 @@
-
-<div id="Ship" class="inline">
-  <img src="{{picloc}}" alt="Ship {{size}}er" class="shipsize2">
-  <div id="ShipStone1" [dragula]='"second-bag"'>
-  </div>
-  <div id="ShipStone2" [dragula]='"second-bag"'>
-  </div>
+<div id = ship>
+ <img src="{{picloc}}" alt="Ship {{size}}er" id="shipImage">
+  <ng-container *ngIf="size===1">
+    <div id="Ship1Stone1" [dragula]='"second-bag"'>
+      <app-stone></app-stone>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="size===2">
+    <div id="Ship2Stone1" [dragula]='"second-bag"'>
+      <app-stone></app-stone>
+    </div>
+    <div id="Ship2Stone2" [dragula]='"second-bag"'>
+      <app-stone></app-stone>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="size===3">
+    <div id="Ship3Stone1" [dragula]='"second-bag"'>
+      <app-stone></app-stone>
+    </div>
+    <div id="Ship3Stone2" [dragula]='"second-bag"'>
+      <app-stone></app-stone>
+    </div>
+    <div id="Ship3Stone3" [dragula]='"second-bag"'>
+      <app-stone></app-stone>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="size===4">
+    <div id="Ship4Stone1" [dragula]='"second-bag"'>
+      <app-stone></app-stone>
+    </div>
+    <div id="Ship4Stone2" [dragula]='"second-bag"'>
+      <app-stone></app-stone>
+    </div>
+    <div id="Ship4Stone3" [dragula]='"second-bag"'>
+      <app-stone></app-stone>
+    </div>
+    <div id="Ship4Stone4" [dragula]='"second-bag"'>
+      <app-stone></app-stone>
+    </div>
+  </ng-container>
 </div>
-
