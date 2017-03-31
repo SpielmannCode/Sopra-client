@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Game} from '../../../shared/models/game';
+import {MoveService} from '../../../shared/services/move.service';
 
 @Component({
   selector: 'app-userinputfield',
@@ -12,7 +13,7 @@ export class UserinputfieldComponent implements OnInit {
   Playingstatus: string;
   currentPlayer;
 
-  constructor() {
+  constructor(private moveService: MoveService) {
   }
 
   ngOnInit() {
@@ -33,7 +34,10 @@ export class UserinputfieldComponent implements OnInit {
     }
   }
   getStones(){
-
+    let moveJson = {
+      "type": "TakeStoneMove"
+    }
+  this.moveService.addMove(this.game,moveJson).subscribe(() => console.log('ok'));
   }
   toggleCardStack() {
     this.showCardStack = !this.showCardStack;

@@ -69,7 +69,7 @@ export class PlayingfieldComponent implements OnInit {
           "shipIndex": 0
         };
 
-        this.moveService.addMove(this.game, moveJson, currentUserToken).subscribe(() => console.log('ok'));
+        this.moveService.addMove(this.game, moveJson).subscribe(() => console.log('ok'));
 
         break;
       }
