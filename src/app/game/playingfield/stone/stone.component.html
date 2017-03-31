@@ -1,2 +1,12 @@
-<div class="stone">
-</div>
+<ng-container *ngIf="stoneColor === 'BLACK'">
+  <div class="stone black"></div>
+</ng-container>
+<ng-container *ngIf="stoneColor === 'WHITE'">
+  <div class="stone white"></div>
+</ng-container>
+<ng-container *ngIf="stoneColor === 'BROWN'">
+  <div class="stone brown"></div>
+</ng-container>
+<ng-container *ngIf="stoneColor === 'GREY'">
+  <div class="stone grey"></div>
+</ng-container>

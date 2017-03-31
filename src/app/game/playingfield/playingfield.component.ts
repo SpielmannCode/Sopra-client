@@ -2,6 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Game} from "../../shared/models/game";
 import {DragulaService} from "ng2-dragula";
 import {SiteComponent} from "./site/site.component";
+import {MoveService} from "../../shared/services/move.service";
+import {GameService} from "../../shared/services/game.service";
 
 @Component({
   selector: 'app-playingfield',
@@ -12,7 +14,9 @@ export class PlayingfieldComponent implements OnInit {
 
   @Input('game') game: Game;
 
-  constructor(protected dragulaService: DragulaService) {
+  constructor(protected dragulaService: DragulaService,
+              private gameService: GameService,
+              private moveService: MoveService) {
     dragulaService.drag.subscribe((value) => {
       this.onDrag(value.slice(1));
     });
@@ -48,6 +52,7 @@ export class PlayingfieldComponent implements OnInit {
 
   protected onDrop(args) {
     let [e, el] = args;
+    let currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
     let audio = new Audio();
     this.removeClass(el, 'drop-border');
 
@@ -59,6 +64,16 @@ export class PlayingfieldComponent implements OnInit {
       }
       case 'APP-STONE': {
         audio.src ='/assets/musik/fx/25847__freqman__concrete-blocks-moving3.wav';
+
+        let stonePos = e.parentElement.id.match(/(\d+)-(\d+)/);
+
+        let moveJson = {
+          "type": "PutStoneMove",
+          "shipIndex": stonePos[1],
+          "stoneIndex": stonePos[2]
+        };
+
+        this.moveService.addMove(this.game, moveJson).subscribe(() => console.log('ok'));
 
         break;
       }
@@ -85,4 +100,5 @@ export class PlayingfieldComponent implements OnInit {
   protected removeClass(el: any, name: string) {
     el.className = el.className.replace(new RegExp('(?:^|\\s+)' + name + '(?:\\s+|$)', 'g'), '');
   }
+
 }

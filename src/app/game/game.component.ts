@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from "../shared/services/user.service";
-import {User} from "../shared/models/user";
-import {ActivatedRoute} from "@angular/router";
-import {GameService} from "../shared/services/game.service";
-import {Game} from "../shared/models/game";
+import {UserService} from '../shared/services/user.service';
+import {User} from '../shared/models/user';
+import {ActivatedRoute} from '@angular/router';
+import {GameService} from '../shared/services/game.service';
+import {Game} from '../shared/models/game';
+import {Observable} from 'rxjs/Rx';
 
 @Component({
   selector: 'app-game',
@@ -25,14 +26,12 @@ export class GameComponent implements OnInit {
       .subscribe(users => {
         this.users = users;
       });
-
     this.route.params.subscribe(params => {
       this.gameId = params['id'];
-
-      this.gameService.getGame(this.gameId).subscribe(game => {
-        this.game = game;
-
-
+      Observable.interval(5000).subscribe(() => {
+        this.gameService.getGame(this.gameId).subscribe(game => {
+          this.game = game;
+        });
       });
     });
   }

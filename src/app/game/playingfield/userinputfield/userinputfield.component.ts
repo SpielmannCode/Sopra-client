@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Game} from '../../../shared/models/game';
+import {MoveService} from '../../../shared/services/move.service';
 
 @Component({
   selector: 'app-userinputfield',
@@ -7,13 +9,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserinputfieldComponent implements OnInit {
   showCardStack: boolean = false;
+  @Input('game') game: Game;
+  Playingstatus: string;
+  currentPlayer;
 
-  constructor() {
+  constructor(private moveService: MoveService) {
   }
 
   ngOnInit() {
+    let currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
+    for (let player of this.game.players) {
+      if (player.token === currentUserToken) {
+        this.currentPlayer = player;
+        if(this.game.players[this.game.currentPlayerIndex].token === this.currentPlayer.token) {
+          this.Playingstatus = 'It is Your Turn!';
+          }
+          if(this.game.players[this.game.nextPlayerIndex].token === this.currentPlayer.token){
+            this.Playingstatus = 'You are next, prepare!';
+          }
+          else{
+            this.Playingstatus = ( this.game.players[this.game.currentPlayerIndex].username + 'Is currently playing');
+          }
+      }
+    }
   }
-
+  getStones(){
+    let moveJson = {
+      "type": "TakeStoneMove"
+    }
+  this.moveService.addMove(this.game,moveJson).subscribe(() => console.log('ok'));
+  }
   toggleCardStack() {
     this.showCardStack = !this.showCardStack;
   }
