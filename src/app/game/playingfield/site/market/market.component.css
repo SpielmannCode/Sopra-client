@@ -24,4 +24,7 @@
 }
 
 .site .MarketCard:hover {
-  border: 3px solid #f9ff0d;  }
+  border: 3px solid #f9ff0d;
+  opacity: 0.7;
+}
+
