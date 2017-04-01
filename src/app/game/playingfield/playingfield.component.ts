@@ -1,9 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild, ViewChildren, QueryList, AfterViewInit} from '@angular/core';
 import {Game} from "../../shared/models/game";
 import {DragulaService} from "ng2-dragula";
 import {SiteComponent} from "./site/site.component";
 import {MoveService} from "../../shared/services/move.service";
 import {GameService} from "../../shared/services/game.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-playingfield',
@@ -13,6 +14,8 @@ import {GameService} from "../../shared/services/game.service";
 export class PlayingfieldComponent implements OnInit {
 
   @Input('game') game: Game;
+  @Input('gameObservable') gameObservable: Subscription;
+  @ViewChild(SiteComponent) siteComponent: SiteComponent;
 
   constructor(protected dragulaService: DragulaService,
               private gameService: GameService,
@@ -45,9 +48,9 @@ export class PlayingfieldComponent implements OnInit {
 
   }
 
+
   protected onDrag(args) {
     let [e, el] = args;
-    // do something
   }
 
   protected onDrop(args) {
@@ -59,7 +62,8 @@ export class PlayingfieldComponent implements OnInit {
     switch (e.tagName) {
       case 'APP-SHIP': {
         audio.src ='/assets/musik/fx/32304__acclivity__shipsbell.wav';
-        SiteComponent.placeStonesOn(el.id);
+        let shipIndex = (parseInt(e.id.match(/(\d+)/)[1]) - 1).toString();
+        this.siteComponent.placeStonesOn(el, shipIndex);
         break;
       }
       case 'APP-STONE': {
@@ -77,8 +81,8 @@ export class PlayingfieldComponent implements OnInit {
 
         break;
       }
-    }
 
+    }
     audio.load();
     audio.play();
   }

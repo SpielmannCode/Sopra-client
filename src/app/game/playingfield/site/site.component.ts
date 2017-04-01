@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {MoveService} from "../../../shared/services/move.service";
+import {Game} from "../../../shared/models/game";
 
 @Component({
   selector: 'app-site',
@@ -6,20 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./site.component.css']
 })
 export class SiteComponent implements OnInit {
+  @Input('game') game: Game;
 
-  constructor() { }
+  constructor(private moveService: MoveService) { }
 
   ngOnInit() {
   }
 
-  static placeStonesOn(dockName: string) {
-    switch(dockName) {
+  placeStonesOn(el, shipIndex: string) {
+    switch(el.id) {
       case 'MarketDock': {
         console.log('market');
         break;
       }
       case 'PyramidDock': {
-        console.log('pyramid');
+        this.sailShip('Pyramid Site', shipIndex);
         break;
       }
       case 'TempleDock': {
@@ -35,5 +38,15 @@ export class SiteComponent implements OnInit {
         break;
       }
     }
+  }
+
+  sailShip(site: string, shipIndex: string) {
+    let moveJson = {
+      "type": "SailMove",
+      "shipIndex": shipIndex,
+      "site": site
+    };
+
+    this.moveService.addMove(this.game, moveJson).subscribe(() => console.log('sailed'));
   }
 }
