@@ -47,6 +47,13 @@ export class PlayingfieldComponent extends GameComponent implements OnInit {
         return self.game.players[self.game.currentPlayerIndex].token === userToken;
       }
     });
+    dragulaService.setOptions('second-bag',{
+      moves: function(el, source, handle, sibling) {
+        let userToken = JSON.parse(localStorage.getItem('currentUser')).token;
+        // returns true if it is current players turn
+        return self.game.players[self.game.currentPlayerIndex].token === userToken;
+      }
+    });
 
   }
 
