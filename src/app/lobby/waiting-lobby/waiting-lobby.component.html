@@ -9,7 +9,7 @@
       <td>{{player.name}} {{player.username}}</td>
     </tr>
   </table>
-  <button class="btn-basic" (click)="leaveGameModal.open()">Leave Game</button>
+  <button id="LeaveButton" class="btn-basic" (click)="leaveGameModal.open()">Leave Game</button>
   <button class="btn-basic" (click)="startGame(selectedGame)">Start Game</button>
   <modal #leaveGameModal>
     <modal-content>

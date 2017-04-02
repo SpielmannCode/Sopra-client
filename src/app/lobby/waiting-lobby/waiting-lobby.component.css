@@ -10,3 +10,6 @@
 .table tr:nth-child(even) {
   background-color: #eee;
 }
+#LeaveButton{
+  float: right;
+}
