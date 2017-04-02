@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
+  @Input('cardName') cardName;
   currentImage;
   cardImages = {
     'Burial_Chamber_Decoration': '/assets/Images/marketCards/Card_Burial_Chamber_Decoration.png',
@@ -25,11 +26,6 @@ export class CardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.getGard('Burial_Chamber_Decoration');
+    this.currentImage = this.cardImages[this.cardName];
   }
-
-  getGard(cardName: string) {
-    this.currentImage = this.cardImages[cardName];
-  }
-
 }

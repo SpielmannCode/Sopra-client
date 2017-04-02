@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpModule, JsonpModule} from '@angular/http';
 import { HighlightDirective } from './highlight.directive';
-
-
 import { AppComponent } from './app.component';
 import {AuthGuardService} from './shared/services/auth-guard.service';
 import {UserService} from './shared/services/user.service';
@@ -38,7 +36,7 @@ import {ModalModule} from 'ng2-modal';
 import { PyramidComponent } from './game/playingfield/site/pyramid/pyramid.component';
 import {DragulaModule} from 'ng2-dragula';
 import { LobbyHeaderComponent } from './lobby/lobby-header/lobby-header.component';
-import {MoveService} from "./shared/services/move.service";
+import {MoveService} from './shared/services/move.service';
 import { WaitingLobbyComponent } from './lobby/waiting-lobby/waiting-lobby.component';
 
 @NgModule({
