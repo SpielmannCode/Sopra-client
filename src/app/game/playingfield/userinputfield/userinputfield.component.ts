@@ -12,8 +12,9 @@ export class UserinputfieldComponent implements OnInit, OnChanges {
   @Input('game') game: Game;
   Playingstatus: string;
   currentPlayer;
-
+  private _opened: boolean = false;
   constructor(private moveService: MoveService) {
+
   }
 
   ngOnInit() {
@@ -61,5 +62,8 @@ export class UserinputfieldComponent implements OnInit, OnChanges {
 
   toggleCardStack() {
     this.showCardStack = !this.showCardStack;
+  }
+  private toggleSidebar() {
+    this._opened = !this._opened;
   }
 }
