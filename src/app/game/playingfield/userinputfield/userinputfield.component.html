@@ -3,10 +3,13 @@
   <app-sled [game]="game"></app-sled>
   <div id="buttons">
     {{Playingstatus}}<br>
-    <button class="btn-basic inline text-center position1" (click)="toggleCardStack()">
+    <button *ngIf="currentPlayer.token !== game.players[game.currentPlayerIndex].token"  class="btn-basic inline text-center position1 disabled" disabled (click)="toggleCardStack()">
       <img src="/assets/Images/icons/hand-holding-two-soccer-cards.svg" alt="Play Cards">
     </button>
-    <button *ngIf="currentPlayer.token !== game.players[game.currentPlayerIndex].token" class="btn-basic inline text-center position1" disabled (click)="getStones()">
+    <button *ngIf="currentPlayer.token === game.players[game.currentPlayerIndex].token" class="btn-basic inline text-center position1" (click)="toggleCardStack()">
+      <img src="/assets/Images/icons/hand-holding-two-soccer-cards.svg" alt="Play Cards">
+    </button>
+    <button *ngIf="currentPlayer.token !== game.players[game.currentPlayerIndex].token" class="btn-basic inline text-center position1 disabled" disabled (click)="getStones()">
       <img src="/assets/Images/icons/cold-ice-cubes.svg" alt="Get Stones">
     </button>
     <button class="btn-basic inline text-center position1" *ngIf="currentPlayer.token === game.players[game.currentPlayerIndex].token" (click)="getStones()">
