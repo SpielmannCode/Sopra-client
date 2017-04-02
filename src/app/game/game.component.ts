@@ -48,7 +48,11 @@ export class GameComponent implements OnInit,OnDestroy {
   startGameRefresh() {
     this.gameObservable = Observable.interval(3000).subscribe(() => {
       this.gameService.getGame(this.gameId).subscribe(game => {
-        this.game = game;
+
+        if (JSON.stringify(this.game) !== JSON.stringify(game)) {
+          this.game = game;
+        }
+
       });
     });
   }
