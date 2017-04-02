@@ -38,7 +38,8 @@ import {DragulaModule} from 'ng2-dragula';
 import { LobbyHeaderComponent } from './lobby/lobby-header/lobby-header.component';
 import {MoveService} from './shared/services/move.service';
 import { WaitingLobbyComponent } from './lobby/waiting-lobby/waiting-lobby.component';
-import { HistoryLogComponent } from './playingfield/history-log/history-log.component';
+import { HistoryLogComponent } from './game/playingfield/history-log/history-log.component';
+import { SidebarModule } from 'ng-sidebar';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { HistoryLogComponent } from './playingfield/history-log/history-log.comp
     JsonpModule,
     routing,
     ModalModule,
-    DragulaModule
+    DragulaModule,
+    SidebarModule.forRoot(),
   ],
   providers: [
     AuthenticationService,

@@ -16,8 +16,13 @@
       <img src="/assets/Images/icons/cold-ice-cubes.svg" alt="Get Stones">
     </button>
 
-    <button class="btn-basic inline text-center position1">
+    <button class="btn-basic inline text-center position1" (click)="toggleSidebar()">
       <img src="/assets/Images/icons/ic_history_black_24px.svg" alt="History Log">
     </button>
   </div>
+  <ng-sidebar-container>
+    <ng-sidebar [(opened)]="_opened"  >
+      <app-history-log></app-history-log>
+    </ng-sidebar>
+  </ng-sidebar-container>
 </div>
