@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-burialchamber',
@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./burialchamber.component.css']
 })
 export class BurialchamberComponent implements OnInit {
+  @Input('burialChamberSite') burialChamberSite;
   fields;
+  sumB:number = 0;
+
 
   constructor() {
     this.fields = Array(24).fill(0);
@@ -14,6 +17,10 @@ export class BurialchamberComponent implements OnInit {
   }
 
   ngOnInit() {
+    /*
+    for(let stone of this.burialChamberSite.stones)
+      this.sumB = this.sumB + stone;
+      */
   }
 
 }

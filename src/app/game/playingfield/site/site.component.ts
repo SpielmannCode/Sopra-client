@@ -18,7 +18,7 @@ export class SiteComponent implements OnInit {
   placeStonesOn(el, shipIndex: string) {
     switch(el.id) {
       case 'MarketDock': {
-        console.log('market');
+        this.sailShip('Market Site', shipIndex);
         break;
       }
       case 'PyramidDock': {
@@ -26,15 +26,15 @@ export class SiteComponent implements OnInit {
         break;
       }
       case 'TempleDock': {
-        console.log('temple');
+        this.sailShip('Temple Site', shipIndex);
         break;
       }
       case 'BurialDock': {
-        console.log('burialchamber');
+        this.sailShip('Burial Chamber Site', shipIndex);
         break;
       }
       case 'ObeliskDock': {
-        console.log('obelisk');
+        this.sailShip('Obelisk Site', shipIndex);
         break;
       }
     }
