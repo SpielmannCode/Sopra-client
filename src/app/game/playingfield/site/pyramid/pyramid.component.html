@@ -1,41 +1,34 @@
 <div id="Pyramid" class="site">
-  <div id="PyramidDock" class="Dockleft" [dragula]='"first-bag"'>
+  <div id="PyramidDock" class="Dockleft" *ngIf="pyramidSite.dockedShip !== null">
+      <app-ship class="shipsize1" [stones]="pyramidSite.dockedShip.stones" [game]="game" [isDocked]="true"></app-ship>
   </div>
+
+  <div id="PyramidDock" class="Dockleft" [dragula]='"first-bag"' *ngIf="pyramidSite.dockedShip === null"></div>
+
   <img src="/assets/Images/Site_boards/Pyramids.png" alt="Pyramid">
+
+  <!--First Level-->
   <div id="PyramidLevel1" class="PyramidLevel1">
-    <div id="PyramidLevel1Stone1" class="PyramidStone">
-    </div>
-    <div id="PyramidLevel1Stone2" class="PyramidStone">
-    </div>
-    <div id="PyramidLevel1Stone3" class="PyramidStone">
-    </div>
-    <div id="PyramidLevel1Stone4" class="PyramidStone">
-    </div>
-    <div id="PyramidLevel1Stone5" class="PyramidStone">
-    </div>
-    <div id="PyramidLevel1Stone6" class="PyramidStone">
-    </div>
-    <div id="PyramidLevel1Stone7" class="PyramidStone">
-    </div>
-    <div id="PyramidLevel1Stone8" class="PyramidStone">
-    </div>
-    <div id="PyramidLevel1Stone9" class="PyramidStone">
+    <div  *ngFor="let stone of pyramidSite.stones; let i = index;" id="PyramidLevel1Stone{{i+1}}" class="PyramidStone">
+      <ng-container *ngIf="i < 9">
+        <app-stone [stoneColor]="stone"></app-stone>
+      </ng-container>
     </div>
   </div>
+
+  <!--Second Level-->
   <div id="PyramidLevel2" class="PyramidLevel2">
-    <div id="PyramidLevel2Stone1" class="PyramidStone">
-    </div>
-    <div id="PyramidLevel2Stone2" class="PyramidStone">
-    </div>
-    <div id="PyramidLevel2Stone3" class="PyramidStone">
-    </div>
-    <div id="PyramidLevel2Stone4" class="PyramidStone">
+    <div *ngFor="let stone of pyramidSite.stones; let i = index;" id="PyramidLevel2Stone{{i+1}}" class="PyramidStone">
+      <ng-container *ngIf="i >= 9 && i < 13">
+        <app-stone [stoneColor]="stone"></app-stone>
+      </ng-container>
     </div>
   </div>
-  <div id="PyramidLevel3Stone1" class="PyramidStone">
+
+  <!--Third Level-->
+  <div *ngFor="let stone of pyramidSite.stones; let i = index;" id="PyramidLevel3Stone1" class="PyramidStone">
+    <ng-container *ngIf="i > 13">
+      <app-stone [stoneColor]="stone"></app-stone>
+    </ng-container>
   </div>
-
-
-
-
 </div>

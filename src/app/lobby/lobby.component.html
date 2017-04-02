@@ -46,30 +46,5 @@
 </div>
 
 
-<div id="waiting-lobby" class="bg-white center" *ngIf="selectedGame && gameId">
-  <h3>Players in Game: {{selectedGame.name}} ({{selectedGame.players.length}}/{{selectedGame.playerCountSetting}})</h3>
-  <h4 *ngIf="selectedGame.players.length < selectedGame.playerCountSetting">Waiting for more players...</h4>
-  <table class="table">
-    <tr>
-      <th>Player Name</th>
-    </tr>
-    <tr *ngFor="let player of selectedGame.players">
-      <td>{{player.name}} {{player.username}}</td>
-    </tr>
-  </table>
-  <button id="LeaveButton" class="btn-basic" (click)="leaveGameModal.open()">Leave Game</button>
-  <button class="btn-basic" (click)="startGame(selectedGame)">Start Game</button>
-  <modal #leaveGameModal>
-    <modal-content>
-      <div class="center" style="max-width: 150px">
-        <p>Are you sure?</p>
-        <button class="btn-basic inline" (click)="removePlayer(selectedGame)">Yes</button>
-        <button class="btn-basic inline" (click)="leaveGameModal.close()">No</button>
-      </div>
-    </modal-content>
-  </modal>
-</div>
-
-
 
 

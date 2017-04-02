@@ -10,6 +10,7 @@ export class Game {
   private _moves;
   private _players;
   private _playerCountSetting:number;
+  private _gameBoard;
 
   get id(): number {
     return this._id;
@@ -76,5 +77,13 @@ export class Game {
 
   set playerCountSetting(value: number) {
     this._playerCountSetting = value;
+  }
+
+  get gameBoard() {
+    return this._gameBoard;
+  }
+
+  set gameBoard(value) {
+    this._gameBoard = value;
   }
 }

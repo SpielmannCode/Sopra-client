@@ -39,6 +39,7 @@ import { PyramidComponent } from './game/playingfield/site/pyramid/pyramid.compo
 import {DragulaModule} from 'ng2-dragula';
 import { LobbyHeaderComponent } from './lobby/lobby-header/lobby-header.component';
 import {MoveService} from "./shared/services/move.service";
+import { WaitingLobbyComponent } from './lobby/waiting-lobby/waiting-lobby.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import {MoveService} from "./shared/services/move.service";
     GetstonesComponent,
     PyramidComponent,
     LobbyHeaderComponent,
-    HighlightDirective
+    HighlightDirective,
+    WaitingLobbyComponent
   ],
   imports: [
     BrowserModule,

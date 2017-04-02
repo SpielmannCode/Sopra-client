@@ -1,22 +1,31 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild, ViewChildren, QueryList, AfterViewInit} from '@angular/core';
 import {Game} from "../../shared/models/game";
 import {DragulaService} from "ng2-dragula";
 import {SiteComponent} from "./site/site.component";
 import {MoveService} from "../../shared/services/move.service";
 import {GameService} from "../../shared/services/game.service";
+import {Subscription} from "rxjs";
+import {GameComponent} from "../game.component";
+import {UserService} from "../../shared/services/user.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-playingfield',
   templateUrl: './playingfield.component.html',
   styleUrls: ['./playingfield.component.css']
 })
-export class PlayingfieldComponent implements OnInit {
+export class PlayingfieldComponent extends GameComponent implements OnInit {
 
   @Input('game') game: Game;
+  @Input('gameObservable') gameObservable: Subscription;
+  @ViewChild(SiteComponent) siteComponent: SiteComponent;
 
   constructor(protected dragulaService: DragulaService,
-              private gameService: GameService,
-              private moveService: MoveService) {
+              protected gameService: GameService,
+              private moveService: MoveService,
+              protected userService: UserService,
+              protected route: ActivatedRoute) {
+    super(userService, gameService, route);
     dragulaService.drag.subscribe((value) => {
       this.onDrag(value.slice(1));
     });
@@ -45,9 +54,9 @@ export class PlayingfieldComponent implements OnInit {
 
   }
 
+
   protected onDrag(args) {
     let [e, el] = args;
-    // do something
   }
 
   protected onDrop(args) {
@@ -59,7 +68,8 @@ export class PlayingfieldComponent implements OnInit {
     switch (e.tagName) {
       case 'APP-SHIP': {
         audio.src ='/assets/musik/fx/32304__acclivity__shipsbell.wav';
-        SiteComponent.placeStonesOn(el.id);
+        let shipIndex = (parseInt(e.id.match(/(\d+)/)[1]) - 1).toString();
+        this.siteComponent.placeStonesOn(el, shipIndex);
         break;
       }
       case 'APP-STONE': {
@@ -77,10 +87,11 @@ export class PlayingfieldComponent implements OnInit {
 
         break;
       }
-    }
 
+    }
     audio.load();
     audio.play();
+
   }
 
   protected onOver(args) {

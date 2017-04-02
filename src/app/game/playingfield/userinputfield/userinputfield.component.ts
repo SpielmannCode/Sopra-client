@@ -50,12 +50,15 @@ export class UserinputfieldComponent implements OnInit, OnChanges {
       }
     }
   }
+
   getStones(){
     let moveJson = {
       "type": "TakeStoneMove"
-    }
-  this.moveService.addMove(this.game,moveJson).subscribe();
+    };
+
+    this.moveService.addMove(this.game,moveJson).subscribe();
   }
+
   toggleCardStack() {
     this.showCardStack = !this.showCardStack;
   }
