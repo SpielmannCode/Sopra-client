@@ -1,11 +1,31 @@
 <div id="Temple" class="site">
-  <div id="TempleDock" class="Dockright" [dragula]='"first-bag"'>
+  <div id="TempleDock" class="Dockright" *ngIf="templeSite.dockedShip !== null">
+    <app-ship class="shipsize1" [stones]="templeSite.dockedShip.stones" [game]="game" [isDocked]="true"></app-ship>
   </div>
+
+  <div id="TempleDock" class="Dockright" [dragula]='"first-bag"' *ngIf="templeSite.dockedShip === null">
+  </div>
+
   <img src="/assets/Images/Site_boards/Temple.png" alt="Temple">
-  <div id="Stone1" class="templeStone"></div>
-  <div id="Stone2" class="templeStone"></div>
-  <div id="Stone3" class="templeStone"></div>
-  <div id="Stone4" class="templeStone"></div>
-  <div id="Stone5" class="templeStone"></div>
+
+  <div id="Stone1" class="templeStone">
+    <app-stone [stoneColor]= "templeSite.stones[templeSite.size * x+0]" *ngIf="sizeT % templeSite.size > 0"></app-stone>
+  </div>
+  <div id="Stone2" class="templeStone">
+    <app-stone [stoneColor]= "templeSite.stones[templeSite.size * x+1]" *ngIf="sizeT % templeSite.size > 1"></app-stone>
+    <app-stone [stoneColor]= "templeSite.stones[templeSite.size * (x-1)+1]" *ngIf="sizeT % templeSite.size <= 1"></app-stone>
+  </div>
+  <div id="Stone3" class="templeStone">
+    <app-stone [stoneColor]= "templeSite.stones[templeSite.size * x+2]" *ngIf="sizeT % templeSite.size > 2"></app-stone>
+    <app-stone [stoneColor]= "templeSite.stones[templeSite.size * (x-1)+2]" *ngIf="sizeT % templeSite.size <= 2"></app-stone>
+  </div>
+  <div id="Stone4" class="templeStone">
+    <app-stone [stoneColor]= "templeSite.stones[templeSite.size * x+3]" *ngIf="sizeT % templeSite.size > 3"></app-stone>
+    <app-stone [stoneColor]= "templeSite.stones[templeSite.size * (x-1)+3]" *ngIf="sizeT % templeSite.size <= 3"></app-stone>
+  </div>
+  <div id="Stone5" class="templeStone" *ngIf="templeSite.size===5" >
+    <app-stone [stoneColor]= "templeSite.stones[templeSite.size * x+4]" *ngIf="sizeT % templeSite.size > 4"></app-stone>
+    <app-stone [stoneColor]= "templeSite.stones[templeSite.size * (x-1)+4]" *ngIf="sizeT % templeSite.size <= 4"></app-stone>
+  </div>
 </div>
 
