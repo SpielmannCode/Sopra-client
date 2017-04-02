@@ -12,13 +12,14 @@ export class MoveService {
 
 
   addMove(game: Game, moveJson): Observable<Response>{
-    const currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
-    if (game.players[game.currentPlayerIndex].token === currentUserToken){
-      return this.http.post(this.apiService.apiUrl + '/games/' + game.id + '/moves?token=' + game.players[game.currentPlayerIndex].token,
+    let currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
+
+    if (game.players[game.currentPlayerIndex].token === currentUserToken) {
+      return this.http.post(this.apiService.apiUrl + '/games/' + game.id + '/moves?token=' + currentUserToken,
         JSON.stringify(moveJson), this.apiService.options);
+    } else {
+      console.log('not allowed');
     }
-    console.log('error not autorized');
-    return Observable.throw(Error) ;
   }
 
 }
