@@ -7,7 +7,7 @@ import {GameComponent} from './game/game.component';
 import {InfoComponent} from './info/info.component';
 import {PlayingfieldComponent} from './game/playingfield/playingfield.component';
 import {LobbyService} from './shared/services/lobby.service';
-import {WaitingLobbyComponent} from "./lobby/waiting-lobby/waiting-lobby.component";
+import {WaitingLobbyComponent} from './lobby/waiting-lobby/waiting-lobby.component';
 
 const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
