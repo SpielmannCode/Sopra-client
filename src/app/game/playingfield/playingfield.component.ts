@@ -5,21 +5,27 @@ import {SiteComponent} from "./site/site.component";
 import {MoveService} from "../../shared/services/move.service";
 import {GameService} from "../../shared/services/game.service";
 import {Subscription} from "rxjs";
+import {GameComponent} from "../game.component";
+import {UserService} from "../../shared/services/user.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-playingfield',
   templateUrl: './playingfield.component.html',
   styleUrls: ['./playingfield.component.css']
 })
-export class PlayingfieldComponent implements OnInit {
+export class PlayingfieldComponent extends GameComponent implements OnInit {
 
   @Input('game') game: Game;
   @Input('gameObservable') gameObservable: Subscription;
   @ViewChild(SiteComponent) siteComponent: SiteComponent;
 
   constructor(protected dragulaService: DragulaService,
-              private gameService: GameService,
-              private moveService: MoveService) {
+              protected gameService: GameService,
+              private moveService: MoveService,
+              protected userService: UserService,
+              protected route: ActivatedRoute) {
+    super(userService, gameService, route);
     dragulaService.drag.subscribe((value) => {
       this.onDrag(value.slice(1));
     });
@@ -85,6 +91,7 @@ export class PlayingfieldComponent implements OnInit {
     }
     audio.load();
     audio.play();
+
   }
 
   protected onOver(args) {

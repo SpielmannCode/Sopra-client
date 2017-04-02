@@ -15,13 +15,15 @@ export class GameComponent implements OnInit,OnDestroy {
   protected users: User[] = [];
   protected gameId: number;
   protected game: Game;
-  private gameObservable: Subscription;
+  protected gameObservable: Subscription;
 
   constructor(protected userService: UserService,
               protected gameService: GameService,
               protected route: ActivatedRoute) { }
 
   ngOnInit() {
+    let self = this;
+
     // get users from secure api end point
     this.userService.getUsers()
       .subscribe(users => {
@@ -32,18 +34,26 @@ export class GameComponent implements OnInit,OnDestroy {
       this.gameId = params['id'];
 
       this.gameService.getGame(this.gameId).subscribe(game => {
-        this.game = game;
+          this.game = game;
       });
 
-      this.gameObservable = Observable.interval(3000).subscribe(() => {
-        this.gameService.getGame(this.gameId).subscribe(game => {
-          this.game = game;
-        });
-      });
+      self.startGameRefresh();
     });
   }
 
   ngOnDestroy() {
+    this.gameObservable.unsubscribe();
+  }
+
+  startGameRefresh() {
+    this.gameObservable = Observable.interval(3000).subscribe(() => {
+      this.gameService.getGame(this.gameId).subscribe(game => {
+        this.game = game;
+      });
+    });
+  }
+
+  stopGameRefresh() {
     this.gameObservable.unsubscribe();
   }
 }
