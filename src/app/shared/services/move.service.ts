@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {ApiService} from './api.service';
 import {Game} from '../models/game';
+import {Move} from '../models/move';
 import {Observable} from 'rxjs';
 
 @Injectable()
@@ -21,5 +22,8 @@ export class MoveService {
       console.log('not allowed');
     }
   }
-
+  getMoves(gameid): Observable<Move[]> {
+    return this.http.get(this.apiService.apiUrl +'/games/'+ gameid +'/moves/')
+      .map((response: Response) => response.json());
+  }
 }
