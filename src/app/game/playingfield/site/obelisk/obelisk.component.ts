@@ -5,15 +5,20 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core'
   templateUrl: './obelisk.component.html',
   styleUrls: ['./obelisk.component.css']
 })
-export class ObeliskComponent implements OnInit {
+export class ObeliskComponent implements OnInit,OnChanges {
   @Input('obeliskSite') obeliskSite;
   sumO:number = 0;
 
   constructor() { }
 
   ngOnInit() {
-    for(let stone of this.obeliskSite.stones)
-      this.sumO = this.sumO + stone;
+
   }
+  ngOnChanges() {
+    this.sumO=0;
+    for(let stone of this.obeliskSite.stones){
+      this.sumO = this.sumO + stone;}
+  }
+
 
 }
