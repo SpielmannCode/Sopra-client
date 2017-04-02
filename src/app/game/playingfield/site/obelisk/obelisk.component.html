@@ -1,21 +1,25 @@
 <div id="Obelisk" class="site">
-  <div id="ObeliskDock" class="Dockright" [dragula]='"first-bag"'>
+  <div id="ObeliskDock" class="Dockright" *ngIf="obeliskSite.dockedShip !== null">
+    <app-ship class="shipsize1" [stones]="obeliskSite.dockedShip.stones" [game]="game" [isDocked]="true"></app-ship>
+  </div>
+
+  <div id="ObeliskDock" class="Dockright" [dragula]='"first-bag"' *ngIf="obeliskSite.dockedShip === null">
   </div>
   <img src="/assets/Images/Site_boards/Obelisks.png" alt="Obelisk">
 
 <div id="ObeliskStoneBlack" class="ObeliskStone">
-  <div class="NumberStone">10</div>
+  <div class="NumberStone">{{obeliskSite.stones[0]}}</div>
 </div>
 <div id="ObeliskStoneWhite" class="ObeliskStone">
-  <div class="NumberStone">7</div>
+  <div class="NumberStone">{{obeliskSite.stones[1]}}</div>
 </div>
 <div id="ObeliskStoneBrown" class="ObeliskStone">
-  <div class="NumberStone">5</div>
+  <div class="NumberStone">{{obeliskSite.stones[3]}}</div>
 </div>
 <div id="ObeliskStoneGrey" class="ObeliskStone">
-  <div class="NumberStone">0</div>
+  <div class="NumberStone">{{obeliskSite.stones[2]}}</div>
 </div>
   <div id="ObeliskStoneTotal" class="ObeliskStone">
-    <div class="NumberStone">22</div>
+    <div class="NumberStone">{{sumO}}</div>
   </div>
 </div>
