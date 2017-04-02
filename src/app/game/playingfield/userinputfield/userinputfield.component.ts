@@ -24,7 +24,7 @@ export class UserinputfieldComponent implements OnInit, OnChanges {
         if(this.game.players[this.game.currentPlayerIndex].token === this.currentPlayer.token) {
           this.Playingstatus = 'It is Your Turn!';
           }
-          if(this.game.players[this.game.nextPlayerIndex].token === this.currentPlayer.token){
+          else if(this.game.players[this.game.nextPlayerIndex].token === this.currentPlayer.token){
             this.Playingstatus = 'You are next, prepare!';
           }
           else{
