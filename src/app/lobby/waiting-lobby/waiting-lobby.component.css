@@ -1,0 +1,12 @@
+#waiting-lobby {
+  padding: 20px;
+  max-width: 500px;
+}
+
+.table > tbody > tr > td {
+  border-top: none;
+}
+
+.table tr:nth-child(even) {
+  background-color: #eee;
+}

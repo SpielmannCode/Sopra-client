@@ -1,5 +1,5 @@
 <div id="playing-field" *ngIf="game">
-  <app-site></app-site>
+  <app-site [game]="game"></app-site>
   <div id="Ships">
     <div class="row">
         <div class="col-md-3" *ngFor="let ship of game.gameBoard.availableShips; let i = index;" [dragula]='"first-bag"'>

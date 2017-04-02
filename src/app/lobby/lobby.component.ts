@@ -39,20 +39,9 @@ export class LobbyComponent implements OnInit, OnDestroy {
     this.gamesObservable = Observable.interval(5000).subscribe(() => {
       this.getGames();
     });
-
-    this.route.params.subscribe(params => {
-      this.gameId = params['id'];
-      if (this.gameId) {
-        this.getGame(this.gameId);
-        this.gameObservable = Observable.interval(5000).subscribe(() => {
-          this.getGame(this.gameId);
-        });
-      }
-    });
   }
 
   ngOnDestroy() {
-    this.gameObservable.unsubscribe();
     this.gamesObservable.unsubscribe();
   }
 
@@ -102,10 +91,6 @@ export class LobbyComponent implements OnInit, OnDestroy {
       });
   }
 
-  startGame(game: Game) {
-    this.gameService.initBoard(game).subscribe(() => this.router.navigateByUrl('/game/' + game.id));
-  }
-
   addPlayer(game: Game) {
     let currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
 
@@ -113,14 +98,5 @@ export class LobbyComponent implements OnInit, OnDestroy {
       .subscribe(() => {
         this.router.navigateByUrl('/lobby/' + game.id);
       });
-  }
-
-  removePlayer(game: Game) {
-    let currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
-
-    this.gameService.removePlayer(game, currentUserToken).subscribe(() => {
-      this.router.navigateByUrl('/lobby');
-    })
-
   }
 }
