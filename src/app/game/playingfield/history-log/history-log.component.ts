@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, OnDestroy} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, OnDestroy } from '@angular/core';
 import {Move} from '../../../shared/models/move';
 import {Game} from '../../../shared/models/game';
 import {MoveService} from '../../../shared/services/move.service';
@@ -10,7 +10,7 @@ import {ActivatedRoute} from "@angular/router";
   templateUrl: './history-log.component.html',
   styleUrls: ['./history-log.component.css']
 })
-export class HistoryLogComponent implements OnInit, OnChanges {
+export class HistoryLogComponent implements OnInit, OnChanges, OnDestroy {
   protected moves: Move[] = [];
   @Input('game') game: Game;
   protected moveObservable: Subscription;
