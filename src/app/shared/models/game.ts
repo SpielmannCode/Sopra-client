@@ -11,6 +11,7 @@ export class Game {
   private _players;
   private _playerCountSetting:number;
   private _gameBoard;
+  private _logicState:string;
 
   get id(): number {
     return this._id;
@@ -85,5 +86,9 @@ export class Game {
 
   set gameBoard(value) {
     this._gameBoard = value;
+  }
+
+  get logicState(): string {
+    return this._logicState;
   }
 }
