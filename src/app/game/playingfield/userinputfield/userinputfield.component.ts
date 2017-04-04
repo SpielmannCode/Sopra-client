@@ -12,7 +12,7 @@ export class UserinputfieldComponent implements OnInit, OnChanges {
   @Input('game') game: Game;
   Playingstatus: string;
   currentPlayer;
-  private _opened: boolean = false;
+  private _opened: boolean = true;
   constructor(private moveService: MoveService) {
 
   }
