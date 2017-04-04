@@ -1,5 +1,5 @@
 #card-stack {
-  max-width: 330px;
+  width: 330px;
   height: 195px;
   overflow: scroll;
   overflow-x: hidden;

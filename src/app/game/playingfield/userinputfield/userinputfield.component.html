@@ -1,5 +1,5 @@
 <div id="userinputfield" class="bg-white text-center">
-  <app-cardstack *ngIf="showCardStack"></app-cardstack>
+  <app-cardstack *ngIf="showCardStack" [game]="game"></app-cardstack>
   <app-sled [game]="game"></app-sled>
   <div id="buttons">
     {{Playingstatus}}<br>
