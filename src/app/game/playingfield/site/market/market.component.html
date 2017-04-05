@@ -1,10 +1,21 @@
 <div id="Market" class="site">
-  <div id="MarketDock" class="Dockleft" [dragula]='"first-bag"'>
+  <div id="MarketDock" class="Dockleft" [dragula]='"first-bag"' *ngIf="marketSite.dockedShip !== null">
+    <app-ship class="shipsize1" [stones]="marketSite.dockedShip.stones" [game]="game" [isDocked]="true"></app-ship>
   </div>
+  <div id="MarketDock" class="Dockleft" [dragula]='"first-bag"' *ngIf="marketSite.dockedShip === null"></div>
+
   <img src="/assets/Images/Site_boards/Market.png" alt="Market">
-  <div *ngFor="let card of marketSite.visibleCards; let i = index;" id="MarketCard{{i+1}}" class="MarketCard">
-    <app-card [cardName]="card"></app-card>
-  </div>
+
+  <ng-container *ngIf="logicState === 'MARKET'">
+    <div *ngFor="let card of marketSite.visibleCards; let i = index;" id="MarketCard{{i+1}}" class="MarketCard hover-border">
+      <app-card [cardName]="card" (dblclick)="takeCard(i)"></app-card>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="logicState !== 'MARKET'">
+    <div *ngFor="let card of marketSite.visibleCards; let i = index;" id="MarketCard{{i+1}}" class="MarketCard">
+      <app-card [cardName]="card"></app-card>
+    </div>
+  </ng-container>
+
 </div>
-
-

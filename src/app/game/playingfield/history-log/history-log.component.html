@@ -1,3 +1,9 @@
-<p>
-  history-log works!
-</p>
+<div *ngFor="let move of moves; let i = index;" >
+  <div *ngIf="move.failed === false" >
+    Move {{i+1}} : {{move.description}}
+  </div>
+  <div class="failed" *ngIf="move.failed === true" >
+   Failed: {{i+1}} : {{move.description}}
+  </div>
+</div>
+

@@ -1,12 +1,16 @@
 <div id="Burial_Chamber" class="site">
-  <div id="BurialDock" class="Dockright" [dragula]='"first-bag"'>
+  <div id="BurialDock" class="Dockright" *ngIf="burialChamber.dockedShip !== null">
+    <app-ship class="shipsize1" [stones]="burialChamber.dockedShip.stones" [game]="game" [isDocked]="true"></app-ship>
   </div>
+
+  <div id="BurialDock" class="Dockright" [dragula]='"first-bag"' *ngIf="burialChamber.dockedShip === null"></div>
+
   <img src="/assets/Images/Site_boards/Burial_Chamber.png " alt="Burial_Chamber">
   <div id="BurialField" class="BurialField">
 
-    <ng-container *ngFor="let field of fields; let i = index;">
-      <div id="burialField{{i+1}}" class="BurialFieldStone"></div>
-    </ng-container>
+    <div *ngFor="let stone of burialChamber.stones; let i = index;" id="burialField{{i+1}}" class="BurialFieldStone">
+      <app-stone [stoneColor]="stone"></app-stone>
+    </div>
 
   </div>
 </div>

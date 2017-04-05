@@ -11,7 +11,7 @@ import {Observable, Subscription} from 'rxjs/Rx';
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css']
 })
-export class GameComponent implements OnInit,OnDestroy {
+export class GameComponent implements OnInit, OnDestroy {
   protected users: User[] = [];
   protected gameId: number;
   protected game: Game;

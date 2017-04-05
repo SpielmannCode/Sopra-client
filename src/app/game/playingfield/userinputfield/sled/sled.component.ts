@@ -18,7 +18,7 @@ export class SledComponent implements OnInit , OnChanges {
     for (let player of this.game.players) {
       if (player.token === this.currentUserToken) {
         this.stoneColor = player.stoneColor;
-        this.stones = Array(player.stoneSupply).fill(3);
+        this.stones = Array(player.stoneSupply).fill(player.stoneSupply);
       }
     }
   }
@@ -26,7 +26,7 @@ export class SledComponent implements OnInit , OnChanges {
     for (let player of this.game.players) {
       if (player.token === this.currentUserToken) {
         this.stoneColor = player.stoneColor;
-        this.stones = Array(player.stoneSupply).fill(3);
+        this.stones = Array(player.stoneSupply).fill(player.stoneSupply);
       }
     }
   }

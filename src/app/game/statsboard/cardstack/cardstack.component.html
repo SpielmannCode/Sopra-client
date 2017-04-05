@@ -1,8 +1,3 @@
 <div id="card-stack" class="bg-white row">
-  <app-card class="col-md-6"></app-card>
-  <app-card class="col-md-6"></app-card>
-  <app-card class="col-md-6"></app-card>
-  <app-card class="col-md-6"></app-card>
-  <app-card class="col-md-6"></app-card>
-  <app-card class="col-md-6"></app-card>
+  <app-card *ngFor="let card of playerCards" [cardName]="card" class="col-md-6"></app-card>
 </div>

@@ -90,7 +90,7 @@ export class PlayingfieldComponent extends GameComponent implements OnInit {
           "stoneIndex": stonePos[2]
         };
 
-        this.moveService.addMove(this.game, moveJson).subscribe(() => console.log('ok'));
+        this.moveService.addMove(this.game, moveJson).subscribe();
 
         break;
       }

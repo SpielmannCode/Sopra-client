@@ -6,7 +6,7 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core'
   styleUrls: ['./burialchamber.component.css']
 })
 export class BurialchamberComponent implements OnInit {
-  @Input('burialChamberSite') burialChamberSite;
+  @Input('burialChamber') burialChamber;
   fields;
   sumB:number = 0;
 
