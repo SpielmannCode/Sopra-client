@@ -40,6 +40,7 @@ import {MoveService} from './shared/services/move.service';
 import { WaitingLobbyComponent } from './lobby/waiting-lobby/waiting-lobby.component';
 import { HistoryLogComponent } from './game/playingfield/history-log/history-log.component';
 import { SidebarModule } from 'ng-sidebar';
+import {ToastyModule} from "ng2-toasty";
 
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ import { SidebarModule } from 'ng-sidebar';
     ModalModule,
     DragulaModule,
     SidebarModule.forRoot(),
+    ToastyModule.forRoot()
   ],
   providers: [
     AuthenticationService,

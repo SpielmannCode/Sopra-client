@@ -14,7 +14,7 @@ import {ActivatedRoute} from "@angular/router";
   templateUrl: './playingfield.component.html',
   styleUrls: ['./playingfield.component.css']
 })
-export class PlayingfieldComponent extends GameComponent implements OnInit {
+export class PlayingfieldComponent implements OnInit {
 
   @Input('game') game: Game;
   @Input('gameObservable') gameObservable: Subscription;
@@ -25,7 +25,6 @@ export class PlayingfieldComponent extends GameComponent implements OnInit {
               private moveService: MoveService,
               protected userService: UserService,
               protected route: ActivatedRoute) {
-    super(userService, gameService, route);
     dragulaService.drag.subscribe((value) => {
       this.onDrag(value.slice(1));
     });
