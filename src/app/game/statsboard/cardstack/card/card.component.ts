@@ -9,23 +9,23 @@ export class CardComponent implements OnInit {
   @Input('cardName') cardName;
   currentImage;
   cardImages = {
-    'Burial_Chamber_Decoration': '/assets/Images/marketCards/Card_Burial_Chamber_Decoration.png',
-    'Chisel': '/assets/Images/marketCards/Card_Chisel.png',
-    'Entrance': '/assets/Images/marketCards/Card_Entrance.png',
-    'Hammer': '/assets/Images/marketCards/Card_Hammer.png',
-    'Lever': '/assets/Images/marketCards/Card_Lever.png',
-    'Obelisk_Decoration': '/assets/Images/marketCards/Card_Obelisk_Decoration.png',
-    'Paved_Path': '/assets/Images/marketCards/Card_Paved_Path.png',
-    'Pyramid_Decoration': '/assets/Images/marketCards/Card_Pyramid_Decoration.png',
-    'Sail': '/assets/Images/marketCards/Card_Sail.png',
-    'Sarcophagus': '/assets/Images/marketCards/Card_Sarcophagus.png',
-    'Statue': '/assets/Images/marketCards/Card_Statue.png',
-    'Temple_Decoration': '/assets/Images/marketCards/Card_Temple_Decoration.png'
+    'Burial_Chamber_Decoration': ['/assets/Images/marketCards/Card_Burial_Chamber_Decoration.png', 'GREEN'],
+    'Chisel': ['/assets/Images/marketCards/Card_Chisel.png', 'BLUE'],
+    'Entrance': ['/assets/Images/marketCards/Card_Entrance.png', 'RED'],
+    'Hammer': ['/assets/Images/marketCards/Card_Hammer.png', 'BLUE'],
+    'Lever': ['/assets/Images/marketCards/Card_Lever.png', 'BLUE'],
+    'Obelisk_Decoration': ['/assets/Images/marketCards/Card_Obelisk_Decoration.png', 'GREEN'],
+    'Paved_Path': ['/assets/Images/marketCards/Card_Paved_Path.png', 'RED'],
+    'Pyramid_Decoration': ['/assets/Images/marketCards/Card_Pyramid_Decoration.png', 'GREEN'],
+    'Sail': ['/assets/Images/marketCards/Card_Sail.png', 'BLUE'],
+    'Sarcophagus': ['/assets/Images/marketCards/Card_Sarcophagus.png', 'RED'],
+    'Statue': ['/assets/Images/marketCards/Card_Statue.png', 'VIOLET'],
+    'Temple_Decoration': ['/assets/Images/marketCards/Card_Temple_Decoration.png', 'GREEN']
   };
 
   constructor() { }
 
   ngOnInit() {
-    this.currentImage = this.cardImages[this.cardName];
+    this.currentImage = this.cardImages[this.cardName][0];
   }
 }
