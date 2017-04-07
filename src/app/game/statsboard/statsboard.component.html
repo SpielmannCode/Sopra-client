@@ -15,10 +15,10 @@
       </tr>
       <tr>
     </table>
-    <div class="card-stats center">
-      <span class="cards green inline-block"></span> x3
-      <span class="cards blue inline-block"></span> x4
-      <span class="cards pink inline-block"></span> x5
+    <div *ngFor="let cardcount of getCardcount(player.token); let i=index" class="card-stats center inline-block">
+      <div *ngIf="i === 0"class="inline-block"><span class="cards green inline-block"></span> x{{cardcount}}</div>
+      <div *ngIf="i === 1"class="inline-block"><span  class="cards blue inline-block"></span> x{{cardcount}}</div>
+      <div *ngIf="i === 2"class="inline-block"><span  class="cards pink inline-block"></span> x{{cardcount}}</div>
     </div>
   </div>
 </ng-container>
