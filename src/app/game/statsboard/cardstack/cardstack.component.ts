@@ -104,11 +104,9 @@ export class CardstackComponent implements OnInit, OnChanges {
 
     switch (moveType) {
       case 'PlayChiselMove': {
-
         this.dragulaService.drop.subscribe((value) => {
           this.chiselDrop(value.slice(1));
         });
-
         break;
       }
       case 'PlayHammerMove': {
@@ -118,8 +116,6 @@ export class CardstackComponent implements OnInit, OnChanges {
         break;
       }
       case 'PlaySailMove': {
-        console.log('PlaySailMove');
-
         this.dragulaService.drop.subscribe((value) => {
           this.sailDrop(value.slice(1));
         });
@@ -140,16 +136,14 @@ export class CardstackComponent implements OnInit, OnChanges {
   protected chiselDrop(args) {
     let [e, el] = args;
     let stonePos = e.parentElement.id.match(/(\d+)-(\d+)/);
-    console.log(el);
-    console.log('stone pos', stonePos[1], stonePos[2]);
 
     if (this.dropCount === 0) {
-      this.ship1Index = parseInt(stonePos[1]);
-      this.stone1Index = parseInt(stonePos[2]);
+      this.ship1Index = stonePos[1];
+      this.stone1Index = stonePos[2];
       this.dropCount++;
     } else {
-      this.ship2Index = parseInt(stonePos[1]);
-      this.stone2Index = parseInt(stonePos[2]);
+      this.ship2Index = stonePos[1];
+      this.stone2Index = stonePos[2];
       this.dropCount = 0;
 
       console.log(this.ship1Index, this.stone1Index, this.ship2Index, this.stone2Index);
@@ -165,9 +159,6 @@ export class CardstackComponent implements OnInit, OnChanges {
 
       this.moveService.addMove(this.game, moveJson).subscribe(() => console.log('chisel drop'));
     }
-
-
-
   }
 
   protected sailDrop(args) {
