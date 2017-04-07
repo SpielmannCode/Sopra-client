@@ -1,3 +1,20 @@
 <div id="card-stack" class="bg-white row">
-  <app-card *ngFor="let card of playerCards" [cardName]="card" class="col-md-6"></app-card>
+  <ng-container *ngFor="let card of playerCards; let i = index">
+    <app-card [cardName]="card" class="col-md-6" *ngIf="isPlayerTurn() && cardColors[i] === 'BLUE'" (click)="openMoveModal(card)"></app-card>
+    <app-card [cardName]="card" class="col-md-6" *ngIf="!(isPlayerTurn() && cardColors[i] === 'BLUE')"></app-card>
+  </ng-container>
 </div>
+
+<modal #setMoveModal (onOpen)="showCardModal()">
+  <modal-header>
+    <h4>{{modalCardDescription}}</h4>
+  </modal-header>
+  <modal-content>
+    <h2>{{modalSelectedCard}}</h2>
+  </modal-content>
+  <modal-footer>
+    <button class="btn-basic" (click)="setPlayCardMode(modalSelectedCard)">Play</button>
+    <button class="btn-basic" (click)="setMoveModal.close()">close</button>
+  </modal-footer>
+</modal>
+
