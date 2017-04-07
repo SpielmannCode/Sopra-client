@@ -8,6 +8,7 @@ import {Subscription} from "rxjs";
 import {GameComponent} from "../game.component";
 import {UserService} from "../../shared/services/user.service";
 import {ActivatedRoute} from "@angular/router";
+import {CardstackComponent} from "../statsboard/cardstack/cardstack.component";
 
 @Component({
   selector: 'app-playingfield',
@@ -70,6 +71,10 @@ export class PlayingfieldComponent implements OnInit {
     let currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
     let audio = new Audio();
     this.removeClass(el, 'drop-border');
+
+    if (CardstackComponent.playCardMode) {
+      return;
+    }
 
     switch (e.tagName) {
       case 'APP-SHIP': {
