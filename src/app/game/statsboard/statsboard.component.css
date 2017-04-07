@@ -34,3 +34,20 @@
   background-color: #AE5F9F;
   box-shadow: 0 2px 2px #AE5F9F;
 }
+.WHITE{
+  background-color: #fff;
+  color: #080808;
+}
+.BLACK{
+  background-color: #080808;
+  color: whitesmoke;
+}
+.GREY{
+  background-color: #8c8c8c;
+  color: saddlebrown ;
+}
+.BROWN{
+  background-color: saddlebrown;
+  color: #8c8c8c ;
+}
+
