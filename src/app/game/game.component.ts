@@ -5,6 +5,8 @@ import {ActivatedRoute} from '@angular/router';
 import {GameService} from '../shared/services/game.service';
 import {Game} from '../shared/models/game';
 import {Observable, Subscription} from 'rxjs/Rx';
+import {ToastyService, ToastyConfig, ToastOptions, ToastData} from 'ng2-toasty';
+
 
 @Component({
   selector: 'app-game',
@@ -16,13 +18,17 @@ export class GameComponent implements OnInit, OnDestroy {
   protected gameId: number;
   protected game: Game;
   protected gameObservable: Subscription;
+  private userToken;
 
   constructor(protected userService: UserService,
               protected gameService: GameService,
-              protected route: ActivatedRoute) { }
+              protected route: ActivatedRoute,
+              private toastyService:ToastyService,
+              private toastyConfig: ToastyConfig) { }
 
   ngOnInit() {
     let self = this;
+    this.userToken = JSON.parse(localStorage.getItem('currentUser')).token;
 
     // get users from secure api end point
     this.userService.getUsers()
@@ -51,6 +57,10 @@ export class GameComponent implements OnInit, OnDestroy {
 
         if (JSON.stringify(this.game) !== JSON.stringify(game)) {
           this.game = game;
+
+          if (this.game.players[this.game.currentPlayerIndex].token === this.userToken) {
+            this.addToast();
+          }
         }
 
       });
@@ -60,4 +70,21 @@ export class GameComponent implements OnInit, OnDestroy {
   stopGameRefresh() {
     this.gameObservable.unsubscribe();
   }
+
+  addToast() {
+
+    let toastOptions:ToastOptions = {
+      title: "Your Turn!",
+      showClose: true,
+      timeout: 2000,
+      theme: 'default',
+      onAdd: (toast:ToastData) => {
+      },
+      onRemove: function(toast:ToastData) {
+      }
+    };
+
+    this.toastyService.info(toastOptions);
+  }
+
 }
