@@ -13,6 +13,7 @@ export class MarketComponent implements OnInit {
   @Input('game') game: Game;
   @Input('marketSite') marketSite;
   @Input('logicState') logicState;
+  @Input('dockOpen') dockOpen;
 
   constructor(private moveService: MoveService) { }
 
