@@ -1,5 +1,5 @@
 <ng-container *ngIf="game">
-  <div *ngFor="let player of game.players; let i=index" class="player-stat bg-white">
+  <div *ngFor="let player of game.players; let i=index" class="player-stat bg-white {{player.stoneColor}}">
     <table class="table">
       <tr>
         <td>{{i+1}}. {{player.username}}</td>
