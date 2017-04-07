@@ -43,7 +43,7 @@ export class PlayingfieldComponent implements OnInit {
       moves: function(el, source, handle, sibling) {
         const userToken = JSON.parse(localStorage.getItem('currentUser')).token;
         // returns true if it is current players turn
-        return (self.game.players[self.game.currentPlayerIndex].token === userToken && el.classList.contains('donotdrag'));
+        return (self.game.players[self.game.currentPlayerIndex].token === userToken && !el.classList.contains('donotdrag'));
       }
     });
     dragulaService.setOptions('second-bag', {
@@ -51,7 +51,10 @@ export class PlayingfieldComponent implements OnInit {
         const userToken = JSON.parse(localStorage.getItem('currentUser')).token;
         // returns true if it is current players turn
         return self.game.players[self.game.currentPlayerIndex].token === userToken;
-      }
+      },
+      accepts: function(el, target, source, sibling) {
+        return (target.childElementCount < 2);
+      }, revertOnSpill: true
     });
 
   }
