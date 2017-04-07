@@ -72,17 +72,32 @@ export class GameComponent implements OnInit, OnDestroy {
   }
 
   addToast() {
+    let toastOptions:ToastOptions;
+    if (this.game.logicState === 'NORMAL'){
+      toastOptions = {
+        title: "Your Turn!",
+        showClose: true,
+        timeout: 4000,
+        theme: 'material',
+        onAdd: (toast:ToastData) => {
+        },
+        onRemove: function(toast:ToastData) {
+        }
+      };
+    }
+    else if (this.game.logicState === 'MARKET'){
+      toastOptions = {
+        title: "Choose a Market Card!",
+        showClose: true,
+        timeout: 4000,
+        theme: 'material',
+        onAdd: (toast:ToastData) => {
+        },
+        onRemove: function(toast:ToastData) {
+        }
+      };
+    }
 
-    let toastOptions:ToastOptions = {
-      title: "Your Turn!",
-      showClose: true,
-      timeout: 2000,
-      theme: 'default',
-      onAdd: (toast:ToastData) => {
-      },
-      onRemove: function(toast:ToastData) {
-      }
-    };
 
     this.toastyService.info(toastOptions);
   }
