@@ -1,13 +1,16 @@
 import {Component, Input, OnInit, ViewChild, ViewChildren, QueryList, AfterViewInit} from '@angular/core';
-import {Game} from '../../shared/models/game';
-import {DragulaService} from 'ng2-dragula';
-import {SiteComponent} from './site/site.component';
-import {MoveService} from '../../shared/services/move.service';
-import {GameService} from '../../shared/services/game.service';
-import {Subscription} from 'rxjs';
-import {GameComponent} from '../game.component';
-import {UserService} from '../../shared/services/user.service';
-import {ActivatedRoute} from '@angular/router';
+
+import {Game} from "../../shared/models/game";
+import {DragulaService} from "ng2-dragula";
+import {SiteComponent} from "./site/site.component";
+import {MoveService} from "../../shared/services/move.service";
+import {GameService} from "../../shared/services/game.service";
+import {Subscription} from "rxjs";
+import {GameComponent} from "../game.component";
+import {UserService} from "../../shared/services/user.service";
+import {ActivatedRoute} from "@angular/router";
+import {CardstackComponent} from "../statsboard/cardstack/cardstack.component";
+
 
 @Component({
   selector: 'app-playingfield',
@@ -73,6 +76,10 @@ export class PlayingfieldComponent implements OnInit {
     const currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
     const audio = new Audio();
     this.removeClass(el, 'drop-border');
+
+    if (CardstackComponent.playCardMode) {
+      return;
+    }
 
     switch (e.tagName) {
       case 'APP-SHIP': {

@@ -7,6 +7,7 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core'
 })
 export class TempleComponent implements OnInit,OnChanges {
   @Input('templeSite') templeSite;
+  @Input('dockOpen') dockOpen;
   sumT:number=0;
   sizeT:number=0;
   x: number=0;
@@ -15,10 +16,8 @@ export class TempleComponent implements OnInit,OnChanges {
   constructor() { }
 
   ngOnInit() {
-  /*  for(let stone of this.templeSite.stones)
-      this.sumT = this.sumT + stone;
-      */
   }
+
   ngOnChanges() {
     for(let stone of this.templeSite.stones){ this.sumT = this.sumT + stone;}
     this.sizeT = this.templeSite.stones.length;

@@ -8,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class CardComponent implements OnInit {
   @Input('cardName') cardName;
   currentImage;
-  cardImages = {
+  static cardImages = {
     'Burial_Chamber_Decoration': ['/assets/Images/marketCards/Card_Burial_Chamber_Decoration.png', 'GREEN'],
     'Chisel': ['/assets/Images/marketCards/Card_Chisel.png', 'BLUE'],
     'Entrance': ['/assets/Images/marketCards/Card_Entrance.png', 'RED'],
@@ -26,6 +26,11 @@ export class CardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.currentImage = this.cardImages[this.cardName][0];
+    this.currentImage = CardComponent.cardImages[this.cardName][0];
   }
+
+  static getCardColor(cardName) {
+    return CardComponent.cardImages[cardName][1];
+  }
+
 }

@@ -8,3 +8,15 @@
 app-card {
   padding: 5px;
 }
+
+app-sled {
+  display: block;
+}
+
+#Ships{
+  width: 345px;
+  height: 180px;
+  bottom: 5px;
+  left: 450px;
+  background-color: inherit;
+}
