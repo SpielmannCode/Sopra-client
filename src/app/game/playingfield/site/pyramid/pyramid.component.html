@@ -18,17 +18,17 @@
 
   <!--Second Level-->
   <div id="PyramidLevel2" class="PyramidLevel2">
-    <div *ngFor="let stone of pyramidSite.stones; let i = index;" id="PyramidLevel2Stone{{i+1}}" class="PyramidStone">
-      <ng-container *ngIf="i >= 9 && i < 13">
-        <app-stone [stoneColor]="stone"></app-stone>
+    <div *ngFor="let stone of pyramidSite.stones; let i = index;" id="PyramidLevel2Stone{{i+9}}" class="PyramidStone">
+      <ng-container *ngIf="i >= 0 && i < 4">
+        <app-stone [stoneColor]="pyramidSite.stones[i+9]"></app-stone>
       </ng-container>
     </div>
   </div>
 
   <!--Third Level-->
   <div *ngFor="let stone of pyramidSite.stones; let i = index;" id="PyramidLevel3Stone1" class="PyramidStone">
-    <ng-container *ngIf="i > 13">
-      <app-stone [stoneColor]="stone"></app-stone>
+    <ng-container >
+      <app-stone [stoneColor]="pyramidSite.stones[13]"></app-stone>
     </ng-container>
   </div>
 </div>
