@@ -10,8 +10,7 @@
 
   <div id="Stone1" class="templeStone">
     <app-stone [stoneColor]= "templeSite.stones[templeSite.size * (x-1)+0]" *ngIf="sizeT % templeSite.size === 0"></app-stone>
-    <app-stone [stoneColor]= "templeSite.stones[0]" *ngIf="sizeT <= templeSite.size "></app-stone>
-    <app-stone [stoneColor]= "templeSite.stones[templeSite.size * (x)+0]" *ngIf="sizeT % templeSite.size > 0"></app-stone>
+    <app-stone [stoneColor]= "templeSite.stones[templeSite.size * (x)+0]" *ngIf="sizeT % templeSite.size > -1"></app-stone>
   </div>
   <div id="Stone2" class="templeStone">
     <app-stone [stoneColor]= "templeSite.stones[templeSite.size * x+1]" *ngIf="sizeT % templeSite.size > 1">
@@ -31,6 +30,27 @@
     <app-stone [stoneColor]= "templeSite.stones[templeSite.size * x+4]" *ngIf="sizeT % templeSite.size > 4"></app-stone>
     <app-stone [stoneColor]= "templeSite.stones[templeSite.size * (x-1)+4]" *ngIf="sizeT % templeSite.size <= 4"></app-stone>
   </div>
+
+  <div id="Arrow1" class="templeArrow">
+    <app-stone [stoneMarker]= "'MARKED'" *ngIf="indexT===1"></app-stone>
+  </div>
+  <div id="Arrow2" class="templeArrow" >
+    <app-stone [stoneMarker]= "'MARKED'" *ngIf="indexT===2"></app-stone>
+  </div>
+  <div id="Arrow3" class="templeArrow" >
+    <app-stone [stoneMarker]= "'MARKED'" *ngIf="indexT===3"></app-stone>
+  </div>
+  <div id="Arrow4" class="templeArrow" *ngIf="templeSite.size===4">
+    <app-stone [stoneMarker]= "'MARKED'" *ngIf="indexT===0"></app-stone>
+  </div>
+  <div id="Arrow6" class="templeArrow" *ngIf="templeSite.size===5">
+    <app-stone [stoneMarker]= "'MARKED'" *ngIf="indexT===4"></app-stone>
+  </div>
+  <div id="Arrow5" class="templeArrow" *ngIf="templeSite.size===5">
+    <app-stone [stoneMarker]= "'MARKED'" *ngIf="indexT===0"></app-stone>
+  </div>
+
+
 </div>
 
 
