@@ -24,7 +24,8 @@ export class TempleComponent implements OnInit,OnChanges {
     this.sizeT = this.templeSite.stones.length;
 
     this.x= Math.floor(this.sizeT/this.templeSite.size);
-    this.indexT= (this.templeSite.numberOfStones % this.templeSite.size);
-  }
+    if(this.templeSite.numberOfStones==0){this.indexT= 100;}
+    else {this.indexT=(this.templeSite.numberOfStones % this.templeSite.size);}
 
+}
 }
