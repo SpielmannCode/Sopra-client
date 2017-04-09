@@ -8,6 +8,9 @@ import {Game} from "../../../shared/models/game";
 })
 export class StoneComponent implements OnInit {
   @Input('stoneColor') stoneColor;
+  @Input('stoneMarker') stoneMarker;
+
+
 
   constructor() { }
 

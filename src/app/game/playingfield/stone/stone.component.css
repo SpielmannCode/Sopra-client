@@ -34,3 +34,8 @@
   border-style: groove;
   border-radius: 5px;
 }
+.Marked{
+  border-width: 4px;
+  border-color: red;
+  border-style: outset;
+}
