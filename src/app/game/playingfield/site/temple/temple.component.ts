@@ -11,6 +11,7 @@ export class TempleComponent implements OnInit,OnChanges {
   sumT:number=0;
   sizeT:number=0;
   x: number=0;
+  indexT: number=0;
 
 
   constructor() { }
@@ -23,6 +24,7 @@ export class TempleComponent implements OnInit,OnChanges {
     this.sizeT = this.templeSite.stones.length;
 
     this.x= Math.floor(this.sizeT/this.templeSite.size);
+    this.indexT= (this.templeSite.numberOfStones % this.templeSite.size);
   }
 
 }

@@ -9,11 +9,15 @@
   <img src="/assets/Images/Site_boards/Temple.png" alt="Temple">
 
   <div id="Stone1" class="templeStone">
-    <app-stone [stoneColor]= "templeSite.stones[templeSite.size * x+0]" *ngIf="sizeT % templeSite.size > 0"></app-stone>
+    <app-stone [stoneColor]= "templeSite.stones[templeSite.size * (x-1)+0]" *ngIf="sizeT % templeSite.size === 0"></app-stone>
+    <app-stone [stoneColor]= "templeSite.stones[0]" *ngIf="sizeT <= templeSite.size "></app-stone>
+    <app-stone [stoneColor]= "templeSite.stones[templeSite.size * (x)+0]" *ngIf="sizeT % templeSite.size > 0"></app-stone>
   </div>
   <div id="Stone2" class="templeStone">
-    <app-stone [stoneColor]= "templeSite.stones[templeSite.size * x+1]" *ngIf="sizeT % templeSite.size > 1"></app-stone>
-    <app-stone [stoneColor]= "templeSite.stones[templeSite.size * (x-1)+1]" *ngIf="sizeT % templeSite.size <= 1"></app-stone>
+    <app-stone [stoneColor]= "templeSite.stones[templeSite.size * x+1]" *ngIf="sizeT % templeSite.size > 1">
+    </app-stone>
+    <app-stone [stoneColor]= "templeSite.stones[templeSite.size * (x-1)+1]" *ngIf="sizeT % templeSite.size <= 1">
+    </app-stone>
   </div>
   <div id="Stone3" class="templeStone">
     <app-stone [stoneColor]= "templeSite.stones[templeSite.size * x+2]" *ngIf="sizeT % templeSite.size > 2"></app-stone>
@@ -28,4 +32,5 @@
     <app-stone [stoneColor]= "templeSite.stones[templeSite.size * (x-1)+4]" *ngIf="sizeT % templeSite.size <= 4"></app-stone>
   </div>
 </div>
+
 
