@@ -46,7 +46,7 @@ export class UserinputfieldComponent implements OnInit, OnChanges {
           this.Playingstatus = 'You are next, prepare!';
         }
         else{
-          this.Playingstatus = ( this.game.players[this.game.currentPlayerIndex].username + 'Is currently playing');
+          this.Playingstatus = ( this.game.players[this.game.currentPlayerIndex].username + ' '+ 'is currently playing');
         }
       }
     }
