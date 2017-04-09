@@ -3,7 +3,7 @@
     <app-ship class="shipsize1" [stones]="templeSite.dockedShip.stones" [game]="game" [isDocked]="true"></app-ship>
   </div>
 
-  <div id="TempleDock" class="Dockright" [dragula]='"first-bag"' *ngIf="templeSite.dockedShip === null">
+  <div id="TempleDock" class="Dockright" [dragula]='"first-bag"' *ngIf="templeSite.dockedShip === null && dockOpen">
   </div>
 
   <img src="/assets/Images/Site_boards/Temple.png" alt="Temple">

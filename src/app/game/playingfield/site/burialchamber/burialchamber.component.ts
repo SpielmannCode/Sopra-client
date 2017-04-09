@@ -7,6 +7,7 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core'
 })
 export class BurialchamberComponent implements OnInit {
   @Input('burialChamber') burialChamber;
+  @Input('dockOpen') dockOpen;
   fields;
   sumB:number = 0;
 

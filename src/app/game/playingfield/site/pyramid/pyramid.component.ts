@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-pyramid',
@@ -7,15 +7,12 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core'
 })
 export class PyramidComponent implements OnInit {
   @Input('pyramidSite') pyramidSite;
-  sumP:number=0;
+  @Input('dockOpen') dockOpen;
 
-  constructor() { }
-
-  ngOnInit() {
-    /*
-    for(let stone of this.pyramidSite.stones)
-      this.sumP = this.sumP + stone;
-      */
+  constructor() {
   }
 
+  ngOnInit() {
+
+  }
 }

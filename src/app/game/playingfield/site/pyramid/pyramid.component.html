@@ -3,7 +3,7 @@
       <app-ship class="shipsize1" [stones]="pyramidSite.dockedShip.stones" [game]="game" [isDocked]="true"></app-ship>
   </div>
 
-  <div id="PyramidDock" class="Dockleft" [dragula]='"first-bag"' *ngIf="pyramidSite.dockedShip === null"></div>
+  <div id="PyramidDock" class="Dockleft" [dragula]='"first-bag"' *ngIf="pyramidSite.dockedShip === null && dockOpen"></div>
 
   <img src="/assets/Images/Site_boards/Pyramids.png" alt="Pyramid">
 

@@ -10,7 +10,7 @@ import {Game} from "../../../shared/models/game";
 export class SiteComponent implements OnInit {
   @Input('game') game: Game;
 
-  constructor(private moveService: MoveService) { }
+  constructor(protected moveService: MoveService) { }
 
   ngOnInit() {
   }
@@ -48,5 +48,9 @@ export class SiteComponent implements OnInit {
     };
 
     this.moveService.addMove(this.game, moveJson).subscribe(() => console.log('sailed'));
+  }
+
+  isPlayerTurn():boolean {
+    return this.game.players[this.game.currentPlayerIndex].token === JSON.parse(localStorage.getItem('currentUser')).token;
   }
 }
