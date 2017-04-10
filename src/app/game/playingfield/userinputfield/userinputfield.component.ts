@@ -1,6 +1,7 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Game} from '../../../shared/models/game';
 import {MoveService} from '../../../shared/services/move.service';
+import {DragulaService} from "ng2-dragula";
 
 @Component({
   selector: 'app-userinputfield',
@@ -10,6 +11,7 @@ import {MoveService} from '../../../shared/services/move.service';
 export class UserinputfieldComponent implements OnInit, OnChanges {
   showCardStack: boolean = false;
   @Input('game') game: Game;
+  @Input('dragulaService') dragulaService: DragulaService;
   Playingstatus: string;
   currentPlayer;
   private _opened: boolean = false;
