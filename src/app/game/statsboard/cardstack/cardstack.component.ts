@@ -3,6 +3,9 @@ import {Game} from "../../../shared/models/game";
 import {CardComponent} from "./card/card.component";
 import {MoveService} from "../../../shared/services/move.service";
 import {DragulaService} from "ng2-dragula";
+import {SiteComponent} from "../../playingfield/site/site.component";
+import {GameComponent} from "../../game.component";
+import {ToastData, ToastOptions, ToastyService} from "ng2-toasty";
 
 @Component({
   selector: 'app-cardstack',
@@ -11,6 +14,7 @@ import {DragulaService} from "ng2-dragula";
 })
 export class CardstackComponent implements OnInit, OnChanges {
   @Input('game') game: Game;
+  @Input('dragulaService') dragulaService: DragulaService;
 
   userToken: String = JSON.parse(localStorage.getItem('currentUser')).token;
   playerCards;
@@ -29,11 +33,16 @@ export class CardstackComponent implements OnInit, OnChanges {
 
   shipIndex: number;
   stoneIndex: number;
+  siteName: string;
+
+  reordering: number[] = [];
+  reorderOutIndex: number;
+  firstOut: boolean = true;
 
   constructor(private moveService: MoveService,
-              private dragulaService: DragulaService) {
+              private toastyService: ToastyService) {
 
-}
+  }
 
   ngOnInit() {
     this.setPlayerCards();
@@ -110,9 +119,35 @@ export class CardstackComponent implements OnInit, OnChanges {
         break;
       }
       case 'PlayHammerMove': {
+        // Step One Excavate 3 stones from the quarry
+
+
+
+        this.dragulaService.drop.subscribe((value) => {
+          this.hammerDrop(value.slice(1));
+        });
         break;
       }
       case 'PlayLeverMove': {
+
+        // Check if there is a ship which can sail
+        let sailable:boolean = false;
+        for (let ship of this.game.gameBoard.availableShips) {
+          if (ship.sailable) sailable = true;
+        }
+
+        if (!sailable) {
+          this.addCardToast('There is no ship which can sail!');
+          return;
+        }
+
+        this.dragulaService.out.subscribe((value) => {
+          this.leverOut(value.slice(1));
+        });
+
+        this.dragulaService.drop.subscribe((value) => {
+          this.leverDrop(value.slice(1));
+        });
         break;
       }
       case 'PlaySailMove': {
@@ -122,11 +157,8 @@ export class CardstackComponent implements OnInit, OnChanges {
         break;
       }
     }
-  }
 
-  playCard(card) {
-
-
+    this.setMoveModal.close();
   }
 
   isPlayerTurn() {
@@ -146,7 +178,6 @@ export class CardstackComponent implements OnInit, OnChanges {
       this.stone2Index = stonePos[2];
       this.dropCount = 0;
 
-      console.log(this.ship1Index, this.stone1Index, this.ship2Index, this.stone2Index);
       let moveJson = {
         "type": "PlayChiselMove",
         "stone1Index": this.stone1Index,
@@ -161,6 +192,77 @@ export class CardstackComponent implements OnInit, OnChanges {
     }
   }
 
+  protected hammerDrop(args) {
+    let [e, el] = args;
+    console.log('hammer drop');
+  }
+
+  protected leverDrop(args) {
+    let [e, el] = args;
+    console.log('lever drop');
+
+
+    // First Turn of lever, sail ship
+    if (this.dropCount === 0) {
+
+
+      this.shipIndex = (parseInt(e.id.match(/(\d+)/)[1]) - 1);
+
+      this.siteName = SiteComponent.getDockedSite(el);
+
+
+      // Fill reordering array
+      let i = 0;
+      for (let stonePos of this.game.gameBoard.availableShips[this.shipIndex].stones) {
+        this.reordering[i] = i;
+        i++;
+      }
+      console.log(this.reordering);
+
+      let shipId = this.shipIndex + 1;
+      document.getElementById('ship' + shipId).classList.add('donotdrag');
+      this.dropCount++;
+    } else {
+      // Second Turn of lever, rearrange stones before dropping them to a site
+      let stonePos = e.parentElement.id.match(/(\d+)-(\d+)/);
+      stonePos = parseInt(stonePos[2]);
+
+      //  Swap the positions
+      let temp = this.reordering[stonePos];
+      this.reordering[stonePos] = this.reordering[this.reorderOutIndex];
+      this.reordering[this.reorderOutIndex] = temp;
+
+      console.log('Reordered', this.reordering);
+      this.firstOut = true;
+
+      // let moveJson = {
+      //   "type": "PlayLeverMove",
+      //   "shipIndex": this.shipIndex,
+      //   "site": this.siteName,
+      //   "reordering": []
+      // };
+
+      // CardstackComponent.playCardMode = false;
+      // this.moveService.addMove(this.game, moveJson).subscribe(() => console.log('lever finished'));
+
+      // this.dropCount = 0;
+    }
+  }
+
+  protected leverOut(args) {
+    let [e, el] = args;
+
+    if (e.tagName === 'APP-STONE' && this.firstOut) {
+
+      let stonePos = e.parentElement.id.match(/(\d+)-(\d+)/);
+      stonePos = parseInt(stonePos[2]);
+      this.reorderOutIndex = stonePos;
+
+      this.firstOut = false;
+    }
+
+  }
+
   protected sailDrop(args) {
     let [e, el] = args;
     console.log('sail drop');
@@ -171,6 +273,22 @@ export class CardstackComponent implements OnInit, OnChanges {
         let stonePos = e.parentElement.id.match(/(\d+)-(\d+)/);
         this.shipIndex = stonePos[1];
         this.stoneIndex = stonePos[2];
+
+        // Count the stones
+        let stoneCount = 0;
+        for (let stone of this.game.gameBoard.availableShips[this.shipIndex].stones) {
+          if (stone !== 'BLANK') stoneCount++;
+        }
+
+        // And the newly dropped stone...
+        stoneCount++;
+
+        // Check if ship is eligible to sail
+        if (this.game.gameBoard.availableShips[this.shipIndex].stones.length - 1 <= stoneCount) {
+          let shipId = parseInt(stonePos[1]) + 1;
+          document.getElementById('ship' + shipId).classList.remove('donotdrag');
+        }
+
         break;
       }
       case 'APP-SHIP': {
@@ -182,37 +300,46 @@ export class CardstackComponent implements OnInit, OnChanges {
           "type": "PlaySailMove",
           "shipIndex": this.shipIndex,
           "stoneIndex": this.stoneIndex,
-          "site": ""
+          "site": SiteComponent.getDockedSite(el)
         };
 
-        switch(el.id) {
-          case 'MarketDock': {
-            moveJson.site = 'Market Site';
-            break;
-          }
-          case 'PyramidDock': {
-            moveJson.site = 'Pyramid Site';
-            break;
-          }
-          case 'TempleDock': {
-            moveJson.site = 'Temple Site';
-            break;
-          }
-          case 'BurialDock': {
-            moveJson.site = 'Burial Chamber Site';
-            break;
-          }
-          case 'ObeliskDock': {
-            moveJson.site = 'Obelisk Site';
-            break;
-          }
-        }
+        CardstackComponent.playCardMode = false;
 
         this.moveService.addMove(this.game, moveJson).subscribe(() => console.log('sailed with card'));
 
       }
     }
-
   }
+
+  private addCardToast(text: string) {
+      let toastOptions:ToastOptions = {
+        title: text,
+        showClose: true,
+        timeout: 3000,
+        theme: 'material',
+        onAdd: (toast:ToastData) => {
+        },
+        onRemove: function(toast:ToastData) {
+        }
+      };
+      this.toastyService.info(toastOptions);
+  }
+
+  // private setDraggable(bagName:string,draggable: boolean) {
+  //
+  //   const bag: any = this.dragulaService.find(bagName);
+  //
+  //   if (bag !== undefined) {
+  //     this.dragulaService.destroy(bagName);
+  //
+  //
+  //   this.dragulaService.setOptions(bagName, {
+  //       moves: function(el, source, handle, sibling) {
+  //         return draggable;
+  //       }
+  //     });
+  //
+  //   }
+  // }
 
 }
