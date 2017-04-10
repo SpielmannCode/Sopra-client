@@ -75,7 +75,7 @@ export class PlayingfieldComponent implements OnInit {
     const [e, el] = args;
     const currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
     const audio = new Audio();
-    this.removeClass(el, 'drop-border');
+    GameComponent.removeClass(el, 'drop-border');
 
     if (CardstackComponent.playCardMode) {
       return;
@@ -112,20 +112,28 @@ export class PlayingfieldComponent implements OnInit {
 
   protected onOver(args) {
     const [e, el, container] = args;
-    this.addClass(el , 'drop-border');
+    GameComponent.addClass(el , 'drop-border');
   }
 
   protected onOut(args) {
     const [e, el, container] = args;
-    this.removeClass(el, 'drop-border');
+    GameComponent.removeClass(el, 'drop-border');
   }
 
-  protected addClass(el: any, name: string) {
-    el.className = el.className ? [el.className, name].join(' ') : name;
+  setShipsDraggable(draggable: boolean) {
+    this.dragulaService.setOptions('first-bag', {
+      moves: function(el, source, handle, sibling) {
+        return draggable;
+      }
+    });
   }
 
-  protected removeClass(el: any, name: string) {
-    el.className = el.className.replace(new RegExp('(?:^|\\s+)' + name + '(?:\\s+|$)', 'g'), '');
+  setStonesDraggable(draggable: boolean) {
+    this.dragulaService.setOptions('second-bag', {
+      moves: function(el, source, handle, sibling) {
+        return draggable;
+      }
+    });
   }
 
 }
