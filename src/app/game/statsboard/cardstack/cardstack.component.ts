@@ -6,11 +6,13 @@ import {DragulaService} from "ng2-dragula";
 import {SiteComponent} from "../../playingfield/site/site.component";
 import {GameComponent} from "../../game.component";
 import {ToastData, ToastOptions, ToastyService} from "ng2-toasty";
+import * as testing from "selenium-webdriver/testing";
 
 @Component({
   selector: 'app-cardstack',
   templateUrl: './cardstack.component.html',
-  styleUrls: ['./cardstack.component.css']
+  styleUrls: ['./cardstack.component.css'],
+  providers: [MoveService]
 })
 export class CardstackComponent implements OnInit, OnChanges {
   @Input('game') game: Game;
@@ -107,7 +109,7 @@ export class CardstackComponent implements OnInit, OnChanges {
 
   setPlayCardMode(card) {
     CardstackComponent.playCardMode = true;
-    console.log('play card mode');
+    this.addCardToast('Play Card Mode');
 
     let moveType = 'Play' + card + 'Move';
 
@@ -120,6 +122,7 @@ export class CardstackComponent implements OnInit, OnChanges {
       }
       case 'PlayHammerMove': {
         // Step One Excavate 3 stones from the quarry
+
 
 
 
@@ -138,6 +141,8 @@ export class CardstackComponent implements OnInit, OnChanges {
 
         if (!sailable) {
           this.addCardToast('There is no ship which can sail!');
+          this.setMoveModal.close();
+          CardstackComponent.playCardMode = false;
           return;
         }
 
@@ -165,6 +170,7 @@ export class CardstackComponent implements OnInit, OnChanges {
     return this.game.players[this.game.currentPlayerIndex].token === this.userToken;
   }
 
+  // Works !!
   protected chiselDrop(args) {
     let [e, el] = args;
     let stonePos = e.parentElement.id.match(/(\d+)-(\d+)/);
@@ -209,7 +215,7 @@ export class CardstackComponent implements OnInit, OnChanges {
       this.shipIndex = (parseInt(e.id.match(/(\d+)/)[1]) - 1);
 
       this.siteName = SiteComponent.getDockedSite(el);
-
+      console.log(this.siteName);
 
       // Fill reordering array
       let i = 0;
@@ -226,6 +232,10 @@ export class CardstackComponent implements OnInit, OnChanges {
       // Second Turn of lever, rearrange stones before dropping them to a site
       let stonePos = e.parentElement.id.match(/(\d+)-(\d+)/);
       stonePos = parseInt(stonePos[2]);
+
+
+
+
 
       //  Swap the positions
       let temp = this.reordering[stonePos];
