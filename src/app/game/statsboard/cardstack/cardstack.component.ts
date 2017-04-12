@@ -200,7 +200,17 @@ export class CardstackComponent implements OnInit, OnChanges {
 
   protected hammerDrop(args) {
     let [e, el] = args;
-    console.log('hammer drop');
+    let stonePos = e.parentElement.id.match(/(\d+)-(\d+)/);
+
+    let moveJson = {
+      "type": "PlayHammerMove",
+      "shipIndex": stonePos[1],
+      "stoneIndex": stonePos[2]
+    };
+
+    CardstackComponent.playCardMode = false;
+
+    this.moveService.addMove(this.game, moveJson).subscribe(() => console.log("hammer drop"));
   }
 
   protected leverDrop(args) {
