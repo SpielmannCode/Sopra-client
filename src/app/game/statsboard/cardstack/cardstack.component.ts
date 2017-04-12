@@ -125,10 +125,17 @@ export class CardstackComponent implements OnInit, OnChanges {
 
 
 
+        //check if you have a stone to place
+        let playerSupply = this.game.players[this.game.currentPlayerIndex.valueOf()].stoneSupply.valueOf();
+        if(playerSupply <= 0){
+          this.addCardToast("Not enough stones to play this move!");
+          CardstackComponent.playCardMode = false;
+        }else{
+          this.dragulaService.drop.subscribe((value) => {
+            this.hammerDrop(value.slice(1));
+          });
+        }
 
-        this.dragulaService.drop.subscribe((value) => {
-          this.hammerDrop(value.slice(1));
-        });
         break;
       }
       case 'PlayLeverMove': {
