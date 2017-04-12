@@ -17,6 +17,7 @@ import * as testing from "selenium-webdriver/testing";
 export class CardstackComponent implements OnInit, OnChanges {
   @Input('game') game: Game;
   @Input('dragulaService') dragulaService: DragulaService;
+  @Input('stonesToReorder') stonesToReorder;
 
   userToken: String = JSON.parse(localStorage.getItem('currentUser')).token;
   playerCards;
@@ -25,7 +26,7 @@ export class CardstackComponent implements OnInit, OnChanges {
   @ViewChild('setMoveModal') setMoveModal;
   static playCardMode: boolean = false;
   modalCardDescription: string;
-  modalSelectedCard: string;
+  modalSelectedCard: string = 'Chisel';
 
   dropCount: number = 0;
   stone1Index: number;
@@ -70,11 +71,11 @@ export class CardstackComponent implements OnInit, OnChanges {
 
   openMoveModal(card) {
     this.modalSelectedCard = card;
-    console.log(this.modalSelectedCard);
     this.setMoveModal.open();
   }
 
-  showCardModal() {
+  showCardModal(card) {
+    this.modalSelectedCard = card;
     let moveType = 'Play' + this.modalSelectedCard + 'Move';
     console.log(this.modalSelectedCard);
 
@@ -220,10 +221,10 @@ export class CardstackComponent implements OnInit, OnChanges {
       // Fill reordering array
       let i = 0;
       for (let stonePos of this.game.gameBoard.availableShips[this.shipIndex].stones) {
-        this.reordering[i] = i;
+        this.stonesToReorder[i] = i;
         i++;
       }
-      console.log(this.reordering);
+
 
       let shipId = this.shipIndex + 1;
       document.getElementById('ship' + shipId).classList.add('donotdrag');
@@ -233,14 +234,6 @@ export class CardstackComponent implements OnInit, OnChanges {
       let stonePos = e.parentElement.id.match(/(\d+)-(\d+)/);
       stonePos = parseInt(stonePos[2]);
 
-
-
-
-
-      //  Swap the positions
-      let temp = this.reordering[stonePos];
-      this.reordering[stonePos] = this.reordering[this.reorderOutIndex];
-      this.reordering[this.reorderOutIndex] = temp;
 
       console.log('Reordered', this.reordering);
       this.firstOut = true;
