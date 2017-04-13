@@ -130,10 +130,17 @@ export class CardstackComponent implements OnInit, OnChanges {
 
 
 
+        //check if you have a stone to place
+        let playerSupply = this.game.players[this.game.currentPlayerIndex.valueOf()].stoneSupply.valueOf();
+        if(playerSupply <= 0){
+          this.addCardToast("Not enough stones to play this move!");
+          CardstackComponent.playCardMode = false;
+        }else{
+          this.dragulaService.drop.subscribe((value) => {
+            this.hammerDrop(value.slice(1));
+          });
+        }
 
-        this.dragulaService.drop.subscribe((value) => {
-          this.hammerDrop(value.slice(1));
-        });
         break;
       }
       case 'PlayLeverMove': {
@@ -205,7 +212,17 @@ export class CardstackComponent implements OnInit, OnChanges {
 
   protected hammerDrop(args) {
     let [e, el] = args;
-    console.log('hammer drop');
+    let stonePos = e.parentElement.id.match(/(\d+)-(\d+)/);
+
+    let moveJson = {
+      "type": "PlayHammerMove",
+      "shipIndex": stonePos[1],
+      "stoneIndex": stonePos[2]
+    };
+
+    CardstackComponent.playCardMode = false;
+
+    this.moveService.addMove(this.game, moveJson).subscribe(() => console.log("hammer drop"));
   }
 
   protected leverDrop(args) {

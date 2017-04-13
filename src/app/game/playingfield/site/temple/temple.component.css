@@ -7,6 +7,12 @@
   width: 42px;
   height: 42px;
 }
+.templeArrow{
+  position: absolute;
+  top: 57px;
+  width: 42px;
+  height: 42px;
+}
 #Stone1{
   left: 338px;
 }
@@ -23,3 +29,21 @@
   left: 513px;
 }
 
+#Arrow1{
+  left: 338px;
+}
+#Arrow2{
+  left: 380px;
+}
+#Arrow3{
+  left: 424px;
+}
+#Arrow4{
+  left: 468px;
+}
+#Arrow6{
+  left: 468px;
+}
+#Arrow5{
+  left: 513px;
+}
