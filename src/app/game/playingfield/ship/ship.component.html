@@ -1,12 +1,19 @@
 <div class="ship-wrapper">
   <img src="{{picloc}}" alt="Ship {{size}}er">
 
-  <ng-container *ngIf="!isDocked">
+  <ng-container *ngIf="!isDocked && !showEmpty">
     <div class="stones fields{{size}}">
       <div *ngFor="let stone of stones; let i = index;" class="ship-stone" id="stone-{{shipIndex}}-{{i}}" [dragula]='"second-bag"'>
         <ng-container *ngIf="game.gameBoard.availableShips[shipIndex].stones[i] !== 'BLANK'">
           <app-stone [stoneColor]="game.gameBoard.availableShips[shipIndex].stones[i]"></app-stone>
         </ng-container>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="showEmpty">
+    <div class="stones fields{{size}}">
+      <div *ngFor="let stone of stones; let i = index;" class="ship-stone" id="stone-{{shipIndex}}-{{i}}" [dragula]='"second-bag"'>
       </div>
     </div>
   </ng-container>

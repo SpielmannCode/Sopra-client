@@ -24,9 +24,13 @@ export class CardstackComponent implements OnInit, OnChanges {
   cardColors: string[] = [];
 
   @ViewChild('setMoveModal') setMoveModal;
+  @ViewChild('stoneReorderModal') stoneReorderModal;
+
   static playCardMode: boolean = false;
   modalCardDescription: string;
   modalSelectedCard: string = 'Chisel';
+
+  site: string;
 
   dropCount: number = 0;
   stone1Index: number;
@@ -213,42 +217,38 @@ export class CardstackComponent implements OnInit, OnChanges {
     if (this.dropCount === 0) {
 
 
+
+
       this.shipIndex = (parseInt(e.id.match(/(\d+)/)[1]) - 1);
+      this.site = SiteComponent.getDockedSite(el);
 
-      this.siteName = SiteComponent.getDockedSite(el);
-      console.log(this.siteName);
-
-      // Fill reordering array
       let i = 0;
-      for (let stonePos of this.game.gameBoard.availableShips[this.shipIndex].stones) {
-        this.stonesToReorder[i] = i;
+      for (let stone of this.game.gameBoard.availableShips[this.shipIndex].stones) {
+        this.reordering[i] = i;
         i++;
       }
 
 
-      let shipId = this.shipIndex + 1;
-      document.getElementById('ship' + shipId).classList.add('donotdrag');
+      this.stoneReorderModal.open();
       this.dropCount++;
+
     } else {
-      // Second Turn of lever, rearrange stones before dropping them to a site
-      let stonePos = e.parentElement.id.match(/(\d+)-(\d+)/);
-      stonePos = parseInt(stonePos[2]);
+
+      let stonePosIn = el.id.match(/(\d+)-(\d+)/);
+      stonePosIn = stonePosIn[2];
+
+      console.log('out ', this.reorderOutIndex);
+      console.log('in ', stonePosIn);
 
 
-      console.log('Reordered', this.reordering);
+      // Swap elements in array
+      let temp = this.reordering[this.reorderOutIndex];
+      this.reordering[this.reorderOutIndex] = this.reordering[stonePosIn];
+      this.reordering[stonePosIn] = temp;
+
+      console.log(this.reordering);
+
       this.firstOut = true;
-
-      // let moveJson = {
-      //   "type": "PlayLeverMove",
-      //   "shipIndex": this.shipIndex,
-      //   "site": this.siteName,
-      //   "reordering": []
-      // };
-
-      // CardstackComponent.playCardMode = false;
-      // this.moveService.addMove(this.game, moveJson).subscribe(() => console.log('lever finished'));
-
-      // this.dropCount = 0;
     }
   }
 
@@ -260,7 +260,6 @@ export class CardstackComponent implements OnInit, OnChanges {
       let stonePos = e.parentElement.id.match(/(\d+)-(\d+)/);
       stonePos = parseInt(stonePos[2]);
       this.reorderOutIndex = stonePos;
-
       this.firstOut = false;
     }
 
