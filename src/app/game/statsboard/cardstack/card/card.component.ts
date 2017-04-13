@@ -1,11 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent implements OnInit {
+export class CardComponent implements OnInit, OnChanges {
   @Input('cardName') cardName;
   currentImage;
   static cardImages = {
@@ -26,6 +26,10 @@ export class CardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.currentImage = CardComponent.cardImages[this.cardName][0];
+  }
+
+  ngOnChanges() {
     this.currentImage = CardComponent.cardImages[this.cardName][0];
   }
 

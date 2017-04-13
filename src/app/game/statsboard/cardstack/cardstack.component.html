@@ -5,16 +5,27 @@
   </ng-container>
 </div>
 
-<modal #setMoveModal (onOpen)="showCardModal()">
-  <modal-header>
-    <h4>{{modalCardDescription}}</h4>
-  </modal-header>
+<modal #setMoveModal (onOpen)="showCardModal(modalSelectedCard)">
   <modal-content>
-    <h2>{{modalSelectedCard}}</h2>
+    <app-card style="width: 300px;" [cardName]="modalSelectedCard"></app-card>
   </modal-content>
   <modal-footer>
     <button class="btn-basic" (click)="setPlayCardMode(modalSelectedCard)">Play</button>
     <button class="btn-basic" (click)="setMoveModal.close()">close</button>
   </modal-footer>
 </modal>
+
+<modal #stoneReorderModal>
+  <modal-content>
+    <div id="Ships">
+      <ng-container *ngFor="let ship of game.gameBoard.availableShips; let i = index;">
+        <app-ship *ngIf="shipIndex === i" [shipIndex]="i" [stones]="ship.stones" [game]="game"></app-ship>
+        <app-ship id="reorderedShip" *ngIf="shipIndex === i" [shipIndex]="i" [stones]="ship.stones" [showEmpty]="true" [game]="game"></app-ship>
+      </ng-container>
+    </div>
+  </modal-content>
+</modal>
+
+
+
 

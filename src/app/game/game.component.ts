@@ -59,7 +59,7 @@ export class GameComponent implements OnInit, OnDestroy {
           this.game = game;
 
           if (this.game.players[this.game.currentPlayerIndex].token === this.userToken) {
-            this.addToast();
+            this.addTurnToast();
           }
         }
 
@@ -71,7 +71,7 @@ export class GameComponent implements OnInit, OnDestroy {
     this.gameObservable.unsubscribe();
   }
 
-  addToast() {
+  addTurnToast() {
     let toastOptions:ToastOptions;
     if (this.game.logicState === 'NORMAL'){
       toastOptions = {
@@ -98,8 +98,15 @@ export class GameComponent implements OnInit, OnDestroy {
       };
     }
 
-
     this.toastyService.info(toastOptions);
+  }
+
+  static addClass(el: any, name: string) {
+    el.className = el.className ? [el.className, name].join(' ') : name;
+  }
+
+  static removeClass(el: any, name: string) {
+    el.className = el.className.replace(new RegExp('(?:^|\\s+)' + name + '(?:\\s+|$)', 'g'), '');
   }
 
 }
