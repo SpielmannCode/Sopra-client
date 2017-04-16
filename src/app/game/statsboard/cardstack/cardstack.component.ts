@@ -40,15 +40,11 @@ export class CardstackComponent implements OnInit, OnChanges {
 
   shipIndex: number;
   stoneIndex: number;
-  siteName: string;
 
   reordering: number[] = [];
-  reorderOutIndex: number;
-  firstOut: boolean = true;
 
   constructor(private moveService: MoveService,
               private toastyService: ToastyService) {
-
   }
 
   ngOnInit() {
@@ -158,15 +154,6 @@ export class CardstackComponent implements OnInit, OnChanges {
           return;
         }
 
-
-        this.dragulaService.setOptions('reorder-bag', {
-
-        });
-
-        this.dragulaService.out.subscribe((value) => {
-          this.leverOut(value.slice(1));
-        });
-
         this.dragulaService.drop.subscribe((value) => {
           this.leverDrop(value.slice(1));
         });
@@ -220,9 +207,9 @@ export class CardstackComponent implements OnInit, OnChanges {
     let stonePos = e.parentElement.id.match(/(\d+)-(\d+)/);
 
     let moveJson = {
-      "type": "PlayHammerMove",
-      "shipIndex": stonePos[1],
-      "stoneIndex": stonePos[2]
+      'type': 'PlayHammerMove',
+      'shipIndex': stonePos[1],
+      'stoneIndex': stonePos[2]
     };
 
     CardstackComponent.playCardMode = false;
@@ -232,14 +219,9 @@ export class CardstackComponent implements OnInit, OnChanges {
 
   protected leverDrop(args) {
     let [e, el] = args;
-    console.log('lever drop');
-    //
-    //
-    // // First Turn of lever, sail ship
+
+     // First Turn of lever, sail ship
     if (this.dropCount === 0) {
-
-
-
 
       this.shipIndex = (parseInt(e.id.match(/(\d+)/)[1]) - 1);
       this.site = SiteComponent.getDockedSite(el);
@@ -250,56 +232,35 @@ export class CardstackComponent implements OnInit, OnChanges {
         i++;
       }
 
-
       this.stoneReorderModal.open();
       this.dropCount++;
 
     } else {
-      console.log(el);
-      let stonePosIn = el.children;
-
-
-
-      let index = 0;
+      // Second turn of lever, reorder stones
+      let i = 0;
       for (let stoneElem of el.children) {
         let stoneIndex = stoneElem.id.match(/(\d+)-(\d+)/);
         stoneIndex = parseInt(stoneIndex[2]);
-        this.reordering[index] = stoneIndex;
-        console.log(stoneIndex, index);
-        index++;
-
+        this.reordering[i] = stoneIndex;
+        i++;
       }
-      console.log(stonePosIn);
-      // let shipIndex = stonePosIn[1];
-      // console.log(stonePosIn[1]);
-      // stonePosIn = stonePosIn[2];
-      //
-      // console.log('out ', this.reorderOutIndex);
-      // console.log('in ', stonePosIn);
-      //
-      //
-      // // Swap elements in array
-      // let temp = this.reordering[this.reorderOutIndex];
-      // this.reordering[this.reorderOutIndex] = this.reordering[stonePosIn];
-      // this.reordering[stonePosIn] = temp;
-
-      console.log(this.reordering);
-
-      this.firstOut = true;
     }
   }
 
-  protected leverOut(args) {
-    let [e, el] = args;
+  leverSetNewOrder() {
+    let moveJson = {
+      'type': 'PlayLeverMove',
+      'shipIndex': this.shipIndex,
+      'site': this.site,
+      'reordering': this.reordering
+    };
 
-    if (e.tagName === 'APP-STONE' && this.firstOut) {
-
-      let stonePos = e.parentElement.id.match(/(\d+)-(\d+)/);
-      stonePos = parseInt(stonePos[2]);
-      this.reorderOutIndex = stonePos;
-      this.firstOut = false;
-    }
-
+    this.moveService.addMove(this.game, moveJson).subscribe(() => {
+      console.log('lever done!');
+      this.stoneReorderModal.close();
+      this.dropCount = 0;
+      CardstackComponent.playCardMode = false;
+    });
   }
 
   protected sailDrop(args) {
@@ -363,22 +324,5 @@ export class CardstackComponent implements OnInit, OnChanges {
       };
       this.toastyService.info(toastOptions);
   }
-
-  // private setDraggable(bagName:string,draggable: boolean) {
-  //
-  //   const bag: any = this.dragulaService.find(bagName);
-  //
-  //   if (bag !== undefined) {
-  //     this.dragulaService.destroy(bagName);
-  //
-  //
-  //   this.dragulaService.setOptions(bagName, {
-  //       moves: function(el, source, handle, sibling) {
-  //         return draggable;
-  //       }
-  //     });
-  //
-  //   }
-  // }
 
 }

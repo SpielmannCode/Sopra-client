@@ -16,6 +16,9 @@
 </modal>
 
 <modal #stoneReorderModal>
+  <modal-header>
+    <h4>Reorder the stones before unloading to {{site}}</h4>
+  </modal-header>
   <modal-content>
     <div id="Ships">
       <ng-container *ngFor="let ship of game.gameBoard.availableShips; let i = index;">
@@ -23,6 +26,10 @@
       </ng-container>
     </div>
   </modal-content>
+  <modal-footer>
+    <button class="btn-basic" (click)="leverSetNewOrder()">Apply</button>
+    <button class="btn-basic" (click)="stoneReorderModal.close()">close</button>
+  </modal-footer>
 </modal>
 
 
