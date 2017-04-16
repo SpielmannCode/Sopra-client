@@ -6,6 +6,7 @@ import {GameService} from '../shared/services/game.service';
 import {Game} from '../shared/models/game';
 import {Observable, Subscription} from 'rxjs/Rx';
 import {ToastyService, ToastyConfig, ToastOptions, ToastData} from 'ng2-toasty';
+import {CardstackComponent} from "./statsboard/cardstack/cardstack.component";
 
 
 @Component({
@@ -55,7 +56,7 @@ export class GameComponent implements OnInit, OnDestroy {
     this.gameObservable = Observable.interval(3000).subscribe(() => {
       this.gameService.getGame(this.gameId).subscribe(game => {
 
-        if (JSON.stringify(this.game) !== JSON.stringify(game)) {
+        if ((JSON.stringify(this.game) !== JSON.stringify(game)) && !CardstackComponent.playCardMode) {
           this.game = game;
 
           if (this.game.players[this.game.currentPlayerIndex].token === this.userToken) {
