@@ -158,6 +158,11 @@ export class CardstackComponent implements OnInit, OnChanges {
           return;
         }
 
+
+        this.dragulaService.setOptions('reorder-bag', {
+
+        });
+
         this.dragulaService.out.subscribe((value) => {
           this.leverOut(value.slice(1));
         });
@@ -228,9 +233,9 @@ export class CardstackComponent implements OnInit, OnChanges {
   protected leverDrop(args) {
     let [e, el] = args;
     console.log('lever drop');
-
-
-    // First Turn of lever, sail ship
+    //
+    //
+    // // First Turn of lever, sail ship
     if (this.dropCount === 0) {
 
 
@@ -250,18 +255,33 @@ export class CardstackComponent implements OnInit, OnChanges {
       this.dropCount++;
 
     } else {
-
-      let stonePosIn = el.id.match(/(\d+)-(\d+)/);
-      stonePosIn = stonePosIn[2];
-
-      console.log('out ', this.reorderOutIndex);
-      console.log('in ', stonePosIn);
+      console.log(el);
+      let stonePosIn = el.children;
 
 
-      // Swap elements in array
-      let temp = this.reordering[this.reorderOutIndex];
-      this.reordering[this.reorderOutIndex] = this.reordering[stonePosIn];
-      this.reordering[stonePosIn] = temp;
+
+      let index = 0;
+      for (let stoneElem of el.children) {
+        let stoneIndex = stoneElem.id.match(/(\d+)-(\d+)/);
+        stoneIndex = parseInt(stoneIndex[2]);
+        this.reordering[index] = stoneIndex;
+        console.log(stoneIndex, index);
+        index++;
+
+      }
+      console.log(stonePosIn);
+      // let shipIndex = stonePosIn[1];
+      // console.log(stonePosIn[1]);
+      // stonePosIn = stonePosIn[2];
+      //
+      // console.log('out ', this.reorderOutIndex);
+      // console.log('in ', stonePosIn);
+      //
+      //
+      // // Swap elements in array
+      // let temp = this.reordering[this.reorderOutIndex];
+      // this.reordering[this.reorderOutIndex] = this.reordering[stonePosIn];
+      // this.reordering[stonePosIn] = temp;
 
       console.log(this.reordering);
 
