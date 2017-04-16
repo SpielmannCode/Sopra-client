@@ -22,6 +22,7 @@ export class SledComponent implements OnInit , OnChanges {
       }
     }
   }
+
   ngOnChanges(changes: SimpleChanges) {
     for (let player of this.game.players) {
       if (player.token === this.currentUserToken) {
@@ -30,4 +31,6 @@ export class SledComponent implements OnInit , OnChanges {
       }
     }
   }
+
+
 }

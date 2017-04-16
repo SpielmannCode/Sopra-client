@@ -16,28 +16,7 @@ export class SiteComponent implements OnInit {
   }
 
   placeStonesOn(el, shipIndex: string) {
-    switch(el.id) {
-      case 'MarketDock': {
-        this.sailShip('Market Site', shipIndex);
-        break;
-      }
-      case 'PyramidDock': {
-        this.sailShip('Pyramid Site', shipIndex);
-        break;
-      }
-      case 'TempleDock': {
-        this.sailShip('Temple Site', shipIndex);
-        break;
-      }
-      case 'BurialDock': {
-        this.sailShip('Burial Chamber Site', shipIndex);
-        break;
-      }
-      case 'ObeliskDock': {
-        this.sailShip('Obelisk Site', shipIndex);
-        break;
-      }
-    }
+    this.sailShip(SiteComponent.getDockedSite(el), shipIndex);
   }
 
   sailShip(site: string, shipIndex: string) {
@@ -52,5 +31,26 @@ export class SiteComponent implements OnInit {
 
   isPlayerTurn():boolean {
     return this.game.players[this.game.currentPlayerIndex].token === JSON.parse(localStorage.getItem('currentUser')).token;
+  }
+
+  // Get docked site by dock div id
+  static getDockedSite(el: any):string {
+    switch(el.id) {
+      case 'MarketDock': {
+        return 'Market Site';
+      }
+      case 'PyramidDock': {
+        return 'Pyramid Site';
+      }
+      case 'TempleDock': {
+        return 'Temple Site';
+      }
+      case 'BurialDock': {
+        return 'Burial Chamber Site';
+      }
+      case 'ObeliskDock': {
+        return 'Obelisk Site';
+      }
+    }
   }
 }
