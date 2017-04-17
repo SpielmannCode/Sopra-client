@@ -9,7 +9,7 @@ export class ShipComponent implements OnInit {
   size: number;
   @Input('stones') stones;
   @Input('shipIndex') shipIndex;
-  @Input('showEmpty') showEmpty;
+  @Input('reorderMode') reorderMode;
   @Input('isDocked') isDocked: boolean;
   @Input('game') game;
   picloc: string = ('/assets/Images/Ship/Ship_' + this.size + 'er.png');
