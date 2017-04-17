@@ -1,16 +1,26 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {animate, Component, Input, OnChanges, OnInit, state, style, transition, trigger} from '@angular/core';
 import {Game} from '../../shared/models/game';
 
 @Component({
   selector: 'app-statsboard',
   templateUrl: './statsboard.component.html',
-  styleUrls: ['./statsboard.component.css']
+  styleUrls: ['./statsboard.component.css'],
+  animations: [
+    trigger('statsBoardInit', [
+      state('in', style({transform: 'translateX(0)'})),
+      transition('void => *', [
+        style({transform: 'translateX(-100%)'}),
+        animate(200)
+      ]),
+      transition('* => void', [
+        animate(200, style({transform: 'translateX(100%)'}))
+      ])
+    ])
+  ]
 })
 export class StatsboardComponent implements OnInit, OnChanges {
 
   @Input('game') game: Game;
-
-
 
   constructor() {
   }
