@@ -14,6 +14,7 @@ export class UserinputfieldComponent implements OnInit, OnChanges {
   @Input('dragulaService') dragulaService: DragulaService;
   Playingstatus: string;
   currentPlayer;
+  protected currentRoundNumber: number = 10;
   private _opened: boolean = false;
   constructor(private moveService: MoveService) {
 
@@ -37,6 +38,9 @@ export class UserinputfieldComponent implements OnInit, OnChanges {
     }
   }
   ngOnChanges(changes: SimpleChanges){
+    this.currentRoundNumber=this.game.currentRound ;
+
+
     let currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
     for (let player of this.game.players) {
       if (player.token === currentUserToken) {

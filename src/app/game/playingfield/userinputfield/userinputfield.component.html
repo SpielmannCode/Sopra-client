@@ -2,7 +2,7 @@
   <app-cardstack *ngIf="showCardStack" [game]="game" [dragulaService]="dragulaService"></app-cardstack>
   <app-sled [game]="game"></app-sled>
   <div id="buttons">
-    {{Playingstatus}}<br>
+    {{Playingstatus}} <br>
     <button *ngIf="currentPlayer.token !== game.players[game.currentPlayerIndex].token"  class="btn-basic inline text-center position1 disabled" disabled (click)="toggleCardStack()">
       <img src="/assets/Images/icons/hand-holding-two-soccer-cards.svg" alt="Play Cards">
     </button>
@@ -20,6 +20,7 @@
       <img src="/assets/Images/icons/ic_history_black_24px.svg" alt="History Log">
     </button>
   </div>
+  <div id="roundCounter"> Round: {{currentRoundNumber}} out of 6</div>
   <ng-sidebar-container style="z-index: 40">
     <ng-sidebar [(opened)]="_opened" style="z-index: 40" >
       <app-history-log></app-history-log>
