@@ -25,3 +25,12 @@ app-cardstack {
 .disabled{
   background: #dddddd;
 }
+#roundCounter{
+  font-size: x-large;
+  position: relative;
+  bottom:12px;
+  left: 185px;
+  width: 200px;
+  height: 15px;
+
+}
