@@ -18,8 +18,14 @@ export class TempleComponent implements OnInit,OnChanges {
 
 
   constructor() { }
-
+  enter(){
+    this.display = true;
+  }
+  leave(){
+    this.display = false;
+  }
   ngOnInit() {
+    this.display = false;
   }
 
   ngOnChanges() {
