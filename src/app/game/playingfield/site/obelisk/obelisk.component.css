@@ -59,7 +59,7 @@
 }
 #ObeliskStoneTotal{
   top: 15px;
-  left: 170px;
+  left: 190px;
   background: lawngreen;
   opacity: 0.8;
   color: black;
@@ -103,4 +103,11 @@ th, td{
 }
 table {
   margin: 0 auto; /* or margin: 0 auto 0 auto */
+}
+#Titel{
+  position: absolute;
+  top: 10px;
+  left: 75px;
+  font-size: 25px;
+  font-weight: bold;
 }
