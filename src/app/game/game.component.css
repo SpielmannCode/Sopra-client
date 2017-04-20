@@ -5,6 +5,7 @@ app-statsboard {
   display: flex;
   width: 350px;
   flex-wrap: wrap;
+  z-index:5;
 }
 
 app-playingfield {
@@ -14,6 +15,7 @@ app-playingfield {
   top: 0px;
   left: 0px;
   background-image: url("/assets/Images/HintergrundbildWasser.jpg");
+  z-index: 2;
 }
 
 #whole{
@@ -42,4 +44,17 @@ ng2-toasty {
 button {
   margin-top: 800px;
 }
+:host >>> .ng-sidebar {
+  background-color: #ffffff;
+  z-index: 999;
+}
 
+#historyBtn{
+  position: absolute;
+  bottom: 87px;
+  height: 70px;
+  padding: 5px;
+  z-index: 10000;
+  right: 5px;
+
+}
