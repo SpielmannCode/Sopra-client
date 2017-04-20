@@ -1,4 +1,5 @@
 <div id="Burial_Chamber" class="site">
+  <div id="Titel">Burial Chamber</div>
 
   <div id="BurialDock" class="Dockright" *ngIf="burialChamber.dockedShip !== null">
     <app-ship class="shipsize1" [stones]="burialChamber.dockedShip.stones" [game]="game" [isDocked]="true"></app-ship>
@@ -29,7 +30,14 @@
       </tr>
     </table>
    </div>
+  <div id="BurialFieldbg" class="BurialFieldbg">
+  <div *ngFor="let div of divArray; let i = index;" id="burialField{{i+1}}" class="background">
+    <div id="background">.</div>
+  </div>
+  </div>
+
   <div id="BurialField" class="BurialField">
+
 
     <div *ngFor="let stone of burialChamber.stones; let i = index;" id="burialField{{i+1}}" class="BurialFieldStone">
       <app-stone [stoneColor]="stone"></app-stone>
