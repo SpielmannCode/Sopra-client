@@ -117,3 +117,11 @@ html, body {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
   filter: alpha(opacity=20);
 }
+@font-face {
+  font-family: 'Egyptian_Nights';
+  src:url('/assets/fonts/Egyptian_Nights.ttf')  format('truetype');
+}
+@font-face {
+  font-family: 'Sand';
+  src:url('/assets/fonts/SAND____.TTF')  format('truetype');
+}
