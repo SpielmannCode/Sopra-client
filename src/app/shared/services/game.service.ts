@@ -18,7 +18,8 @@ export class GameService {
   }
 
   initBoard(game: Game): Observable<Response> {
-    return this.http.post(this.apiService.apiUrl + '/games/' + game.id + '?token=' + game.owner, null, this.apiService.options);
+    let userToken = JSON.parse(localStorage.getItem('currentUser')).token;
+    return this.http.post(this.apiService.apiUrl + '/games/' + game.id + '?token=' + userToken, null, this.apiService.options);
   }
 
   getGames(): Observable<Game[]> {
