@@ -21,10 +21,10 @@ app-playingfield {
 }
 
 app-header{
-  width: 100px;
+  width: 25px;
   height: 80px;
   position: absolute;
-  top: 2px;
+  top: 4px;
   right: 2px;
   z-index: 30;
 }
