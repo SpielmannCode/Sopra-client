@@ -10,19 +10,19 @@
 }
 #MarketCard1{
   top: 20px;
-  left: 41px;
+  left: 21px;
 }
 #MarketCard2{
   top: 154px;
-  left: 41px;
+  left: 21px;
 }
 #MarketCard3{
   top: 20px;
-  left: 251px;
+  left: 231px;
 }
 #MarketCard4{
   top: 154px;
-  left: 251px;
+  left: 231px;
 }
 
 .hover-border:hover {
@@ -59,5 +59,12 @@ a:hover + #MarketText{
   right: 25px;
   width: 50px;
   z-index: 29;
+}
+#Titel{
+  position: absolute;
+  top: 10px;
+  right: 75px;
+  font-size: 25px;
+  font-weight: bold;
 }
 
