@@ -16,14 +16,7 @@
       <img src="/assets/Images/icons/cold-ice-cubes.svg" alt="Get Stones">
     </button>
 
-    <button class="btn-basic inline text-center position1" (click)="toggleSidebar()">
-      <img src="/assets/Images/icons/ic_history_black_24px.svg" alt="History Log">
-    </button>
   </div>
   <div id="roundCounter"> Round: {{currentRoundNumber}} out of 6</div>
-  <ng-sidebar-container style="z-index: 40">
-    <ng-sidebar [(opened)]="_opened" style="z-index: 40" >
-      <app-history-log></app-history-log>
-    </ng-sidebar>
-  </ng-sidebar-container>
+
 </div>

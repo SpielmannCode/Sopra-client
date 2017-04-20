@@ -14,8 +14,7 @@ export class UserinputfieldComponent implements OnInit, OnChanges {
   @Input('dragulaService') dragulaService: DragulaService;
   Playingstatus: string;
   currentPlayer;
-  protected currentRoundNumber: number = 10;
-  private _opened: boolean = false;
+  protected currentRoundNumber: number = 1;
   constructor(private moveService: MoveService) {
 
   }
@@ -69,7 +68,5 @@ export class UserinputfieldComponent implements OnInit, OnChanges {
   toggleCardStack() {
     this.showCardStack = !this.showCardStack;
   }
-  private toggleSidebar() {
-    this._opened = !this._opened;
-  }
+
 }
