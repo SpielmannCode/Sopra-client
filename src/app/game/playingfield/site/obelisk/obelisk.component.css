@@ -9,20 +9,22 @@
 #ObeliskStoneBlack2{
   top: 50px;
   left: 285px;
-  background: black;
+  background:  #080808;
   opacity: 0.7;
-  color:white;
+  color:#fff;
   text-align: center;
   vertical-align: middle;
+  border-radius: 10px;
 }
 #ObeliskStoneWhite2{
   top: 50px;
   left: 390px;
-  background: white;
+  background: #fff;
   opacity: 0.7;
-  color:black;
+  color: #080808;
   text-align: center;
   vertical-align: middle;
+  border-radius: 10px;
 }
 .ObeliskStone3 {
   position: absolute;
@@ -32,27 +34,30 @@
 #ObeliskStoneBlack3{
   top: 50px;
   left: 240px;
-  background: black;
+  background:  #080808;
   opacity: 0.7;
-  color:white;
+  color:#fff;
   text-align: center;
+  border-radius: 10px;
 }
 
 #ObeliskStoneWhite3{
   top:50px;
   left: 360px;
-  background: white;
+  background: #fff;
   opacity: 0.7;
-  color:black;
+  color: #080808;
   text-align: center;
+  border-radius: 10px;
 }
 #ObeliskStoneGrey3{
   top: 50px;
   left: 480px;
-  background: grey;
+  background:#8c8c8c;
   opacity: 0.7;
-  color:white;
+  color:saddlebrown;
   text-align: center;
+  border-radius: 10px;
 }
 .ObeliskStone4{
   position: absolute;
@@ -62,34 +67,38 @@
 #ObeliskStoneBlack4{
   top: 50px;
   left: 190px;
-  background: black;
+  background:  #080808;
   opacity: 0.7;
-  color:white;
+  color:#fff;
   text-align: center;
+  border-radius: 10px;
 }
 #ObeliskStoneWhite4{
   top: 50px;
   left: 287.5px;
-  background: white;
+  background: #fff;
   opacity: 0.7;
-  color:black;
+  color: #080808;
   text-align: center;
+  border-radius: 10px;
 }
 #ObeliskStoneBrown4{
   top: 50px;
   left: 385px;
-  background: brown;
+  background: saddlebrown;
   opacity: 0.7;
-  color:white;
+  color:#8c8c8c;
   text-align: center;
+  border-radius: 10px;
 }
 #ObeliskStoneGrey4{
   top: 50px;
   left: 482.5px;
-  background: grey;
+  background: #8c8c8c;
   opacity: 0.7;
-  color:white;
+  color:saddlebrown;
   text-align: center;
+  border-radius: 10px;
 }
 .NumberStone{
   text-align: center;
