@@ -4,9 +4,16 @@
   <table class="table">
     <tr>
       <th>Player Name</th>
+      <th>Ready?</th>
     </tr>
-    <tr *ngFor="let player of selectedGame.players">
+    <tr *ngFor="let player of selectedGame.players; let i = index;">
       <td>{{player.name}} {{player.username}}</td>
+      <td>
+        <label *ngIf="isCurrentPlayer(i)" class="switch">
+          <input type="checkbox" (click)="setPlayerReady()" [attr.checked]="player.readyToPlay">
+          <div class="slider round"></div>
+        </label>
+      </td>
     </tr>
   </table>
   <button id="LeaveButton" class="btn-basic" (click)="leaveGameModal.open()">Leave Game</button>

@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnChanges, OnDestroy, OnInit} from '@angular/core';
 import {GameService} from "../../shared/services/game.service";
 import {Game} from "../../shared/models/game";
 import {Observable, Subscription} from "rxjs";
@@ -10,7 +10,7 @@ import {ModalModule} from "ng2-modal";
   templateUrl: './waiting-lobby.component.html',
   styleUrls: ['./waiting-lobby.component.css']
 })
-export class WaitingLobbyComponent implements OnInit, OnDestroy {
+export class WaitingLobbyComponent implements OnInit, OnDestroy, OnChanges {
   gameId;
   selectedGame: Game;
   gameObservable: Subscription;
@@ -31,6 +31,10 @@ export class WaitingLobbyComponent implements OnInit, OnDestroy {
 
       this.gameObservable = Observable.interval(5000).subscribe(() => {
 
+        if (this.selectedGame.status === 'RUNNING') {
+          return this.router.navigateByUrl('/game/' + this.selectedGame.id);
+        }
+
         this.gameService.getGame(this.gameId)
           .subscribe(game => {
             this.selectedGame = game;
@@ -38,6 +42,17 @@ export class WaitingLobbyComponent implements OnInit, OnDestroy {
       });
 
     });
+  }
+
+  ngOnChanges() {
+  }
+
+  setPlayerReady() {
+    this.gameService.initBoard(this.selectedGame).subscribe(() => this.gameService.getGame(this.selectedGame.id));
+  }
+
+  isCurrentPlayer(index) {
+    return JSON.parse(localStorage.getItem('currentUser')).token === this.selectedGame.players[index].token;
   }
 
   ngOnDestroy() {
