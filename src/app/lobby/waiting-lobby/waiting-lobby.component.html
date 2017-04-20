@@ -10,12 +10,13 @@
       <td>{{player.name}} {{player.username}}</td>
       <td>
         <label *ngIf="isCurrentPlayer(i)" class="switch">
-          <input type="checkbox" (click)="setPlayerReady()" [attr.checked]="player.readyToPlay">
+          <input type="checkbox" (click)="setPlayerReady()" [checked]="player.readyToPlay">
           <div class="slider round"></div>
         </label>
       </td>
     </tr>
   </table>
+
   <button id="LeaveButton" class="btn-basic" (click)="leaveGameModal.open()">Leave Game</button>
   <button class="btn-basic" (click)="startGame(selectedGame)">Start Game</button>
   <modal #leaveGameModal>
