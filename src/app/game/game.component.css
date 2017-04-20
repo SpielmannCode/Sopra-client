@@ -13,11 +13,14 @@ app-playingfield {
   position: absolute;
   top: 0px;
   left: 0px;
-  background-image: url("/assets/Images/HintergrundbildWasser.jpg");
 }
 
 #whole{
   position: relative;
+}
+
+#water-background {
+  display: inline;
 }
 
 app-header{
@@ -42,4 +45,3 @@ ng2-toasty {
 button {
   margin-top: 800px;
 }
-

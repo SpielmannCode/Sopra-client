@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import {UserService} from '../shared/services/user.service';
 import {User} from '../shared/models/user';
 import {ActivatedRoute} from '@angular/router';
@@ -25,7 +25,8 @@ export class GameComponent implements OnInit, OnDestroy {
               protected gameService: GameService,
               protected route: ActivatedRoute,
               private toastyService:ToastyService,
-              private toastyConfig: ToastyConfig) { }
+              private toastyConfig: ToastyConfig) {
+  }
 
   ngOnInit() {
     let self = this;
