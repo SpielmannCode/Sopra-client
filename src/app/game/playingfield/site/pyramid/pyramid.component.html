@@ -17,6 +17,12 @@
   </div>
 
   <!--First Level-->
+  <div id="PyramidLevel1bg" class="PyramidLevel1bg">
+    <div  *ngFor="let div of divArrayLv1; let i = index;" id="PyramidLevel1bg{{i+1}}" class="background">
+      <div id="background">{{divArrayLv1[i]}} </div>
+    </div>
+  </div>
+
   <div id="PyramidLevel1" class="PyramidLevel1">
     <div  *ngFor="let stone of pyramidSite.stones; let i = index;" id="PyramidLevel1Stone{{i+1}}" class="PyramidStone">
       <ng-container *ngIf="i < 9">
@@ -24,6 +30,7 @@
       </ng-container>
     </div>
   </div>
+
 
   <!--Second Level-->
   <div id="PyramidLevel2" class="PyramidLevel2">
