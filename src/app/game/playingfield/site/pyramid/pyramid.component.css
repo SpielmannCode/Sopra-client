@@ -96,3 +96,25 @@ a:hover + #PyramidText{
   width: 135px;
   height: 135px;
 }
+#PyramidLevel2bg{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  position: absolute;
+  top: 32px;
+  left: 130px;
+  width: 90px;
+  height: 90px;
+}
+#PyramidLevel3bg{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  position: absolute;
+  top: 32px;
+  left: 60px;
+  width: 45px;
+  height: 45px;
+}
