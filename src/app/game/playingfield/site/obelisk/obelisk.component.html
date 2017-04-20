@@ -6,20 +6,59 @@
   <div id="ObeliskDock" class="Dockright" [dragula]='"first-bag"' *ngIf="obeliskSite.dockedShip === null && dockOpen"></div>
 
   <img src="/assets/Images/Site_boards/Obelisks.png" alt="Obelisk">
+  <a><img src="/assets/Images/icons/240px-Infobox_info_icon.svg.png" alt="Obelisk_Info" id="info"></a>
+  <div id="ObeliskText"><h1>Obelisk</h1> <p>At the end of the game each player gets points according to their rank. if 2 players have the same amount of stones the points get split even. The distribution is as followed: </p>
+    <table *ngIf="Playercount === 2" >
+      <tr>
+        <th>1st</th>
+        <th>2nd</th>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>1</td>
+      </tr>
+    </table>
+    <table *ngIf="Playercount === 3" >
+      <tr>
+        <th>1st</th>
+        <th>2nd</th>
+        <th>3rd</th>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>6</td>
+        <td>1</td>
+      </tr>
+    </table>
+    <table *ngIf="Playercount === 4" >
+      <tr>
+        <th>1st</th>
+        <th>2nd</th>
+        <th>3rd</th>
+        <th>4rd</th>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td>10</td>
+        <td>5</td>
+        <td>1</td>
+      </tr>
+    </table>
+  </div>
 
-<div id="ObeliskStoneBlack" class="ObeliskStone">
+<div id="ObeliskStoneBlack" class="ObeliskStone text-center inline center">
   <div class="NumberStone">{{obeliskSite.stones[0]}}</div>
 </div>
-<div id="ObeliskStoneWhite" class="ObeliskStone">
+<div id="ObeliskStoneWhite" class="ObeliskStone text-center inline center">
   <div class="NumberStone">{{obeliskSite.stones[1]}}</div>
 </div>
-<div id="ObeliskStoneBrown" class="ObeliskStone">
+<div id="ObeliskStoneBrown" class="ObeliskStone text-center inline center">
   <div class="NumberStone">{{obeliskSite.stones[3]}}</div>
 </div>
-<div id="ObeliskStoneGrey" class="ObeliskStone">
+<div id="ObeliskStoneGrey" class="ObeliskStone text-center inline center">
   <div class="NumberStone">{{obeliskSite.stones[2]}}</div>
 </div>
-  <div id="ObeliskStoneTotal" class="ObeliskStone">
+  <div id="ObeliskStoneTotal" class="ObeliskStone text-center inline center">
     <div class="NumberStone">{{sumO}}</div>
   </div>
 </div>

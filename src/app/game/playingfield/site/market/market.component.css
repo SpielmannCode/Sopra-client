@@ -29,4 +29,35 @@
   border: 3px solid #f9ff0d;
   opacity: 1;
 }
+#MarketText{
+  position: absolute;
+  top: 5px;
+  left : 5px;
+  display: none;
+  height:295px;
+  width: 590px;
+  background-color: whitesmoke;
+  color:black;
+  z-index: 30;
+  opacity: 0.8;
+  text-align: center;
+}
+#MarketText h1{
+  font-size: 20px;
+  text-decoration: underline;
+  font: "Arial Black";
+}
+#MarketText p{
+  font-size: 15px;
+}
+a:hover + #MarketText{
+  display: block;
+}
+#info{
+  position: absolute;
+  top: 3px;
+  right: 25px;
+  width: 50px;
+  z-index: 29;
+}
 
