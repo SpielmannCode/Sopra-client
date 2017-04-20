@@ -86,7 +86,7 @@ export class LobbyComponent implements OnInit, OnDestroy {
         this.gameService.getGame(gameId).subscribe(game => {
           // Set the playerCountSetting from the form
           game.playerCountSetting = this.createGameForm.value.playerCountSetting;
-          this.gameService.changeSettings(game).subscribe(() => this.ngOnInit());
+          this.gameService.changeSettings(game).subscribe(() => this.router.navigateByUrl('/lobby/' + game.id));
         })
       });
   }
