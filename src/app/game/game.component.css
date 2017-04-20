@@ -13,7 +13,7 @@ app-playingfield {
   position: absolute;
   top: 0px;
   left: 0px;
-  background-image: url("/assets/Images/HintergrundbildWasser.jpg");
+  background-image: url("/assets/Images/HintergrundbildWasser.gif");
 }
 
 #whole{
