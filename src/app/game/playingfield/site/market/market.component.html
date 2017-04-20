@@ -1,13 +1,12 @@
-<div id="Market" class="site">
-  <div id="Titel">MARKET</div>
+<div  on-mouseenter='enter()' on-mouseleave='leave()' id="Market" class="site">
+  <div id="Titel">Market</div>
   <div id="MarketDock" class="Dockleft" [dragula]='"first-bag"' *ngIf="marketSite.dockedShip !== null">
     <app-ship class="shipsize1" [stones]="marketSite.dockedShip.stones" [game]="game" [isDocked]="true"></app-ship>
   </div>
   <div id="MarketDock" class="Dockleft" [dragula]='"first-bag"' *ngIf="marketSite.dockedShip === null && dockOpen"></div>
 
   <img src="/assets/Images/Site_boards/Market.png" alt="Market">
-  <a><img src="/assets/Images/icons/240px-Infobox_info_icon.svg.png" alt="Market_Info" id="info"></a>
-  <div id="MarketText"><h1>Market</h1> <p>For each stone
+  <div  *ngIf="display" id="MarketText"><h1>Market</h1> <p>For each stone
     delivered here, the
     owner of the stone can
     immediately take any face-up market card.</p>

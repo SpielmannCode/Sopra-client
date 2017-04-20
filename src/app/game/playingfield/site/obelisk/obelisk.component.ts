@@ -10,6 +10,7 @@ export class ObeliskComponent implements OnInit,OnChanges {
   @Input('dockOpen') dockOpen;
   @Input('playerCount') Playercount;
   sumO:number = 0;
+  display = false;
 
   constructor() { }
 
@@ -21,6 +22,11 @@ export class ObeliskComponent implements OnInit,OnChanges {
     for(let stone of this.obeliskSite.stones){
       this.sumO = this.sumO + stone;}
   }
-
+  enter(){
+    this.display = true;
+  }
+  leave(){
+    this.display = false;
+  }
 
 }
