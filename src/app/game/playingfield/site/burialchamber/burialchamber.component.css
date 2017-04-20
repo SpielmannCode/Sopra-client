@@ -5,7 +5,6 @@
   position: absolute;
   top: 5px;
   left : 5px;
-  display: none;
   height:175px;
   width: 590px;
   background-color: whitesmoke;
@@ -22,9 +21,7 @@
 #BurialText p{
   font-size: 15px;
 }
-a:hover + #BurialText{
-  display: block;
-}
+
 .background{
   background-color:	#cd9b1d;
   opacity: 0.5;
@@ -81,10 +78,10 @@ table {
 }
 #Titel{
   position: absolute;
-  top: 10px;
-  left: 75px;
+  top: 5px;
+  left: 30px;
   font-size: 25px;
-  font-weight: bold;
   font-family: Sand;
-
+  font-weight: bold;
+  widht: 100%;
 }

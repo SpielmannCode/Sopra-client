@@ -4,10 +4,7 @@
   <div id="buttons" >
     <div id="buttonstext">{{Playingstatus}}</div>
        <br>
-    <button *ngIf="currentPlayer.token !== game.players[game.currentPlayerIndex].token"  class="btn-basic inline  position1 disabled" disabled (click)="toggleCardStack()">
-      <img src="/assets/Images/icons/hand-holding-two-soccer-cards.svg" alt="Play Cards">
-    </button>
-    <button *ngIf="currentPlayer.token === game.players[game.currentPlayerIndex].token" class="btn-basic inline  position1" (click)="toggleCardStack()">
+    <button class="btn-basic inline  position1" (click)="toggleCardStack()">
       <img src="/assets/Images/icons/hand-holding-two-soccer-cards.svg" alt="Play Cards">
     </button>
     <button *ngIf="currentPlayer.token !== game.players[game.currentPlayerIndex].token || currentPlayer.stoneSupply > 4" class="btn-basic inline  position1 disabled" disabled (click)="getStones()">

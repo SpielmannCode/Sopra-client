@@ -51,7 +51,6 @@
   position: absolute;
   top: 5px;
   left : 5px;
-  display: none;
   height:145px;
   width: 590px;
   background-color: whitesmoke;
@@ -68,9 +67,6 @@
 #TempelText p{
   font-size: 15px;
 }
-a:hover + #TempelText{
-  display: block;
-}
 #info{
   position: absolute;
   top: 3px;
@@ -79,11 +75,12 @@ a:hover + #TempelText{
 }
 #Titel{
   position: absolute;
-  top: 10px;
-  left: 75px;
+  top: 5px;
+  left: 30px;
   font-size: 25px;
   font-weight: bold;
   font-family: Sand;
+  widht: 100%;
 }
 .Templebg{
   display: flex;

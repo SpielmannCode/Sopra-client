@@ -1,5 +1,5 @@
-<div id="Temple" class="site">
-  <div id="Titel">TEMPLE</div>
+<div on-mouseenter='enter()' on-mouseleave='leave()' id="Temple" class="site">
+  <div  id="Titel" >TEMPLE</div>
   <div id="TempleDock" class="Dockright" *ngIf="templeSite.dockedShip !== null">
     <app-ship class="shipsize1" [stones]="templeSite.dockedShip.stones" [game]="game" [isDocked]="true"></app-ship>
   </div>
@@ -8,8 +8,7 @@
   </div>
 
   <img src="/assets/Images/Site_boards/Temple.png" alt="Temple">
-  <a><img src="/assets/Images/icons/240px-Infobox_info_icon.svg.png" alt="Tempel_Info" id="info"></a>
-  <div id="TempelText"><h1>Temple</h1> <p>For each stone delivered here, the owner of the stone earns 1 point for each from above visible stone at the end of every round. The last placed stone is indicated</p>
+  <div id="TempelText" *ngIf="display" ><h1>Temple</h1> <p>For each stone delivered here, the owner of the stone earns 1 point for each from above visible stone at the end of every round. The last placed stone is indicated</p>
   </div>
 
   <div  class="Templebg" *ngIf="templeSite.size===4">
