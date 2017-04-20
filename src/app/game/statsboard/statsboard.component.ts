@@ -1,4 +1,7 @@
-import {animate, Component, Input, OnChanges, OnInit, state, style, transition, trigger} from '@angular/core';
+import {
+  animate, Component, Input, OnInit, state, style, transition,
+  trigger
+} from '@angular/core';
 import {Game} from '../../shared/models/game';
 
 @Component({
@@ -18,7 +21,7 @@ import {Game} from '../../shared/models/game';
     ])
   ]
 })
-export class StatsboardComponent implements OnInit, OnChanges {
+export class StatsboardComponent implements OnInit {
 
   @Input('game') game: Game;
 
@@ -27,8 +30,7 @@ export class StatsboardComponent implements OnInit, OnChanges {
 
   ngOnInit() {
   }
-  ngOnChanges(){
-  }
+
   getCardcount(playertoken): number[] {
     let greenCardCount = 0 ;
     let blueCardCount = 0;
