@@ -12,11 +12,21 @@ export class TempleComponent implements OnInit,OnChanges {
   sizeT:number=0;
   x: number=0;
   indexT: number=0;
+  divArray4 = Array(4).fill(0);
+  divArray5 = Array(5).fill(0);
+  display = false;
+
 
 
   constructor() { }
-
+  enter(){
+    this.display = true;
+  }
+  leave(){
+    this.display = false;
+  }
   ngOnInit() {
+    this.display = false;
   }
 
   ngOnChanges() {

@@ -1,5 +1,5 @@
-<div id="Pyramid" class="site">
-  <div id="Titel">Pyramid</div>
+<div  on-mouseenter='enter()' on-mouseleave='leave()'  id="Pyramid" class="site">
+  <div id="Titel">PYRAMID</div>
   <div id="PyramidDock" class="Dockleft" *ngIf="pyramidSite.dockedShip !== null">
       <app-ship class="shipsize1" [stones]="pyramidSite.dockedShip.stones" [game]="game" [isDocked]="true"></app-ship>
   </div>
@@ -7,8 +7,7 @@
   <div id="PyramidDock" class="Dockleft" [dragula]='"first-bag"' *ngIf="pyramidSite.dockedShip === null && dockOpen"></div>
 
   <img src="/assets/Images/Site_boards/Pyramids.png" alt="Pyramid">
-  <a><img src="/assets/Images/icons/240px-Infobox_info_icon.svg.png" alt="Pyramid_Info" id="info"></a>
-  <div id="PyramidText"><h1>Pyramid</h1> <p>For each stone delivered
+  <div *ngIf="display" id="PyramidText"><h1>Pyramid</h1> <p>For each stone delivered
     here, the owner of the
     stone earns points
     immediately. Place the
@@ -33,6 +32,12 @@
 
 
   <!--Second Level-->
+  <div id="PyramidLevel2bg" class="PyramidLevel2bg">
+    <div  *ngFor="let div of divArrayLv2; let i = index;" id="PyramidLevel2bg{{i+1}}" class="background">
+      <div id="background">{{divArrayLv2[i]}} </div>
+    </div>
+  </div>
+
   <div id="PyramidLevel2" class="PyramidLevel2">
     <div *ngFor="let stone of pyramidSite.stones; let i = index;" id="PyramidLevel2Stone{{i+9}}" class="PyramidStone">
       <ng-container *ngIf="i >= 0 && i < 4">
@@ -42,6 +47,12 @@
   </div>
 
   <!--Third Level-->
+  <div id="PyramidLevel3bg" class="PyramidLevel3bg">
+    <div  *ngFor="let div of divArrayLv3; let i = index;" id="PyramidLevel3bg{{i+1}}" class="background">
+      <div id="background">{{divArrayLv3[i]}} </div>
+    </div>
+  </div>
+
   <div *ngFor="let stone of pyramidSite.stones; let i = index;" id="PyramidLevel3Stone1" class="PyramidStone">
     <ng-container >
       <app-stone [stoneColor]="pyramidSite.stones[13]"></app-stone>

@@ -1,5 +1,5 @@
-<div id="Burial_Chamber" class="site">
-  <div id="Titel">Burial Chamber</div>
+<div on-mouseenter='enter()' on-mouseleave='leave()' id="Burial_Chamber" class="site">
+  <div  id="Titel">BURIAL CHAMBER</div>
 
   <div id="BurialDock" class="Dockright" *ngIf="burialChamber.dockedShip !== null">
     <app-ship class="shipsize1" [stones]="burialChamber.dockedShip.stones" [game]="game" [isDocked]="true"></app-ship>
@@ -8,8 +8,7 @@
   <div id="BurialDock" class="Dockright" [dragula]='"first-bag"' *ngIf="burialChamber.dockedShip === null && dockOpen"></div>
 
   <img src="/assets/Images/Site_boards/Burial_Chamber.png " alt="Burial_Chamber">
-  <a><img src="/assets/Images/icons/240px-Infobox_info_icon.svg.png" alt="Burial_Info" id="info"></a>
-  <div id="BurialText"><h1>Burial Chamber</h1> <p>Stones are placed column by column starting at the top left.<br>
+  <div id="BurialText"*ngIf="display"><h1>Burial Chamber</h1> <p>Stones are placed column by column starting at the top left.<br>
     At the end of the game you'll get point(s) for connected Stones as followed:</p>
     <table >
       <tr>
