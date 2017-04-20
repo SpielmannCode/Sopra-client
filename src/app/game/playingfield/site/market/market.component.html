@@ -6,7 +6,7 @@
   <div id="MarketDock" class="Dockleft" [dragula]='"first-bag"' *ngIf="marketSite.dockedShip === null && dockOpen"></div>
 
   <img src="/assets/Images/Site_boards/Market.png" alt="Market">
-  <div  *ngIf="display" id="MarketText"><h1>Market</h1> <p>For each stone
+  <div  *ngIf="display && game.logicState === 'NORMAL'" id="MarketText"><h1>Market</h1> <p>For each stone
     delivered here, the
     owner of the stone can
     immediately take any face-up market card.</p>
