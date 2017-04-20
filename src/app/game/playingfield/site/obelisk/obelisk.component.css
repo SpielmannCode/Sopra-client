@@ -44,8 +44,6 @@
   background: brown;
   opacity: 0.5;
   color:white;
-
-
 }
 
 #ObeliskStoneGrey{
@@ -63,8 +61,44 @@
   background: lawngreen;
   opacity: 0.8;
   color: black;
-
-
 }
-
-
+#ObeliskText{
+  position: absolute;
+  top: 5px;
+  left : 5px;
+  display: none;
+  height:175px;
+  width: 590px;
+  background-color: whitesmoke;
+  color:black;
+  z-index: 30;
+  opacity: 0.8;
+  text-align: center;
+}
+#ObeliskText h1{
+  font-size: 20px;
+  text-decoration: underline;
+  font: "Arial Black";
+}
+#ObeliskText p{
+  font-size: 15px;
+}
+a:hover + #ObeliskText{
+  display: block;
+}
+#info{
+  position: absolute;
+  top: 3px;
+  left: 25px;
+  width: 50px;
+  z-index: 29;
+}
+table, th, td {
+  border: 1px solid black;
+}
+th, td{
+  padding: 5px;
+}
+table {
+  margin: 0 auto; /* or margin: 0 auto 0 auto */
+}
