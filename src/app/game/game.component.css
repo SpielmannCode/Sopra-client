@@ -6,6 +6,7 @@ app-statsboard {
   width: 350px;
   flex-wrap: wrap;
   z-index:5;
+  border-radius: 10px;
 }
 
 app-playingfield {

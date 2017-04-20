@@ -76,7 +76,6 @@ a:hover + #TempelText{
   top: 3px;
   left: 25px;
   width: 50px;
-  z-index: 29;
 }
 #Titel{
   position: absolute;
