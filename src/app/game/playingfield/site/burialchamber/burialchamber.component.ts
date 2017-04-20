@@ -10,6 +10,7 @@ export class BurialchamberComponent implements OnInit {
   @Input('dockOpen') dockOpen;
   fields;
   sumB:number = 0;
+  divArray = Array(24).fill(0);
 
 
   constructor() {
