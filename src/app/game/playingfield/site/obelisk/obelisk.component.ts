@@ -8,6 +8,7 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core'
 export class ObeliskComponent implements OnInit,OnChanges {
   @Input('obeliskSite') obeliskSite;
   @Input('dockOpen') dockOpen;
+  @Input('playerCount') Playercount;
   sumO:number = 0;
 
   constructor() { }
