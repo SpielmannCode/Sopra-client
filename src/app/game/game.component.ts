@@ -20,6 +20,8 @@ export class GameComponent implements OnInit, OnDestroy {
   protected game: Game;
   protected gameObservable: Subscription;
   private userToken;
+  private _opened: boolean = false;
+
 
   constructor(protected userService: UserService,
               protected gameService: GameService,
@@ -108,6 +110,9 @@ export class GameComponent implements OnInit, OnDestroy {
 
   static removeClass(el: any, name: string) {
     el.className = el.className.replace(new RegExp('(?:^|\\s+)' + name + '(?:\\s+|$)', 'g'), '');
+  }
+  private toggleSidebar() {
+    this._opened = !this._opened;
   }
 
 }
