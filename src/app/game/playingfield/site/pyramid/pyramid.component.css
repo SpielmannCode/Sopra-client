@@ -74,3 +74,25 @@ a:hover + #PyramidText{
   font-size: 25px;
   font-weight: bold;
 }
+.background{
+  background-color: #761c19;
+  font-size: xx-large;
+  color: #080808;
+  text-align: center;
+  opacity: 0.7;
+  width: 45px;
+  height: 45px;
+  border-width: thin;
+  border-style: solid;
+}
+#PyramidLevel1bg{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  position: absolute;
+  top: 32px;
+  left: 242px;
+  width: 135px;
+  height: 135px;
+}
