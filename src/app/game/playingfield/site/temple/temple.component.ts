@@ -5,26 +5,18 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core'
   templateUrl: './temple.component.html',
   styleUrls: ['./temple.component.css']
 })
-export class TempleComponent implements OnInit, OnChanges {
+export class TempleComponent implements OnInit,OnChanges {
   @Input('templeSite') templeSite;
   @Input('dockOpen') dockOpen;
   sumT:number=0;
   sizeT:number=0;
   x: number=0;
   indexT: number=0;
-  display = false;
-
 
 
   constructor() { }
-  enter(){
-    this.display = true;
-  }
-  leave(){
-    this.display = false;
-  }
+
   ngOnInit() {
-    this.display = false;
   }
 
   ngOnChanges() {
@@ -36,5 +28,4 @@ export class TempleComponent implements OnInit, OnChanges {
     else {this.indexT=(this.templeSite.numberOfStones % this.templeSite.size);}
 
 }
-
 }
