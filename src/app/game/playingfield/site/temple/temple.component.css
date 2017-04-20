@@ -4,48 +4,48 @@
 .templeStone{
   position: absolute;
   top: 57px;
-  width: 42px;
-  height: 42px;
+  width: 45px;
+  height: 45px;
 }
 .templeArrow{
   position: absolute;
   top: 57px;
-  width: 42px;
-  height: 42px;
+  width: 45px;
+  height: 45px;
 }
 #Stone1{
   left: 338px;
 }
 #Stone2{
-  left: 380px;
+  left: 383px;
 }
 #Stone3{
-  left: 424px;
+  left: 428px;
 }
 #Stone4{
-  left: 468px;
+  left: 473px;
 }
 #Stone5{
-  left: 513px;
+  left: 518px;
 }
 
 #Arrow1{
   left: 338px;
 }
 #Arrow2{
-  left: 380px;
+  left: 383px;
 }
 #Arrow3{
-  left: 424px;
+  left: 428px;
 }
 #Arrow4{
-  left: 468px;
+  left: 473px;
 }
 #Arrow6{
-  left: 468px;
+  left: 473px;
 }
 #Arrow5{
-  left: 513px;
+  left: 518px;
 }
 #TempelText{
   position: absolute;
@@ -84,4 +84,31 @@ a:hover + #TempelText{
   font-size: 25px;
   font-weight: bold;
   font-family: Sand;
+}
+.Templebg{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  position: absolute;
+  top: 57px;
+  left: 338px;
+  width: 225px;
+  height: 45px;
+}
+#background{
+  background-color: #761c19;
+  opacity: 0.7;
+  width: 45px;
+  height: 45px;
+  border-width: thin;
+  border-style: solid;
+}
+.background{
+  background-color: #761c19;
+  opacity: 0.7;
+  width: 45px;
+  height: 45px;
+  border-width: thin;
+  border-style: solid;
 }
