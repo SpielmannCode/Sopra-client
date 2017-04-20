@@ -50,7 +50,7 @@
 }
 #PyramidText h1{
   font-size: 20px;
-  text-decoration: underline;
+  font-weight: bold;
   font: "Arial Black";
 }
 #PyramidText p{
