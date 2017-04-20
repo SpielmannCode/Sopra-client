@@ -11,6 +11,7 @@ export class BurialchamberComponent implements OnInit {
   fields;
   sumB:number = 0;
   divArray = Array(24).fill(0);
+  display = false;
 
 
   constructor() {
@@ -23,6 +24,12 @@ export class BurialchamberComponent implements OnInit {
     for(let stone of this.burialChamberSite.stones)
       this.sumB = this.sumB + stone;
       */
+  }
+  enter(){
+    this.display = true;
+  }
+  leave(){
+    this.display = false;
   }
 
 }

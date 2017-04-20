@@ -14,10 +14,17 @@ export class MarketComponent implements OnInit {
   @Input('marketSite') marketSite;
   @Input('logicState') logicState;
   @Input('dockOpen') dockOpen;
+  display = false;
 
   constructor(private moveService: MoveService) { }
-
+  enter(){
+    this.display = true;
+  }
+  leave(){
+    this.display = false;
+  }
   ngOnInit() {
+    this.display = false;
   }
 
   takeCard(cardIndex:number) {

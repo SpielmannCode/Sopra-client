@@ -1,6 +1,6 @@
-<div id="Obelisk" class="site">
+<div on-mouseenter='enter()' on-mouseleave='leave()' id="Obelisk" class="site">
 
-  <div id="Titel">Obelisk</div>
+  <div  id="Titel">OBELISK</div>
   <div id="ObeliskDock" class="Dockright" *ngIf="obeliskSite.dockedShip !== null">
     <app-ship class="shipsize1" [stones]="obeliskSite.dockedShip.stones" [game]="game" [isDocked]="true"></app-ship>
   </div>
@@ -8,8 +8,8 @@
   <div id="ObeliskDock" class="Dockright" [dragula]='"first-bag"' *ngIf="obeliskSite.dockedShip === null && dockOpen"></div>
 
   <img src="/assets/Images/Site_boards/Obelisks.png" alt="Obelisk">
-  <a><img src="/assets/Images/icons/240px-Infobox_info_icon.svg.png" alt="Obelisk_Info" id="info"></a>
-  <div id="ObeliskText"><h1>Obelisk</h1> <p>At the end of the game each player gets points according to their rank. if 2 players have the same amount of stones the points get split even. The distribution is as followed: </p>
+
+  <div id="ObeliskText" *ngIf="display"><h1>Obelisk</h1> <p>At the end of the game each player gets points according to their rank. if 2 players have the same amount of stones the points get split even. The distribution is as followed: </p>
     <table *ngIf="Playercount === 2" >
       <tr>
         <th>1st</th>

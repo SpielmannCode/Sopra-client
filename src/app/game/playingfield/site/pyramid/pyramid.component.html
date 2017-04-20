@@ -1,4 +1,4 @@
-<div id="Pyramid" class="site">
+<div  on-mouseenter='enter()' on-mouseleave='leave()'  id="Pyramid" class="site">
   <div id="Titel">Pyramid</div>
   <div id="PyramidDock" class="Dockleft" *ngIf="pyramidSite.dockedShip !== null">
       <app-ship class="shipsize1" [stones]="pyramidSite.dockedShip.stones" [game]="game" [isDocked]="true"></app-ship>
@@ -7,8 +7,7 @@
   <div id="PyramidDock" class="Dockleft" [dragula]='"first-bag"' *ngIf="pyramidSite.dockedShip === null && dockOpen"></div>
 
   <img src="/assets/Images/Site_boards/Pyramids.png" alt="Pyramid">
-  <a><img src="/assets/Images/icons/240px-Infobox_info_icon.svg.png" alt="Pyramid_Info" id="info"></a>
-  <div id="PyramidText"><h1>Pyramid</h1> <p>For each stone delivered
+  <div *ngIf="display" id="PyramidText"><h1>Pyramid</h1> <p>For each stone delivered
     here, the owner of the
     stone earns points
     immediately. Place the
