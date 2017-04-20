@@ -47,20 +47,47 @@
       </tr>
     </table>
   </div>
-
-<div id="ObeliskStoneBlack" class="ObeliskStone text-center inline center">
+<ng-container *ngIf="Playercount === 2">
+<div id="ObeliskStoneBlack2" class="ObeliskStone2 text-center inline center">
   <div class="NumberStone">{{obeliskSite.stones[0]}}</div>
 </div>
-<div id="ObeliskStoneWhite" class="ObeliskStone text-center inline center">
+<div id="ObeliskStoneWhite2" class="ObeliskStone2 text-center inline center">
   <div class="NumberStone">{{obeliskSite.stones[1]}}</div>
 </div>
-<div id="ObeliskStoneBrown" class="ObeliskStone text-center inline center">
-  <div class="NumberStone">{{obeliskSite.stones[3]}}</div>
-</div>
-<div id="ObeliskStoneGrey" class="ObeliskStone text-center inline center">
-  <div class="NumberStone">{{obeliskSite.stones[2]}}</div>
-</div>
-  <div id="ObeliskStoneTotal" class="ObeliskStone text-center inline center">
+  <div id="ObeliskStoneTotal2" class="ObeliskStone2 text-center inline center">
     <div class="NumberStone">{{sumO}}</div>
   </div>
+</ng-container>
+  <ng-container *ngIf="Playercount === 3">
+    <div id="ObeliskStoneBlack3" class="ObeliskStone3 text-center inline center">
+      <div class="NumberStone">{{obeliskSite.stones[0]}}</div>
+    </div>
+    <div id="ObeliskStoneWhite3" class="ObeliskStone3 text-center inline center">
+      <div class="NumberStone">{{obeliskSite.stones[1]}}</div>
+    </div>
+    <div id="ObeliskStoneGrey3" class="ObeliskStone3 text-center inline center">
+      <div class="NumberStone">{{obeliskSite.stones[2]}}</div>
+    </div>
+    <div id="ObeliskStoneTotal3" class="ObeliskStone3 text-center inline center">
+      <div class="NumberStone">{{sumO}}</div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="Playercount === 4">
+    <div id="ObeliskStoneBlack4" class="ObeliskStone4 text-center inline center">
+      <div class="NumberStone">{{obeliskSite.stones[0]}}</div>
+    </div>
+    <div id="ObeliskStoneWhite4" class="ObeliskStone4 text-center inline center">
+      <div class="NumberStone">{{obeliskSite.stones[1]}}</div>
+    </div>
+    <div id="ObeliskStoneBrown4" class="ObeliskStone4 text-center inline center">
+      <div class="NumberStone">{{obeliskSite.stones[3]}}</div>
+    </div>
+    <div id="ObeliskStoneGrey4" class="ObeliskStone4 text-center inline center">
+      <div class="NumberStone">{{obeliskSite.stones[2]}}</div>
+    </div>
+    <div id="ObeliskStoneTotal4" class="ObeliskStone4 text-center inline center">
+      <div class="NumberStone">{{sumO}}</div>
+    </div>
+  </ng-container>
+
 </div>

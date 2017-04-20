@@ -1,26 +1,37 @@
 #Obelisk {
   position: relative;
 }
-.ObeliskStone{
+.ObeliskStone {
   position: absolute;
   width: 48px;
   height: 48px;
-
 }
 .NumberStone{
-
   text-align: center;
   vertical-align: middle;
   font-size: 250%;
   margin: 0 auto;
-
 }
 .site .ObeliskStone :hover {
   opacity: 1.0;
 }
-
-
-#ObeliskStoneBlack{
+#ObeliskStoneBlack2{
+  top: 33px;
+  left: 290px;
+  background: black;
+  opacity: 0.5;
+  color:white;
+  text-align: center;
+}
+#ObeliskStoneWhite2{
+  top: 33px;
+  left: 372px;
+  background: white;
+  opacity: 0.5;
+  color:black;
+  text-align: center;
+}
+#ObeliskStoneBlack3{
   top: 15px;
   left: 290px;
   background: black;
@@ -28,18 +39,39 @@
   color:white;
   text-align: center;
 }
-#ObeliskStoneWhite{
+#ObeliskStoneWhite3{
   top: 33px;
   left: 372px;
   background: white;
   opacity: 0.5;
   color:black;
   text-align: center;
-
-
-
 }
-#ObeliskStoneBrown{
+#ObeliskStoneGrey3{
+  top: 72px;
+  left: 536px;
+  background: grey;
+  opacity: 0.5;
+  color:white;
+  text-align: center;
+}
+#ObeliskStoneBlack4{
+  top: 15px;
+  left: 290px;
+  background: black;
+  opacity: 0.5;
+  color:white;
+  text-align: center;
+}
+#ObeliskStoneWhite4{
+  top: 33px;
+  left: 372px;
+  background: white;
+  opacity: 0.5;
+  color:black;
+  text-align: center;
+}
+#ObeliskStoneBrown4{
   top: 51px;
   left: 454px;
   background: brown;
@@ -47,17 +79,29 @@
   color:white;
   text-align: center;
 }
-
-#ObeliskStoneGrey{
+#ObeliskStoneGrey4{
   top: 72px;
   left: 536px;
   background: grey;
   opacity: 0.5;
   color:white;
   text-align: center;
-
 }
-#ObeliskStoneTotal{
+#ObeliskStoneTotal2{
+   top: 15px;
+   left: 190px;
+   background: lawngreen;
+   opacity: 0.8;
+   color: black;
+ }
+#ObeliskStoneTotal3{
+  top: 15px;
+  left: 190px;
+  background: lawngreen;
+  opacity: 0.8;
+  color: black;
+}
+#ObeliskStoneTotal4{
   top: 15px;
   left: 190px;
   background: lawngreen;
@@ -93,7 +137,6 @@ a:hover + #ObeliskText{
   top: 3px;
   left: 25px;
   width: 50px;
-
 }
 table, th, td {
   border: 1px solid black;
