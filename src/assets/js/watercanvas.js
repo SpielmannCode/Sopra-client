@@ -81,7 +81,16 @@ function WaterCanvas() {
    * (see example here: http://media.chikuyonok.ru/ripple/)
    * But I need to draw simple artwork to bypass 1k limitation
    */
-  with (ctx) {
+  var img = document.getElementById('water-img');
+
+  ctx.drawImage(img, 0, 0);
+
+  canvas.style.left = img.offsetLeft + 'px';
+  canvas.style.top = img.offsetTop + 'px';
+
+  img.parentNode.insertBefore(canvas, img);
+
+  /*with (ctx) {
     fillStyle = '#a2ddf8';
     fillRect(0, 0, width, height);
 
@@ -92,7 +101,7 @@ function WaterCanvas() {
       fillRect(-width, i * step, width * 3, line_width);
     }
     restore();
-  }
+  }*/
 
   texture = ctx.getImageData(0, 0, width, height);
   ripple = ctx.getImageData(0, 0, width, height);
