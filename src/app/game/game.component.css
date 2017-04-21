@@ -24,6 +24,10 @@ app-playingfield {
 #whole{
   position: relative;
 }
+#header1{
+  font-family: Egyptian_Nights;
+  font-size: xx-large;
+}
 
 app-header{
   width: 25px;
