@@ -99,7 +99,7 @@ export class PlayingfieldComponent implements OnInit {
           'stoneIndex': stonePos[2]
         };
 
-        this.moveService.addMove(this.game, moveJson).subscribe();
+        this.moveService.addMove(this.game, moveJson).subscribe(() => this.gameService.getGame(this.game.id));
 
         break;
       }

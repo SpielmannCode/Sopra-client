@@ -122,7 +122,6 @@ export class CardstackComponent implements OnInit, OnChanges {
 
   setPlayCardMode(card) {
     CardstackComponent.playCardMode = true;
-    this.addCardToast('Play Card Mode');
 
     let moveType = 'Play' + card + 'Move';
 
@@ -163,6 +162,23 @@ export class CardstackComponent implements OnInit, OnChanges {
         break;
       }
       case 'PlaySailMove': {
+
+        if (this.currentPlayer.stoneSupply === 0) {
+          this.addCardToast('No stones available!');
+          this.setMoveModal.close();
+          CardstackComponent.playCardMode = false;
+          return;
+        }
+
+        if (!this.hasFreeStoneSlots()) {
+          this.addCardToast('All ships full!');
+          this.setMoveModal.close();
+          CardstackComponent.playCardMode = false;
+          return;
+        }
+
+        this.addCardToast('Place 1 stone on 1 ship');
+
         this.dragulaService.drop.subscribe((value) => {
           this.sailDrop(value.slice(1));
         });
@@ -247,6 +263,7 @@ export class CardstackComponent implements OnInit, OnChanges {
         this.reordering[i] = stoneIndex;
         i++;
       }
+
     }
   }
 
@@ -259,7 +276,6 @@ export class CardstackComponent implements OnInit, OnChanges {
     };
 
     this.moveService.addMove(this.game, moveJson).subscribe(() => {
-      console.log('lever done!');
       this.stoneReorderModal.close();
       this.dropCount = 0;
       CardstackComponent.playCardMode = false;
@@ -268,8 +284,6 @@ export class CardstackComponent implements OnInit, OnChanges {
 
   protected sailDrop(args) {
     let [e, el] = args;
-    console.log('sail drop');
-    console.log(e.tagName);
 
     switch (e.tagName) {
       case 'APP-STONE': {
@@ -292,6 +306,7 @@ export class CardstackComponent implements OnInit, OnChanges {
           document.getElementById('ship' + shipId).classList.remove('donotdrag');
         }
 
+        this.addCardToast('Sail the ship to a site');
         break;
       }
       case 'APP-SHIP': {
@@ -326,6 +341,21 @@ export class CardstackComponent implements OnInit, OnChanges {
         }
       };
       this.toastyService.info(toastOptions);
+  }
+
+  private hasFreeStoneSlots() {
+    let hasSlots: boolean = false;
+
+    for (let ship of this.game.gameBoard.availableShips) {
+      for (let slot of ship.stones) {
+        if (slot === 'BLANK') {
+          hasSlots = true;
+          break;
+        }
+      }
+    }
+
+    return hasSlots;
   }
 
 }
