@@ -2,6 +2,7 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core'
 import {Game} from '../../../shared/models/game';
 import {MoveService} from '../../../shared/services/move.service';
 import {DragulaService} from "ng2-dragula";
+import {GameService} from "../../../shared/services/game.service";
 
 @Component({
   selector: 'app-userinputfield',
@@ -16,7 +17,9 @@ export class UserinputfieldComponent implements OnInit, OnChanges {
   currentPlayer;
   currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
   protected currentRoundNumber: number = 1;
-  constructor(private moveService: MoveService) {
+
+  constructor(private moveService: MoveService,
+              private gameService: GameService) {
 
   }
 
@@ -63,7 +66,7 @@ export class UserinputfieldComponent implements OnInit, OnChanges {
       "type": "TakeStoneMove"
     };
 
-    this.moveService.addMove(this.game, moveJson).subscribe();
+    this.moveService.addMove(this.game, moveJson).subscribe(() => this.gameService.getGame(this.game.id));
   }
 
   toggleCardStack() {
