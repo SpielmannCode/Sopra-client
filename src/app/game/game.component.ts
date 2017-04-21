@@ -21,11 +21,11 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
   protected gameObservable: Subscription;
   private userToken;
   private _opened: boolean = false;
-  rank: string[] =['rafi','nicci'];
   rank1: string;
   rank2: string;
   rank3: string;
   rank4: string;
+  private currentRound;
 
 
 
@@ -101,6 +101,11 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
 
           }
 
+
+          if (this.game.currentRound !== this.currentRound) {
+            this.addRoundToast();
+            this.currentRound = this.game.currentRound;
+          }
         }
 
       });
@@ -137,6 +142,22 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
         }
       };
     }
+
+    this.toastyService.info(toastOptions);
+  }
+
+  addRoundToast() {
+    let toastOptions:ToastOptions;
+      toastOptions = {
+        title: 'Round ' + this.game.currentRound + ' out of 6',
+        showClose: true,
+        timeout: 4000,
+        theme: 'material',
+        onAdd: (toast:ToastData) => {
+        },
+        onRemove: function(toast:ToastData) {
+        }
+      };
 
     this.toastyService.info(toastOptions);
   }
