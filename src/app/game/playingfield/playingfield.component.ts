@@ -69,9 +69,7 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.waterCanvas = new WaterCanvas();
   }
-
 
   protected onDrag(args) {
     const [e, el] = args;
