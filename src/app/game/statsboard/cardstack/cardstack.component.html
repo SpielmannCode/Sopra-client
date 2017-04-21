@@ -10,7 +10,9 @@
     <app-card style="width: 300px;" [cardName]="modalSelectedCard"></app-card>
   </modal-content>
   <modal-footer >
-    <button class="btn-basic" (click)="setPlayCardMode(modalSelectedCard)">Play</button>
+    <button *ngIf="modalSelectedCard !== 'Chisel' " class="btn-basic" (click)="setPlayCardMode(modalSelectedCard)">Play</button>
+    <button *ngIf="modalSelectedCard === 'Chisel' && getBlankspaces() >1" class="btn-basic" (click)="setPlayCardMode(modalSelectedCard)">Play</button>
+    <button *ngIf="modalSelectedCard === 'Chisel' && getBlankspaces() <2" class="btn-basic disabled" disabled (click)="setPlayCardMode(modalSelectedCard)">Play</button>
   </modal-footer>
 </modal>
 
