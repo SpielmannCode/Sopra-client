@@ -10,6 +10,7 @@ export class ShipComponent implements OnInit {
   @Input('stones') stones;
   @Input('shipIndex') shipIndex;
   @Input('reorderMode') reorderMode;
+  @Input('HammerMode') HammerMode: boolean;
   @Input('isDocked') isDocked: boolean;
   @Input('game') game;
   picloc: string = ('/assets/Images/Ship/Ship_' + this.size + 'er.png');
