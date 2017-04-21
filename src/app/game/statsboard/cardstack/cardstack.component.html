@@ -10,7 +10,11 @@
     <app-card style="width: 300px;" [cardName]="modalSelectedCard"></app-card>
   </modal-content>
   <modal-footer >
-    <button *ngIf="modalSelectedCard !== 'Chisel' " class="btn-basic" (click)="setPlayCardMode(modalSelectedCard)">Play</button>
+    <button *ngIf="modalSelectedCard !== 'Chisel' && modalSelectedCard !== 'Hammer' && modalSelectedCard !== 'Sail' " class="btn-basic" (click)="setPlayCardMode(modalSelectedCard)">Play</button>
+    <button *ngIf="modalSelectedCard === 'Hammer' && getBlankspaces() >0" class="btn-basic" (click)="setPlayCardMode(modalSelectedCard)">Play</button>
+    <button *ngIf="modalSelectedCard === 'Hammer' && getBlankspaces() <1" class="btn-basic disabled" disabled (click)="setPlayCardMode(modalSelectedCard)">Play</button>
+    <button *ngIf="modalSelectedCard === 'Sail' && getBlankspaces() >0" class="btn-basic" (click)="setPlayCardMode(modalSelectedCard)">Play</button>
+    <button *ngIf="modalSelectedCard === 'Sail' && getBlankspaces() <1" class="btn-basic disabled" disabled (click)="setPlayCardMode(modalSelectedCard)">Play</button>
     <button *ngIf="modalSelectedCard === 'Chisel' && getBlankspaces() >1" class="btn-basic" (click)="setPlayCardMode(modalSelectedCard)">Play</button>
     <button *ngIf="modalSelectedCard === 'Chisel' && getBlankspaces() <2" class="btn-basic disabled" disabled (click)="setPlayCardMode(modalSelectedCard)">Play</button>
   </modal-footer>
