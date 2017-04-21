@@ -155,3 +155,12 @@ table {
   font-family: Sand;
   widht: 100%;
 }
+#TotalStone{
+  position: absolute;
+  top: 5px;
+  right: 35px;
+  font-size: 10px;
+  widht: 100%;
+  font-family: Sand;
+
+}

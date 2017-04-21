@@ -30,7 +30,7 @@ export class TempleComponent implements OnInit,OnChanges {
   }
 
   ngOnChanges() {
-    for(let stone of this.templeSite.stones){ this.sumT = this.sumT + stone;}
+    this.sumT=this.templeSite.stones.length;
     this.sizeT = this.templeSite.stones.length;
 
     this.x= Math.floor(this.sizeT/this.templeSite.size);

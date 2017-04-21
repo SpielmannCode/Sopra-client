@@ -18,6 +18,10 @@ export class BurialchamberComponent implements OnInit {
     this.fields = Array(24).fill(0);
 
   }
+  ngOnChanges() {
+    this.sumB=this.burialChamber.stones.length;
+
+  }
   enter(){
     this.display = true;
   }
