@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit,OnChanges} from '@angular/core';
 
 @Component({
   selector: 'app-pyramid',
@@ -13,6 +13,8 @@ export class PyramidComponent implements OnInit {
   divArrayLv2 : number[] = [2,3,1,3];
   divArrayLv3 : number[] = [4];
   display = false;
+  sumP:number=0;
+
 
 
   constructor() {
@@ -26,5 +28,9 @@ export class PyramidComponent implements OnInit {
   }
   ngOnInit() {
     this.display = false;
+  }
+  ngOnChanges() {
+    this.sumP=this.pyramidSite.stones.length;
+
   }
 }

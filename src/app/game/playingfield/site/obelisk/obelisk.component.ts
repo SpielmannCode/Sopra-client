@@ -20,7 +20,8 @@ export class ObeliskComponent implements OnInit,OnChanges {
   ngOnChanges() {
     this.sumO=0;
     for(let stone of this.obeliskSite.stones){
-      this.sumO = this.sumO + stone;}
+      this.sumO = this.sumO + stone;
+    }
   }
   enter(){
     this.display = true;

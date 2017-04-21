@@ -1,5 +1,7 @@
 <div on-mouseenter='enter()' on-mouseleave='leave()' id="Burial_Chamber" class="site">
   <div  id="Titel">BURIAL CHAMBER</div>
+  <div id="TotalStone">TOTAL NUMBER OF STONES <br> ON BURIAL CHAMBER: {{sumB}}</div>
+
 
   <div id="BurialDock" class="Dockright" *ngIf="burialChamber.dockedShip !== null">
     <app-ship class="shipsize1" [stones]="burialChamber.dockedShip.stones" [game]="game" [isDocked]="true"></app-ship>
