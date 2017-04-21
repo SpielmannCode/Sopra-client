@@ -19,6 +19,6 @@ app-userinputfield {
   height: 768px;
 }
 
-#water-background {
-  background: url(/assets/Images/HintergrundbildWasser.jpg);
+.ripple-wrap {
+  position: absolute;
 }
