@@ -94,16 +94,16 @@
   height: 45px;
 }
 #background{
-  background-color: #761c19;
-  opacity: 0.7;
+  background-color: #cd9b1d;
+  opacity: 0.5;
   width: 45px;
   height: 45px;
   border-width: thin;
   border-style: solid;
 }
 .background{
-  background-color: #761c19;
-  opacity: 0.7;
+  background-color:#cd9b1d;
+  opacity: 0.5;
   width: 45px;
   height: 45px;
   border-width: thin;
