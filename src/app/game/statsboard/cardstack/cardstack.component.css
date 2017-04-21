@@ -33,3 +33,6 @@ app-sled {
   height:50px;
   z-index: 40;
 }
+.disabled{
+  background: #dddddd;
+}

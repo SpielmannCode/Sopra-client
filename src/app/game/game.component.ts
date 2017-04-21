@@ -76,7 +76,7 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   startGameRefresh() {
-    this.gameObservable = Observable.interval(3000).subscribe(() => {
+    this.gameObservable = Observable.interval(1000).subscribe(() => {
       this.gameService.getGame(this.gameId).subscribe(game => {
 
         if ((JSON.stringify(this.game) !== JSON.stringify(game)) && !CardstackComponent.playCardMode) {

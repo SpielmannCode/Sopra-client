@@ -70,7 +70,17 @@ export class CardstackComponent implements OnInit, OnChanges {
       }
     }
   }
-
+  getBlankspaces(): number{
+    let count = 0;
+    for(let ships of this.game.gameBoard.availableShips){
+      for (let stone of ships.stones){
+        if (stone === 'BLANK'){
+          count ++;
+        }
+      }
+    }
+    return count;
+  }
   openMoveModal(card) {
     this.modalSelectedCard = card;
     this.setMoveModal.open();
