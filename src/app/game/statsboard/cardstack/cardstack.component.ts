@@ -128,6 +128,7 @@ export class CardstackComponent implements OnInit, OnChanges {
 
         this.dragulaService.drop.subscribe((value) => {
             this.hammerDrop(value.slice(1));
+            this.HammerModal.close();
           });
         break;
       }
