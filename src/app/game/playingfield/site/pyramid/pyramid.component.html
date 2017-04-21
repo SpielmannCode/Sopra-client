@@ -1,4 +1,7 @@
-<div id="Pyramid" class="site">
+<div  on-mouseenter='enter()' on-mouseleave='leave()'  id="Pyramid" class="site">
+  <div id="Titel">PYRAMID</div>
+  <div id="TotalStone"><img src="/assets/Images/icons/stone.png " alt="Stone" style="width: 30px">: {{sumP}}</div>
+
   <div id="PyramidDock" class="Dockleft" *ngIf="pyramidSite.dockedShip !== null">
       <app-ship class="shipsize1" [stones]="pyramidSite.dockedShip.stones" [game]="game" [isDocked]="true"></app-ship>
   </div>
@@ -6,8 +9,21 @@
   <div id="PyramidDock" class="Dockleft" [dragula]='"first-bag"' *ngIf="pyramidSite.dockedShip === null && dockOpen"></div>
 
   <img src="/assets/Images/Site_boards/Pyramids.png" alt="Pyramid">
+  <div *ngIf="display" id="PyramidText"><h1>Pyramid</h1> <p>For each stone delivered
+    here, the owner of the
+    stone earns points
+    immediately. Place the
+    stone on the next free space in the pyramid. Stones are
+    placed column by column starting top left.</p>
+  </div>
 
   <!--First Level-->
+  <div id="PyramidLevel1bg" class="PyramidLevel1bg">
+    <div  *ngFor="let div of divArrayLv1; let i = index;" id="PyramidLevel1bg{{i+1}}" class="background">
+      <div id="background">{{divArrayLv1[i]}} </div>
+    </div>
+  </div>
+
   <div id="PyramidLevel1" class="PyramidLevel1">
     <div  *ngFor="let stone of pyramidSite.stones; let i = index;" id="PyramidLevel1Stone{{i+1}}" class="PyramidStone">
       <ng-container *ngIf="i < 9">
@@ -16,7 +32,14 @@
     </div>
   </div>
 
+
   <!--Second Level-->
+  <div id="PyramidLevel2bg" class="PyramidLevel2bg">
+    <div  *ngFor="let div of divArrayLv2; let i = index;" id="PyramidLevel2bg{{i+1}}" class="background">
+      <div id="background">{{divArrayLv2[i]}} </div>
+    </div>
+  </div>
+
   <div id="PyramidLevel2" class="PyramidLevel2">
     <div *ngFor="let stone of pyramidSite.stones; let i = index;" id="PyramidLevel2Stone{{i+9}}" class="PyramidStone">
       <ng-container *ngIf="i >= 0 && i < 4">
@@ -26,6 +49,12 @@
   </div>
 
   <!--Third Level-->
+  <div id="PyramidLevel3bg" class="PyramidLevel3bg">
+    <div  *ngFor="let div of divArrayLv3; let i = index;" id="PyramidLevel3bg{{i+1}}" class="background">
+      <div id="background">{{divArrayLv3[i]}} </div>
+    </div>
+  </div>
+
   <div *ngFor="let stone of pyramidSite.stones; let i = index;" id="PyramidLevel3Stone1" class="PyramidStone">
     <ng-container >
       <app-stone [stoneColor]="pyramidSite.stones[13]"></app-stone>

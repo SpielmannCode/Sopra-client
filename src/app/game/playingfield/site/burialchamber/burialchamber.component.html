@@ -1,4 +1,8 @@
-<div id="Burial_Chamber" class="site">
+<div on-mouseenter='enter()' on-mouseleave='leave()' id="Burial_Chamber" class="site">
+  <div  id="Titel">BURIAL CHAMBER</div>
+  <div id="TotalStone"><img src="/assets/Images/icons/stone.png " alt="Stone" style="width: 30px">: {{sumB}}</div>
+
+
   <div id="BurialDock" class="Dockright" *ngIf="burialChamber.dockedShip !== null">
     <app-ship class="shipsize1" [stones]="burialChamber.dockedShip.stones" [game]="game" [isDocked]="true"></app-ship>
   </div>
@@ -6,11 +10,40 @@
   <div id="BurialDock" class="Dockright" [dragula]='"first-bag"' *ngIf="burialChamber.dockedShip === null && dockOpen"></div>
 
   <img src="/assets/Images/Site_boards/Burial_Chamber.png " alt="Burial_Chamber">
+  <div id="BurialText"*ngIf="display"><h1>Burial Chamber</h1> <p>Stones are placed column by column starting at the top left.<br>
+    At the end of the game you'll get point(s) for connected Stones as followed:</p>
+    <table >
+      <tr>
+        <th>1x</th>
+        <th>2x</th>
+        <th>3x</th>
+        <th>4x</th>
+        <th>5x</th>
+        <th>...</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>3</td>
+        <td>6</td>
+        <td>10</td>
+        <td>15</td>
+        <td>+2</td>
+      </tr>
+    </table>
+   </div>
+  <div id="BurialFieldbg" class="BurialFieldbg">
+    <div *ngFor="let div of divArray; let i = index;" id="burialField{{i+1}}" class="background">
+      <div id="background"></div>
+    </div>
+  </div>
+
   <div id="BurialField" class="BurialField">
+
 
     <div *ngFor="let stone of burialChamber.stones; let i = index;" id="burialField{{i+1}}" class="BurialFieldStone">
       <app-stone [stoneColor]="stone"></app-stone>
     </div>
 
   </div>
+
 </div>

@@ -14,7 +14,8 @@ export class UserinputfieldComponent implements OnInit, OnChanges {
   @Input('dragulaService') dragulaService: DragulaService;
   Playingstatus: string;
   currentPlayer;
-  private _opened: boolean = false;
+  currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
+  protected currentRoundNumber: number = 1;
   constructor(private moveService: MoveService) {
 
   }
@@ -37,6 +38,9 @@ export class UserinputfieldComponent implements OnInit, OnChanges {
     }
   }
   ngOnChanges(changes: SimpleChanges){
+    this.currentRoundNumber=this.game.currentRound ;
+
+
     let currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
     for (let player of this.game.players) {
       if (player.token === currentUserToken) {
@@ -59,13 +63,11 @@ export class UserinputfieldComponent implements OnInit, OnChanges {
       "type": "TakeStoneMove"
     };
 
-    this.moveService.addMove(this.game,moveJson).subscribe();
+    this.moveService.addMove(this.game, moveJson).subscribe();
   }
 
   toggleCardStack() {
     this.showCardStack = !this.showCardStack;
   }
-  private toggleSidebar() {
-    this._opened = !this._opened;
-  }
+
 }

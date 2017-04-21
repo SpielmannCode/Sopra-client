@@ -12,6 +12,7 @@ export class Game {
   private _playerCountSetting:number;
   private _gameBoard;
   private _logicState:string;
+  private _currentRound:number;
 
   get id(): number {
     return this._id;
@@ -71,7 +72,13 @@ export class Game {
   set players(value) {
     this._players = value;
   }
+  get currentRound(): number {
+    return this._currentRound;
+  }
 
+  set currentRound(value: number) {
+    this._currentRound = value;
+  }
   get playerCountSetting(): number {
     return this._playerCountSetting;
   }

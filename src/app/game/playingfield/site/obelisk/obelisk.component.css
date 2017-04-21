@@ -1,70 +1,166 @@
 #Obelisk {
   position: relative;
 }
-.ObeliskStone{
+.ObeliskStone2 {
   position: absolute;
-  width: 48px;
-  height: 48px;
+  width: 70px;
+  height: 70px;
+}
+#ObeliskStoneBlack2{
+  top: 50px;
+  left: 285px;
+  background:  #080808;
+  opacity: 0.7;
+  color:#fff;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 10px;
+}
+#ObeliskStoneWhite2{
+  top: 50px;
+  left: 390px;
+  background: #fff;
+  opacity: 0.7;
+  color: #080808;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 10px;
+}
+.ObeliskStone3 {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+}
+#ObeliskStoneBlack3{
+  top: 50px;
+  left: 240px;
+  background:  #080808;
+  opacity: 0.7;
+  color:#fff;
+  text-align: center;
+  border-radius: 10px;
+}
 
+#ObeliskStoneWhite3{
+  top:50px;
+  left: 360px;
+  background: #fff;
+  opacity: 0.7;
+  color: #080808;
+  text-align: center;
+  border-radius: 10px;
+}
+#ObeliskStoneGrey3{
+  top: 50px;
+  left: 480px;
+  background:#8c8c8c;
+  opacity: 0.7;
+  color:saddlebrown;
+  text-align: center;
+  border-radius: 10px;
+}
+.ObeliskStone4{
+  position: absolute;
+  width: 70px;
+  height: 70px;
+}
+#ObeliskStoneBlack4{
+  top: 50px;
+  left: 190px;
+  background:  #080808;
+  opacity: 0.7;
+  color:#fff;
+  text-align: center;
+  border-radius: 10px;
+}
+#ObeliskStoneWhite4{
+  top: 50px;
+  left: 287.5px;
+  background: #fff;
+  opacity: 0.7;
+  color: #080808;
+  text-align: center;
+  border-radius: 10px;
+}
+#ObeliskStoneBrown4{
+  top: 50px;
+  left: 385px;
+  background: saddlebrown;
+  opacity: 0.7;
+  color:#8c8c8c;
+  text-align: center;
+  border-radius: 10px;
+}
+#ObeliskStoneGrey4{
+  top: 50px;
+  left: 482.5px;
+  background: #8c8c8c;
+  opacity: 0.7;
+  color:saddlebrown;
+  text-align: center;
+  border-radius: 10px;
 }
 .NumberStone{
-  position: absolute;
-  top: 4px;
-  left: 6px;
   text-align: center;
   vertical-align: middle;
   font-size: 250%;
-
+  height: 100%;
+  width: 100%;
 }
 .site .ObeliskStone :hover {
   opacity: 1.0;
 }
-
-
-#ObeliskStoneBlack{
-  top: 15px;
-  left: 290px;
-  background: black;
-  opacity: 0.5;
-  color:white;
-}
-#ObeliskStoneWhite{
-  top: 33px;
-  left: 372px;
-  background: white;
-  opacity: 0.5;
+#ObeliskText{
+  position: absolute;
+  top: 5px;
+  left : 5px;
+  height:175px;
+  width: 590px;
+  background-color: whitesmoke;
   color:black;
-
-
-
-}
-#ObeliskStoneBrown{
-  top: 51px;
-  left: 454px;
-  background: brown;
-  opacity: 0.5;
-  color:white;
-
-
-}
-
-#ObeliskStoneGrey{
-  top: 72px;
-  left: 536px;
-  background: grey;
-  opacity: 0.5;
-  color:white;
-
-
-}
-#ObeliskStoneTotal{
-  top: 15px;
-  left: 170px;
-  background: lawngreen;
+  z-index: 30;
   opacity: 0.8;
-  color: black;
-
-
+  text-align: center;
+}
+#ObeliskText h1{
+  font-size: 20px;
+  font-weight: bold;
+  font: "Arial Black";
+}
+#ObeliskText p{
+  font-size: 15px;
 }
 
+#info{
+  position: absolute;
+  top: 3px;
+  left: 25px;
+  width: 50px;
+}
+table, th, td {
+  border: 1px solid black;
+}
+th, td{
+  padding: 5px;
+}
+table {
+  margin: 0 auto; /* or margin: 0 auto 0 auto */
+}
+#Titel{
+  position: absolute;
+  top: 5px;
+  left: 30px;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: Sand;
+  widht: 100%;
+}
+#TotalStone{
+  position: absolute;
+  top: 5px;
+  right: 35px;
+  font-size: 15px;
+  widht: 100%;
+  font-family: Sand;
 
+}

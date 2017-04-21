@@ -35,4 +35,92 @@
   left: 287px;
   top: 78px;
 }
+#PyramidText{
+  position: absolute;
+  top: 5px;
+  left : 5px;
+  height:173px;
+  width: 590px;
+  background-color: whitesmoke;
+  color:black;
+  z-index: 30;
+  opacity: 0.8;
+  text-align: center;
+}
+#PyramidText h1{
+  font-size: 20px;
+  font-weight: bold;
+  font: "Arial Black";
+}
+#PyramidText p{
+  font-size: 15px;
+}
+#info{
+  position: absolute;
+  top: 3px;
+  right: 25px;
+  width: 50px;
+}
 
+#Titel{
+  position: absolute;
+  top: 5px;
+  right: 30px;
+  font-size: 25px;
+  font-weight: bold;
+  widht: 100%;
+  font-family: Sand;
+}
+.background{
+  background-color: #cd9b1d;
+  font-size: xx-large;
+  color: #080808;
+  text-align: center;
+  opacity: 0.5;
+  width: 45px;
+  height: 45px;
+  border-width: thin;
+  border-style: solid;
+}
+#PyramidLevel1bg{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  position: absolute;
+  top: 32px;
+  left: 242px;
+  width: 135px;
+  height: 135px;
+}
+#PyramidLevel2bg{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  position: absolute;
+  top: 32px;
+  left: 130px;
+  width: 90px;
+  height: 90px;
+}
+#PyramidLevel3bg{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  position: absolute;
+  top: 32px;
+  left: 60px;
+  width: 45px;
+  height: 45px;
+}
+#TotalStone{
+  position: absolute;
+  top: 5px;
+  left: 20px;
+  font-size: 15px;
+  widht: 100%;
+  font-family: Sand;
+
+}

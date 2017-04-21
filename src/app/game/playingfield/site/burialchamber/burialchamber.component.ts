@@ -9,19 +9,28 @@ export class BurialchamberComponent implements OnInit {
   @Input('burialChamber') burialChamber;
   @Input('dockOpen') dockOpen;
   fields;
-  sumB:number = 0;
+  sumB = 0;
+  divArray = Array(24).fill(0);
+  display = false;
 
 
   constructor() {
     this.fields = Array(24).fill(0);
 
   }
+  ngOnChanges() {
+    this.sumB=this.burialChamber.stones.length;
 
-  ngOnInit() {
-    /*
-    for(let stone of this.burialChamberSite.stones)
-      this.sumB = this.sumB + stone;
-      */
   }
+  enter(){
+    this.display = true;
+  }
+  leave(){
+    this.display = false;
+  }
+  ngOnInit() {
+    this.display = false;
+  }
+
 
 }

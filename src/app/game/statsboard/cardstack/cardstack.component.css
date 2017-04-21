@@ -19,3 +19,17 @@ app-sled {
   left: 450px;
   background-color: inherit;
 }
+#HammerShips{
+  width: 355px;
+  height: 260px;
+  position: relative;
+  background-color: inherit;
+}
+#Stone{
+  position: absolute;
+  left: 400px;
+  top: 30px;
+  width:50px;
+  height:50px;
+  z-index: 40;
+}

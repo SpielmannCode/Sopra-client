@@ -6,6 +6,6 @@
   <div class="siteRight">
     <app-temple [templeSite]="game.gameBoard.templeSite" [dockOpen]="isPlayerTurn()"></app-temple>
     <app-burialchamber [burialChamber]="game.gameBoard.burialChamber" [dockOpen]="isPlayerTurn()"></app-burialchamber>
-    <app-obelisk [obeliskSite]="game.gameBoard.obeliskSite" [dockOpen]="isPlayerTurn()"></app-obelisk>
+    <app-obelisk [obeliskSite]="game.gameBoard.obeliskSite" [dockOpen]="isPlayerTurn()" [playerCount]="game.playerCountSetting" ></app-obelisk>
   </div>
 </div>

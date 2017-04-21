@@ -12,15 +12,25 @@ export class TempleComponent implements OnInit,OnChanges {
   sizeT:number=0;
   x: number=0;
   indexT: number=0;
+  divArray4 = Array(4).fill(0);
+  divArray5 = Array(5).fill(0);
+  display = false;
+
 
 
   constructor() { }
-
+  enter(){
+    this.display = true;
+  }
+  leave(){
+    this.display = false;
+  }
   ngOnInit() {
+    this.display = false;
   }
 
   ngOnChanges() {
-    for(let stone of this.templeSite.stones){ this.sumT = this.sumT + stone;}
+    this.sumT=this.templeSite.stones.length;
     this.sizeT = this.templeSite.stones.length;
 
     this.x= Math.floor(this.sizeT/this.templeSite.size);

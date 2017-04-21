@@ -18,13 +18,15 @@ export class CardstackComponent implements OnInit, OnChanges {
   @Input('game') game: Game;
   @Input('dragulaService') dragulaService: DragulaService;
   @Input('stonesToReorder') stonesToReorder;
+  @Input('userToken') userToken: String = JSON.parse(localStorage.getItem('currentUser')).token;
 
-  userToken: String = JSON.parse(localStorage.getItem('currentUser')).token;
+  currentPlayer;
   playerCards;
   cardColors: string[] = [];
 
   @ViewChild('setMoveModal') setMoveModal;
   @ViewChild('stoneReorderModal') stoneReorderModal;
+  @ViewChild('HammerModal') HammerModal;
 
   static playCardMode: boolean = false;
   modalCardDescription: string;
@@ -60,11 +62,11 @@ export class CardstackComponent implements OnInit, OnChanges {
     for (let player of this.game.players) {
       if (player.token === this.userToken) {
         this.playerCards = player.cards;
-
         while (i  < player.cards.length) {
           this.cardColors[i] = CardComponent.getCardColor(player.cards[i]);
           i++;
         }
+        this.currentPlayer = player;
       }
     }
   }
@@ -122,21 +124,12 @@ export class CardstackComponent implements OnInit, OnChanges {
         break;
       }
       case 'PlayHammerMove': {
-        // Step One Excavate 3 stones from the quarry
+        this.HammerModal.open();
 
-
-
-        //check if you have a stone to place
-        let playerSupply = this.game.players[this.game.currentPlayerIndex.valueOf()].stoneSupply.valueOf();
-        if(playerSupply <= 0){
-          this.addCardToast("Not enough stones to play this move!");
-          CardstackComponent.playCardMode = false;
-        }else{
-          this.dragulaService.drop.subscribe((value) => {
+        this.dragulaService.drop.subscribe((value) => {
             this.hammerDrop(value.slice(1));
+            this.HammerModal.close();
           });
-        }
-
         break;
       }
       case 'PlayLeverMove': {

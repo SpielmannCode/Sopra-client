@@ -20,6 +20,9 @@ export class GameComponent implements OnInit, OnDestroy {
   protected game: Game;
   protected gameObservable: Subscription;
   private userToken;
+  private _opened: boolean = false;
+  private currentRound;
+
 
   constructor(protected userService: UserService,
               protected gameService: GameService,
@@ -63,6 +66,11 @@ export class GameComponent implements OnInit, OnDestroy {
           if (this.game.players[this.game.currentPlayerIndex].token === this.userToken) {
             this.addTurnToast();
           }
+
+          if (this.game.currentRound !== this.currentRound) {
+            this.addRoundToast();
+            this.currentRound = this.game.currentRound;
+          }
         }
 
       });
@@ -103,12 +111,31 @@ export class GameComponent implements OnInit, OnDestroy {
     this.toastyService.info(toastOptions);
   }
 
+  addRoundToast() {
+    let toastOptions:ToastOptions;
+      toastOptions = {
+        title: 'Round ' + this.game.currentRound + ' out of 6',
+        showClose: true,
+        timeout: 4000,
+        theme: 'material',
+        onAdd: (toast:ToastData) => {
+        },
+        onRemove: function(toast:ToastData) {
+        }
+      };
+
+    this.toastyService.info(toastOptions);
+  }
+
   static addClass(el: any, name: string) {
     el.className = el.className ? [el.className, name].join(' ') : name;
   }
 
   static removeClass(el: any, name: string) {
     el.className = el.className.replace(new RegExp('(?:^|\\s+)' + name + '(?:\\s+|$)', 'g'), '');
+  }
+  private toggleSidebar() {
+    this._opened = !this._opened;
   }
 
 }

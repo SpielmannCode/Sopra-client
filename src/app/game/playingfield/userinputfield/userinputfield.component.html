@@ -1,28 +1,20 @@
-<div id="userinputfield" class="bg-white text-center">
-  <app-cardstack *ngIf="showCardStack" [game]="game" [dragulaService]="dragulaService"></app-cardstack>
+<div id="userinputfield" class="bg-white ">
+  <app-cardstack *ngIf="showCardStack" [game]="game" [userToken]="currentUserToken" [dragulaService]="dragulaService"></app-cardstack>
   <app-sled [game]="game"></app-sled>
-  <div id="buttons">
-    {{Playingstatus}}<br>
-    <button *ngIf="currentPlayer.token !== game.players[game.currentPlayerIndex].token"  class="btn-basic inline text-center position1 disabled" disabled (click)="toggleCardStack()">
+  <div id="buttons" >
+    <div id="buttonstext">{{Playingstatus}}</div>
+       <br>
+    <button class="btn-basic inline  position1" (click)="toggleCardStack()">
       <img src="/assets/Images/icons/hand-holding-two-soccer-cards.svg" alt="Play Cards">
     </button>
-    <button *ngIf="currentPlayer.token === game.players[game.currentPlayerIndex].token" class="btn-basic inline text-center position1" (click)="toggleCardStack()">
-      <img src="/assets/Images/icons/hand-holding-two-soccer-cards.svg" alt="Play Cards">
-    </button>
-    <button *ngIf="currentPlayer.token !== game.players[game.currentPlayerIndex].token || currentPlayer.stoneSupply === 5" class="btn-basic inline text-center position1 disabled" disabled (click)="getStones()">
+    <button *ngIf="currentPlayer.token !== game.players[game.currentPlayerIndex].token || currentPlayer.stoneSupply > 4" class="btn-basic inline  position1 disabled" disabled (click)="getStones()">
       <img src="/assets/Images/icons/cold-ice-cubes.svg" alt="Get Stones">
     </button>
-    <button class="btn-basic inline text-center position1" *ngIf="currentPlayer.token === game.players[game.currentPlayerIndex].token && currentPlayer.stoneSupply < 5" (click)="getStones()">
+    <button class="btn-basic inline  position1" *ngIf="currentPlayer.token === game.players[game.currentPlayerIndex].token && currentPlayer.stoneSupply < 5" (click)="getStones()">
       <img src="/assets/Images/icons/cold-ice-cubes.svg" alt="Get Stones">
     </button>
 
-    <button class="btn-basic inline text-center position1" (click)="toggleSidebar()">
-      <img src="/assets/Images/icons/ic_history_black_24px.svg" alt="History Log">
-    </button>
   </div>
-  <ng-sidebar-container style="z-index: 40">
-    <ng-sidebar [(opened)]="_opened" style="z-index: 40" >
-      <app-history-log></app-history-log>
-    </ng-sidebar>
-  </ng-sidebar-container>
+  <div id="roundCounter"> Round {{currentRoundNumber}} out of 6</div>
+
 </div>

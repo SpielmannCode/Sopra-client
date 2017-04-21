@@ -9,24 +9,61 @@
 
 }
 #MarketCard1{
-  top: 11px;
-  left: 41px;
+  top: 20px;
+  left: 21px;
 }
 #MarketCard2{
   top: 154px;
-  left: 41px;
+  left: 21px;
 }
 #MarketCard3{
-  top: 11px;
-  left: 251px;
+  top: 20px;
+  left: 231px;
 }
 #MarketCard4{
   top: 154px;
-  left: 251px;
+  left: 231px;
 }
 
 .hover-border:hover {
   border: 3px solid #f9ff0d;
   opacity: 1;
+}
+#MarketText{
+  position: absolute;
+  top: 5px;
+  left : 5px;
+  height:295px;
+  width: 590px;
+  background-color: whitesmoke;
+  color:black;
+  z-index: 30;
+  opacity: 0.8;
+  text-align: center;
+}
+#MarketText h1{
+  font-size: 20px;
+  font-weight: bold;
+  font: "Arial Black";
+}
+#MarketText p{
+  font-size: 15px;
+}
+
+#info{
+  position: absolute;
+  top: 3px;
+  right: 25px;
+  width: 50px;
+
+}
+#Titel{
+  position: absolute;
+  top: 5px;
+  right: 30px;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: Sand;
+  widht: 100%;
 }
 

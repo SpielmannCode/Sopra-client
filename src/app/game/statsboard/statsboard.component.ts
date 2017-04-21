@@ -25,6 +25,9 @@ export class StatsboardComponent implements OnInit {
 
   @Input('game') game: Game;
 
+  private showCards: boolean = false;
+  private player: Object;
+
   constructor() {
   }
 
@@ -57,4 +60,17 @@ export class StatsboardComponent implements OnInit {
     cardArray[2] = purpleCardCount;
     return cardArray;
   }
+
+  toggleCards(show: boolean, playerToken = null) {
+
+    for (let player of this.game.players) {
+      if (player.token === playerToken) {
+        this.player = player;
+      }
+    }
+
+    this.showCards = show;
+
+  }
+
 }
