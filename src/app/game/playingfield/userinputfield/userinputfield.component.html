@@ -1,5 +1,5 @@
 <div id="userinputfield" class="bg-white ">
-  <app-cardstack *ngIf="showCardStack" [game]="game" [dragulaService]="dragulaService"></app-cardstack>
+  <app-cardstack *ngIf="showCardStack" [game]="game" [userToken]="currentUserToken" [dragulaService]="dragulaService"></app-cardstack>
   <app-sled [game]="game"></app-sled>
   <div id="buttons" >
     <div id="buttonstext">{{Playingstatus}}</div>

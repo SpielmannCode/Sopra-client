@@ -14,6 +14,7 @@ export class UserinputfieldComponent implements OnInit, OnChanges {
   @Input('dragulaService') dragulaService: DragulaService;
   Playingstatus: string;
   currentPlayer;
+  currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
   protected currentRoundNumber: number = 1;
   constructor(private moveService: MoveService) {
 
@@ -62,7 +63,7 @@ export class UserinputfieldComponent implements OnInit, OnChanges {
       "type": "TakeStoneMove"
     };
 
-    this.moveService.addMove(this.game,moveJson).subscribe();
+    this.moveService.addMove(this.game, moveJson).subscribe();
   }
 
   toggleCardStack() {

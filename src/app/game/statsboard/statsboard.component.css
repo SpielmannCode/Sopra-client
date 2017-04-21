@@ -1,5 +1,37 @@
+#stats-board {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+#card-info {
+  position: absolute;
+}
+
+.pos0 {
+  top: -195px;
+  left: 18px;
+}
+
+.pos1 {
+  top: -195px;
+  left: 180px;
+}
+
+.pos2 {
+  top: -55px;
+  left: 18px;
+}
+
+.pos3 {
+  top: -55px;
+  left: 180px;
+}
+
 .table {
   margin-bottom: 0;
+
 }
 
 .player-stat {

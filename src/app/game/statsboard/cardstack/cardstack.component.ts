@@ -18,8 +18,8 @@ export class CardstackComponent implements OnInit, OnChanges {
   @Input('game') game: Game;
   @Input('dragulaService') dragulaService: DragulaService;
   @Input('stonesToReorder') stonesToReorder;
+  @Input('userToken') userToken: String = JSON.parse(localStorage.getItem('currentUser')).token;
 
-  userToken: String = JSON.parse(localStorage.getItem('currentUser')).token;
   currentPlayer;
   playerCards;
   cardColors: string[] = [];
