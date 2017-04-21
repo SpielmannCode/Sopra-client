@@ -11,17 +11,19 @@ import {UserService} from "../../shared/services/user.service";
 import {ActivatedRoute} from "@angular/router";
 import {CardstackComponent} from "../statsboard/cardstack/cardstack.component";
 
+declare let WaterCanvas: any;
 
 @Component({
   selector: 'app-playingfield',
   templateUrl: './playingfield.component.html',
   styleUrls: ['./playingfield.component.css']
 })
-export class PlayingfieldComponent implements OnInit {
+export class PlayingfieldComponent implements OnInit, AfterViewInit {
 
   @Input('game') game: Game;
   @Input('gameObservable') gameObservable: Subscription;
   @ViewChild(SiteComponent) siteComponent: SiteComponent;
+  waterCanvas: any;
 
   constructor(protected dragulaService: DragulaService,
               protected gameService: GameService,
@@ -66,6 +68,8 @@ export class PlayingfieldComponent implements OnInit {
 
   }
 
+  ngAfterViewInit() {
+  }
 
   protected onDrag(args) {
     const [e, el] = args;
