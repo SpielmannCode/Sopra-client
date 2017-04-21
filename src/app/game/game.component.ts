@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit,ViewChild, OnChanges} from '@angular/core';
 import {UserService} from '../shared/services/user.service';
 import {User} from '../shared/models/user';
 import {ActivatedRoute} from '@angular/router';
@@ -14,14 +14,22 @@ import {CardstackComponent} from "./statsboard/cardstack/cardstack.component";
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css']
 })
-export class GameComponent implements OnInit, OnDestroy {
+export class GameComponent implements OnInit, OnDestroy, OnChanges {
   protected users: User[] = [];
   protected gameId: number;
   protected game: Game;
   protected gameObservable: Subscription;
   private userToken;
   private _opened: boolean = false;
+  rank1: string;
+  rank2: string;
+  rank3: string;
+  rank4: string;
+  private currentRound;
 
+
+
+  @ViewChild('rankingModal') rankingModal;
 
   constructor(protected userService: UserService,
               protected gameService: GameService,
@@ -48,6 +56,19 @@ export class GameComponent implements OnInit, OnDestroy {
 
       self.startGameRefresh();
     });
+
+    this.rankingModal.open();
+    this.rankingModal.close();
+
+
+
+
+  }
+
+  ngOnChanges(){
+
+
+
   }
 
   ngOnDestroy() {
@@ -63,6 +84,27 @@ export class GameComponent implements OnInit, OnDestroy {
 
           if (this.game.players[this.game.currentPlayerIndex].token === this.userToken) {
             this.addTurnToast();
+          }
+          if(this.game.status==='FINISHED'){
+            this.rank1= this.game.players[this.game.rankingArray[0]].username;
+            this.rank2= this.game.players[this.game.rankingArray[1]].username;
+
+            if(this.game.playerCountSetting>2) {
+              this.rank3 = this.game.players[this.game.rankingArray[2]].username;
+            }
+            if(this.game.playerCountSetting>3) {
+
+              this.rank4 = this.game.players[this.game.rankingArray[3]].username;
+            }
+
+            this.rankingModal.open();
+
+          }
+
+
+          if (this.game.currentRound !== this.currentRound) {
+            this.addRoundToast();
+            this.currentRound = this.game.currentRound;
           }
         }
 
@@ -104,6 +146,22 @@ export class GameComponent implements OnInit, OnDestroy {
     this.toastyService.info(toastOptions);
   }
 
+  addRoundToast() {
+    let toastOptions:ToastOptions;
+      toastOptions = {
+        title: 'Round ' + this.game.currentRound + ' out of 6',
+        showClose: true,
+        timeout: 4000,
+        theme: 'material',
+        onAdd: (toast:ToastData) => {
+        },
+        onRemove: function(toast:ToastData) {
+        }
+      };
+
+    this.toastyService.info(toastOptions);
+  }
+
   static addClass(el: any, name: string) {
     el.className = el.className ? [el.className, name].join(' ') : name;
   }
@@ -114,5 +172,6 @@ export class GameComponent implements OnInit, OnDestroy {
   private toggleSidebar() {
     this._opened = !this._opened;
   }
+
 
 }

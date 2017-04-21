@@ -13,6 +13,7 @@ export class Game {
   private _gameBoard;
   private _logicState:string;
   private _currentRound:number;
+  private _rankingArray;
 
   get id(): number {
     return this._id;
@@ -71,6 +72,13 @@ export class Game {
 
   set players(value) {
     this._players = value;
+  }
+  get rankingArray() {
+    return this._rankingArray;
+  }
+
+  set rankingArray(value) {
+    this._rankingArray = value;
   }
   get currentRound(): number {
     return this._currentRound;
