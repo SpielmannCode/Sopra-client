@@ -31,6 +31,24 @@
   </modal-footer>
 </modal>
 
+<modal #HammerModal>
+  <modal-header>
+    <h4>Place Stone on ship please {{site}}</h4>
+  </modal-header>
+  <modal-content>
+    <div id="HammerShips">
+        <div class="col-md-3" *ngFor="let ship of game.gameBoard.availableShips; let i = index;" >
+          <app-ship [shipIndex]="i" [stones]="ship.stones" [HammerMode]="true"  [game]="game"></app-ship>
+        </div>
+    </div>
+    <div id="Stone" [dragula]='"Hammer-bag"'><app-stone [stoneColor]="this.currentPlayer.stoneColor"></app-stone></div>
+  </modal-content>
+  <modal-footer>
+    <button class="btn-basic" (click)="leverSetNewOrder()">Apply</button>
+    <button class="btn-basic" (click)="stoneReorderModal.close()">close</button>
+  </modal-footer>
+</modal>
+
 
 
 
