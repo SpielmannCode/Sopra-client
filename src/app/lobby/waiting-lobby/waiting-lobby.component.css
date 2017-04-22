@@ -72,3 +72,21 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+#ReadyCircle{
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background: green;
+  border-width: 1px;
+  border-color: #080808;
+  border-style: solid;
+}
+#NotReadyCircle{
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background: red;
+  border-width: 1px;
+  border-color: #080808;
+  border-style: solid;
+}

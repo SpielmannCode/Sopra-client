@@ -5,7 +5,7 @@ app-userinputfield {
   bottom: 15px;
   right: 0;
 }
-#Ships{
+#Ships {
   width: 345px;
   height: 250px;
   position: absolute;
@@ -13,7 +13,12 @@ app-userinputfield {
   left: 450px;
   background-color: inherit;
 }
-#playing-field{
+
+#playing-field {
   width: 1366px;
   height: 768px;
+}
+
+.ripple-wrap {
+  position: absolute;
 }

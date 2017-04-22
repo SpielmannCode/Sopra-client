@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MoveService} from "../../../shared/services/move.service";
 import {Game} from "../../../shared/models/game";
+import {GameService} from "../../../shared/services/game.service";
 
 @Component({
   selector: 'app-site',
@@ -10,7 +11,8 @@ import {Game} from "../../../shared/models/game";
 export class SiteComponent implements OnInit {
   @Input('game') game: Game;
 
-  constructor(protected moveService: MoveService) { }
+  constructor(protected moveService: MoveService,
+              private gameService: GameService) { }
 
   ngOnInit() {
   }
@@ -26,7 +28,7 @@ export class SiteComponent implements OnInit {
       "site": site
     };
 
-    this.moveService.addMove(this.game, moveJson).subscribe(() => console.log('sailed'));
+    this.moveService.addMove(this.game, moveJson).subscribe(() => this.gameService.getGame(this.game.id));
   }
 
   isPlayerTurn():boolean {

@@ -2,7 +2,7 @@
   <div *ngFor="let rank of game.rankingArray; let i=index" class="player-stat bg-white {{game.players[rank].stoneColor}}" (mouseenter)="toggleCards(true, game.players[rank].token)">
     <table class="table">
       <tr>
-        <td>{{i+1}}. {{game.players[rank].username}}</td>
+        <td>{{i+1}}.{{game.players[rank].username}}</td>
         <td>{{game.players[rank].points}}</td>
       </tr>
       <tr>
