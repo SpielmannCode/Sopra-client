@@ -31,7 +31,10 @@
 
 .table {
   margin-bottom: 0;
-
+}
+.table td {
+  max-width: 134px;
+  overflow: hidden;
 }
 
 .player-stat {
