@@ -2,6 +2,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MoveService} from "../../../../shared/services/move.service";
 import {Game} from "../../../../shared/models/game";
+import {GameService} from "../../../../shared/services/game.service";
 
 
 @Component({
@@ -16,7 +17,8 @@ export class MarketComponent implements OnInit {
   @Input('dockOpen') dockOpen;
   display = false;
 
-  constructor(private moveService: MoveService) { }
+  constructor(private moveService: MoveService,
+              private gameService: GameService) { }
   enter(){
     this.display = true;
   }
@@ -33,6 +35,6 @@ export class MarketComponent implements OnInit {
       "cardIndex": cardIndex
     };
 
-    this.moveService.addMove(this.game, moveJson).subscribe(() => console.log('take card executed!'));
+    this.moveService.addMove(this.game, moveJson).subscribe(() => this.gameService.getGame(this.game.id));
   }
 }

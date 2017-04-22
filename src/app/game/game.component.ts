@@ -35,7 +35,8 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
               protected gameService: GameService,
               protected route: ActivatedRoute,
               private toastyService:ToastyService,
-              private toastyConfig: ToastyConfig) { }
+              private toastyConfig: ToastyConfig) {
+  }
 
   ngOnInit() {
     let self = this;

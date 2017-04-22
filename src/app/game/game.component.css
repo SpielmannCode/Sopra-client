@@ -13,12 +13,9 @@ app-playingfield {
   width: 1366px;
   height: 768px;
   position: absolute;
-  top: 0px;
-  left: 0px;
-
-  background-image: url("/assets/Images/HintergrundbildWasser.jpg");
+  top: 0;
+  left: 0;
   z-index: 2;
-
 }
 
 #whole{
@@ -27,6 +24,10 @@ app-playingfield {
 #header1{
   font-family: Egyptian_Nights;
   font-size: xx-large;
+}
+
+#water-background {
+  display: inline;
 }
 
 app-header{
@@ -51,6 +52,7 @@ ng2-toasty {
 button {
   margin-top: 800px;
 }
+
 :host >>> .ng-sidebar {
   background-color: #ffffff;
   z-index: 999;
@@ -63,5 +65,4 @@ button {
   padding: 5px;
   z-index: 10000;
   right: 5px;
-
 }

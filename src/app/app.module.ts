@@ -41,6 +41,7 @@ import { WaitingLobbyComponent } from './lobby/waiting-lobby/waiting-lobby.compo
 import { HistoryLogComponent } from './game/playingfield/history-log/history-log.component';
 import { SidebarModule } from 'ng-sidebar';
 import {ToastyModule} from "ng2-toasty";
+import { OrderByPipe } from './pipes/order-by.pipe';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import {ToastyModule} from "ng2-toasty";
     LobbyHeaderComponent,
     HighlightDirective,
     WaitingLobbyComponent,
-    HistoryLogComponent
+    HistoryLogComponent,
+    OrderByPipe
   ],
   imports: [
     BrowserModule,
