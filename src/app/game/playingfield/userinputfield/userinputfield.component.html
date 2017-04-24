@@ -1,7 +1,7 @@
 <div id="userinputfield" class="bg-white ">
   <app-cardstack *ngIf="showCardStack" [game]="game" [userToken]="currentUserToken" [dragulaService]="dragulaService"></app-cardstack>
   <app-sled [game]="game"></app-sled>
-  <div #timer id="timer">
+  <div *ngIf="isPlayerTurn()" #timer id="timer">
   </div>
   <div id="buttons">
     <div id="buttonstext">{{Playingstatus}}</div>
