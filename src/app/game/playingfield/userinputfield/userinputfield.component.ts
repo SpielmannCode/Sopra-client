@@ -9,7 +9,7 @@ import {GameService} from "../../../shared/services/game.service";
   templateUrl: './userinputfield.component.html',
   styleUrls: ['./userinputfield.component.css']
 })
-export class UserinputfieldComponent implements OnInit, OnChanges, AfterViewInit {
+export class UserinputfieldComponent implements OnInit, OnChanges {
   showCardStack: boolean = false;
   @Input('game') game: Game;
   @Input('dragulaService') dragulaService: DragulaService;
@@ -29,17 +29,16 @@ export class UserinputfieldComponent implements OnInit, OnChanges, AfterViewInit
     this.showStatus();
   }
   ngOnChanges(changes: SimpleChanges){
-    this.currentRoundNumber=this.game.currentRound;
 
-    if (typeof this.timer !== undefined) {
+    if ( (typeof this.timer !== 'undefined') && this.isPlayerTurn()) {
       this.timer.nativeElement.style.width = (100 - this.timerPercentage) + '%';
     }
 
     this.showStatus();
   }
 
-  ngAfterViewInit() {
-
+  isPlayerTurn() {
+    return this.currentUserToken === this.game.players[this.game.currentPlayerIndex].token;
   }
 
   showStatus() {
