@@ -60,15 +60,9 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
 
     this.rankingModal.open();
     this.rankingModal.close();
-
-
-
-
   }
 
   ngOnChanges(){
-
-
 
   }
 
@@ -80,12 +74,19 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
     this.gameObservable = Observable.interval(1000).subscribe(() => {
       this.gameService.getGame(this.gameId).subscribe(game => {
 
-        if ((JSON.stringify(this.game) !== JSON.stringify(game)) && !CardstackComponent.playCardMode) {
+        // Timer Fix
+        let tempGameOld = this.game;
+        let tempGameNew = game;
+        tempGameOld['timerPercentage'] = null;
+        tempGameNew['timerPercentage'] = null;
+
+        if ((JSON.stringify(tempGameOld) !== JSON.stringify(tempGameNew)) && !CardstackComponent.playCardMode) {
           this.game = game;
 
           if (this.game.players[this.game.currentPlayerIndex].token === this.userToken) {
             this.addTurnToast();
           }
+
           if(this.game.status==='FINISHED'){
             this.rank1= this.game.players[this.game.rankingArray[0]].username;
             this.rank2= this.game.players[this.game.rankingArray[1]].username;
