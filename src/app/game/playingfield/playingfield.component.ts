@@ -22,6 +22,7 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
 
   @Input('game') game: Game;
   @Input('gameObservable') gameObservable: Subscription;
+  @Input('timerPercentage') timerPercentage;
   @ViewChild(SiteComponent) siteComponent: SiteComponent;
   waterCanvas: any;
 

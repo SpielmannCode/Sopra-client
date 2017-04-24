@@ -26,8 +26,7 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
   rank3: string;
   rank4: string;
   private currentRound;
-
-
+  protected timerPercentage;
 
   @ViewChild('rankingModal') rankingModal;
 
@@ -73,7 +72,7 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
   startGameRefresh() {
     this.gameObservable = Observable.interval(1000).subscribe(() => {
       this.gameService.getGame(this.gameId).subscribe(game => {
-
+        this.timerPercentage = game['timerPercentage'];
         // Timer Fix
         let tempGameOld = this.game;
         let tempGameNew = game;
