@@ -1,7 +1,9 @@
 <div id="userinputfield" class="bg-white ">
   <app-cardstack *ngIf="showCardStack" [game]="game" [userToken]="currentUserToken" [dragulaService]="dragulaService"></app-cardstack>
   <app-sled [game]="game"></app-sled>
-  <div id="buttons" >
+  <div #timer id="timer">
+  </div>
+  <div id="buttons">
     <div id="buttonstext">{{Playingstatus}}</div>
        <br>
     <button class="btn-basic inline  position1" (click)="toggleCardStack()">
@@ -13,7 +15,6 @@
     <button class="btn-basic inline  position1" *ngIf="currentPlayer.token === game.players[game.currentPlayerIndex].token && currentPlayer.stoneSupply < 5" (click)="getStones()">
       <img src="/assets/Images/icons/cold-ice-cubes.svg" alt="Get Stones">
     </button>
-
   </div>
   <div id="roundCounter"> Round {{currentRoundNumber}} out of 6</div>
 
