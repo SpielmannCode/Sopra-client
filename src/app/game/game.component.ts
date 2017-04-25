@@ -86,15 +86,15 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
           }
 
           if(this.game.status==='FINISHED'){
-            this.rank1= this.game.players[this.game.rankingArray[0]].username;
-            this.rank2= this.game.players[this.game.rankingArray[1]].username;
+            this.rank1= this.game.players[this.game.rankingArray[0]].username + " " + this.game.players[this.game.rankingArray[0]].points +" " + "Points";
+            this.rank2= this.game.players[this.game.rankingArray[1]].username + " "+ this.game.players[this.game.rankingArray[1]].points +" " + "Points";
 
             if(this.game.playerCountSetting>2) {
-              this.rank3 = this.game.players[this.game.rankingArray[2]].username;
+              this.rank3 = this.game.players[this.game.rankingArray[2]].username + " "+ this.game.players[this.game.rankingArray[2]].points +" " + "Points";
             }
             if(this.game.playerCountSetting>3) {
 
-              this.rank4 = this.game.players[this.game.rankingArray[3]].username;
+              this.rank4 = this.game.players[this.game.rankingArray[3]].username + " " + this.game.players[this.game.rankingArray[3]].points +" " + "Points";
             }
 
             this.rankingModal.open();
