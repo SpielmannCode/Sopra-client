@@ -7,10 +7,12 @@ import {Game} from '../shared/models/game';
 import {Observable, Subscription} from 'rxjs/Rx';
 import {ToastyService, ToastyConfig, ToastOptions, ToastData} from 'ng2-toasty';
 import {CardstackComponent} from "./statsboard/cardstack/cardstack.component";
+import {MoveService} from "../shared/services/move.service";
 
 
 @Component({
   selector: 'app-game',
+  host: {'(window:keydown)': 'fastForward($event)'},
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css']
 })
@@ -27,11 +29,13 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
   rank4: string;
   private currentRound;
   protected timerPercentage;
+  private pressFCount: number = 0;
 
   @ViewChild('rankingModal') rankingModal;
 
   constructor(protected userService: UserService,
               protected gameService: GameService,
+              protected moveService: MoveService,
               protected route: ActivatedRoute,
               private toastyService:ToastyService,
               private toastyConfig: ToastyConfig) {
@@ -72,14 +76,8 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
   startGameRefresh() {
     this.gameObservable = Observable.interval(1000).subscribe(() => {
       this.gameService.getGame(this.gameId).subscribe(game => {
-        this.timerPercentage = game['timerPercentage'];
-        // Timer Fix
-        let tempGameOld = this.game;
-        let tempGameNew = game;
-        tempGameOld['timerPercentage'] = null;
-        tempGameNew['timerPercentage'] = null;
 
-        if ((JSON.stringify(tempGameOld) !== JSON.stringify(tempGameNew)) && !CardstackComponent.playCardMode) {
+        if ((JSON.stringify(this.game) !== JSON.stringify(game)) && !CardstackComponent.playCardMode) {
           this.game = game;
 
           if (this.game.players[this.game.currentPlayerIndex].token === this.userToken) {
@@ -109,12 +107,31 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
           }
         }
 
+        this.moveService.getRemainingTime(game).subscribe(timer => {
+          this.timerPercentage = timer;
+        });
+
       });
+
+
     });
+
   }
 
   stopGameRefresh() {
     this.gameObservable.unsubscribe();
+  }
+
+  fastForward(event) {
+    if (event.keyCode === 70) {
+      this.pressFCount++;
+
+      if (this.pressFCount === 2) {
+        this.addTurnToast();
+        this.pressFCount = 0;
+      }
+
+    }
   }
 
   addTurnToast() {
