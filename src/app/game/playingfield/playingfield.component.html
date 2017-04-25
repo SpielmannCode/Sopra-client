@@ -14,3 +14,11 @@
   <app-userinputfield [game]="game" [dragulaService]="dragulaService" [timerPercentage]="timerPercentage"></app-userinputfield>
 </div>
 
+<modal id="fastForwardModal" #fastForwardModal>
+  <modal-header><h2 class="text-center">Fast Forward like a noob?</h2></modal-header>
+  <modal-content>
+    <input #roundNumber class="center" style="display: block;" type="number" placeholder="Round Number">
+    <button class="btn-basic center" (click)="fastForward()">Oke I'm a pussy</button>
+  </modal-content>
+</modal>
+
