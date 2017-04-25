@@ -8,11 +8,11 @@ import {Observable, Subscription} from 'rxjs/Rx';
 import {ToastyService, ToastyConfig, ToastOptions, ToastData} from 'ng2-toasty';
 import {CardstackComponent} from "./statsboard/cardstack/cardstack.component";
 import {MoveService} from "../shared/services/move.service";
+import {ModalModule} from "ng2-modal";
 
 
 @Component({
   selector: 'app-game',
-  host: {'(window:keydown)': 'fastForward($event)'},
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css']
 })
@@ -32,6 +32,7 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
   private pressFCount: number = 0;
 
   @ViewChild('rankingModal') rankingModal;
+  @ViewChild('fastForwardModal') fastForwardModal;
 
   constructor(protected userService: UserService,
               protected gameService: GameService,
@@ -112,26 +113,12 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
         });
 
       });
-
-
     });
 
   }
 
   stopGameRefresh() {
     this.gameObservable.unsubscribe();
-  }
-
-  fastForward(event) {
-    if (event.keyCode === 70) {
-      this.pressFCount++;
-
-      if (this.pressFCount === 2) {
-        this.addTurnToast();
-        this.pressFCount = 0;
-      }
-
-    }
   }
 
   addTurnToast() {
