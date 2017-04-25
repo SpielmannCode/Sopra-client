@@ -7,6 +7,8 @@ import {Game} from '../shared/models/game';
 import {Observable, Subscription} from 'rxjs/Rx';
 import {ToastyService, ToastyConfig, ToastOptions, ToastData} from 'ng2-toasty';
 import {CardstackComponent} from "./statsboard/cardstack/cardstack.component";
+import {MoveService} from "../shared/services/move.service";
+import {ModalModule} from "ng2-modal";
 
 
 @Component({
@@ -26,13 +28,15 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
   rank3: string;
   rank4: string;
   private currentRound;
-
-
+  protected timerPercentage;
+  private pressFCount: number = 0;
 
   @ViewChild('rankingModal') rankingModal;
+  @ViewChild('fastForwardModal') fastForwardModal;
 
   constructor(protected userService: UserService,
               protected gameService: GameService,
+              protected moveService: MoveService,
               protected route: ActivatedRoute,
               private toastyService:ToastyService,
               private toastyConfig: ToastyConfig) {
@@ -60,15 +64,9 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
 
     this.rankingModal.open();
     this.rankingModal.close();
-
-
-
-
   }
 
   ngOnChanges(){
-
-
 
   }
 
@@ -86,6 +84,7 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
           if (this.game.players[this.game.currentPlayerIndex].token === this.userToken) {
             this.addTurnToast();
           }
+
           if(this.game.status==='FINISHED'){
             this.rank1= this.game.players[this.game.rankingArray[0]].username;
             this.rank2= this.game.players[this.game.rankingArray[1]].username;
@@ -109,8 +108,13 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
           }
         }
 
+        this.moveService.getRemainingTime(game).subscribe(timer => {
+          this.timerPercentage = timer;
+        });
+
       });
     });
+
   }
 
   stopGameRefresh() {

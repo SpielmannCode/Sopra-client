@@ -49,4 +49,8 @@ export class GameService {
     return this.http.delete(this.apiService.apiUrl + '/games/' + game.id + '/players?token=' + currentUserToken);
   }
 
+  fastForward(game: Game, round: number): Observable<Response> {
+    return this.http.post(this.apiService.apiUrl + '/games/' + game.id + '/fastForward?round=' + round, null, this.apiService.options);
+  }
+
 }
