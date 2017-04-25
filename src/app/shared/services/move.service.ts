@@ -34,4 +34,9 @@ export class MoveService {
       .map((response: Response) => response.json());
   }
 
+  getRemainingTime(game: Game): Observable<number> {
+    return this.http.get(this.apiService.apiUrl + '/games/' + game.id + '/timer')
+      .map((response: Response) => response.json());
+  }
+
 }
