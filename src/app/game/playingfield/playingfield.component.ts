@@ -15,6 +15,7 @@ declare let WaterCanvas: any;
 
 @Component({
   selector: 'app-playingfield',
+  host: {'(window:keydown)': 'Flistener($event)'},
   templateUrl: './playingfield.component.html',
   styleUrls: ['./playingfield.component.css']
 })
@@ -24,6 +25,9 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
   @Input('gameObservable') gameObservable: Subscription;
   @Input('timerPercentage') timerPercentage;
   @ViewChild(SiteComponent) siteComponent: SiteComponent;
+  @ViewChild('fastForwardModal') fastForwardModal;
+  @ViewChild('roundNumber') roundNumber;
+  private pressFCount: number = 0;
   waterCanvas: any;
 
   constructor(protected dragulaService: DragulaService,
@@ -126,6 +130,22 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
   protected onOut(args) {
     const [e, el, container] = args;
     GameComponent.removeClass(el, 'drop-border');
+  }
+
+  Flistener(event) {
+    if (event.keyCode === 70) {
+      this.pressFCount++;
+
+      if (this.pressFCount === 2) {
+        this.fastForwardModal.open();
+        this.pressFCount = 0;
+      }
+
+    }
+  }
+
+  fastForward() {
+    this.gameService.fastForward(this.game, this.roundNumber.nativeElement.value).subscribe(() => this.fastForwardModal.close());
   }
 
   setShipsDraggable(draggable: boolean) {
