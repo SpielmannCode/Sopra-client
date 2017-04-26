@@ -203,6 +203,9 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
         this.MLGCount++;
         const audio = new Audio();
         audio.src = '/assets/musik/fx/MLGHornsSoundEffect.mp3';
+        if(this.MLGCount === 3){
+          audio.src = '/assets/musik/fx/Smokeweedeveryday.mp3';
+        }
         audio.load();
         audio.play();
         this.MLGModal.open();
