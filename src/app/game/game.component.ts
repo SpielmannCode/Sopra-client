@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit,ViewChild, OnChanges} from '@angular/core';
 import {UserService} from '../shared/services/user.service';
 import {User} from '../shared/models/user';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {GameService} from '../shared/services/game.service';
 import {Game} from '../shared/models/game';
 import {Observable, Subscription} from 'rxjs/Rx';
@@ -32,13 +32,13 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
   private pressFCount: number = 0;
 
   @ViewChild('rankingModal') rankingModal;
-  @ViewChild('fastForwardModal') fastForwardModal;
 
   constructor(protected userService: UserService,
               protected gameService: GameService,
               protected moveService: MoveService,
               protected route: ActivatedRoute,
               private toastyService:ToastyService,
+              private router: Router,
               private toastyConfig: ToastyConfig) {
   }
 
@@ -103,7 +103,7 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
 
 
           if (this.game.currentRound !== this.currentRound) {
-            this.addRoundToast();
+            //this.addRoundToast();
             this.currentRound = this.game.currentRound;
           }
         }
@@ -114,7 +114,14 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
 
       });
     });
+  }
 
+  restartGame() {
+    this.gameService.restartGame(this.game).subscribe(() => this.rankingModal.close());
+  }
+
+  leaveGame() {
+    this.gameService.removePlayer(this.game, this.userToken).subscribe(() => this.router.navigateByUrl('/lobby'));
   }
 
   stopGameRefresh() {

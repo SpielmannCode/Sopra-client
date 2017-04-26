@@ -66,3 +66,12 @@ button {
   z-index: 10000;
   right: 5px;
 }
+
+modal a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+modal a:hover {
+  color: #fff;
+}

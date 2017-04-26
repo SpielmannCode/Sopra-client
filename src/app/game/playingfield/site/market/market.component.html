@@ -14,7 +14,7 @@
 
   <ng-container *ngIf="logicState === 'MARKET'">
     <div *ngFor="let card of marketSite.visibleCards; let i = index;" id="MarketCard{{i+1}}" class="MarketCard hover-border">
-      <app-card [cardName]="card" (dblclick)="takeCard(i)"></app-card>
+      <app-card [cardName]="card" (click)="takeCard(i)"></app-card>
     </div>
   </ng-container>
 
