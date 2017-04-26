@@ -76,17 +76,13 @@ input:checked + .slider:before {
   width: 30px;
   height: 30px;
   border-radius: 15px;
-  background: green;
-  border-width: 1px;
-  border-color: #080808;
-  border-style: solid;
+  background: #38AAB5;
+  box-shadow: 0 0 5px #38AAB5;
 }
 #NotReadyCircle{
   width: 30px;
   height: 30px;
   border-radius: 15px;
-  background: red;
-  border-width: 1px;
-  border-color: #080808;
-  border-style: solid;
+  background: #FE4229;
+  box-shadow: 0 0 5px #FE4229;
 }
