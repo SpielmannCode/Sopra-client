@@ -23,3 +23,15 @@
   </modal-content>
 </modal>
 
+<modal id="MLGModal" #MLGModal>
+  <modal-header><h2 class="text-center">U ulocked one of the hidden Features have a 420</h2></modal-header>
+  <modal-content>
+    <img *ngIf="MLGCount === 1" src="/assets/Images/maxresdefault.jpg" style="width: 100%">
+    <img *ngIf="MLGCount === 2" src="/assets/Images/giphy.gif" style="width: 100%">
+    <img *ngIf="MLGCount > 2" src="/assets/Images/giphy2.gif" style="width: 100%">
+  </modal-content>
+  <modal-footer>
+    <button class="btn-basic" (click)="MLGModal.close()">Aight got it broooooo</button>
+  </modal-footer>
+</modal>
+
