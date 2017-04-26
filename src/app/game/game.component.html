@@ -24,6 +24,11 @@
     <p id="r2">Rank 2: {{rank2}}</p>
     <p id="r3" *ngIf="Playercount > 2">Rank 3: {{rank3}}</p>
     <p id="r4" *ngIf="Playercount > 3">Rank 4: {{rank4}}</p>
-
+    <a class="btn-basic inline" (click)="restartGame()">Restart</a>
+    <a class="btn-basic inline" (click)="leaveGame()">Leave</a>
   </modal-content>
+  <modal-footer>
+
+  </modal-footer>
 </modal>
+
