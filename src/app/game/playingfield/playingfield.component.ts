@@ -26,9 +26,12 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
   @Input('timerPercentage') timerPercentage;
   @ViewChild(SiteComponent) siteComponent: SiteComponent;
   @ViewChild('fastForwardModal') fastForwardModal;
+  @ViewChild('MLGModal') MLGModal;
   @ViewChild('roundNumber') roundNumber;
   private pressFCount: number = 0;
   private babaState: number = 0;
+  private pressGCount: number = 0;
+  private MLGCount: number = 0;
   waterCanvas: any;
   baba = new Audio();
   babaplay: boolean = false;
@@ -78,6 +81,7 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.baba.src = '/assets/musik/Backmusic.mp3';
     this.baba.load();
+    this.MLGCount = 0;
   }
 
   ngAfterViewInit() {
@@ -152,39 +156,55 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
     if (event.keyCode === 70) {
       this.pressFCount++;
       this.babaState = 0;
+      this.pressGCount = 0;
 
       if (this.pressFCount === 2) {
         this.fastForwardModal.open();
         this.pressFCount = 0;
       }
-
     }
-    if (event.keyCode !== 70 && event.keyCode !== 66 && event.keyCode !== 65){
+    if (event.keyCode !== 70 && event.keyCode !== 66 && event.keyCode !== 65 && event.keyCode !== 71){
       this.babaState = 0;
       this.pressFCount = 0;
+      this.pressGCount = 0;
     }
     if (event.keyCode === 66 && this.babaState === 0){
       this.babaState = 1;
       this.pressFCount = 0;
+      this.pressGCount = 0;
     }
     if (event.keyCode === 66 && this.babaState === 1){
       this.babaState = 1;
       this.pressFCount = 0;
+      this.pressGCount = 0;
     }
     if (event.keyCode === 65 && this.babaState === 1){
       this.babaState = 2;
       this.pressFCount = 0;
+      this.pressGCount = 0;
     }
     if (event.keyCode === 66 && this.babaState === 2){
       this.babaState = 3;
       this.pressFCount = 0;
+      this.pressGCount = 0;
     }
     if (event.keyCode === 65 && this.babaState === 3){
       this.babaState = 0;
       this.startBABA();
       this.pressFCount = 0;
+      this.pressGCount = 0;
     }
+    if (event.keyCode === 71) {
+      this.pressGCount++;
+      this.babaState = 0;
+      this.pressFCount = 0;
 
+      if (this.pressGCount === 2) {
+        this.MLGCount++;
+        this.MLGModal.open();
+        this.pressGCount = 0;
+      }
+    }
   }
 
   fastForward() {
