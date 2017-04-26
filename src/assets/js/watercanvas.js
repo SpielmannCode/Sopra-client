@@ -2,8 +2,8 @@ function WaterCanvas(img) {
   var canvas = document.createElement('canvas'),
     /** @type {CanvasRenderingContext2D} */
     ctx = canvas.getContext('2d'),
-    width = 1364,
-    height = 766,
+    width = 1360,
+    height = 760,
     half_width = width >> 1,
     half_height = height >> 1,
     size = width * (height + 2) * 2,
