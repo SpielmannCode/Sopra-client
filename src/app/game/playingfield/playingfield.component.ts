@@ -28,6 +28,7 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
   @ViewChild('fastForwardModal') fastForwardModal;
   @ViewChild('roundNumber') roundNumber;
   private pressFCount: number = 0;
+  private babaState: number = 0;
   waterCanvas: any;
 
   constructor(protected dragulaService: DragulaService,
@@ -131,10 +132,17 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
     const [e, el, container] = args;
     GameComponent.removeClass(el, 'drop-border');
   }
+  toggleAudio(){
+    const audio = new Audio();
+    audio.src = '/assets/musik/Backmusic.mp3';
+    audio.load();
+    audio.play();
+  }
 
   Flistener(event) {
     if (event.keyCode === 70) {
       this.pressFCount++;
+      this.babaState = 0;
 
       if (this.pressFCount === 2) {
         this.fastForwardModal.open();
@@ -142,6 +150,32 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
       }
 
     }
+    if (event.keyCode !== 70 && event.keyCode !== 66 && event.keyCode !== 65){
+      this.babaState = 0;
+      this.pressFCount = 0;
+    }
+    if (event.keyCode === 66 && this.babaState === 0){
+      this.babaState = 1;
+      this.pressFCount = 0;
+    }
+    if (event.keyCode === 66 && this.babaState === 1){
+      this.babaState = 1;
+      this.pressFCount = 0;
+    }
+    if (event.keyCode === 65 && this.babaState === 1){
+      this.babaState = 2;
+      this.pressFCount = 0;
+    }
+    if (event.keyCode === 66 && this.babaState === 2){
+      this.babaState = 3;
+      this.pressFCount = 0;
+    }
+    if (event.keyCode === 65 && this.babaState === 3){
+      this.babaState = 0;
+      this.toggleAudio();
+      this.pressFCount = 0;
+    }
+
   }
 
   fastForward() {
