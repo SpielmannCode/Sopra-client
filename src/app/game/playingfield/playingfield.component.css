@@ -3,7 +3,7 @@ app-userinputfield {
   height: 160px;
   position: absolute;
   bottom: 15px;
-  right: 0;
+  right: 0px;
 }
 #Ships {
   width: 345px;
@@ -15,8 +15,8 @@ app-userinputfield {
 }
 
 #playing-field {
-  width: 1366px;
-  height: 768px;
+  width: 1360px;
+  height: 760px;
 }
 
 .ripple-wrap {

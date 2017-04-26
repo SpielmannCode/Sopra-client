@@ -10,8 +10,8 @@ app-statsboard {
 }
 
 app-playingfield {
-  width: 1366px;
-  height: 768px;
+  width: 1360px;
+  height: 760px;
   position: absolute;
   top: 0;
   left: 0;
@@ -60,7 +60,7 @@ button {
 
 #historyBtn{
   position: absolute;
-  bottom: 87px;
+  bottom: 95px;
   height: 70px;
   padding: 5px;
   z-index: 10000;
