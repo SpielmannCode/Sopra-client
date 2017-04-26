@@ -53,4 +53,8 @@ export class GameService {
     return this.http.post(this.apiService.apiUrl + '/games/' + game.id + '/fastForward?round=' + round, null, this.apiService.options);
   }
 
+  restartGame(game: Game): Observable<Response> {
+    return this.http.post(this.apiService.apiUrl + '/games/' + game.id + '/restart?token=' + game.owner, null, this.apiService.options);
+  }
+
 }
