@@ -30,6 +30,8 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
   private pressFCount: number = 0;
   private babaState: number = 0;
   waterCanvas: any;
+  baba = new Audio();
+  babaplay: boolean = false;
 
   constructor(protected dragulaService: DragulaService,
               protected gameService: GameService,
@@ -74,7 +76,7 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-
+    this.baba.src = '/assets/musik/Backmusic.mp3';
   }
 
   ngAfterViewInit() {
@@ -132,11 +134,18 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
     const [e, el, container] = args;
     GameComponent.removeClass(el, 'drop-border');
   }
-  toggleAudio(){
-    const audio = new Audio();
-    audio.src = '/assets/musik/Backmusic.mp3';
-    audio.load();
-    audio.play();
+
+
+  startBABA(){
+    if(!this.babaplay){
+      this.babaplay = true;
+      this.baba.load();
+      this.baba.play();
+    }
+    else{
+      this.babaplay = false;
+      this.baba.pause();
+    }
   }
 
   Flistener(event) {
@@ -172,7 +181,7 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
     }
     if (event.keyCode === 65 && this.babaState === 3){
       this.babaState = 0;
-      this.toggleAudio();
+      this.startBABA();
       this.pressFCount = 0;
     }
 
