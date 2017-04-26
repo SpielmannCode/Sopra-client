@@ -103,7 +103,7 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
 
     switch (e.tagName) {
       case 'APP-SHIP': {
-        audio.src = '/assets/musik/fx/32304__acclivity__shipsbell.wav';
+        audio.src = '/assets/musik/fx/Small-waves-sound-effect.mp3';
         const shipIndex = (parseInt(e.id.match(/(\d+)/)[1]) - 1).toString();
         this.siteComponent.placeStonesOn(el, shipIndex);
         break;
