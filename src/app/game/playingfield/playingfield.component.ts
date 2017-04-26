@@ -77,6 +77,7 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.baba.src = '/assets/musik/Backmusic.mp3';
+    this.baba.load();
   }
 
   ngAfterViewInit() {
@@ -139,7 +140,6 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
   startBABA(){
     if(!this.babaplay){
       this.babaplay = true;
-      this.baba.load();
       this.baba.play();
     }
     else{
