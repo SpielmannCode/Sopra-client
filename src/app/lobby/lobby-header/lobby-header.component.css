@@ -15,8 +15,22 @@
   height: 80px;
 }
 #InfoQuit{
+  position: relative;
+  right: 0px;
   padding: 10px 0;
   float: right;
   font-size: 15px;
   color: black;
+  display:inline;
+  width: 250px;
+  max-height: 80px ;
+  overflow: hidden;
+}
+#Info{
+  position: absolute;
+  left: 45px;
+}
+#Quit{
+  position: absolute;
+  right: 45px;
 }

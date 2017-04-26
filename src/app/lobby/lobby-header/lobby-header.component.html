@@ -12,7 +12,7 @@
     -->
 
     <div id="InfoQuit">
-      <a [routerLink]="['/info']">Info</a> | <a href="#" (click)="logout()">Quit</a> <br>
+      <button id="Info" class="btn-basic" [routerLink]="['/info']" style="float: left">Info</button>  <button id="Quit" class="btn-basic" (click)="logout()" style="float: right">Quit</button> <br><br>
       logged in as {{currentUser}}
 
     </div>
