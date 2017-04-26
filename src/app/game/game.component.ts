@@ -103,7 +103,7 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
 
 
           if (this.game.currentRound !== this.currentRound) {
-            this.addRoundToast();
+            //this.addRoundToast();
             this.currentRound = this.game.currentRound;
           }
         }
