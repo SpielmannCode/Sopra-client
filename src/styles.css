@@ -63,16 +63,32 @@ html, body {
   top: 50%;
   transform: translateY(-50%);
    left: -50px;
-   width: 63.75px;
-   height: 120px;
+   width: 80px;
+   height: 154px;
  }
 .Dockleft{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   right: -50px;
-  width: 63.75px;
-  height: 120px;
+  width: 80px;
+  height: 184px;
+}
+.Dockedright{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -50px;
+  width: 50px;
+  height: 100px;
+}
+.Dockedleft{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -50px;
+  width: 50px;
+  height: 100px;
 }
 .Dockright img{
 
