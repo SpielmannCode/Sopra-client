@@ -210,7 +210,7 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
         audio.load();
         audio.play();
         this.pressGCount = 0;
-        if(this.MLGCount > 3){
+        if(this.MLGCount > 4){
           this.MLGCount = 1;
         }
       }
