@@ -26,17 +26,30 @@
 <modal id="MLGModal" #MLGModal>
   <modal-header>
     <h2 *ngIf="MLGCount === 1" class="text-center">Thank you for your Attention</h2>
-    <h2 *ngIf="MLGCount !== 1" class="text-center">U ulocked one of the hidden Features have a 420</h2>
+    <h2 *ngIf="MLGCount !== 1 && MLGCount !== 3 && MLGCount !== 2" class="text-center">U ulocked one of the hidden Features have a 420</h2>
+    <h2 *ngIf="MLGCount === 3" class="text-center">Smokw Wheat everi daii</h2>
+    <h2 *ngIf="MLGCount === 2" class="text-center">Thank you Rafi, Vale, Robin, Timi, Kim, Nici and Faruk</h2>
   </modal-header>
   <modal-content>
     <img *ngIf="MLGCount === 1" src="/assets/Images/dscf2364(1).jpg" style="width: 100%">
-    <img *ngIf="MLGCount === 2" src="/assets/Images/giphy.gif" style="width: 100%">
-    <img *ngIf="MLGCount === 3" src="/assets/Images/giphy2.gif" style="height: 319px; display: block;margin-left: auto;margin-right: auto  ">
+    <div *ngIf="MLGCount === 2" style="width: 100%; font-size: 15px;text-align: center ">
+      A very big thanks to our <b>Backend Team</b> that did always support us and coded a very good server for us <br><br>
+      Thank you <b>Faruk</b> very much for always changing to our very special Frontend needs<br><br>
+      Thank you <b>Robin</b> for writing Test with such a patiently and clear manner. And thanks for The Obelisk Monster class <br><br>
+      Thank you <b>Timi</b> for writing Test and classes too and chearing us up. Thank you very much for making the Diagramms for M1 and M2.<br><br>
+      Thanks <b>Rafi</b> for even committing from Israel!<br><br>
+      Thanks <b>Kim</b> for all the Artworks and Photoshop-work!<br><br>
+      Thanks <b>Nici</b> for adding all the useless but funny Eastereggs<br><br>
+      Thanks <b>Vale</b> for beeing the frontend Chief!!<br><br><br>
+      Press F for you!!!
+    </div>
+    <img *ngIf="MLGCount === 3" src="/assets/Images/f48.jpg" style="height: 319px; display: block;margin-left: auto;margin-right: auto  ">
     <img *ngIf="MLGCount > 3" src="/assets/Images/maxresdefault(1).jpg" style="width: 100%">
   </modal-content>
   <modal-footer>
     <button *ngIf="MLGCount === 1" class="btn-basic" (click)="MLGModal.close()" style="display: block;margin-left: auto;margin-right: auto  ">Questions ?!</button>
-    <button *ngIf="MLGCount !== 1" class="btn-basic" (click)="MLGModal.close()" style="display: block;margin-left: auto;margin-right: auto  ">Aight got it broooooo</button>
+    <button *ngIf="MLGCount === 2" class="btn-basic" (click)="MLGModal.close()" style="display: block;margin-left: auto;margin-right: auto  ">F</button>
+    <button *ngIf="MLGCount !== 1 && MLGCount !== 2" class="btn-basic" (click)="MLGModal.close()" style="display: block;margin-left: auto;margin-right: auto  ">Aight got it broooooo</button>
   </modal-footer>
 </modal>
 
