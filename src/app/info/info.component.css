@@ -3,9 +3,13 @@
   text-align: center;
   margin: 0 auto;
   background-color: transparent;
+  color: whitesmoke;
 }
 #whole {
   width:1366px ; height:768px;
+  background-image: url("/assets/Images/Hintergrundlres.jpg");
+  background-position: left;
+  background-repeat: no-repeat;
 }
 #okbre{
   text-align: center;
