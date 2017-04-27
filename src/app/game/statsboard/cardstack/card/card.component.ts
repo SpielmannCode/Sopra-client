@@ -9,18 +9,18 @@ export class CardComponent implements OnInit, OnChanges {
   @Input('cardName') cardName;
   currentImage;
   static cardImages = {
-    'Burial_Chamber_Decoration': ['/assets/Images/marketCards/Card_Burial_Chamber_Decoration.png', 'GREEN'],
-    'Chisel': ['/assets/Images/marketCards/Card_Chisel.png', 'BLUE'],
-    'Entrance': ['/assets/Images/marketCards/Card_Entrance.png', 'RED'],
-    'Hammer': ['/assets/Images/marketCards/Card_Hammer.png', 'BLUE'],
-    'Lever': ['/assets/Images/marketCards/Card_Lever.png', 'BLUE'],
-    'Obelisk_Decoration': ['/assets/Images/marketCards/Card_Obelisk_Decoration.png', 'GREEN'],
-    'Paved_Path': ['/assets/Images/marketCards/Card_Paved_Path.png', 'RED'],
-    'Pyramid_Decoration': ['/assets/Images/marketCards/Card_Pyramid_Decoration.png', 'GREEN'],
-    'Sail': ['/assets/Images/marketCards/Card_Sail.png', 'BLUE'],
-    'Sarcophagus': ['/assets/Images/marketCards/Card_Sarcophagus.png', 'RED'],
-    'Statue': ['/assets/Images/marketCards/Card_Statue.png', 'VIOLET'],
-    'Temple_Decoration': ['/assets/Images/marketCards/Card_Temple_Decoration.png', 'GREEN']
+    'Burial_Chamber_Decoration': ['/assets/Images/LResmarketCards/Card_Burial_Chamber_Decoration.png', 'GREEN'],
+    'Chisel': ['/assets/Images/LResmarketCards/Card_Chisel.png', 'BLUE'],
+    'Entrance': ['/assets/Images/LResmarketCards/Card_Entrance.png', 'RED'],
+    'Hammer': ['/assets/Images/LResmarketCards/Card_Hammer.png', 'BLUE'],
+    'Lever': ['/assets/Images/LResmarketCards/Card_Lever.png', 'BLUE'],
+    'Obelisk_Decoration': ['/assets/Images/LResmarketCards/Card_Obelisk_Decoration.png', 'GREEN'],
+    'Paved_Path': ['/assets/Images/LResmarketCards/Card_Paved_Path.png', 'RED'],
+    'Pyramid_Decoration': ['/assets/Images/LResmarketCards/Card_Pyramid_Decoration.png', 'GREEN'],
+    'Sail': ['/assets/Images/LResmarketCards/Card_Sail.png', 'BLUE'],
+    'Sarcophagus': ['/assets/Images/LResmarketCards/Card_Sarcophagus.png', 'RED'],
+    'Statue': ['/assets/Images/LResmarketCards/Card_Statue.png', 'VIOLET'],
+    'Temple_Decoration': ['/assets/Images/LResmarketCards/Card_Temple_Decoration.png', 'GREEN']
   };
 
   constructor() { }
