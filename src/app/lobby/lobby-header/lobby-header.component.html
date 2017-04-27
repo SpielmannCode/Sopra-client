@@ -1,10 +1,10 @@
 <div id="Titel">
 
   <div id="Image">
-    <img src="/assets/Images/Imhotep-Featured.jpg" alt="some_text" style="width:200px;height:80px;">
+    <img src="/assets/Images/Buttaaflii.png" alt="some_text" style="width:178px;height:100px;">
   </div>
   <div id="Titeltext">
-    Online | Lobby  &nbsp;  &nbsp;
+    LOBBY  &nbsp;  &nbsp;
     <!--<audio autoplay loop="loop" controls>
       <source src="/assets/musik/Backmusic.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
@@ -12,7 +12,7 @@
     -->
 
     <div id="InfoQuit">
-      <a [routerLink]="['/info']">Info</a> | <a href="#" (click)="logout()">Quit</a> <br>
+      <button id="Info" class="btn-basic" [routerLink]="['/info']" style="float: left">INFO</button>  <button id="Quit" class="btn-basic" (click)="logout()" style="float: right">QUIT</button> <br><br>
       logged in as {{currentUser}}
 
     </div>

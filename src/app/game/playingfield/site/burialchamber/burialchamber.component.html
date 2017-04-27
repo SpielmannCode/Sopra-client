@@ -3,7 +3,7 @@
   <div id="TotalStone"><img src="/assets/Images/icons/stone.png " alt="Stone" style="width: 30px">: {{sumB}}</div>
 
 
-  <div id="BurialDock" class="Dockright" *ngIf="burialChamber.dockedShip !== null">
+  <div id="BurialDock" class="Dockedright" *ngIf="burialChamber.dockedShip !== null">
     <app-ship class="shipsize1" [stones]="burialChamber.dockedShip.stones" [game]="game" [isDocked]="true"></app-ship>
   </div>
 

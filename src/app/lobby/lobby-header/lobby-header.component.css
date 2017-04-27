@@ -7,6 +7,7 @@
   text-align: center;
   font-size: 40px;
   color: white;
+  font-family: Sand;
 }
 #Image {
   float: left;
@@ -15,8 +16,22 @@
   height: 80px;
 }
 #InfoQuit{
+  position: relative;
+  right: 0px;
   padding: 10px 0;
   float: right;
   font-size: 15px;
   color: black;
+  display:inline;
+  width: 250px;
+  max-height: 80px ;
+  overflow: hidden;
+}
+#Info{
+  position: absolute;
+  left: 25px;
+}
+#Quit{
+  position: absolute;
+  right: 25px;
 }

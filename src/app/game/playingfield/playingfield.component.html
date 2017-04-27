@@ -24,14 +24,19 @@
 </modal>
 
 <modal id="MLGModal" #MLGModal>
-  <modal-header><h2 class="text-center">U ulocked one of the hidden Features have a 420</h2></modal-header>
+  <modal-header>
+    <h2 *ngIf="MLGCount === 1" class="text-center">Thank you for your Attention</h2>
+    <h2 *ngIf="MLGCount !== 1" class="text-center">U ulocked one of the hidden Features have a 420</h2>
+  </modal-header>
   <modal-content>
-    <img *ngIf="MLGCount === 1" src="/assets/Images/maxresdefault.jpg" style="width: 100%">
+    <img *ngIf="MLGCount === 1" src="/assets/Images/dscf2364(1).jpg" style="width: 100%">
     <img *ngIf="MLGCount === 2" src="/assets/Images/giphy.gif" style="width: 100%">
-    <img *ngIf="MLGCount > 2" src="/assets/Images/giphy2.gif" style="height: 319px; display: block;margin-left: auto;margin-right: auto  ">
+    <img *ngIf="MLGCount === 3" src="/assets/Images/giphy2.gif" style="height: 319px; display: block;margin-left: auto;margin-right: auto  ">
+    <img *ngIf="MLGCount > 3" src="/assets/Images/maxresdefault(1).jpg" style="width: 100%">
   </modal-content>
   <modal-footer>
-    <button class="btn-basic" (click)="MLGModal.close()">Aight got it broooooo</button>
+    <button *ngIf="MLGCount === 1" class="btn-basic" (click)="MLGModal.close()" style="display: block;margin-left: auto;margin-right: auto  ">Questions ?!</button>
+    <button *ngIf="MLGCount !== 1" class="btn-basic" (click)="MLGModal.close()" style="display: block;margin-left: auto;margin-right: auto  ">Aight got it broooooo</button>
   </modal-footer>
 </modal>
 

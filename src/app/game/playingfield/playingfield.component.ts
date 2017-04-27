@@ -103,7 +103,7 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
 
     switch (e.tagName) {
       case 'APP-SHIP': {
-        audio.src = '/assets/musik/fx/32304__acclivity__shipsbell.wav';
+        audio.src = '/assets/musik/fx/Small-waves-sound-effect.mp3';
         const shipIndex = (parseInt(e.id.match(/(\d+)/)[1]) - 1).toString();
         this.siteComponent.placeStonesOn(el, shipIndex);
         break;
@@ -201,6 +201,7 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
 
       if (this.pressGCount === 2) {
         this.MLGCount++;
+        this.MLGModal.open();
         const audio = new Audio();
         audio.src = '/assets/musik/fx/MLGHornsSoundEffect.mp3';
         if(this.MLGCount === 3){
@@ -208,9 +209,8 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
         }
         audio.load();
         audio.play();
-        this.MLGModal.open();
         this.pressGCount = 0;
-        if(this.MLGCount > 3){
+        if(this.MLGCount > 4){
           this.MLGCount = 1;
         }
       }

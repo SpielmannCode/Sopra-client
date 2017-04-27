@@ -13,10 +13,14 @@
     <button *ngIf="modalSelectedCard !== 'Chisel' && modalSelectedCard !== 'Hammer' && modalSelectedCard !== 'Sail' " class="btn-basic" (click)="setPlayCardMode(modalSelectedCard)">Play</button>
     <button *ngIf="modalSelectedCard === 'Hammer' && getBlankspaces() >0" class="btn-basic" (click)="setPlayCardMode(modalSelectedCard)">Play</button>
     <button *ngIf="modalSelectedCard === 'Hammer' && getBlankspaces() <1" class="btn-basic disabled" disabled (click)="setPlayCardMode(modalSelectedCard)">Play</button>
-    <button *ngIf="modalSelectedCard === 'Sail' && getBlankspaces() >0" class="btn-basic" (click)="setPlayCardMode(modalSelectedCard)">Play</button>
-    <button *ngIf="modalSelectedCard === 'Sail' && getBlankspaces() <1" class="btn-basic disabled" disabled (click)="setPlayCardMode(modalSelectedCard)">Play</button>
-    <button *ngIf="modalSelectedCard === 'Chisel' && getBlankspaces() >1" class="btn-basic" (click)="setPlayCardMode(modalSelectedCard)">Play</button>
-    <button *ngIf="modalSelectedCard === 'Chisel' && getBlankspaces() <2" class="btn-basic disabled" disabled (click)="setPlayCardMode(modalSelectedCard)">Play</button>
+    <button *ngIf="modalSelectedCard === 'Sail' && getBlankspaces() >0 && currentPlayer.stoneSupply >0" class="btn-basic" (click)="setPlayCardMode(modalSelectedCard)">Play</button>
+    <button *ngIf="modalSelectedCard === 'Sail' && getBlankspaces() >0 && currentPlayer.stoneSupply <1" class="btn-basic disabled" disabled (click)="setPlayCardMode(modalSelectedCard)">Play</button>
+    <button *ngIf="modalSelectedCard === 'Sail' && getBlankspaces() <1 && currentPlayer.stoneSupply >0" class="btn-basic disabled" disabled (click)="setPlayCardMode(modalSelectedCard)">Play</button>
+    <button *ngIf="modalSelectedCard === 'Sail' && getBlankspaces() <1 && currentPlayer.stoneSupply <1" class="btn-basic disabled" disabled (click)="setPlayCardMode(modalSelectedCard)">Play</button>
+    <button *ngIf="modalSelectedCard === 'Chisel' && getBlankspaces() >1 && currentPlayer.stoneSupply >1" class="btn-basic" (click)="setPlayCardMode(modalSelectedCard)">Play</button>
+    <button *ngIf="modalSelectedCard === 'Chisel' && getBlankspaces() <2 && currentPlayer.stoneSupply <= 1" class="btn-basic disabled" disabled (click)="setPlayCardMode(modalSelectedCard)">Play</button>
+    <button *ngIf="modalSelectedCard === 'Chisel' && getBlankspaces() >1 && currentPlayer.stoneSupply <= 1" class="btn-basic disabled" disabled (click)="setPlayCardMode(modalSelectedCard)">Play</button>
+    <button *ngIf="modalSelectedCard === 'Chisel' && getBlankspaces() <2 && currentPlayer.stoneSupply > 1" class="btn-basic disabled" disabled (click)="setPlayCardMode(modalSelectedCard)">Play</button>
   </modal-footer>
 </modal>
 
