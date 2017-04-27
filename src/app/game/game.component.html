@@ -22,8 +22,8 @@
   <modal-content>
     <p id="r1">Rank 1: {{rank1}}</p>
     <p id="r2">Rank 2: {{rank2}}</p>
-    <p id="r3" *ngIf="game.playerCountSetting > 2">Rank 3: {{rank3}}</p>
-    <p id="r4" *ngIf="game.playerCountSetting > 3">Rank 4: {{rank4}}</p>
+    <p id="r3" *ngIf="game && game.playerCountSetting > 2">Rank 3: {{rank3}}</p>
+    <p id="r4" *ngIf="game && game.playerCountSetting > 3">Rank 4: {{rank4}}</p>
     <a class="btn-basic inline" (click)="restartGame()">Restart</a>
     <a class="btn-basic inline" (click)="leaveGame()">Leave</a>
   </modal-content>
