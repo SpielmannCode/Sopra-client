@@ -85,4 +85,7 @@
   background-color: saddlebrown;
   color: #8c8c8c ;
 }
-
+#usrname{
+  height: 36px;
+  overflow: hidden;
+}
