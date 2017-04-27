@@ -14,7 +14,7 @@
 <div class="ship-wrapper" *ngIf="reorderMode">
   <img src="{{picloc}}" alt="Ship {{size}}er">
   <div class="stones fields{{size}}" [dragula]="'reorder-bag'" [dragulaModel]="stones">
-    <div *ngFor="let stone of stones; let i = index;" class="ship-stone" id="stone-{{shipIndex}}-{{i}}">
+    <div *ngFor="let stone of stones; let i = index;" class="ship-stone" id="stone-{{shipIndex}}-{{reordering[i]}}">
       <ng-container *ngIf="game.gameBoard.availableShips[shipIndex].stones[i] !== 'BLANK'">
         <app-stone [stoneColor]="game.gameBoard.availableShips[shipIndex].stones[i]"></app-stone>
       </ng-container>

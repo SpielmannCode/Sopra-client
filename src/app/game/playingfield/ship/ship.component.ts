@@ -13,6 +13,7 @@ export class ShipComponent implements OnInit {
   @Input('HammerMode') HammerMode: boolean;
   @Input('isDocked') isDocked: boolean;
   @Input('game') game;
+  @Input('reordering') reordering;
   picloc: string = ('/assets/Images/Ship/Ship_' + this.size + 'er.png');
 
 
