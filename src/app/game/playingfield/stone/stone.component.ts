@@ -16,7 +16,7 @@ export class StoneComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.texturestyle = this.getRandomInt(1,3)
+    this.texturestyle = this.getRandomInt(1,4)
   }
   getRandomInt(min, max): number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
