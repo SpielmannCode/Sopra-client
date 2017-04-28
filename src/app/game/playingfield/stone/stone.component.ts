@@ -9,12 +9,16 @@ import {Game} from "../../../shared/models/game";
 export class StoneComponent implements OnInit {
   @Input('stoneColor') stoneColor;
   @Input('stoneMarker') stoneMarker;
+  texturestyle: number ;
 
 
 
   constructor() { }
 
   ngOnInit() {
+    this.texturestyle = this.getRandomInt(1,3)
   }
-
+  getRandomInt(min, max): number {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 }
