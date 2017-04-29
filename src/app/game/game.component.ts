@@ -28,8 +28,10 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
   rank3: string;
   rank4: string;
   private currentRound;
+  private currentState;
   protected timerPercentage;
   private pressFCount: number = 0;
+  Music = new Audio();
 
   @ViewChild('rankingModal') rankingModal;
 
@@ -64,6 +66,9 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
 
     this.rankingModal.open();
     this.rankingModal.close();
+    this.currentState = "MARKET";
+    this.Music.volume = 0.2;
+    this.Music.loop = true;
   }
 
   ngOnChanges(){
@@ -72,6 +77,7 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
 
   ngOnDestroy() {
     this.gameObservable.unsubscribe();
+    this.Music.pause();
   }
 
   startGameRefresh() {
@@ -106,6 +112,21 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
             //this.addRoundToast();
             this.currentRound = this.game.currentRound;
           }
+          if (this.game.logicState !== this.currentState) {
+            this.currentState = this.game.logicState;
+            if(this.currentState === "NORMAL"){
+              this.Music.pause();
+              this.Music.src= '/assets/musik/AgeofMythologySoundtrack.mp3';
+              this.Music.load();
+              this.Music.play();
+            }
+            else if(this.currentState === "MARKET"){
+              this.Music.pause();
+              this.Music.src= '/assets/musik/marketsoundeffect.mp3';
+              this.Music.load();
+              this.Music.play();
+            }
+          }
         }
 
         this.moveService.getRemainingTime(game).subscribe(timer => {
@@ -122,6 +143,14 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
 
   leaveGame() {
     this.gameService.removePlayer(this.game, this.userToken).subscribe(() => this.router.navigateByUrl('/lobby'));
+  }
+  toggleAudio() {
+    if(this.Music.muted ){
+      this.Music.muted = false;
+    }
+    else {
+      this.Music.muted = true;
+    }
   }
 
   stopGameRefresh() {
@@ -184,6 +213,5 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
   private toggleSidebar() {
     this._opened = !this._opened;
   }
-
 
 }

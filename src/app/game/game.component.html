@@ -1,5 +1,7 @@
 <div id="whole">
   <app-header></app-header>
+  <button *ngIf="!Music.muted" class="btn-basic" (click)="toggleAudio()" style="position: absolute; top: -800px; left:0px; z-index: 30; font-size: 12px ">Mute</button>
+  <button *ngIf="Music.muted"  class="btn-basic" (click)="toggleAudio()" style="position: absolute; top: -800px; left:0px; z-index: 30; font-size: 12px ">Unmute</button>
   <app-playingfield [game]="game" [timerPercentage]="timerPercentage"></app-playingfield>
   <app-statsboard [game]="game"></app-statsboard>
   <ng2-toasty class="text-center center bg-white"></ng2-toasty>
@@ -22,8 +24,8 @@
   <modal-content>
     <p id="r1">Rank 1: {{rank1}}</p>
     <p id="r2">Rank 2: {{rank2}}</p>
-    <p id="r3" *ngIf="Playercount > 2">Rank 3: {{rank3}}</p>
-    <p id="r4" *ngIf="Playercount > 3">Rank 4: {{rank4}}</p>
+    <p id="r3" *ngIf="game && game.playerCountSetting > 2">Rank 3: {{rank3}}</p>
+    <p id="r4" *ngIf="game && game.playerCountSetting > 3">Rank 4: {{rank4}}</p>
     <a class="btn-basic inline" (click)="restartGame()">Restart</a>
     <a class="btn-basic inline" (click)="leaveGame()">Leave</a>
   </modal-content>

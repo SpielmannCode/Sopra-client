@@ -81,6 +81,7 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.baba.src = '/assets/musik/Backmusic.mp3';
     this.baba.load();
+    this.baba.volume = 1.0;
     this.MLGCount = 0;
   }
 

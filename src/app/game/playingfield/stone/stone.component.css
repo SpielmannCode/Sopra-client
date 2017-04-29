@@ -4,38 +4,35 @@
 }
 
 .white {
-  background-color: #fff;
-  border-width: 2px;
-  border-color: #080808;
+  border-width: 3px;
+  border-color: whitesmoke;
   border-style: groove;
   border-radius: 5px;
 }
 
 .brown {
-  background-color: saddlebrown;
-  border-width: 2px;
-  border-color: #8c8c8c;
-  border-style: groove;
-  border-radius: 5px;
-}
-
-.grey {
-  background-color: #8c8c8c;
-  border-width: 2px;
+  border-width: 3px;
   border-color: saddlebrown;
   border-style: groove;
   border-radius: 5px;
 }
 
+.grey {
+  border-width: 3px;
+  border-color: #8c8c8c;
+  border-style: groove;
+  border-radius: 5px;
+}
+
 .black {
-  background-color: #000;
-  border-width: 2px;
-  border-color: whitesmoke;
+  border-width: 3px;
+  border-color: #080808;
   border-style: groove;
   border-radius: 5px;
 }
 .Marked{
-  border-width: 4px;
+  border-width: 3px;
   border-color: red;
+  border-radius: 5px;
   border-style: outset;
 }
