@@ -19,13 +19,29 @@ export class SiteComponent implements OnInit {
   }
 
   placeStonesOn(el, shipIndex: string, shipInstance) {
-    if (el.id === 'MarketDock' || el.id === 'PyramidDock') {
-      shipInstance.shipStoneState = 'onSiteLeft';
-    } else {
-      shipInstance.shipStoneState = 'onSiteRight';
+
+    switch(el.id) {
+      case 'PyramidDock': {
+        shipInstance.shipStoneState = 'onSitePyramid';
+        break;
+      }
+      case 'TempleDock': {
+        shipInstance.shipStoneState = 'onSiteTemple';
+        break;
+      }
+      case 'BurialDock': {
+        shipInstance.shipStoneState = 'onSiteBurialChamber';
+        break;
+      }
+      case 'ObeliskDock': {
+        shipInstance.shipStoneState = 'onSiteObelisk';
+        break;
+      }
     }
 
-    // this.sailShip(SiteComponent.getDockedSite(el), shipIndex);
+    setTimeout(() => {
+      this.sailShip(SiteComponent.getDockedSite(el), shipIndex);
+    }, 600)
   }
 
   sailShip(site: string, shipIndex: string) {
