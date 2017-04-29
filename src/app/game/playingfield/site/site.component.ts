@@ -10,6 +10,7 @@ import {GameService} from "../../../shared/services/game.service";
 })
 export class SiteComponent implements OnInit {
   @Input('game') game: Game;
+  @Input('shipStoneState') shipStoneState;
 
   constructor(protected moveService: MoveService,
               private gameService: GameService) { }
@@ -17,8 +18,14 @@ export class SiteComponent implements OnInit {
   ngOnInit() {
   }
 
-  placeStonesOn(el, shipIndex: string) {
-    this.sailShip(SiteComponent.getDockedSite(el), shipIndex);
+  placeStonesOn(el, shipIndex: string, shipInstance) {
+    if (el.id === 'MarketDock' || el.id === 'PyramidDock') {
+      shipInstance.shipStoneState = 'onSiteLeft';
+    } else {
+      shipInstance.shipStoneState = 'onSiteRight';
+    }
+
+    // this.sailShip(SiteComponent.getDockedSite(el), shipIndex);
   }
 
   sailShip(site: string, shipIndex: string) {
