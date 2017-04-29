@@ -115,14 +115,12 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
           if (this.game.logicState !== this.currentState) {
             this.currentState = this.game.logicState;
             if(this.currentState === "NORMAL"){
-              console.log(this.currentState);
               this.Music.pause();
               this.Music.src= '/assets/musik/AgeofMythologySoundtrack.mp3';
               this.Music.load();
               this.Music.play();
             }
             else if(this.currentState === "MARKET"){
-              console.log(this.currentState);
               this.Music.pause();
               this.Music.src= '/assets/musik/marketsoundeffect.mp3';
               this.Music.load();
@@ -149,11 +147,9 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
   toggleAudio() {
     if(this.Music.muted ){
       this.Music.muted = false;
-      console.log(this.Music.muted);
     }
     else {
       this.Music.muted = true;
-      console.log(this.Music.muted);
     }
   }
 
