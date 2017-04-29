@@ -38,8 +38,6 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
   baba = new Audio();
   babaplay: boolean = false;
 
-  protected shipStoneState = 'onShip';
-
   constructor(protected dragulaService: DragulaService,
               protected gameService: GameService,
               private moveService: MoveService,
@@ -91,7 +89,6 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.ships.changes.subscribe((res) => {
       this.ships = res._results;
-      console.log();
     });
   }
 
@@ -113,7 +110,6 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
       case 'APP-SHIP': {
         audio.src = '/assets/musik/fx/Small-waves-sound-effect.mp3';
         const shipIndex = (parseInt(e.id.match(/(\d+)/)[1]) - 1).toString();
-        console.log(this.ships[shipIndex]);
         let shipInstance = this.ships[shipIndex];
         this.siteComponent.placeStonesOn(el, shipIndex, shipInstance);
         break;
