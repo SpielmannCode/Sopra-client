@@ -4,7 +4,7 @@
     <div class="stones fields{{size}}">
       <div *ngFor="let stone of stones; let i = index;" class="ship-stone" id="stone-{{shipIndex}}-{{i}}" [dragula]='"second-bag"' [@shipStoneState]="shipStoneState">
         <ng-container *ngIf="game.gameBoard.availableShips[shipIndex].stones[i] !== 'BLANK'">
-          <app-stone [stoneColor]="game.gameBoard.availableShips[shipIndex].stones[i]" (click)="toggleShipStoneState()"></app-stone>
+          <app-stone [stoneColor]="game.gameBoard.availableShips[shipIndex].stones[i]"></app-stone>
         </ng-container>
       </div>
     </div>
