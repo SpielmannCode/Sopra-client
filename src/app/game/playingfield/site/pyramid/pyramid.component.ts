@@ -15,8 +15,6 @@ export class PyramidComponent implements OnInit, OnChanges {
   display = false;
   sumP:number=0;
 
-
-
   constructor() {
 
   }
