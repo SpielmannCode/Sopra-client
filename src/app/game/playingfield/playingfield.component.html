@@ -6,7 +6,7 @@
   <div id="Ships">
     <div class="row">
         <div class="col-md-3" *ngFor="let ship of game.gameBoard.availableShips; let i = index;" [dragula]='"first-bag"'>
-            <app-ship *ngIf="ship.sailable && game.logicState === 'NORMAL' " id="ship{{i+1}}" class="shipsize{{ship.stones.length}}" [shipIndex]="i" [stones]="ship.stones" [game]="game" [shipStoneState]="shipStoneState"></app-ship>
+            <app-ship *ngIf="ship.sailable && game.logicState === 'NORMAL' " id="ship{{i+1}}" class="shipsize{{ship.stones.length}}" [shipIndex]="i" [stones]="ship.stones" [game]="game"></app-ship>
             <app-ship *ngIf="!ship.sailable || game.logicState === 'MARKET'" id="ship{{i+1}}" class="shipsize{{ship.stones.length}} donotdrag" [shipIndex]="i" [stones]="ship.stones" [game]="game"></app-ship>
         </div>
     </div>
