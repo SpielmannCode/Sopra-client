@@ -2,7 +2,7 @@
   <img src="/assets/Images/46_underwater_beach_sand_texture-seamless.bmp" height="768" width="1024" onload="WaterCanvas(this)" style="display: none;">
 </div>
 <div id="playing-field" *ngIf="game">
-  <app-site [game]="game"></app-site>
+  <app-site [game]="game" [shipStoneState]="shipStoneState"></app-site>
   <div id="Ships">
     <div class="row">
         <div class="col-md-3" *ngFor="let ship of game.gameBoard.availableShips; let i = index;" [dragula]='"first-bag"'>

@@ -10,6 +10,7 @@ import {GameService} from "../../../shared/services/game.service";
 })
 export class SiteComponent implements OnInit {
   @Input('game') game: Game;
+  @Input('shipStoneState') shipStoneState;
 
   constructor(protected moveService: MoveService,
               private gameService: GameService) { }
@@ -17,8 +18,30 @@ export class SiteComponent implements OnInit {
   ngOnInit() {
   }
 
-  placeStonesOn(el, shipIndex: string) {
-    this.sailShip(SiteComponent.getDockedSite(el), shipIndex);
+  placeStonesOn(el, shipIndex: string, shipInstance) {
+
+    switch(el.id) {
+      case 'PyramidDock': {
+        shipInstance.shipStoneState = 'onSitePyramid';
+        break;
+      }
+      case 'TempleDock': {
+        shipInstance.shipStoneState = 'onSiteTemple';
+        break;
+      }
+      case 'BurialDock': {
+        shipInstance.shipStoneState = 'onSiteBurialChamber';
+        break;
+      }
+      case 'ObeliskDock': {
+        shipInstance.shipStoneState = 'onSiteObelisk';
+        break;
+      }
+    }
+
+    setTimeout(() => {
+      this.sailShip(SiteComponent.getDockedSite(el), shipIndex);
+    }, 600)
   }
 
   sailShip(site: string, shipIndex: string) {
