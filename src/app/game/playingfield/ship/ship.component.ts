@@ -15,10 +15,10 @@ import {animate, Component, Input, OnInit, state, style, transition, trigger} fr
       state('onSiteRight', style({
         transform: 'translateX(300px)'
       })),
-      transition('onShip => onSiteLeft', animate('500ms ease-in')),
-      transition('onSiteLeft => onShip', animate('500ms ease-out')),
-      transition('onShip => onSiteRight', animate('500ms ease-in')),
-      transition('onSiteRight => onShip', animate('500ms ease-out'))
+      transition('onShip => onSiteLeft', animate('500ms')),
+      transition('onSiteLeft => onShip', animate('500ms')),
+      transition('onShip => onSiteRight', animate('500ms')),
+      transition('onSiteRight => onShip', animate('500ms'))
     ])
   ]
 })
@@ -33,7 +33,7 @@ export class ShipComponent implements OnInit {
   @Input('reordering') reordering;
   picloc: string = ('/assets/Images/Ship/Ship_' + this.size + 'er.png');
 
-  protected shipStoneState = 'onShip';
+  @Input('shipStoneState') shipStoneState;
 
 
 constructor() { }
@@ -45,7 +45,7 @@ constructor() { }
 
   toggleShipStoneState() {
     if (this.shipStoneState === 'onShip') {
-      this.shipStoneState = 'onSiteLeft';
+      this.shipStoneState = 'onSiteRight';
     } else {
       this.shipStoneState = 'onShip';
     }
