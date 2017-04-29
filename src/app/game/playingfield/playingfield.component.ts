@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild, ViewChildren, QueryList, AfterViewInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild, ViewChildren, QueryList, AfterViewInit, OnChanges} from '@angular/core';
 
 import {Game} from "../../shared/models/game";
 import {DragulaService} from "ng2-dragula";
@@ -10,6 +10,7 @@ import {GameComponent} from "../game.component";
 import {UserService} from "../../shared/services/user.service";
 import {ActivatedRoute} from "@angular/router";
 import {CardstackComponent} from "../statsboard/cardstack/cardstack.component";
+import {ShipComponent} from "./ship/ship.component";
 
 declare let WaterCanvas: any;
 
@@ -28,6 +29,7 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
   @ViewChild('fastForwardModal') fastForwardModal;
   @ViewChild('MLGModal') MLGModal;
   @ViewChild('roundNumber') roundNumber;
+  @ViewChildren(ShipComponent) ships;
   private pressFCount: number = 0;
   private babaState: number = 0;
   private pressGCount: number = 0;
@@ -35,6 +37,8 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
   waterCanvas: any;
   baba = new Audio();
   babaplay: boolean = false;
+
+  protected shipStoneState = 'onShip';
 
   constructor(protected dragulaService: DragulaService,
               protected gameService: GameService,
@@ -85,6 +89,10 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    this.ships.changes.subscribe((res) => {
+      this.ships = res._results;
+      console.log();
+    });
   }
 
   protected onDrag(args) {
@@ -105,7 +113,9 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
       case 'APP-SHIP': {
         audio.src = '/assets/musik/fx/Small-waves-sound-effect.mp3';
         const shipIndex = (parseInt(e.id.match(/(\d+)/)[1]) - 1).toString();
-        this.siteComponent.placeStonesOn(el, shipIndex);
+        console.log(this.ships[shipIndex]);
+        let shipInstance = this.ships[shipIndex];
+        this.siteComponent.placeStonesOn(el, shipIndex, shipInstance);
         break;
       }
       case 'APP-STONE': {
