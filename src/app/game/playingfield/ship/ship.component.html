@@ -2,9 +2,9 @@
   <img src="{{picloc}}" alt="Ship {{size}}er">
   <ng-container *ngIf="!isDocked">
     <div class="stones fields{{size}}">
-      <div *ngFor="let stone of stones; let i = index;" class="ship-stone" id="stone-{{shipIndex}}-{{i}}" [dragula]='"second-bag"'>
+      <div *ngFor="let stone of stones; let i = index;" class="ship-stone" id="stone-{{shipIndex}}-{{i}}" [dragula]='"second-bag"' [@shipStoneState]="shipStoneState">
         <ng-container *ngIf="game.gameBoard.availableShips[shipIndex].stones[i] !== 'BLANK'">
-          <app-stone [stoneColor]="game.gameBoard.availableShips[shipIndex].stones[i]"></app-stone>
+          <app-stone [stoneColor]="game.gameBoard.availableShips[shipIndex].stones[i]" (click)="toggleShipStoneState()"></app-stone>
         </ng-container>
       </div>
     </div>
