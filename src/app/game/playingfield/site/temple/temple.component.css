@@ -95,7 +95,7 @@
 }
 #background{
   background-color: #cd9b1d;
-  opacity: 0.7;
+  opacity: 0.5;
   width: 45px;
   height: 45px;
   border-width: thin;
@@ -103,7 +103,7 @@
 }
 .background{
   background-color:#cd9b1d;
-  opacity: 0.7;
+  opacity: 0.5;
   width: 45px;
   height: 45px;
   border-width: thin;
