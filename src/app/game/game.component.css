@@ -54,7 +54,7 @@ button {
 }
 
 :host >>> .ng-sidebar {
-  background-color: #ffffff;
+  background-image: url("/assets/Images/papyrus-wallpapers.jpeg");
   z-index: 999;
 }
 
