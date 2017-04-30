@@ -53,7 +53,7 @@
   left : 5px;
   height:145px;
   width: 590px;
-  background-color: whitesmoke;
+  background-image: url("/assets/Images/papyrus-wallpapers.jpeg");
   color:black;
   z-index: 30;
   opacity: 0.8;
@@ -95,7 +95,7 @@
 }
 #background{
   background-color: #cd9b1d;
-  opacity: 0.5;
+  opacity: 0.7;
   width: 45px;
   height: 45px;
   border-width: thin;
@@ -103,7 +103,7 @@
 }
 .background{
   background-color:#cd9b1d;
-  opacity: 0.5;
+  opacity: 0.7;
   width: 45px;
   height: 45px;
   border-width: thin;
