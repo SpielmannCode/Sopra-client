@@ -8,14 +8,8 @@ import {Observable, Subject} from 'rxjs';
 @Injectable()
 export class MoveService {
 
-  private stonesToOrderSource = new Subject<number[]>();
-
-  stonesToOrder$ = this.stonesToOrderSource.asObservable();
-
   constructor(private http: Http,
               private apiService: ApiService) { }
-
-
 
 
   addMove(game: Game, moveJson): Observable<Response> {
