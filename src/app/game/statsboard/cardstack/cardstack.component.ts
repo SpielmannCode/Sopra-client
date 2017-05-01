@@ -85,6 +85,13 @@ export class CardstackComponent implements OnInit, OnChanges {
       }
     }
   }
+  getCardcount(): number{
+    let i = 0;
+    for (let card of this.currentPlayer.cards){
+      i++;
+    }
+    return i;
+  }
   getBlankspaces(): number{
     let count = 0;
     for(let ships of this.game.gameBoard.availableShips){
