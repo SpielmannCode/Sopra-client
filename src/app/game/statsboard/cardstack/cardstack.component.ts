@@ -51,10 +51,13 @@ export class CardstackComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.setPlayerCards();
+    this.setCardCount();
   }
 
   ngOnChanges() {
     this.setPlayerCards();
+    this.setCardCount();
+
   }
 
   setPlayerCards() {
@@ -64,6 +67,18 @@ export class CardstackComponent implements OnInit, OnChanges {
         this.playerCards = player.cards;
         while (i  < player.cards.length) {
           this.cardColors[i] = CardComponent.getCardColor(player.cards[i]);
+          i++;
+        }
+        this.currentPlayer = player;
+      }
+    }
+  }
+  setCardCount() {
+    let i = 0;
+    for (let player of this.game.players) {
+      if (player.token === this.userToken) {
+        this.playerCards = player.cards;
+        while (i  < player.cards.length) {
           i++;
         }
         this.currentPlayer = player;

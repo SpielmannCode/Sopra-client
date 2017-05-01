@@ -3,7 +3,11 @@
   height: 195px;
   overflow: scroll;
   overflow-x: hidden;
-  background-color: transparent;
+  background-image: url("/assets/Images/papyrus-wallpapers.jpeg");
+  border-width: 3px;
+  border-color: saddlebrown;
+  border-style: groove;
+  border-radius: 5px;
 }
 
 app-card {

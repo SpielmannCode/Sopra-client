@@ -41,11 +41,13 @@ app-header{
 
 ng2-toasty {
   position: absolute;
-  top: 300px;
+  top: 0px;
   left: 0;
   right: 0;
-  max-width: 300px;
-  font-size: 50px;
+  background-color: #080808;
+  color: ghostwhite;
+  max-width: 200px;
+  font-size: 20px;
   z-index: 10;
 }
 
