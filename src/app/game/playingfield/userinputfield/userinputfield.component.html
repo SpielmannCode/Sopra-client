@@ -12,7 +12,7 @@
     <button *ngIf="currentPlayer.token !== game.players[game.currentPlayerIndex].token || currentPlayer.stoneSupply > 4" class="btn-basic inline  position1 disabled" disabled (click)="getStones()">
       <img src="/assets/Images/icons/cold-ice-cubes.svg" alt="Get Stones">
     </button>
-    <button class="btn-basic inline  position1" *ngIf="currentPlayer.token === game.players[game.currentPlayerIndex].token && currentPlayer.stoneSupply < 5" (click)="getStones()">
+    <button class="btn-basic inline  position1" *ngIf="currentPlayer.token === game.players[game.currentPlayerIndex].token && currentPlayer.stoneSupply < 5" (click)="getStones() ; startStoneSound()">
       <img src="/assets/Images/icons/cold-ice-cubes.svg" alt="Get Stones">
     </button>
   </div>
