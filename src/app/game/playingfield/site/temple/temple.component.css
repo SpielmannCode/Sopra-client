@@ -3,13 +3,13 @@
 }
 .templeStone{
   position: absolute;
-  top: 57px;
+  top: 105px;
   width: 45px;
   height: 45px;
 }
 .templeArrow{
   position: absolute;
-  top: 57px;
+  top: 105px;
   width: 45px;
   height: 45px;
 }
@@ -88,7 +88,7 @@
   flex-wrap: wrap;
   align-content: flex-start;
   position: absolute;
-  top: 57px;
+  top: 105px;
   left: 338px;
   width: 225px;
   height: 45px;
