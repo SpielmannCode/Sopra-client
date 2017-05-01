@@ -1,16 +1,25 @@
-<div class="form-signin">
-  <h2 class="form-signin-heading">Choose a name</h2>
-  <label for="password" class="sr-only">Username</label>
-  <input id="password" type="text" class="form-control" placeholder="username"  [(ngModel)]="user.username">
-<br>
-  <div class="row">
-    <div class="col-md-6">
-      <button class="btn-basic center" type="submit" (click)="login()">Start</button>
-    </div>
-    <div class="col-md-6">
-      <button class="btn-basic center" type="submit" (click)="clearfields()">Clear</button>
-    </div>
-  </div>
-  <br>
-</div>
+<div id = "whole">
 
+
+  <h1>IMHOTEP</h1>
+
+  <div id="skarabeus-background">
+  </div>
+  <div class="form-signin">
+    <h2 class="form-signin-heading">Choose a name</h2>
+    <label for="password" class="sr-only">Username</label>
+    <input id="password" type="text" class="form-control" placeholder="username"  [(ngModel)]="user.username">
+  <br>
+    <div class="row">
+      <div class="col-md-6">
+        <button class="btn-basic center" type="submit" (click)="login()">Start</button>
+      </div>
+      <div class="col-md-6">
+        <button class="btn-basic center" type="submit" (click)="clearfields()">Clear</button>
+      </div>
+    </div>
+    <br>
+
+  </div>
+
+</div>
