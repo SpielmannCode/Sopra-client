@@ -72,11 +72,10 @@
   font-family: Sand;
 }
 .background{
-  background-color: #cd9b1d;
+  background-color: rgba(205,155,29,0.5);
   font-size: xx-large;
-  color: #080808;
+  color: rgba(0,0,0,1);
   text-align: center;
-  opacity: 0.5;
   width: 45px;
   height: 45px;
   border-width: thin;
