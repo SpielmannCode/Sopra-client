@@ -1,13 +1,11 @@
 <div class="form-signin">
-  <h2 class="form-signin-heading">Group 12 Login</h2>
-  <label for="user_name" class="sr-only">User</label>
-  <input id="user_name" type="text" class="form-control" placeholder="name" [(ngModel)]="user.name" autofocus>
+  <h2 class="form-signin-heading">Choose a name</h2>
   <label for="password" class="sr-only">Username</label>
   <input id="password" type="text" class="form-control" placeholder="username"  [(ngModel)]="user.username">
 <br>
   <div class="row">
     <div class="col-md-6">
-      <button class="btn-basic center" type="submit" (click)="login()">Login</button>
+      <button class="btn-basic center" type="submit" (click)="login()">Start</button>
     </div>
     <div class="col-md-6">
       <button class="btn-basic center" type="submit" (click)="clearfields()">Clear</button>
