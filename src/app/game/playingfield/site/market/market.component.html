@@ -1,5 +1,5 @@
 <div  on-mouseenter='enter()' on-mouseleave='leave()' id="Market" class="site">
-  <div id="Titel">MARKET</div>
+  <div id="Titel"></div>
   <div id="MarketDock" class="Dockedleft" [dragula]='"first-bag"' *ngIf="marketSite.dockedShip !== null">
     <app-ship class="shipsize1" [stones]="marketSite.dockedShip.stones" [game]="game" [isDocked]="true"></app-ship>
   </div>
