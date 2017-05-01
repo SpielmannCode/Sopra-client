@@ -1,6 +1,15 @@
 #lobby {
   margin-top: 20px;
-  min-height: 420px;
+  min-height: 600px;
+  margin: 20px 20px 20px 20px;
+  background-color: rgba(255,255,255, 0.8);
+}
+
+#main {
+  width:1360px ; height:760px;
+  background-image: url("/assets/Images/Hintergrundlres.jpg");
+  background-position: left;
+  background-repeat: no-repeat;
 }
 
 .table > tbody > tr > td {
@@ -20,10 +29,6 @@
   background-color: #85DBE3;
 }
 
-#whole {
-  max-width:1366px;
-  max-height:768px;
-}
 #Titeltext {
 padding: 15px 0;
 text-align: center;
