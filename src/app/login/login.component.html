@@ -6,9 +6,9 @@
   <div id="skarabeus-background">
   </div>
   <div class="form-signin">
-    <h2 class="form-signin-heading">Choose a name</h2>
+    <h2 class="form-signin-heading">Choose a username</h2>
     <label for="password" class="sr-only">Username</label>
-    <input id="password" type="text" class="form-control" placeholder="username"  [(ngModel)]="user.username">
+    <input id="password" type="text" class="form-control" placeholder="username" (keyup.enter)="login()"  [(ngModel)]="user.username">
   <br>
     <div class="row">
       <div class="col-md-6">
