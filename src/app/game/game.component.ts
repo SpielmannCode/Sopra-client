@@ -69,6 +69,7 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
     this.currentState = "MARKET";
     this.Music.volume = 0.2;
     this.Music.loop = true;
+    this.Music.muted = true;
   }
 
   ngOnChanges(){

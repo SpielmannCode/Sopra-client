@@ -16,7 +16,7 @@
 
 .pos1 {
   top: -195px;
-  left: 180px;
+  left: 185px;
 }
 
 .pos2 {
@@ -71,18 +71,26 @@
 }
 .WHITE{
   background-color: #fff;
+  background-image: url("/assets/Images/StatsBoard/WHITE.png");
+  background-size: cover;
   color: #080808;
 }
 .BLACK{
   background-color: #080808;
+  background-image: url("/assets/Images/StatsBoard/BLACK.png");
+  background-size: cover;
   color: whitesmoke;
 }
 .GREY{
   background-color: #8c8c8c;
+  background-image: url("/assets/Images/StatsBoard/GREY.png");
+  background-size: cover;
   color: saddlebrown ;
 }
 .BROWN{
   background-color: saddlebrown;
+  background-image: url("/assets/Images/StatsBoard/BROWN.png");
+  background-size: cover;
   color: #8c8c8c ;
 }
 #usrname{

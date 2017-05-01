@@ -32,8 +32,8 @@ html, body {
 }
 
 .btn-basic {
-  background-color: #38AAB5;
-  color: #fff;
+  background-color: #ddc45d;
+  color: #72452c;
   text-decoration: none;
   border: 1px solid transparent;
   display: block;
@@ -47,7 +47,7 @@ html, body {
 }
 
 .btn-basic:hover {
-  background-color: #1B8F9A;
+  background-color: #ddae00;
 }
 
 .modal-content {
