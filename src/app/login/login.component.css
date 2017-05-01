@@ -17,7 +17,17 @@
   padding-top: 100px;
 }
 
+#error_message{
+  color: whitesmoke;
+  text-align: center;
+}
+
+a{
+  color: red;
+}
+
 h1{
+  margin: 0px;
   padding-top: 150px;
   text-align: center;
   color: whitesmoke;
@@ -33,7 +43,7 @@ body {
 }
 
 .form-signin {
-  max-width: 330px;
+  max-width: 400px;
   padding: 0px 15px;
   margin: 0px auto;
 }
