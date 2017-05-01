@@ -148,6 +148,10 @@
   z-index: 30;
   opacity: 0.8;
   text-align: center;
+  border-width: 3px;
+  border-color: saddlebrown;
+  border-style: groove;
+  border-radius: 5px;
 }
 #ObeliskText h1{
   font-size: 20px;

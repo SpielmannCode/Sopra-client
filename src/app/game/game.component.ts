@@ -117,7 +117,7 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
             this.currentState = this.game.logicState;
             if(this.currentState === "NORMAL"){
               this.Music.pause();
-              this.Music.src= '/assets/musik/AgeofMythologySoundtrack.mp3';
+              this.Music.src= '/assets/musik/-Egyptian_music.mp3';
               this.Music.load();
               this.Music.play();
             }

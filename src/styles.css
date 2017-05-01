@@ -76,17 +76,17 @@ html, body {
 }
 .Dockedright{
   position: absolute;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
-  left: -50px;
+  left: -43px;
   width: 50px;
   height: 100px;
 }
 .Dockedleft{
   position: absolute;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
-  right: -50px;
+  right: -22px;
   width: 50px;
   height: 100px;
 }
