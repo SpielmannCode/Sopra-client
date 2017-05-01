@@ -1,6 +1,6 @@
 <div on-mouseenter='enter()' on-mouseleave='leave()' id="Obelisk" class="site">
 
-  <div  id="Titel">OBELISK</div>
+  <div  id="Titel"></div>
   <div id="TotalStone"><img src="/assets/Images/icons/stone.png " alt="Stone" style="width: 30px">: {{sumO}}</div>
   <div id="ObeliskDock" class="Dockedright" *ngIf="obeliskSite.dockedShip !== null">
     <app-ship class="shipsize1" [stones]="obeliskSite.dockedShip.stones" [game]="game" [isDocked]="true"></app-ship>
