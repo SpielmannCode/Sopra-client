@@ -28,6 +28,11 @@ export class AuthenticationService {
     let headers      = new Headers({ 'Content-Type': 'application/json'});// ... Set content type to JSON
     let options       = new RequestOptions({ headers: headers }); // Create a request option
 
+    function myAlert(message): void {
+      let err = document.getElementById("error_msg");
+      err.innerHTML = message;
+    }
+
     return this.http.post(this.apiUrl+'/users', bodyString, options) // ...using post request
       .map((response: Response) => {
         // login successful if there's a jwt token in the response
@@ -44,7 +49,8 @@ export class AuthenticationService {
           return null;
         }
       }) // ...and calling .json() on the response to return data
-      .catch((error:any) => Observable.throw(error.json().error || 'Server error')); //...errors if
+      .catch((error:any) => Observable.throw(myAlert('Username already in use!') || error.json().error || 'Server error')); //...errors if
+
   }
 
 
@@ -55,5 +61,7 @@ export class AuthenticationService {
     localStorage.removeItem('currentUser');
     this.router.navigate(['/login']);
   }
+
+
 
 }
