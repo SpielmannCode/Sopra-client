@@ -76,8 +76,8 @@ input:checked + .slider:before {
   width: 30px;
   height: 30px;
   border-radius: 15px;
-  background: #38AAB5;
-  box-shadow: 0 0 5px #38AAB5;
+  background: #ddc45d;
+  box-shadow: 0 0 5px #72452c;
 }
 #NotReadyCircle{
   width: 30px;
