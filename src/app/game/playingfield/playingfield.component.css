@@ -9,7 +9,7 @@ app-userinputfield {
   width: 345px;
   height: 250px;
   position: absolute;
-  bottom: 5px;
+  bottom: -20px;
   left: 450px;
   background-color: inherit;
 }
