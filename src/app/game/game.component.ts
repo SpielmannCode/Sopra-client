@@ -164,7 +164,7 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
       toastOptions = {
         title: "Your Turn!",
         showClose: true,
-        timeout: 4000,
+        timeout: 6000,
         theme: 'material',
         onAdd: (toast:ToastData) => {
         },
@@ -176,7 +176,7 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
       toastOptions = {
         title: "Choose a Market Card!",
         showClose: true,
-        timeout: 4000,
+        timeout: 6000,
         theme: 'material',
         onAdd: (toast:ToastData) => {
         },
