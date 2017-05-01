@@ -17,6 +17,15 @@
   padding-top: 100px;
 }
 
+#error_message{
+  color: whitesmoke;
+  text-align: center;
+}
+
+a{
+  color: red;
+}
+
 h1{
   margin: 0px;
   padding-top: 150px;
