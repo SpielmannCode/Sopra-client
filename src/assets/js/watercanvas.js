@@ -7,7 +7,7 @@ function WaterCanvas(img) {
     half_width = width >> 1,
     half_height = height >> 1,
     size = width * (height + 2) * 2,
-    delay = 30,
+    delay = 50,
     oldind = width,
     newind = width * (height + 3),
     riprad = 3,
@@ -139,7 +139,7 @@ function WaterCanvas(img) {
     var rnd = Math.random;
     setInterval(function() {
       disturb(rnd() * width, rnd() * height);
-    }, 700);
+    }, 1500);
 
     //webgl
 
