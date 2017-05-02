@@ -9,12 +9,61 @@
 #skarabeus-background{
   width: 400px;
   height: 250px;
-  background-image: url("/assets/Images/Buttaaflii.png");
-  background-size: contain;
-  background-position: bottom;
-  background-repeat: no-repeat;
-  margin: 0px auto;
-  padding-top: 100px;
+  position: relative;
+  /*background-image: url("/assets/Images/Buttaaflii.png");*/
+  /*background-size: contain;*/
+  /*background-position: bottom;*/
+  /*background-repeat: no-repeat;*/
+  margin: 10px auto;
+}
+
+#skarabeus-background img {
+  width: 100%;
+  position: absolute;
+}
+
+#skarabeus-animation {
+  position: absolute;
+  height: 110px;
+  width: 45px;
+  top: 83px;
+  right: 0;
+  left: 0;
+  animation: glow 2s infinite alternate;
+  border-radius: 10px;
+}
+
+@-webkit-keyframes glow {
+  from {
+    box-shadow: 0 0 50px 3px #ffe169;
+    opacity: 0.5;
+  }
+  to {
+    box-shadow:0 0 250px 5px #ffe169;
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes glow {
+  from {
+    box-shadow: 0 0 50px 3px #ffe169;
+    opacity: 0.5;
+  }
+  to {
+    box-shadow:0 0 250px 5px #ffe169;
+    opacity: 1;
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 50px 3px #ffe169;
+    opacity: 0.5;
+  }
+  to {
+    box-shadow:0 0 250px 5px #ffe169;
+    opacity: 1;
+  }
 }
 
 #error_message{
@@ -81,4 +130,9 @@ body {
 
 .form-control{
   text-align: center;
+}
+
+.group {
+  width: 300px;
+  margin-top: 30px;
 }
