@@ -29,6 +29,11 @@
   background-color: #85DBE3;
 }
 
+form {
+  width: 300px;
+}
+
+
 #Titeltext {
 padding: 15px 0;
 text-align: center;
@@ -50,4 +55,40 @@ font-size: 15px;
 
 input[type='radio'] {
 
+}
+
+.group {
+  width: 300px;
+  margin-top: 30px;
+}
+
+.group input,
+.group label,
+.group input:focus ~ label,
+.group input:valid ~ label {
+  color: #000;
+}
+
+.group .bar:before, .bar:after {
+  background: #e7d68e;
+}
+
+/* active state */
+.group input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+@-webkit-keyframes inputHighlighter {
+  from { background:#e7d68e; }
+  to 	{ width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+  from { background:#e7d68e; }
+  to 	{ width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+  from { background:#e7d68e; }
+  to 	{ width:0; background:transparent; }
 }
