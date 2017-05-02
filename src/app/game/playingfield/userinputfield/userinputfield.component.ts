@@ -20,9 +20,6 @@ export class UserinputfieldComponent implements OnInit, OnChanges {
   currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
   protected currentRoundNumber: number = 1;
 
-  stoneSound = new Audio();
-  stoneSoundplay: boolean = false;
-
   constructor(private moveService: MoveService,
               private gameService: GameService) {
 
@@ -31,9 +28,6 @@ export class UserinputfieldComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.showStatus();
 
-    this.stoneSound.src = '/assets/musik/fx/389737_uminari_rocks.mp3';
-    this.stoneSound.load();
-    this.stoneSound.volume = 1.0;
   }
   ngOnChanges(changes: SimpleChanges){
 
@@ -74,21 +68,14 @@ export class UserinputfieldComponent implements OnInit, OnChanges {
     };
 
     this.moveService.addMove(this.game, moveJson).subscribe(() => this.gameService.getGame(this.game.id));
+    const audio = new Audio();
+    audio.src = '/assets/musik/fx/389737_uminari_rocks.mp3';
+    audio.load();
+    audio.play();
   }
 
   toggleCardStack() {
     this.showCardStack = !this.showCardStack;
-  }
-
-  startStoneSound(){
-    if(!this.stoneSoundplay){
-      this.stoneSoundplay = true;
-      this.stoneSound.play();
-    }
-    else{
-      this.stoneSoundplay = false;
-      this.stoneSound.pause();
-    }
   }
 
 }
