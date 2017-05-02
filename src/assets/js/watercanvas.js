@@ -96,6 +96,10 @@ function WaterCanvas(img) {
     gl.enable(gl.BLEND);
     gl.disable(gl.DEPTH_TEST);
 
+    var attributeLocation = gl.getAttribLocation(program, "a_position");
+    gl.enableVertexAttribArray(attributeLocation);
+    gl.vertexAttribPointer(attributeLocation, 2, gl.FLOAT, false, 0, 0);
+
     render();
   }
 
@@ -107,10 +111,6 @@ function WaterCanvas(img) {
     gl.clearColor(0.0, 0.0, 0.0, 0.0);
     gl.clear(gl.COLOR_BUFFER_BIT);
 
-
-    var attributeLocation = gl.getAttribLocation(program, "a_position");
-    gl.enableVertexAttribArray(attributeLocation);
-    gl.vertexAttribPointer(attributeLocation, 2, gl.FLOAT, false, 0, 0);
 
     var attributeTime = gl.getUniformLocation(program, "u_time");
     gl.uniform1f(attributeTime, time+= 0.005);
