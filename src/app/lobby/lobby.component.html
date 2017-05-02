@@ -11,7 +11,7 @@
     <modal-content>
       <form [formGroup]="createGameForm" (submit)="createGame()">
         <label for="name">Game Name</label>
-        <input id="name" name="name" formControlName="name" type="text">
+        <input id="name" autofocus="autofocus"name="name" formControlName="name" type="text">
 
         <br>
         <input id="2-players" formControlName="playerCountSetting" name="playerCountSetting" type="radio" value="2">

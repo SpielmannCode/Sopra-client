@@ -3,6 +3,8 @@
   <app-sled [game]="game"></app-sled>
   <div *ngIf="isPlayerTurn()" #timer id="timer">
   </div>
+  <div  id="timerbg">
+  </div>
   <div id="buttons">
     <div id="buttonstext">{{Playingstatus}}</div>
        <br>
@@ -12,7 +14,7 @@
     <button *ngIf="currentPlayer.token !== game.players[game.currentPlayerIndex].token || currentPlayer.stoneSupply > 4" class="btn-basic inline  position1 disabled" disabled (click)="getStones()">
       <img src="/assets/Images/icons/cold-ice-cubes.svg" alt="Get Stones">
     </button>
-    <button class="btn-basic inline  position1" *ngIf="currentPlayer.token === game.players[game.currentPlayerIndex].token && currentPlayer.stoneSupply < 5" (click)="getStones() ; startStoneSound()">
+    <button class="btn-basic inline  position1" *ngIf="currentPlayer.token === game.players[game.currentPlayerIndex].token && currentPlayer.stoneSupply < 5" (click)="getStones()">
       <img src="/assets/Images/icons/cold-ice-cubes.svg" alt="Get Stones">
     </button>
   </div>

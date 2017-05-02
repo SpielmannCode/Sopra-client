@@ -1,8 +1,18 @@
+@font-face {
+  font-family: 'Papyrus';
+  src: url('/assets/fonts/papyrus/Papyrus-Regular.eot'); /* IE9 Compat Modes */
+  src: url('/assets/fonts/papyrus/Papyrus-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('/assets/fonts/papyrus/Papyrus-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+  url('/assets/fonts/papyrus/Papyrus-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+  url('/assets/fonts/papyrus/Papyrus-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+  url('/assets/fonts/papyrus/Papyrus-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
 html, body {
   background: #F2994A; /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #F2994A , #F2C94C); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #F2994A , #F2C94C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  font-family: 'Cantata One', serif;
+  font-family: 'Papyrus', serif;
 }
 
 .bg-white {

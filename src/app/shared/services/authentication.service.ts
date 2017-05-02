@@ -31,6 +31,10 @@ export class AuthenticationService {
     function myAlert(message): void {
       let err = document.getElementById("error_msg");
       err.innerHTML = message;
+      if(typeof user.username === 'undefined' || user.username === ""){
+        err.innerHTML = "Please enter a username!";
+      }
+
     }
 
     return this.http.post(this.apiUrl+'/users', bodyString, options) // ...using post request
