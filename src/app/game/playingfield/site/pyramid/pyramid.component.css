@@ -52,12 +52,9 @@
   border-radius: 5px;
 }
 #PyramidText h1{
-  font-size: 20px;
   font-weight: bold;
-  font: "Arial Black";
 }
 #PyramidText p{
-  font-size: 15px;
 }
 #info{
   position: absolute;
@@ -73,7 +70,6 @@
   font-size: 25px;
   font-weight: bold;
   widht: 100%;
-  font-family: Sand;
 }
 .background{
   background-color: rgba(205,155,29,0.5);
@@ -120,10 +116,8 @@
 }
 #TotalStone{
   position: absolute;
-  top: 10px;
-  left: 20px;
-  font-size: 15px;
+  top: 7px;
+  left: 10px;
+  font-size: 27px;
   widht: 100%;
-  font-family: Sand;
-
 }

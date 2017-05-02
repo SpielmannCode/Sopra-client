@@ -141,7 +141,7 @@
   position: absolute;
   top: 5px;
   left : 5px;
-  height:175px;
+  height:200px;
   width: 590px;
   background-image: url("/assets/Images/papyrus-wallpapers.jpeg");
   color:black;
@@ -154,12 +154,9 @@
   border-radius: 5px;
 }
 #ObeliskText h1{
-  font-size: 20px;
   font-weight: bold;
-  font: "Arial Black";
 }
 #ObeliskText p{
-  font-size: 15px;
 }
 
 #info{
@@ -183,15 +180,13 @@ table {
   left: 30px;
   font-size: 25px;
   font-weight: bold;
-  font-family: Sand;
   widht: 100%;
 }
 #TotalStone{
   position: absolute;
   top: 5px;
   right: 35px;
-  font-size: 15px;
+  font-size: 27px;
   widht: 100%;
-  font-family: Sand;
 
 }
