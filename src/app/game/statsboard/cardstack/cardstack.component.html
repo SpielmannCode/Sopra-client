@@ -24,20 +24,23 @@
   </modal-footer>
 </modal>
 
-<modal #stoneReorderModal>
+<modal #stoneReorderModal
+       [hideCloseButton]="true"
+       [closeOnEscape]="false"
+       [closeOnOutsideClick]="false">
   <modal-header>
     <h4>Reorder the stones before unloading to {{site}}</h4>
   </modal-header>
   <modal-content>
     <div id="Ships">
       <ng-container *ngFor="let ship of game.gameBoard.availableShips; let i = index;">
-        <app-ship *ngIf="shipIndex === i" [shipIndex]="i" [stones]="ship.stones"  [reorderMode]="true" [reordering]="reordering" [game]="game"></app-ship>
+        <app-ship *ngIf="shipIndex === i" [shipIndex]="i" [stones]="ship.stones"  [reorderMode]="true"
+                  [reordering]="reordering" [reordered]="reordered" [game]="game" [stoneColorsIndexed]="stoneColorsIndexed"></app-ship>
       </ng-container>
     </div>
   </modal-content>
   <modal-footer>
     <button class="btn-basic" (click)="leverSetNewOrder()">Apply</button>
-    <button class="btn-basic" (click)="stoneReorderModal.close()">close</button>
   </modal-footer>
 </modal>
 
