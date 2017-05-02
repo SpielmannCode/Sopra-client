@@ -35,7 +35,7 @@
     <div id="Ships">
       <ng-container *ngFor="let ship of game.gameBoard.availableShips; let i = index;">
         <app-ship *ngIf="shipIndex === i" [shipIndex]="i" [stones]="ship.stones"  [reorderMode]="true"
-                  [reordering]="reordering" [game]="game" [stoneColorsIndexed]="stoneColorsIndexed"></app-ship>
+                  [reordering]="reordering" [reordered]="reordered" [game]="game" [stoneColorsIndexed]="stoneColorsIndexed"></app-ship>
       </ng-container>
     </div>
   </modal-content>
