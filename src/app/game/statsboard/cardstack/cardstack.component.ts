@@ -289,7 +289,6 @@ export class CardstackComponent implements OnInit, OnChanges {
           this.reordered.push(i);
         }
 
-
       }
     }
 
