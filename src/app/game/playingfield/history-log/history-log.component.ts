@@ -4,20 +4,27 @@ import {Game} from '../../../shared/models/game';
 import {MoveService} from '../../../shared/services/move.service';
 import {Observable, Subscription} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
+import {ToastData, ToastOptions, ToastyService} from "ng2-toasty";
+import {GameComponent} from "../../game.component";
 
 @Component({
   selector: 'app-history-log',
   templateUrl: './history-log.component.html',
   styleUrls: ['./history-log.component.css']
 })
-export class HistoryLogComponent implements OnInit, OnChanges, OnDestroy {
+export class HistoryLogComponent implements OnInit, OnDestroy {
   protected moves: Move[] = [];
   @Input('game') game: Game;
   protected moveObservable: Subscription;
   protected gameId: number;
+  private currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
 
 
-  constructor(protected moveservice: MoveService, protected route: ActivatedRoute) { }
+
+  constructor(protected moveService: MoveService,
+              protected route: ActivatedRoute,
+              private toastyService: ToastyService) {
+  }
 
   ngOnInit() {
     let self = this;
@@ -26,11 +33,15 @@ export class HistoryLogComponent implements OnInit, OnChanges, OnDestroy {
       self.startMoveRefresh();});
   }
   startMoveRefresh() {
-    this.moveObservable = Observable.interval(1000).subscribe(() => {
-      this.moveservice.getMoves(this.gameId).subscribe(moves => {
+    this.moveObservable = Observable.interval(2000).subscribe(() => {
+      this.moveService.getMoves(this.gameId).subscribe(moves => {
 
         if (JSON.stringify(this.moves) !== JSON.stringify(moves)) {
           this.moves = moves;
+
+          if (this.game.players[this.moves[this.moves.length - 1].userID - 1].token !== this.currentUserToken) {
+            this.addMoveToast(this.moves[this.moves.length - 1].description);
+          }
         }
 
       });
@@ -39,10 +50,17 @@ export class HistoryLogComponent implements OnInit, OnChanges, OnDestroy {
   ngOnDestroy() {
     this.moveObservable.unsubscribe();
   }
-  ngOnChanges(){
-    this.moveservice.getMoves(this.game.id).subscribe(moves => {
-      this.moves = moves;
-    });
+
+  addMoveToast(text) {
+    let toastOptions: ToastOptions;
+    toastOptions = {
+      title: text,
+      showClose: true,
+      timeout: 4000,
+      theme: 'material'
+    };
+
+    this.toastyService.info(toastOptions);
   }
 
 }
