@@ -13,6 +13,8 @@ app-playingfield {
   width: 1360px;
   height: 760px;
   position: absolute;
+  background-image: url("/assets/Images/46_underwater_beach_sand_texture-seamless.bmp");
+  background-repeat: repeat;
   top: 0;
   left: 0;
   z-index: 2;
