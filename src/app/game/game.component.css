@@ -24,7 +24,6 @@ app-playingfield {
   position: relative;
 }
 #header1{
-  font-family: Egyptian_Nights;
   font-size: xx-large;
 }
 
@@ -78,3 +77,4 @@ modal a {
 modal a:hover {
   color: #fff;
 }
+
