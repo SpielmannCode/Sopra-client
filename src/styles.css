@@ -171,7 +171,7 @@ html, body {
 .group input:focus 		{ outline:none; }
 
 
-.group label 				 {
+.group label {
   color: #ffe169;
   font-size:18px;
   font-weight:normal;

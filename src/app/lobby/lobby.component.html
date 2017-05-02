@@ -6,21 +6,41 @@
   <button id="createGameBtn"class="btn-basic" (click)="createGameModal.open()">+</button>
   <modal #createGameModal>
     <modal-header>
-      <h3>Create new Game</h3>
+      <h3 class="text-center">Create new Game</h3>
     </modal-header>
     <modal-content>
-      <form [formGroup]="createGameForm" (submit)="createGame()">
-        <label for="name">Game Name</label>
-        <input id="name" autofocus="autofocus"name="name" formControlName="name" type="text">
+      <form [formGroup]="createGameForm" (submit)="createGame()" class="center">
 
+        <div class="group center">
+          <input id="name" name="name" formControlName="name" type="text" required>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label for="name" class="center">Game Name</label>
+        </div>
         <br>
-        <input id="2-players" formControlName="playerCountSetting" name="playerCountSetting" type="radio" value="2">
-        <label for="2-players"> 2 Players &nbsp;</label>
-        <input id="3-players" formControlName="playerCountSetting" name="playerCountSetting" type="radio" value="3">
-        <label for="3-players"> 3 Players&nbsp; </label>
-        <input id="4-players" formControlName="playerCountSetting" name="playerCountSetting" type="radio" value="4">
-        <label for="4-players"> 4 Players&nbsp; </label>
-        <button class="btn-basic center full-width" (click)="createGameModal.close()">Save Settings</button>
+
+
+        <div id="player-count" class="center">
+          <label for="2-players" class="radio">
+            <input id="2-players" formControlName="playerCountSetting" name="playerCountSetting" type="radio" value="2">
+            <span class="outer"><span class="inner"></span></span>
+            2 Players
+          </label>
+
+          <label for="3-players" class="radio">
+            <input id="3-players" formControlName="playerCountSetting" name="playerCountSetting" type="radio" value="3">
+            <span class="outer"><span class="inner"></span></span>
+            3 Players
+          </label>
+
+          <label for="4-players" class="radio">
+            <input id="4-players" formControlName="playerCountSetting" name="playerCountSetting" type="radio" value="4">
+            <span class="outer"><span class="inner"></span></span>
+            4 Players
+          </label>
+        </div>
+
+        <button class="btn-basic center" (click)="createGameModal.close()">Save Settings</button>
       </form>
     </modal-content>
   </modal>

@@ -136,3 +136,34 @@ body {
   width: 300px;
   margin-top: 30px;
 }
+
+.group input,
+.group label,
+.group input:focus ~ label,
+.group input:valid ~ label {
+  color: #ffe169;
+}
+
+.group .bar:before, .bar:after {
+  background: #ffe169;
+}
+
+/* active state */
+.group input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+@-webkit-keyframes inputHighlighter {
+  from { background:#ffe169; }
+  to 	{ width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+  from { background:#ffe169; }
+  to 	{ width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+  from { background:#ffe169; }
+  to 	{ width:0; background:transparent; }
+}
