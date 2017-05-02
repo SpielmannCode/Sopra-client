@@ -9,17 +9,24 @@
   </div>
   <div class="form-signin">
     <h2 class="form-signin-heading">Choose a username</h2>
-    <label for="password" class="sr-only">Username</label>
-    <input id="password" type="text" class="form-control" placeholder="username" autofocus="autofocus" (keydown.enter)="login()"  [(ngModel)]="user.username">
-  <br>
-    <div class="row">
-      <div class="col-md-6">
-        <button class="btn-basic center" type="submit" (click)="login()">Start</button>
-      </div>
-      <div class="col-md-6">
-        <button class="btn-basic center" type="submit" (click)="clearfields()">Clear</button>
-      </div>
+
+    <div class="group center">
+      <input id="username" type="text" required (keydown.enter)="login()" [(ngModel)]="user.username">
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label for="username" class="center">Username</label>
     </div>
+  <br>
+    <ng-container *ngIf="user.username">
+      <div class="row" *ngIf="user.username.length > 0">
+        <div class="col-md-6">
+          <button class="btn-basic center" type="submit" (click)="login()">Start</button>
+        </div>
+        <div class="col-md-6">
+          <button class="btn-basic center" type="submit" (click)="clearfields()">Clear</button>
+        </div>
+      </div>
+    </ng-container>
     <br>
   <div id="error_message">
     <a id="error_msg"></a>
