@@ -82,7 +82,7 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   startGameRefresh() {
-    this.gameObservable = Observable.interval(1000).subscribe(() => {
+    this.gameObservable = Observable.interval(2000).subscribe(() => {
       this.gameService.getGame(this.gameId).subscribe(game => {
 
         if ((JSON.stringify(this.game) !== JSON.stringify(game)) && !CardstackComponent.playCardMode) {
@@ -159,6 +159,7 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   addTurnToast() {
+
     let toastOptions:ToastOptions;
     if (this.game.logicState === 'NORMAL'){
       toastOptions = {
@@ -184,22 +185,6 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
         }
       };
     }
-
-    this.toastyService.info(toastOptions);
-  }
-
-  addRoundToast() {
-    let toastOptions:ToastOptions;
-      toastOptions = {
-        title: 'Round ' + this.game.currentRound + ' out of 6',
-        showClose: true,
-        timeout: 4000,
-        theme: 'material',
-        onAdd: (toast:ToastData) => {
-        },
-        onRemove: function(toast:ToastData) {
-        }
-      };
 
     this.toastyService.info(toastOptions);
   }
