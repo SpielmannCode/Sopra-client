@@ -85,13 +85,13 @@
   background-color: #8c8c8c;
   background-image: url("/assets/Images/StatsBoard/GREY.png");
   background-size: cover;
-  color: saddlebrown ;
+  color: whitesmoke ;
 }
 .BROWN{
   background-color: saddlebrown;
   background-image: url("/assets/Images/StatsBoard/BROWN.png");
   background-size: cover;
-  color: #8c8c8c ;
+  color: whitesmoke;
 }
 #usrname{
   height: 36px;
