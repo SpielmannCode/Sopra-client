@@ -138,10 +138,12 @@ body {
 }
 
 .group input,
-.group label,
+.group label {
+  color: #ffe169;
+}
 .group input:focus ~ label,
 .group input:valid ~ label {
-  color: #ffe169;
+
 }
 
 .group .bar:before, .bar:after {
@@ -156,14 +158,14 @@ body {
 }
 
 @-webkit-keyframes inputHighlighter {
-  from { background:#ffe169; }
+  from { background:transparent; }
   to 	{ width:0; background:transparent; }
 }
 @-moz-keyframes inputHighlighter {
-  from { background:#ffe169; }
+  from { background:transparent; }
   to 	{ width:0; background:transparent; }
 }
 @keyframes inputHighlighter {
-  from { background:#ffe169; }
+  from { background:transparent; }
   to 	{ width:0; background:transparent; }
 }
