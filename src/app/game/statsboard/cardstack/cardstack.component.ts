@@ -44,6 +44,7 @@ export class CardstackComponent implements OnInit, OnChanges {
   stoneIndex: number;
 
   reordering: number[] = [];
+  stoneColorsIndexed = {};
 
   constructor(private moveService: MoveService,
               private toastyService: ToastyService) {
@@ -270,8 +271,10 @@ export class CardstackComponent implements OnInit, OnChanges {
       let i = 0;
       for (let stone of this.game.gameBoard.availableShips[this.shipIndex].stones) {
         this.reordering[i] = i;
+        this.stoneColorsIndexed[i] = stone;
         i++;
       }
+      console.log(this.reordering);
 
       this.stoneReorderModal.open();
       this.dropCount++;
