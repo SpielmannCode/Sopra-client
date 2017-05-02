@@ -71,7 +71,7 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
       moves: function(el, source, handle, sibling) {
         const userToken = JSON.parse(localStorage.getItem('currentUser')).token;
         // returns true if it is current players turn
-        return self.game.players[self.game.currentPlayerIndex].token === userToken;
+        return (self.game.players[self.game.currentPlayerIndex].token === userToken && !el.classList.contains('donotdrag'));
       },
       accepts: function(el, target, source, sibling) {
         return (target.childElementCount < 2);
