@@ -12,7 +12,7 @@
   </div>
   <ng-sidebar-container id="sideBar" style="z-index: 40">
     <ng-sidebar #sidebar [(opened)]="_opened" style="z-index: 40" [closeOnClickOutside]="true">
-      <app-history-log>
+      <app-history-log [game]="game">
       </app-history-log>
     </ng-sidebar>
   </ng-sidebar-container>
