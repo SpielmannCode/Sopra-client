@@ -17,8 +17,8 @@
 <modal id="fastForwardModal" #fastForwardModal>
   <modal-header><h2 class="text-center">Fast Forward?</h2></modal-header>
   <modal-content>
-    <input *ngIf="game" (keyup.enter)="fastForward()" autofocus="autofocus" #roundNumber class="center" style="display: block; width: 35%;" type="number" placeholder="Round Number" min="{{this.game.currentRound + 1}}" max="6" value="{{this.game.currentRound + 1}}" >
-    <input *ngIf="!game" (keyup.enter)="fastForward()" autofocus="autofocus" #roundNumber class="center" style="display: block; width: 35%;" type="number" placeholder="Round Number" min="2" max="6" value="2" ><br>
+    <input *ngIf="game" (keydown.enter)="fastForward()" autofocus="autofocus" #roundNumber class="center" style="display: block; width: 35%;" type="number" placeholder="Round Number" min="{{this.game.currentRound + 1}}" max="6" value="{{this.game.currentRound + 1}}" >
+    <input *ngIf="!game" (keydown.enter)="fastForward()" autofocus="autofocus" #roundNumber class="center" style="display: block; width: 35%;" type="number" placeholder="Round Number" min="2" max="6" value="2" ><br>
     <button class="btn-basic center" (click)="fastForward()">Go</button>
   </modal-content>
 </modal>
