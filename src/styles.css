@@ -152,3 +152,100 @@ html, body {
   font-family: 'Sand';
   src:url('/assets/fonts/SAND____.TTF')  format('truetype');
 }
+
+.group {
+  position:relative;
+}
+
+.group input {
+  background-color: transparent;
+  color: #ffe169;
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  border:none;
+  border-bottom:1px solid #757575;
+  text-align: center;
+  width: 100%;
+}
+.group input:focus 		{ outline:none; }
+
+
+.group label 				 {
+  color: #ffe169;
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:0;
+  right: 0;
+  top:10px;
+  transition:0.2s ease all;
+  text-align: center;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+.group input:focus ~ label,
+.group input:valid ~ label 		{
+  top:-20px;
+  font-size:14px;
+  color: #ffe169;
+}
+
+/* BOTTOM BARS ================================= */
+.group .bar 	{ position:relative; display:block; width:300px; }
+.group .bar:before, .bar:after 	{
+  content:'';
+  height:2px;
+  width:0;
+  bottom:1px;
+  position:absolute;
+  background: #ffe169;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+.group .bar:before {
+  left:50%;
+}
+.group .bar:after {
+  right:50%;
+}
+
+/* active state */
+.group input:focus ~ .bar:before,
+.group input:focus ~ .bar:after {
+  width:50%;
+}
+
+.group .highlight {
+  position:absolute;
+  height:60%;
+  width:100px;
+  top:25%;
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+.group input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+@-webkit-keyframes inputHighlighter {
+  from { background:#ffe169; }
+  to 	{ width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+  from { background:#ffe169; }
+  to 	{ width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+  from { background:#ffe169; }
+  to 	{ width:0; background:transparent; }
+}
