@@ -33,13 +33,35 @@
   border-radius: 10px;
 }
 
-@keyframes glow {
+@-webkit-keyframes glow {
   from {
-    box-shadow: 0 0 10px 3px #ffe169;
+    box-shadow: 0 0 50px 3px #ffe169;
     opacity: 0.5;
   }
   to {
-    box-shadow:0 0 200px 5px #ffe169;
+    box-shadow:0 0 250px 5px #ffe169;
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes glow {
+  from {
+    box-shadow: 0 0 50px 3px #ffe169;
+    opacity: 0.5;
+  }
+  to {
+    box-shadow:0 0 250px 5px #ffe169;
+    opacity: 1;
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 50px 3px #ffe169;
+    opacity: 0.5;
+  }
+  to {
+    box-shadow:0 0 250px 5px #ffe169;
     opacity: 1;
   }
 }
@@ -108,4 +130,9 @@ body {
 
 .form-control{
   text-align: center;
+}
+
+.group {
+  width: 300px;
+  margin-top: 30px;
 }
