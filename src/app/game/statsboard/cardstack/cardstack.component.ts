@@ -44,6 +44,7 @@ export class CardstackComponent implements OnInit, OnChanges {
   stoneIndex: number;
 
   reordering: number[] = [];
+  reordered: number[] = [];
   stoneColorsIndexed = {};
 
   constructor(private moveService: MoveService,
@@ -263,8 +264,7 @@ export class CardstackComponent implements OnInit, OnChanges {
     let [e, el] = args;
 
      // First Turn of lever, sail ship
-    if (this.dropCount === 0) {
-
+    if (e.tagName === 'APP-SHIP') {
       this.shipIndex = (parseInt(e.id.match(/(\d+)/)[1]) - 1);
       this.site = SiteComponent.getDockedSite(el);
 
@@ -274,20 +274,8 @@ export class CardstackComponent implements OnInit, OnChanges {
         this.stoneColorsIndexed[i] = stone;
         i++;
       }
-      console.log(this.reordering);
 
       this.stoneReorderModal.open();
-      this.dropCount++;
-
-    } else {
-      // Second turn of lever, reorder stones
-      let i = 0;
-      for (let stoneElem of el.children) {
-        let stoneIndex = stoneElem.id.match(/(\d+)-(\d+)/);
-        stoneIndex = parseInt(stoneIndex[2]);
-        this.reordering[i] = stoneIndex;
-        i++;
-      }
 
     }
   }
@@ -297,7 +285,7 @@ export class CardstackComponent implements OnInit, OnChanges {
       'type': 'PlayLeverMove',
       'shipIndex': this.shipIndex,
       'site': this.site,
-      'reordering': this.reordering
+      'reordering': this.reordered
     };
 
     this.moveService.addMove(this.game, moveJson).subscribe(() => {
