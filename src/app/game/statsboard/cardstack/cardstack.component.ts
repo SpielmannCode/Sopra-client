@@ -281,6 +281,18 @@ export class CardstackComponent implements OnInit, OnChanges {
   }
 
   leverSetNewOrder() {
+
+    if (this.reordered.length < this.reordering.length) {
+      for (let i = 0; i < this.reordering.length; i++) {
+
+        if (this.stoneColorsIndexed[i] === 'BLANK') {
+          this.reordered.push(i);
+        }
+
+
+      }
+    }
+
     let moveJson = {
       'type': 'PlayLeverMove',
       'shipIndex': this.shipIndex,
