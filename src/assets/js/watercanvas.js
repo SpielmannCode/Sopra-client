@@ -204,7 +204,7 @@ function WaterCanvas(img) {
       '  }\n' +
       '  c /= float(MAX_ITER);\n' +
       '  c = 1.5 - sqrt(c);\n' +
-      '  gl_FragColor = vec4(vec3(c * c * c * c), 0.0) + vec4(0.0, 0.4, 0.55, 0.65);\n' +
+      '  gl_FragColor = vec4(vec3(c * c * c * c), 0.0) + vec4(0.0, 0.4, 0.55, 0.70);\n' +
       // '  gl_FragColor = vec4(0,0,0,0);\n' +
       '}\n';
 
