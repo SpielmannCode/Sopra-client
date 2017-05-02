@@ -6,12 +6,17 @@
   <button class="btn-basic" (click)="createGameModal.open()">+</button>
   <modal #createGameModal>
     <modal-header>
-      <h3>Create new Game</h3>
+      <h3 class="text-center">Create new Game</h3>
     </modal-header>
     <modal-content>
-      <form [formGroup]="createGameForm" (submit)="createGame()">
-        <label for="name">Game Name</label>
-        <input id="name" autofocus="autofocus"name="name" formControlName="name" type="text">
+      <form [formGroup]="createGameForm" (submit)="createGame()" class="center">
+
+        <div class="group center">
+          <input id="name" name="name" formControlName="name" type="text" required>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label for="name" class="center">Game Name</label>
+        </div>
 
         <br>
         <input id="2-players" formControlName="playerCountSetting" name="playerCountSetting" type="radio" value="2">
