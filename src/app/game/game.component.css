@@ -61,12 +61,12 @@ button {
 }
 
 #historyBtn{
-  position: absolute;
-  bottom: 95px;
+  position: relative;
+  bottom: 157px;
+  left: 1251px;
   height: 70px;
   padding: 5px;
   z-index: 10000;
-  right: 5px;
 }
 
 modal a {
