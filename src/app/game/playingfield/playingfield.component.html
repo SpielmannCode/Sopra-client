@@ -26,7 +26,7 @@
 <modal id="MLGModal" #MLGModal>
   <modal-header>
     <h2 *ngIf="MLGCount === 1" class="text-center">Thank you for your Attention</h2>
-    <h2 *ngIf="MLGCount !== 1 && MLGCount !== 3 && MLGCount !== 2" class="text-center">U ulocked one of the hidden Features have a 420</h2>
+    <h2 *ngIf="MLGCount !== 1 && MLGCount !== 3 && MLGCount !== 2" class="text-center">Daily Struggle</h2>
     <h2 *ngIf="MLGCount === 3" class="text-center">Smoke Wheat everi daii</h2>
     <h2 *ngIf="MLGCount === 2" class="text-center">Thank you Rafi, Vale, Robin, Timi, Kim, Nici and Faruk</h2>
   </modal-header>
@@ -44,7 +44,7 @@
       Press F for you!!!
     </div>
     <img *ngIf="MLGCount === 3" src="/assets/Images/f48.jpg" style="height: 319px; display: block;margin-left: auto;margin-right: auto  ">
-    <img *ngIf="MLGCount > 3" src="/assets/Images/maxresdefault(1).jpg" style="width: 100%">
+    <img *ngIf="MLGCount > 3" src="/assets/Images/coding.jpg" style="width: 100%">
   </modal-content>
   <modal-footer>
     <button *ngIf="MLGCount === 1" class="btn-basic" (click)="MLGModal.close()" style="display: block;margin-left: auto;margin-right: auto  ">Questions ?!</button>
