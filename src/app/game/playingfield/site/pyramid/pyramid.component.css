@@ -46,6 +46,10 @@
   z-index: 30;
   opacity: 0.8;
   text-align: center;
+  border-width: 3px;
+  border-color: saddlebrown;
+  border-style: groove;
+  border-radius: 5px;
 }
 #PyramidText h1{
   font-size: 20px;
@@ -72,11 +76,10 @@
   font-family: Sand;
 }
 .background{
-  background-color: #cd9b1d;
+  background-color: rgba(205,155,29,0.5);
   font-size: xx-large;
-  color: #080808;
+  color: rgba(0,0,0,1);
   text-align: center;
-  opacity: 0.5;
   width: 45px;
   height: 45px;
   border-width: thin;
@@ -117,7 +120,7 @@
 }
 #TotalStone{
   position: absolute;
-  top: 5px;
+  top: 10px;
   left: 20px;
   font-size: 15px;
   widht: 100%;

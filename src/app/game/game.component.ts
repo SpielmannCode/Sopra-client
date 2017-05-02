@@ -117,7 +117,7 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
             this.currentState = this.game.logicState;
             if(this.currentState === "NORMAL"){
               this.Music.pause();
-              this.Music.src= '/assets/musik/AgeofMythologySoundtrack.mp3';
+              this.Music.src= '/assets/musik/-Egyptian_music.mp3';
               this.Music.load();
               this.Music.play();
             }
@@ -164,7 +164,7 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
       toastOptions = {
         title: "Your Turn!",
         showClose: true,
-        timeout: 4000,
+        timeout: 6000,
         theme: 'material',
         onAdd: (toast:ToastData) => {
         },
@@ -176,7 +176,7 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
       toastOptions = {
         title: "Choose a Market Card!",
         showClose: true,
-        timeout: 4000,
+        timeout: 6000,
         theme: 'material',
         onAdd: (toast:ToastData) => {
         },

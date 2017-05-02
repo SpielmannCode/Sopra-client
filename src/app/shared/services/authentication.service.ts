@@ -31,6 +31,12 @@ export class AuthenticationService {
     function myAlert(message): void {
       let err = document.getElementById("error_msg");
       err.innerHTML = message;
+      let usr = document.getElementById("password");
+      console.log(usr.getAttribute("ng-reflect-model"));
+      if(usr.getAttribute("ng-reflect-model") === null){
+        err.innerHTML = "Please enter a username!";
+      }
+
     }
 
     return this.http.post(this.apiUrl+'/users', bodyString, options) // ...using post request

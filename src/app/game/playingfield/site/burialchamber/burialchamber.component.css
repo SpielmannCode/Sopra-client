@@ -3,17 +3,22 @@
 }
 #BurialText{
   position: absolute;
-  top: 5px;
+  top: -5px;
   left : 5px;
-  height:175px;
+  height:200px;
   width: 590px;
   background-image: url("/assets/Images/papyrus-wallpapers.jpeg");
   color:black;
   z-index: 30;
   opacity: 0.8;
   text-align: center;
+  border-width: 3px;
+  border-color: saddlebrown;
+  border-style: groove;
+  border-radius: 5px;
 }
 #BurialText h1{
+  padding-top: 0px;
   font-size: 20px;
   font-weight: bold;
   font: "Arial Black";
