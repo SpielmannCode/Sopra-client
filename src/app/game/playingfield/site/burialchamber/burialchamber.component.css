@@ -19,12 +19,9 @@
 }
 #BurialText h1{
   padding-top: 0px;
-  font-size: 20px;
   font-weight: bold;
-  font: "Arial Black";
 }
 #BurialText p{
-  font-size: 15px;
 }
 
 .background{
@@ -86,15 +83,13 @@ table {
   top: 5px;
   left: 30px;
   font-size: 25px;
-  font-family: Sand;
   font-weight: bold;
   widht: 100%;
 }
 #TotalStone{
   position: absolute;
-  top: 5px;
+  top: 2px;
   right: 35px;
-  font-size: 15px;
+  font-size: 27px;
   widht: 100%;
-  font-family: Sand;
 }
