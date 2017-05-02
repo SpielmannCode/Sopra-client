@@ -7,7 +7,7 @@ function WaterCanvas(img) {
     half_width = width >> 1,
     half_height = height >> 1,
     size = width * (height + 2) * 2,
-    delay = 30,
+    delay = 50,
     oldind = width,
     newind = width * (height + 3),
     riprad = 3,
@@ -139,7 +139,7 @@ function WaterCanvas(img) {
     var rnd = Math.random;
     setInterval(function() {
       disturb(rnd() * width, rnd() * height);
-    }, 700);
+    }, 1500);
 
     //webgl
 
@@ -204,7 +204,7 @@ function WaterCanvas(img) {
       '  }\n' +
       '  c /= float(MAX_ITER);\n' +
       '  c = 1.5 - sqrt(c);\n' +
-      '  gl_FragColor = vec4(vec3(c * c * c * c), 0.0) + vec4(0.0, 0.4, 0.55, 0.65);\n' +
+      '  gl_FragColor = vec4(vec3(c * c * c * c), 0.0) + vec4(0.0, 0.4, 0.55, 0.70);\n' +
       // '  gl_FragColor = vec4(0,0,0,0);\n' +
       '}\n';
 
