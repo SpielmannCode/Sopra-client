@@ -52,6 +52,9 @@ export class ShipComponent implements OnInit {
   @Input('isDocked') isDocked: boolean;
   @Input('game') game;
   @Input('reordering') reordering;
+  @Input('stoneColorsIndexed') stoneColorsIndexed;
+  @Input('reordered') reordered;
+
   picloc: string = ('/assets/Images/Ship/Ship_' + this.size + 'er.png');
 
   shipStoneState = 'onShip';
@@ -63,5 +66,12 @@ constructor(private moveService: MoveService) { }
     this.picloc = ('/assets/Images/Ship/Ship_' + this.size + 'er.png');
   }
 
+  addReordered(index) {
 
+    if ((this.reordered.length < this.size) && (this.stones[index] !== 'BLANK')) {
+      this.reordered.push(this.reordering[index]);
+      this.stones[index] = 'BLANK';
+    }
+
+  }
 }
