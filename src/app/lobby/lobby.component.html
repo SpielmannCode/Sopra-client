@@ -3,7 +3,7 @@
 
 
 <div id="lobby" *ngIf="!gameId">
-  <button class="btn-basic" (click)="createGameModal.open()">+</button>
+  <button id="createGameBtn"class="btn-basic" (click)="createGameModal.open()">+</button>
   <modal #createGameModal>
     <modal-header>
       <h3>Create new Game</h3>
@@ -26,7 +26,7 @@
   </modal>
 
   <table class="table selectable">
-    <tr>
+    <tr id="tableHeader">
       <th>Status</th>
       <th>Game Name</th>
       <th>Players</th>
