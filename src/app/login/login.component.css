@@ -4,6 +4,7 @@
   background-position: left;
   background-repeat: no-repeat;
   color: whitesmoke;
+  position: relative;
 }
 
 #skarabeus-background{
@@ -31,6 +32,14 @@
   left: 0;
   animation: glow 2s infinite alternate;
   border-radius: 10px;
+}
+
+#skarabeus-smoke {
+  position: absolute;
+  top: -200px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
 }
 
 @-webkit-keyframes glow {
