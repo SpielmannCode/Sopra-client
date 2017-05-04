@@ -7,6 +7,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ModalModule} from "ng2-modal";
 import {Observable} from 'rxjs/Rx';
 
+
 @Component({
   selector: 'app-lobby',
   templateUrl: './lobby.component.html',
@@ -100,3 +101,4 @@ export class LobbyComponent implements OnInit, OnDestroy {
       });
   }
 }
+

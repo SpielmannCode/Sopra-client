@@ -8,13 +8,25 @@
   <div id="buttons">
     <div id="buttonstext">{{Playingstatus}}</div>
        <br>
-    <button class="btn-basic inline  position1" (click)="toggleCardStack()" data-toggle="tooltip" data-placement="bottom" title="Play market card">
+    <button class="btn-basic inline  position1" (click)="toggleCardStack()"
+            tooltip="Play market card"
+            [tooltipDisabled]="false"
+            [tooltipAnimation]="true"
+            tooltipPlacement="bottom">
       <img src="/assets/Images/icons/hand-holding-two-soccer-cards.svg" alt="Play Cards">
     </button>
-    <button *ngIf="currentPlayer.token !== game.players[game.currentPlayerIndex].token || currentPlayer.stoneSupply > 4" class="btn-basic inline  position1 disabled" disabled (click)="getStones()" data-toggle="tooltip" data-placement="bottom" title="Get stones">
+    <button *ngIf="currentPlayer.token !== game.players[game.currentPlayerIndex].token || currentPlayer.stoneSupply > 4" class="btn-basic inline  position1 disabled" disabled (click)="getStones()"
+            tooltip="Get stones"
+            [tooltipDisabled]="false"
+            [tooltipAnimation]="true"
+            tooltipPlacement="bottom">
       <img src="/assets/Images/icons/cold-ice-cubes.svg" alt="Get Stones">
     </button>
-    <button class="btn-basic inline  position1" *ngIf="currentPlayer.token === game.players[game.currentPlayerIndex].token && currentPlayer.stoneSupply < 5" (click)="getStones()" data-toggle="tooltip" data-placement="bottom" title="Get stones">
+    <button class="btn-basic inline  position1" *ngIf="currentPlayer.token === game.players[game.currentPlayerIndex].token && currentPlayer.stoneSupply < 5" (click)="getStones()"
+            tooltip="Get stones"
+            [tooltipDisabled]="false"
+            [tooltipAnimation]="true"
+            tooltipPlacement="bottom">
       <img src="/assets/Images/icons/cold-ice-cubes.svg" alt="Get Stones">
     </button>
   </div>
