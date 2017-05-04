@@ -12,7 +12,10 @@ html, body {
   background: #000000; /* fallback for old browsers */
   font-family: 'Papyrus', serif;
   font-weight: 600;
+  height: 100%;
+  overflow: hidden;
 }
+
 
 .bg-white {
   background-color: #fff;
