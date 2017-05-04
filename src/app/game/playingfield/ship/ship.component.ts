@@ -59,7 +59,7 @@ export class ShipComponent implements OnInit {
 
   shipStoneState = 'onShip';
 
-constructor(private moveService: MoveService) { }
+  constructor(private moveService: MoveService) { }
 
   ngOnInit() {
     this.size = this.stones.length;

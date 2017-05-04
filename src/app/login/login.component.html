@@ -1,38 +1,39 @@
 <div id = "whole">
 
+  <div id="wrapper">
 
-  <h1>IMHOTEP</h1>
+    <h1>IMHOTEP</h1>
 
-  <canvas #skarabeusSmoke id="skarabeus-smoke" [attr.width]="canvasWidth" [attr.height]="canvasHeight"></canvas>
-  <div id="skarabeus-background">
-    <div id="skarabeus-animation" class="center"></div>
-    <img src="assets/Images/Buttaaflii.png" alt="Skarabeus">
+    <canvas #skarabeusSmoke id="skarabeus-smoke" [attr.width]="canvasWidth" [attr.height]="canvasHeight"></canvas>
+    <div id="skarabeus-background">
+      <div id="skarabeus-animation" class="center"></div>
+      <img src="assets/Images/Buttaaflii.png" alt="Skarabeus">
 
-  </div>
-  <div class="form-signin">
-    <h2 class="form-signin-heading">Choose a username</h2>
-
-    <div class="group center">
-      <input id="username" type="text" required (keydown.enter)="login()" [(ngModel)]="user.username">
-      <span class="highlight"></span>
-      <span class="bar"></span>
-      <label for="username" class="center">Username</label>
     </div>
-  <br>
-    <ng-container *ngIf="user.username">
-      <div class="row" *ngIf="user.username.length > 0">
-        <div class="col-md-6">
-          <button class="btn-basic center" type="submit" (click)="login()">Start</button>
-        </div>
-        <div class="col-md-6">
-          <button class="btn-basic center" type="submit" (click)="clearfields()">Clear</button>
-        </div>
-      </div>
-    </ng-container>
-    <br>
-  <div id="error_message">
-    <a id="error_msg"></a>
-  </div>
-  </div>
+    <div class="form-signin">
+      <h2 class="form-signin-heading">Choose a username</h2>
 
+      <div class="group center">
+        <input id="username" type="text" required (keydown.enter)="login()" [(ngModel)]="user.username">
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label for="username" class="center">Username</label>
+      </div>
+    <br>
+      <ng-container *ngIf="user.username">
+        <div class="row" *ngIf="user.username.length > 0">
+          <div class="col-md-6">
+            <button class="btn-basic center" type="submit" (click)="login()">Start</button>
+          </div>
+          <div class="col-md-6">
+            <button class="btn-basic center" type="submit" (click)="clearfields()">Clear</button>
+          </div>
+        </div>
+      </ng-container>
+      <br>
+    <div id="error_message">
+      <a id="error_msg"></a>
+    </div>
+    </div>
+  </div>
 </div>
