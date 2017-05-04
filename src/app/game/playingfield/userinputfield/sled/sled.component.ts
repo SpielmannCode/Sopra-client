@@ -1,10 +1,22 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {
+  animate, Component, Input, OnChanges, OnInit, SimpleChanges, state, style, transition,
+  trigger
+} from '@angular/core';
 import {Game} from '../../../../shared/models/game';
 
 @Component({
   selector: 'app-sled',
   templateUrl: './sled.component.html',
-  styleUrls: ['./sled.component.css']
+  styleUrls: ['./sled.component.css'],
+  animations: [
+    trigger('stoneEnter', [
+      state('in', style({opacity: '1', transform: 'scale(1)'})),
+      transition('void => *', [
+        style({opacity: '0', transform: 'scale(0.5)'}),
+        animate(500)
+      ])
+    ])
+  ]
 })
 export class SledComponent implements OnInit , OnChanges {
   @Input('game') game: Game;
