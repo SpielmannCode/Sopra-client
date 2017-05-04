@@ -3,7 +3,13 @@
 
 
 <div id="lobby" *ngIf="!gameId">
-  <button id="createGameBtn"class="btn-basic" (click)="createGameModal.open()" data-toggle="tooltip" data-placement="bottom" title="Create new game">+</button>
+  <button id="createGameBtn"class="btn-basic" (click)="createGameModal.open()"
+      tooltip="create new game"
+      [tooltipDisabled]="false"
+      [tooltipAnimation]="true"
+      tooltipPlacement="right">
+    <img id="plus" src="/assets/Images/icons/Icons8-Windows-8-Science-Plus2-Math.ico" alt="Create new game" style="width: 45px;">
+  </button>
   <modal #createGameModal>
     <modal-header>
       <h3 class="text-center">Create new Game</h3>
