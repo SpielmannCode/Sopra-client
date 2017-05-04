@@ -39,6 +39,7 @@
 
 .player-stat {
   width: 170px;
+  margin: 2px;
 }
 
 .card-stats {
@@ -74,26 +75,51 @@
   background-image: url("/assets/Images/StatsBoard/WHITE.png");
   background-size: cover;
   color: #080808;
+
 }
 .BLACK{
   background-color: #080808;
   background-image: url("/assets/Images/StatsBoard/BLACK.png");
   background-size: cover;
   color: whitesmoke;
+
 }
 .GREY{
   background-color: #8c8c8c;
   background-image: url("/assets/Images/StatsBoard/GREY.png");
   background-size: cover;
   color: whitesmoke ;
+
 }
 .BROWN{
   background-color: saddlebrown;
   background-image: url("/assets/Images/StatsBoard/BROWN.png");
   background-size: cover;
   color: whitesmoke;
+
 }
 #usrname{
   height: 36px;
   overflow: hidden;
+}
+#currentP{
+  outline: 4px dashed #219519;
+  box-shadow: 0 0 0 4px #1de609;
+  animation: 1s animateBorderOne ease infinite;
+
+}
+@keyframes animateBorderOne {
+  to {
+    outline-color: #1de609;
+    box-shadow: 0 0 0 4px #219519;
+  }
+}
+.te{
+  border-width: 3px;
+  border-color: green;
+  border-radius: 5px;
+  border-style: double;
+}
+#statsBo{
+margin: auto;
 }
