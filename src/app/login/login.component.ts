@@ -34,18 +34,14 @@ export class LoginComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     let canvas = this.skarabeusSmoke.nativeElement;
     this.canvasWidth = canvas.parentElement.clientWidth;
-    console.log(canvas);
-    let ctx:CanvasRenderingContext2D = this.skarabeusSmoke.nativeElement.getContext('2d');
-
+    let ctx:CanvasRenderingContext2D = canvas.getContext('2d');
 
     let party = smokemachine(canvas,ctx, [255,225,105]);
     party.start(); // start animating
 
-
     setInterval(() => {
-      party.addsmoke(this.canvasWidth/ 2, this.canvasHeight, 3);
+      party.addsmoke(this.canvasWidth/ 2, this.canvasHeight, Math.floor(Math.random() * 3) + 1);
     }, 500);
-
 
   }
 
