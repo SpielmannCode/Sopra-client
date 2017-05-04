@@ -11,16 +11,16 @@
   width: 400px;
   height: 250px;
   position: relative;
-  /*background-image: url("/assets/Images/Buttaaflii.png");*/
-  /*background-size: contain;*/
-  /*background-position: bottom;*/
-  /*background-repeat: no-repeat;*/
   margin: 10px auto;
 }
 
 #skarabeus-background img {
   width: 100%;
   position: absolute;
+  animation-name: pulse_animation;
+  animation-duration: 5000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 #skarabeus-animation {
@@ -177,4 +177,12 @@ body {
 @keyframes inputHighlighter {
   from { background:transparent; }
   to 	{ width:0; background:transparent; }
+}
+
+/** Pulse Animation Skarabeus */
+
+@keyframes pulse_animation {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.09); }
+  100% { transform: scale(1); }
 }
