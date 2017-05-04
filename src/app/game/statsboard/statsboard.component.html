@@ -1,27 +1,54 @@
 <div id="stats-board" *ngIf="game" (mouseleave)="toggleCards(false)">
-  <div *ngFor="let rank of game.rankingArray; let i=index" class="player-stat bg-white {{game.players[rank].stoneColor}}" (mouseenter)="toggleCards(true, game.players[rank].token)">
-    <table class="table">
-      <tr>
-        <td id ="usrname">{{i+1}}.{{game.players[rank].username}}</td>
-        <td>{{game.players[rank].points}} &nbsp; Pts</td>
-      </tr>
-      <tr>
-        <td>Sled</td>
-        <td>{{game.players[rank].stoneSupply}}/5</td>
-      </tr>
-      <tr>
-        <td>Quarry</td>
-        <td>{{game.players[rank].stoneQuerry}}</td>
-      </tr>
-      <tr>
-    </table>
-    <div *ngFor="let cardcount of getCardcount(game.players[rank].token); let i=index" class="card-stats center inline-block">
-      <div *ngIf="i === 0" class="inline-block"><span class="cards green inline-block"></span> x{{cardcount}}</div>
-      <div *ngIf="i === 1" class="inline-block"><span  class="cards blue inline-block"></span> x{{cardcount}}</div>
-      <div *ngIf="i === 2" class="inline-block"><span  class="cards pink inline-block"></span> x{{cardcount}}</div>
+  <ng-container id="statsBo" *ngFor="let rank of game.rankingArray; let i=index">
+    <div *ngIf="game.players[game.currentPlayerIndex]=== game.players[rank]" id="currentP" class="player-stat bg-white {{game.players[rank].stoneColor}}" (mouseenter)="toggleCards(true, game.players[rank].token)">
+      <table class="table">
+        <tr>
+          <td id ="usrname">{{i+1}}.{{game.players[rank].username}}</td>
+          <td>{{game.players[rank].points}} &nbsp; Pts</td>
+        </tr>
+        <tr>
+          <td>Sled</td>
+          <td>{{game.players[rank].stoneSupply}}/5</td>
+        </tr>
+        <tr>
+          <td>Quarry</td>
+          <td>{{game.players[rank].stoneQuerry}}</td>
+        </tr>
+        <tr>
+      </table>
+      <div *ngFor="let cardcount of getCardcount(game.players[rank].token); let i=index" class="card-stats center inline-block">
+        <div *ngIf="i === 0" class="inline-block"><span class="cards green inline-block"></span> x{{cardcount}}</div>
+        <div *ngIf="i === 1" class="inline-block"><span  class="cards blue inline-block"></span> x{{cardcount}}</div>
+        <div *ngIf="i === 2" class="inline-block"><span  class="cards pink inline-block"></span> x{{cardcount}}</div>
+      </div>
+      <div id="card-info" class="pos{{i}}" *ngIf="showCards && (player.token === game.players[rank].token)">
+        <app-cardstack [game]="game" [userToken]="player.token"></app-cardstack>
+      </div>
     </div>
-    <div id="card-info" class="pos{{i}}" *ngIf="showCards && (player.token === game.players[rank].token)">
-      <app-cardstack [game]="game" [userToken]="player.token"></app-cardstack>
+    <div *ngIf="game.players[game.currentPlayerIndex] !== game.players[rank]"  class="player-stat bg-white {{game.players[rank].stoneColor}}" (mouseenter)="toggleCards(true, game.players[rank].token)">
+      <table class="table">
+        <tr>
+          <td id ="usrname">{{i+1}}.{{game.players[rank].username}}</td>
+          <td>{{game.players[rank].points}} &nbsp; Pts</td>
+        </tr>
+        <tr>
+          <td>Sled</td>
+          <td>{{game.players[rank].stoneSupply}}/5</td>
+        </tr>
+        <tr>
+          <td>Quarry</td>
+          <td>{{game.players[rank].stoneQuerry}}</td>
+        </tr>
+        <tr>
+      </table>
+      <div *ngFor="let cardcount of getCardcount(game.players[rank].token); let i=index" class="card-stats center inline-block">
+        <div *ngIf="i === 0" class="inline-block"><span class="cards green inline-block"></span> x{{cardcount}}</div>
+        <div *ngIf="i === 1" class="inline-block"><span  class="cards blue inline-block"></span> x{{cardcount}}</div>
+        <div *ngIf="i === 2" class="inline-block"><span  class="cards pink inline-block"></span> x{{cardcount}}</div>
+      </div>
+      <div id="card-info" class="pos{{i}}" *ngIf="showCards && (player.token === game.players[rank].token)">
+        <app-cardstack [game]="game" [userToken]="player.token"></app-cardstack>
+      </div>
     </div>
-  </div>
+  </ng-container>
 </div>

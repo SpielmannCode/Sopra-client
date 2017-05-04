@@ -1,9 +1,9 @@
 app-statsboard {
   position: absolute;
   top: 486px;
-  left: 0;
+  left: 3px;
   display: flex;
-  width: 350px;
+  width: 360px;
   flex-wrap: wrap;
   z-index:5;
   border-radius: 10px;
