@@ -66,6 +66,7 @@ app-cardstack {
   width: 290px;
   height: 15px;
   text-align: center;
+  margin:0px;
 
 }
 #buttonstext {

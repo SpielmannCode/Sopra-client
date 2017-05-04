@@ -22,6 +22,11 @@ app-playingfield {
 
 #whole{
   position: relative;
+  width: 1360px;
+  height: 760px;
+  top:0;
+  left:0;
+
 }
 #header1{
   font-size: xx-large;
