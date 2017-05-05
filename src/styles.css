@@ -118,10 +118,10 @@ html, body {
 }
 
 .drop-border {
-  border: 4px solid #F0DC07;
-  border-radius: 10px;
+  border-radius: 5px;
   opacity: 0.8;
   box-shadow: 0 0 4px #F0DC07;
+  animation: 1.5s neon3 ease-in-out infinite alternate;
 }
 
 .gu-mirror {
