@@ -9,6 +9,7 @@ export class ObeliskComponent implements OnInit,OnChanges {
   @Input('obeliskSite') obeliskSite;
   @Input('dockOpen') dockOpen;
   @Input('playerCount') Playercount;
+  @Input('showBorder') showBorder;
   sumO:number = 0;
   display = false;
 

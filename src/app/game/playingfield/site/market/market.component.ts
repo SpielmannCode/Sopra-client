@@ -1,5 +1,5 @@
 
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {MoveService} from "../../../../shared/services/move.service";
 import {Game} from "../../../../shared/models/game";
 import {GameService} from "../../../../shared/services/game.service";
@@ -15,6 +15,7 @@ export class MarketComponent implements OnInit {
   @Input('marketSite') marketSite;
   @Input('logicState') logicState;
   @Input('dockOpen') dockOpen;
+  @Input('showBorder') showBorder;
   display = false;
 
   constructor(private moveService: MoveService,

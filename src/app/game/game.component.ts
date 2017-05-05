@@ -189,13 +189,6 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
     this.toastyService.info(toastOptions);
   }
 
-  static addClass(el: any, name: string) {
-    el.className = el.className ? [el.className, name].join(' ') : name;
-  }
-
-  static removeClass(el: any, name: string) {
-    el.className = el.className.replace(new RegExp('(?:^|\\s+)' + name + '(?:\\s+|$)', 'g'), '');
-  }
   private toggleSidebar() {
     this._opened = !this._opened;
   }

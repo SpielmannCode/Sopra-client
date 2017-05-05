@@ -1,11 +1,11 @@
 <div class="site">
   <div class="siteLeft">
-    <app-market [marketSite]="game.gameBoard.marketSite" [logicState]="game.logicState" [game]="game" [dockOpen]="isPlayerTurn()"></app-market>
-    <app-pyramid [pyramidSite]="game.gameBoard.pyramidSite" [dockOpen]="isPlayerTurn()"></app-pyramid>
+    <app-market [marketSite]="game.gameBoard.marketSite" [logicState]="game.logicState" [game]="game" [dockOpen]="isPlayerTurn()" [showBorder]="showBorder"></app-market>
+    <app-pyramid [pyramidSite]="game.gameBoard.pyramidSite" [dockOpen]="isPlayerTurn()" [showBorder]="showBorder"></app-pyramid>
   </div>
   <div class="siteRight">
-    <app-temple [templeSite]="game.gameBoard.templeSite" [dockOpen]="isPlayerTurn()"></app-temple>
-    <app-burialchamber [burialChamber]="game.gameBoard.burialChamber" [dockOpen]="isPlayerTurn()"></app-burialchamber>
-    <app-obelisk [obeliskSite]="game.gameBoard.obeliskSite" [dockOpen]="isPlayerTurn()" [playerCount]="game.playerCountSetting" ></app-obelisk>
+    <app-temple [templeSite]="game.gameBoard.templeSite" [dockOpen]="isPlayerTurn()" [showBorder]="showBorder"></app-temple>
+    <app-burialchamber [burialChamber]="game.gameBoard.burialChamber" [dockOpen]="isPlayerTurn()" [showBorder]="showBorder"></app-burialchamber>
+    <app-obelisk [obeliskSite]="game.gameBoard.obeliskSite" [dockOpen]="isPlayerTurn()" [playerCount]="game.playerCountSetting" [showBorder]="showBorder"></app-obelisk>
   </div>
 </div>
