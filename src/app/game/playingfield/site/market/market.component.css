@@ -1,6 +1,15 @@
 #Market {
   position: relative;
 }
+#InfoShowM{
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  width:500px;
+  height: 260px;
+
+
+}
 .MarketCard{
   position: absolute;
   width: 210px;
@@ -31,8 +40,8 @@
 }
 #MarketText{
   position: absolute;
-  top: 5px;
-  left : 5px;
+  top: -10px;
+  left : -10px;
   height: 280px;
   width: 567px;
   background-image: url("/assets/Images/papyrus-wallpapers.jpeg");

@@ -1,6 +1,14 @@
 #Pyramid {
   position: relative;
 }
+#InfoShowP{
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  width:450px;
+  height: 150px;
+
+}
 .PyramidLevel1{
   display: flex;
   flex-direction: column;
@@ -37,8 +45,8 @@
 }
 #PyramidText{
   position: absolute;
-  top: 5px;
-  left : 5px;
+  top: -20px;
+  left : -50px;
   height:173px;
   width: 567px;
   background-image: url("/assets/Images/papyrus-wallpapers.jpeg");

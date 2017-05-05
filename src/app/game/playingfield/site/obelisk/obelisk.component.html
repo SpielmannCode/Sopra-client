@@ -1,4 +1,4 @@
-<div on-mouseenter='enter()' on-mouseleave='leave()' id="Obelisk" class="site">
+<div id="Obelisk" class="site">
 
   <div  id="Titel"></div>
   <div id="TotalStone"><img src="/assets/Images/icons/stone.png " alt="Stone" style="width: 30px">: {{sumO}}</div>
@@ -10,45 +10,50 @@
 
   <img src="/assets/Images/Site_boards/Obelisks.png" alt="Obelisk">
 
-  <div id="ObeliskText" *ngIf="display"><h1>Obelisk</h1> <p>At the end of the game each player gets points according to their rank. <br> The distribution is as followed: </p>
-    <table *ngIf="Playercount === 2" >
-      <tr>
-        <th>1st</th>
-        <th>2nd</th>
-      </tr>
-      <tr>
-        <td>10</td>
-        <td>1</td>
-      </tr>
-    </table>
-    <table *ngIf="Playercount === 3" >
-      <tr>
-        <th>1st</th>
-        <th>2nd</th>
-        <th>3rd</th>
-      </tr>
-      <tr>
-        <td>12</td>
-        <td>6</td>
-        <td>1</td>
-      </tr>
-    </table>
-    <table *ngIf="Playercount === 4" >
-      <tr>
-        <th>1st</th>
-        <th>2nd</th>
-        <th>3rd</th>
-        <th>4rd</th>
-      </tr>
-      <tr>
-        <td>15</td>
-        <td>10</td>
-        <td>5</td>
-        <td>1</td>
-      </tr>
-    </table>
+  <div on-mouseenter='enter()' on-mouseleave='leave()' id="InfoShowO">
+
+    <div id="ObeliskText" *ngIf="display"><h1>Obelisk</h1> <p>At the end of the game each player gets points according to their rank. <br> The distribution is as followed: </p>
+      <table *ngIf="Playercount === 2" >
+        <tr>
+          <th>1st</th>
+          <th>2nd</th>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>1</td>
+        </tr>
+      </table>
+      <table *ngIf="Playercount === 3" >
+        <tr>
+          <th>1st</th>
+          <th>2nd</th>
+          <th>3rd</th>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>6</td>
+          <td>1</td>
+        </tr>
+      </table>
+      <table *ngIf="Playercount === 4" >
+        <tr>
+          <th>1st</th>
+          <th>2nd</th>
+          <th>3rd</th>
+          <th>4rd</th>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td>10</td>
+          <td>5</td>
+          <td>1</td>
+        </tr>
+      </table>
+    </div>
   </div>
-<ng-container *ngIf="Playercount === 2">
+
+
+  <ng-container *ngIf="Playercount === 2">
 <div id="ObeliskStoneBlack2" class="ObeliskStone2 text-center inline center">
   <div class="NumberStone">{{obeliskSite.stones[0]}}</div>
 </div>

@@ -1,6 +1,15 @@
 #Obelisk {
   position: relative;
 }
+#InfoShowO{
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  width:550px;
+  height: 150px;
+
+
+}
 .ObeliskStone2 {
   position: absolute;
   width: 70px;
@@ -139,8 +148,8 @@
 }
 #ObeliskText{
   position: absolute;
-  top: 5px;
-  left : 5px;
+  top: -15px;
+  left : -40px;
   height:200px;
   width: 590px;
   background-image: url("/assets/Images/papyrus-wallpapers.jpeg");

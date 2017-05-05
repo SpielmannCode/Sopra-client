@@ -1,4 +1,4 @@
-<div  on-mouseenter='enter()' on-mouseleave='leave()'  id="Pyramid" class="site">
+<div id="Pyramid" class="site">
   <div id="Titel"></div>
   <div id="TotalStone"><img src="/assets/Images/icons/stone.png " alt="Stone" style="width: 30px">: {{sumP}}</div>
 
@@ -9,12 +9,16 @@
   <div id="PyramidDock" class="Dockleft" [dragula]='"first-bag"' *ngIf="pyramidSite.dockedShip === null && dockOpen"></div>
 
   <img src="/assets/Images/Site_boards/Pyramids.png" alt="Pyramid">
+
+  <div on-mouseenter='enter()' on-mouseleave='leave()' id="InfoShowP">
+
   <div *ngIf="display" id="PyramidText"><h1>Pyramid</h1> <p>For each stone delivered
-    here, the owner of the
-    stone earns points
-    immediately. Place the
-    stone on the next free space in the pyramid. Stones are
-    placed column by column starting top left.</p>
+      here, the owner of the
+      stone earns points
+      immediately. Place the
+      stone on the next free space in the pyramid. Stones are
+      placed column by column starting top left.</p>
+    </div>
   </div>
 
   <!--First Level-->
