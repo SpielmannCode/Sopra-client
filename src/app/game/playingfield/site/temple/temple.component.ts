@@ -8,6 +8,7 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core'
 export class TempleComponent implements OnInit,OnChanges {
   @Input('templeSite') templeSite;
   @Input('dockOpen') dockOpen;
+  @Input('showBorder') showBorder;
   sumT:number=0;
   sizeT:number=0;
   x: number=0;
