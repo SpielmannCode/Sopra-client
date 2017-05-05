@@ -1,4 +1,4 @@
-<div  on-mouseenter='enter()' on-mouseleave='leave()' id="Market" class="site">
+<div  id="Market" class="site">
   <div id="Titel"></div>
   <div id="MarketDock" class="Dockedleft" [dragula]='"first-bag"' *ngIf="marketSite.dockedShip !== null">
     <app-ship class="shipsize1" [stones]="marketSite.dockedShip.stones" [game]="game" [isDocked]="true"></app-ship>
@@ -6,10 +6,14 @@
   <div id="MarketDock" class="Dockleft" [dragula]='"first-bag"' *ngIf="marketSite.dockedShip === null && dockOpen"></div>
 
   <img src="/assets/Images/Site_boards/Market.png" alt="Market">
-  <div  *ngIf="display && game.logicState === 'NORMAL'" id="MarketText"><h1>Market</h1> <p>For each stone
-    delivered here, the
-    owner of the stone can
-    immediately take any face-up market card.</p>
+
+  <div on-mouseenter='enter()' on-mouseleave='leave()' id="InfoShowM">
+
+    <div  *ngIf="display && game.logicState === 'NORMAL'" id="MarketText"><h1>Market</h1> <p>For each stone
+      delivered here, the
+      owner of the stone can
+      immediately take any face-up market card.</p>
+    </div>
   </div>
 
   <ng-container *ngIf="logicState === 'MARKET'">
