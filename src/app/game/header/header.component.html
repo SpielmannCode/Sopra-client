@@ -6,7 +6,7 @@
     </audio>
     -->
     <div id="InfoQuit" class="text-center">
-      <button class="btn-basic"  id="quit"  [routerLink]="['/lobby/']"style="padding:0px 6px;"
+      <button class="btn-basic"  id="quit"  (click)="QuitModal.open()" style="padding:0px 6px;"
               tooltip="Leave game"
               [tooltipDisabled]="false"
               [tooltipAnimation]="true"
@@ -15,6 +15,20 @@
       </button>
     </div>
   </div>
+  <modal id="QuitModal" #QuitModal>
+    <modal-header><h2 class="text-center">Are you sure you want to leave?</h2></modal-header>
+    <modal-content >
+      <div style="text-align: center">
+        You won't be able to rejoin later. All glory will be lost!
+      </div>
+    </modal-content>
+    <modal-footer style="position: relative">
+      <div style="text-align: center">
+        <button  class="btn-basic inline" [routerLink]="['/']" style=" text-align: center; position: relative; margin: 10px 0">Yes</button>
+        <button  class="btn-basic inline" (click)="QuitModal.close()" style=" text-align: center ; position: relative; margin: 10px 0">No</button>
+      </div>
+    </modal-footer>
+  </modal>
 
 
 </div>
