@@ -4,7 +4,7 @@
       <div *ngIf="game.logicState === 'MARKET'" id="SledStone{{i+1}}"  [dragula]='"second-bag"' >
         <app-stone class="donotdrag" [stoneColor]="stoneColor"></app-stone>
       </div>
-      <div *ngIf="game.logicState === 'NORMAL'" id="SledStone{{i+1}}" [dragula]='"second-bag"'>
+      <div *ngIf="game.logicState === 'NORMAL'" id="SledStone{{i+1}}" [dragula]='"second-bag"' [@stoneEnter]="'in'">
         <app-stone [stoneColor]="stoneColor"></app-stone>
       </div>
     </ng-container>
