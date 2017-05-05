@@ -103,17 +103,14 @@
   overflow: hidden;
 }
 #currentP{
-  outline: 4px dashed #219519;
+  outline: 4px #219519;
   box-shadow: 0 0 0 4px #1de609;
-  animation: 1s animateBorderOne ease infinite;
+  z-index: 1000;
+  animation: 1.5s neon3 ease-in-out infinite alternate;
 
 }
-@keyframes animateBorderOne {
-  to {
-    outline-color: #1de609;
-    box-shadow: 0 0 0 4px #219519;
-  }
-}
+
+
 .te{
   border-width: 3px;
   border-color: green;
