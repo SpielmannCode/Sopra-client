@@ -44,6 +44,16 @@ export class WaitingLobbyComponent implements OnInit, OnDestroy, OnChanges {
     });
   }
 
+  allPlayersReady() {
+    for (let player of this.selectedGame.players){
+      if (!player.readyToPlay) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
   ngOnChanges() {
   }
 
