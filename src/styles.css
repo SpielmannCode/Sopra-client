@@ -251,3 +251,30 @@ html, body {
   from { background:#ffe169; }
   to 	{ width:0; background:transparent; }
 }
+
+@-webkit-keyframes neon3 {
+  from {
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FFDD1B, 0 0 35px #FFDD1B, 0 0 40px #FFDD1B, 0 0 50px #FFDD1B, 0 0 75px #FFDD1B;
+  }
+  to {
+    box-shadow: 0 0 2.5px #fff, 0 0 5px #fff, 0 0 7.5px #fff, 0 0 10px #FFDD1B, 0 0 17.5px #FFDD1B, 0 0 20px #FFDD1B, 0 0 25px #FFDD1B, 0 0 37.5px #FFDD1B;
+  }
+}
+
+@-moz-keyframes neon3 {
+  from {
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FFDD1B, 0 0 35px #FFDD1B, 0 0 40px #FFDD1B, 0 0 50px #FFDD1B, 0 0 75px #FFDD1B;
+  }
+  to {
+    box-shadow: 0 0 2.5px #fff, 0 0 5px #fff, 0 0 7.5px #fff, 0 0 10px #FFDD1B, 0 0 17.5px #FFDD1B, 0 0 20px #FFDD1B, 0 0 25px #FFDD1B, 0 0 37.5px #FFDD1B;
+  }
+}
+
+@keyframes neon3 {
+  from {
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FFDD1B, 0 0 35px #FFDD1B, 0 0 40px #FFDD1B, 0 0 50px #FFDD1B, 0 0 75px #FFDD1B;
+  }
+  to {
+    box-shadow: 0 0 2.5px #fff, 0 0 5px #fff, 0 0 7.5px #fff, 0 0 10px #FFDD1B, 0 0 17.5px #FFDD1B, 0 0 20px #FFDD1B, 0 0 25px #FFDD1B, 0 0 37.5px #FFDD1B;
+  }
+}
