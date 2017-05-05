@@ -27,7 +27,9 @@
   <h1 id="header1">Final Ranking</h1>
 </modal-header>
   <modal-content>
-    <p id="r1">Rank 1: {{rank1}}</p>
+    <p id="r1" >Rank 1: {{rank1}}
+      <img src="/assets/Images/icons/medal21600.png"alt="Medal" height="24px">
+    </p>
     <p id="r2">Rank 2: {{rank2}}</p>
     <p id="r3" *ngIf="game && game.playerCountSetting > 2">Rank 3: {{rank3}}</p>
     <p id="r4" *ngIf="game && game.playerCountSetting > 3">Rank 4: {{rank4}}</p>
