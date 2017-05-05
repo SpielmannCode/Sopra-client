@@ -1,4 +1,4 @@
-<div on-mouseenter='enter()' on-mouseleave='leave()' id="Temple" class="site">
+<div  id="Temple" class="site">
   <div  id="Titel" ></div>
   <div id="TotalStone"><img src="/assets/Images/icons/stone.png " alt="Stone" style="width: 30px">: {{sumT}}</div>
 
@@ -10,7 +10,10 @@
   </div>
 
   <img src="/assets/Images/Site_boards/Temple.png" alt="Temple">
+
+  <div on-mouseenter='enter()' on-mouseleave='leave()' id="InfoShowT">
   <div id="TempelText" *ngIf="display" ><h1>Temple</h1> <p>For each stone delivered here, the owner of the stone earns 1 point for each from above visible stone at the end of every round. The last placed stone is indicated in red.</p>
+  </div>
   </div>
 
   <div  class="Templebg" *ngIf="templeSite.size===4">
