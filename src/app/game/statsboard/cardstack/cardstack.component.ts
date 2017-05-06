@@ -306,6 +306,15 @@ export class CardstackComponent implements OnInit, OnChanges {
     });
   }
 
+  leverReset() {
+    this.reordered = [];
+
+    for (let i = 0; i < this.reordering.length; i++) {
+      this.game.gameBoard.availableShips[this.shipIndex].stones[i] = this.stoneColorsIndexed[i];
+    }
+
+  }
+
   protected sailDrop(args) {
     let [e, el] = args;
 
@@ -336,7 +345,6 @@ export class CardstackComponent implements OnInit, OnChanges {
       case 'APP-SHIP': {
         let shipIndex = (parseInt(e.id.match(/(\d+)/)[1]) - 1).toString();
         let site = el.id;
-        console.log(el.id);
 
         let moveJson = {
           "type": "PlaySailMove",
