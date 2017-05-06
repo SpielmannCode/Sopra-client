@@ -30,9 +30,11 @@
        [closeOnOutsideClick]="false">
   <modal-header>
     <h4>Reorder the stones before unloading to {{site}}</h4>
+    <h4>Click on Stones in the order you want to unload them.</h4>
   </modal-header>
-  <modal-content>
-    <div id="Ships">
+  <modal-content id="stoneReorderContent">
+
+    <div id="Ships" class="inline">
       <ng-container *ngFor="let ship of game.gameBoard.availableShips; let i = index;">
         <app-ship *ngIf="shipIndex === i" [shipIndex]="i" [stones]="ship.stones"  [reorderMode]="true"
                   [reordering]="reordering" [reordered]="reordered" [game]="game" [stoneColorsIndexed]="stoneColorsIndexed"></app-ship>
@@ -40,7 +42,8 @@
     </div>
   </modal-content>
   <modal-footer>
-    <button class="btn-basic" (click)="leverSetNewOrder()">Apply</button>
+    <button class="btn-basic inline-block" (click)="leverSetNewOrder()">Apply</button>
+    <button class="btn-basic inline-block" (click)="leverReset()">Reset</button>
   </modal-footer>
 </modal>
 

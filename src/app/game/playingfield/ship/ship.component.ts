@@ -54,6 +54,7 @@ export class ShipComponent implements OnInit {
   @Input('reordering') reordering;
   @Input('stoneColorsIndexed') stoneColorsIndexed;
   @Input('reordered') reordered;
+  @Input('showBorder') showBorder;
 
   picloc: string = ('/assets/Images/Ship/Ship_' + this.size + 'er.png');
 

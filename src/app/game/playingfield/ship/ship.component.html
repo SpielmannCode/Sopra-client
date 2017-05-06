@@ -3,7 +3,7 @@
   <ng-container *ngIf="!isDocked">
     <div class="stones fields{{size}}">
       <div *ngFor="let stone of stones; let i = index;" class="ship-stone" id="stone-{{shipIndex}}-{{i}}" [dragula]='"second-bag"'
-           [@shipStoneState]="shipStoneState">
+           [@shipStoneState]="shipStoneState" [ngClass]="{'drop-border': (stone === 'BLANK') && showBorder}">
         <ng-container *ngIf="game.gameBoard.availableShips[shipIndex].stones[i] !== 'BLANK'">
           <app-stone [stoneColor]="game.gameBoard.availableShips[shipIndex].stones[i]"></app-stone>
         </ng-container>
@@ -12,7 +12,7 @@
   </ng-container>
 </div>
 
-<div class="ship-wrapper" *ngIf="reorderMode">
+<div class="ship-wrapper inline-block" *ngIf="reorderMode">
   <img src="{{picloc}}" alt="Ship {{size}}er">
   <div class="stones fields{{size}}">
     <div *ngFor="let stone of stones; let i = index;" class="ship-stone" id="stone-{{shipIndex}}-{{i}}" (click)="addReordered(i)">
@@ -23,7 +23,7 @@
   </div>
 </div>
 
-<div class="ship-wrapper" *ngIf="reorderMode">
+<div class="ship-wrapper inline-block" *ngIf="reorderMode">
   <img src="{{picloc}}" alt="Ship {{size}}er">
   <div class="stones fields{{size}}">
     <div *ngFor="let stone of reordered; let i = index;" class="ship-stone" id="stone-{{shipIndex}}-{{i}}">

@@ -18,12 +18,19 @@ app-sled {
   display: block;
 }
 
+#stoneReorderContent {
+  display: block;
+  margin: 0 auto;
+  max-width: 200px;
+}
+
 #Ships{
   width: 64px;
   bottom: 5px;
   left: 450px;
   background-color: inherit;
 }
+
 #HammerShips{
   width: 355px;
   height: 260px;

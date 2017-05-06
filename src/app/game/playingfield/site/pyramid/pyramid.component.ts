@@ -8,6 +8,7 @@ import {Component, Input, OnInit, OnChanges} from '@angular/core';
 export class PyramidComponent implements OnInit, OnChanges {
   @Input('pyramidSite') pyramidSite;
   @Input('dockOpen') dockOpen;
+  @Input('showBorder') showBorder;
   fields;
   divArrayLv1 : number[] = [2,1,3,2,4,3,2,1,3];
   divArrayLv2 : number[] = [2,3,1,3];
