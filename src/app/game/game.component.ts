@@ -70,6 +70,9 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
     this.Music.volume = 0.2;
     this.Music.loop = true;
     this.Music.muted = true;
+    this.Music.src= '/assets/musik/-Egyptian_music.mp3';
+    this.Music.load();
+    this.Music.play();
   }
 
   ngOnChanges(){

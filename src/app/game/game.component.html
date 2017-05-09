@@ -1,7 +1,7 @@
 <div id="whole">
   <app-header></app-header>
-  <button *ngIf="!Music.muted" class="btn-basic" (click)="toggleAudio()" style="position: absolute; top: -800px; left:0px; z-index: 30; font-size: 12px ">Mute</button>
-  <button *ngIf="Music.muted"  class="btn-basic" (click)="toggleAudio()" style="position: absolute; top: -800px; left:0px; z-index: 30; font-size: 12px ">Unmute</button>
+  <button *ngIf="!Music.muted" class="btn-basic" (click)="toggleAudio()" style="position: absolute; top: -800px; left:0px; z-index: 30; font-size: 12px "><img src="/assets/Images/icons/speakerfull.png" style="width: 12px"></button>
+  <button *ngIf="Music.muted"  class="btn-basic" (click)="toggleAudio()" style="position: absolute; top: -800px; left:0px; z-index: 30; font-size: 12px "><img src="/assets/Images/icons/speaker.png" style="width: 12px"></button>
   <app-playingfield [game]="game" [timerPercentage]="timerPercentage"></app-playingfield>
   <app-statsboard [game]="game"></app-statsboard>
   <ng2-toasty class="text-center center bg-white"></ng2-toasty>
