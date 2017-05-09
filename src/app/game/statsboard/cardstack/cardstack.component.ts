@@ -318,6 +318,10 @@ export class CardstackComponent implements OnInit, OnChanges {
   protected sailDrop(args) {
     let [e, el] = args;
 
+    if (!CardstackComponent.playCardMode) {
+      return;
+    }
+
     switch (e.tagName) {
       case 'APP-STONE': {
         let stonePos = e.parentElement.id.match(/(\d+)-(\d+)/);
@@ -340,6 +344,7 @@ export class CardstackComponent implements OnInit, OnChanges {
         }
 
         this.addCardToast('Sail the ship to a site');
+
         break;
       }
       case 'APP-SHIP': {
