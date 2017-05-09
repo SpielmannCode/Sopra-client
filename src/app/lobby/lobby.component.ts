@@ -109,7 +109,9 @@ export class LobbyComponent implements OnInit, OnDestroy {
 
   addPlayer(game: Game) {
     let currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
-    this.toggleAudio();
+    if(!this.Music.muted){
+      this.toggleAudio();
+    }
 
     this.gameService.addPlayer(game, currentUserToken)
       .subscribe(() => {
