@@ -1,9 +1,18 @@
-import {Component, Input, OnInit, OnChanges} from '@angular/core';
+import {Component, Input, OnInit, OnChanges, animate, style, transition, state, trigger} from '@angular/core';
 
 @Component({
   selector: 'app-pyramid',
   templateUrl: './pyramid.component.html',
-  styleUrls: ['./pyramid.component.css']
+  styleUrls: ['./pyramid.component.css'],
+  animations: [
+    trigger('stoneEnter', [
+      state('in', style({opacity: '1', transform: 'scale(1)'})),
+      transition('void => *', [
+        style({opacity: '0', transform: 'scale(0.5)'}),
+        animate(500)
+      ])
+    ])
+  ]
 })
 export class PyramidComponent implements OnInit, OnChanges {
   @Input('pyramidSite') pyramidSite;
