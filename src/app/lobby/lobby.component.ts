@@ -93,6 +93,9 @@ export class LobbyComponent implements OnInit, OnDestroy {
 
   createGame() {
     let currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
+    if(!this.Music.muted){
+      this.toggleAudio();
+    }
 
     this.gameService.createGame(this.createGameForm.value, currentUserToken)
       .subscribe(res => {
@@ -105,6 +108,7 @@ export class LobbyComponent implements OnInit, OnDestroy {
           this.gameService.changeSettings(game).subscribe(() => this.router.navigateByUrl('/lobby/' + game.id));
         })
       });
+
   }
 
   addPlayer(game: Game) {
