@@ -38,7 +38,7 @@ export class LobbyComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.getGames();
 
-    this.gamesObservable = Observable.interval(5000).subscribe(() => {
+    this.gamesObservable = Observable.interval(3000).subscribe(() => {
       this.getGames();
     });
     this.Music.volume = 0.1;
