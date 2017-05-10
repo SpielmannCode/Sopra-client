@@ -61,12 +61,12 @@
     </tr>
     <ng-container *ngFor="let game of games">
       <ng-container *ngIf="game.status === 'PENDING' ">
-      <tr (dblclick)="addPlayer(game)" *ngIf="isInGame(game)" class="current">
+      <tr (click)="addPlayer(game)" *ngIf="isInGame(game)" class="current">
         <td>{{game.status}}</td>
         <td>{{game.name}}</td>
         <td>{{game.players.length}}/{{game.playerCountSetting}}</td>
       </tr>
-      <tr (dblclick)="addPlayer(game)" *ngIf="!isInGame(game)">
+      <tr (click)="addPlayer(game)" *ngIf="!isInGame(game)">
         <td>{{game.status}}</td>
         <td>{{game.name}}</td>
         <td>{{game.players.length}}/{{game.playerCountSetting}}</td>
