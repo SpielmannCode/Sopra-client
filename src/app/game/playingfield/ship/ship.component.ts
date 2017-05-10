@@ -1,4 +1,4 @@
-import {animate, Component, Input, OnInit, state, style, transition, trigger} from '@angular/core';
+import {AfterViewInit, animate, Component, Input, OnInit, state, style, transition, trigger} from '@angular/core';
 import {Observable} from "rxjs";
 import {MoveService} from "../../../shared/services/move.service";
 
@@ -43,7 +43,7 @@ import {MoveService} from "../../../shared/services/move.service";
     ])
   ]
 })
-export class ShipComponent implements OnInit {
+export class ShipComponent implements OnInit, AfterViewInit {
   size: number;
   @Input('stones') stones;
   @Input('shipIndex') shipIndex;
@@ -55,6 +55,7 @@ export class ShipComponent implements OnInit {
   @Input('stoneColorsIndexed') stoneColorsIndexed;
   @Input('reordered') reordered;
   @Input('showBorder') showBorder;
+  dragBorder;
 
   picloc: string = ('/assets/Images/Ship/Ship_' + this.size + 'er.png');
 
@@ -68,10 +69,16 @@ export class ShipComponent implements OnInit {
   }
 
   addReordered(index) {
-
     if ((this.reordered.length < this.size) && (this.stones[index] !== 'BLANK')) {
       this.reordered.push(this.reordering[index]);
       this.stones[index] = 'BLANK';
+    }
+  }
+
+  ngAfterViewInit() {
+
+    if (!this.isDocked) {
+      this.dragBorder = (this.game.logicState === 'NORMAL' && this.game.gameBoard.availableShips[this.shipIndex].sailable);
     }
 
   }
