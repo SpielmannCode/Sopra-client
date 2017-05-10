@@ -124,6 +124,12 @@ html, body {
   animation: 1.5s neon3 ease-in-out infinite alternate;
 }
 
+.draggable-border {
+  border-radius: 50%;
+  box-shadow: 0 0 4px #F0DC07;
+  animation: 1.5s neon3 ease-in-out infinite alternate;
+}
+
 .gu-mirror {
   position: fixed !important;
   margin: 0 !important;

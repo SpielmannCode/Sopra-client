@@ -1,16 +1,18 @@
-<div class="ship-wrapper" *ngIf="!reorderMode && !HammerMode">
-  <img src="{{picloc}}" alt="Ship {{size}}er">
-  <ng-container *ngIf="!isDocked">
-    <div class="stones fields{{size}}">
-      <div *ngFor="let stone of stones; let i = index;" class="ship-stone" id="stone-{{shipIndex}}-{{i}}" [dragula]='"second-bag"'
-           [@shipStoneState]="shipStoneState" [ngClass]="{'drop-border': (stone === 'BLANK') && showBorder}">
-        <ng-container *ngIf="game.gameBoard.availableShips[shipIndex].stones[i] !== 'BLANK'">
-          <app-stone [stoneColor]="game.gameBoard.availableShips[shipIndex].stones[i]"></app-stone>
-        </ng-container>
+<ng-container *ngIf="game">
+  <div class="ship-wrapper" *ngIf="!reorderMode && !HammerMode" [ngClass]="{'draggable-border': game.gameBoard.availableShips[shipIndex].sailable && game.logicState === 'NORMAL'}">
+    <img src="{{picloc}}" alt="Ship {{size}}er">
+    <ng-container *ngIf="!isDocked">
+      <div class="stones fields{{size}}">
+        <div *ngFor="let stone of stones; let i = index;" class="ship-stone" id="stone-{{shipIndex}}-{{i}}" [dragula]='"second-bag"'
+             [@shipStoneState]="shipStoneState" [ngClass]="{'drop-border': (stone === 'BLANK') && showBorder}">
+          <ng-container *ngIf="game.gameBoard.availableShips[shipIndex].stones[i] !== 'BLANK'">
+            <app-stone [stoneColor]="game.gameBoard.availableShips[shipIndex].stones[i]"></app-stone>
+          </ng-container>
+        </div>
       </div>
-    </div>
-  </ng-container>
-</div>
+    </ng-container>
+  </div>
+</ng-container>
 
 <div class="ship-wrapper inline-block" *ngIf="reorderMode">
   <img src="{{picloc}}" alt="Ship {{size}}er">

@@ -2,7 +2,9 @@
 <app-lobbyheader></app-lobbyheader>
 
 
-<div id="lobby" *ngIf="!gameId">
+<div id="lobby" *ngIf="!gameId" style="position: relative">
+  <button *ngIf="!Music.muted" class="btn-basic" (click)="toggleAudio()" style="position: absolute; top: -60px; left:-110px; z-index: 30; font-size: 12px "><img src="/assets/Images/icons/speakerfull.png" style="width: 45px">   </button>
+  <button *ngIf="Music.muted"  class="btn-basic" (click)="toggleAudio()" style="position: absolute; top: -60px; left:-110px; z-index: 30; font-size: 12px "><img src="/assets/Images/icons/speaker.png" style="width: 45px">   </button>
   <button id="createGameBtn"class="btn-basic" (click)="createGameModal.open()"
       tooltip="create new game"
       [tooltipDisabled]="false"
@@ -58,6 +60,7 @@
       <th>Players</th>
     </tr>
     <ng-container *ngFor="let game of games">
+      <ng-container *ngIf="game.status === 'PENDING' ">
       <tr (dblclick)="addPlayer(game)" *ngIf="isInGame(game)" class="current">
         <td>{{game.status}}</td>
         <td>{{game.name}}</td>
@@ -68,6 +71,7 @@
         <td>{{game.name}}</td>
         <td>{{game.players.length}}/{{game.playerCountSetting}}</td>
       </tr>
+      </ng-container>
     </ng-container>
   </table>
 </div>
