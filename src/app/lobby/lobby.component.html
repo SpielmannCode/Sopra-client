@@ -55,28 +55,28 @@
 
   <table class="table selectable">
     <tr id="tableHeader">
-      <th>Status</th>
+      <!--<th>Status</th>-->
       <th>Game Name</th>
       <th>Players</th>
     </tr>
     <ng-container *ngFor="let game of games">
       <ng-container *ngIf="game.status === 'PENDING' ">
       <tr (dblclick)="addPlayer(game)" *ngIf="isInGame(game)" class="current">
-        <td>{{game.status}}</td>
-        <td>{{game.name}}</td>
-        <td>{{game.players.length}}/{{game.playerCountSetting}}</td>
-      </tr>
-      <tr (dblclick)="addPlayer(game)" *ngIf="!isInGame(game)">
-        <td>{{game.status}}</td>
-        <td>{{game.name}}</td>
-        <td>{{game.players.length}}/{{game.playerCountSetting}}</td>
-      </tr>
+        <!-- <td>{{game.status}}</td> -->
+         <td>{{game.name}}</td>
+         <td>{{game.players.length}}/{{game.playerCountSetting}}</td>
+       </tr>
+       <tr (dblclick)="addPlayer(game)" *ngIf="!isInGame(game)">
+         <!-- <td>{{game.status}}</td>-->
+          <td>{{game.name}}</td>
+          <td>{{game.players.length}}/{{game.playerCountSetting}}</td>
+        </tr>
+        </ng-container>
       </ng-container>
-    </ng-container>
-  </table>
-</div>
+    </table>
+  </div>
 
 
-</div>
+  </div>
 
 
