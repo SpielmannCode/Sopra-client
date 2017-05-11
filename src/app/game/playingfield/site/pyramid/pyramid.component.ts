@@ -1,4 +1,7 @@
-import {Component, Input, OnInit, OnChanges, animate, style, transition, state, trigger} from '@angular/core';
+import {
+  Component, Input, OnInit, OnChanges, animate, style, transition, state, trigger,
+  keyframes
+} from '@angular/core';
 
 @Component({
   selector: 'app-pyramid',
@@ -6,10 +9,23 @@ import {Component, Input, OnInit, OnChanges, animate, style, transition, state, 
   styleUrls: ['./pyramid.component.css'],
   animations: [
     trigger('stoneEnter', [
-      state('in', style({opacity: '1', transform: 'scale(1)'})),
       transition('void => *', [
-        style({opacity: '0', transform: 'scale(0.5)'}),
-        animate(500)
+        animate(500, keyframes([
+          style({
+            opacity: '0', transform: 'scale(0.5)',
+          }),
+          style({
+            opacity: '1', transform: 'scale(1)',
+          })
+        ])),
+        animate(7000, keyframes([
+          style({
+            boxShadow: '0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FFDD1B, 0 0 35px #FFDD1B, 0 0 40px #FFDD1B, 0 0 50px #FFDD1B, 0 0 75px #FFDD1B'
+          }),
+          style({
+            boxShadow: '0 0 2.5px #fff, 0 0 5px #fff, 0 0 7.5px #fff, 0 0 10px #FFDD1B, 0 0 17.5px #FFDD1B, 0 0 20px #FFDD1B, 0 0 25px #FFDD1B, 0 0 37.5px #FFDD1B'
+          })
+        ]))
       ])
     ])
   ]
