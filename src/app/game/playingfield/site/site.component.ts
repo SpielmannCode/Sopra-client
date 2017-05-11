@@ -11,6 +11,7 @@ import {GameService} from "../../../shared/services/game.service";
 export class SiteComponent implements OnInit {
   @Input('game') game: Game;
   @Input('shipStoneState') shipStoneState;
+  showBorder = false;
 
   constructor(protected moveService: MoveService,
               private gameService: GameService) { }

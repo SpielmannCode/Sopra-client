@@ -1,13 +1,26 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {
+  animate, Component, Input, OnChanges, OnInit, SimpleChanges, state, style, transition,
+  trigger
+} from '@angular/core';
 
 @Component({
   selector: 'app-burialchamber',
   templateUrl: './burialchamber.component.html',
-  styleUrls: ['./burialchamber.component.css']
+  styleUrls: ['./burialchamber.component.css'],
+  animations: [
+    trigger('stoneEnter', [
+      state('in', style({opacity: '1', transform: 'scale(1)'})),
+      transition('void => *', [
+        style({opacity: '0', transform: 'scale(0.5)'}),
+        animate(500)
+      ])
+    ])
+  ]
 })
 export class BurialchamberComponent implements OnInit {
   @Input('burialChamber') burialChamber;
   @Input('dockOpen') dockOpen;
+  @Input('showBorder') showBorder;
   fields;
   sumB = 0;
   divArray = Array(24).fill(0);

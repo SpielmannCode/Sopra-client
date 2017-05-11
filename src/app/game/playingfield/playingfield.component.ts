@@ -49,11 +49,11 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
     dragulaService.drop.subscribe((value) => {
       this.onDrop(value.slice(1));
     });
-    dragulaService.over.subscribe((value) => {
-      this.onOver(value.slice(1));
-    });
-    dragulaService.out.subscribe((value) => {
-      this.onOut(value.slice(1));
+    dragulaService.dragend.subscribe(() => {
+      this.siteComponent.showBorder = false;
+      for (let ship of this.ships) {
+        ship.showBorder = false;
+      }
     });
 
     const self = this;
@@ -91,17 +91,31 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
     this.ships.changes.subscribe((res) => {
       this.ships = res._results;
     });
+
   }
 
   protected onDrag(args) {
     const [e, el] = args;
+
+    switch (e.tagName) {
+      case 'APP-SHIP': {
+        this.siteComponent.showBorder = true;
+        break;
+      }
+      case 'APP-STONE': {
+        for (let ship of this.ships) {
+          ship.showBorder = true;
+        }
+        break;
+      }
+    }
   }
 
   protected onDrop(args) {
     const [e, el] = args;
     const currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
     const audio = new Audio();
-    GameComponent.removeClass(el, 'drop-border');
+    this.siteComponent.showBorder = false;
 
     if (CardstackComponent.playCardMode) {
       return;
@@ -136,17 +150,6 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
     audio.play();
 
   }
-
-  protected onOver(args) {
-    const [e, el, container] = args;
-    GameComponent.addClass(el , 'drop-border');
-  }
-
-  protected onOut(args) {
-    const [e, el, container] = args;
-    GameComponent.removeClass(el, 'drop-border');
-  }
-
 
   startBABA(){
     if(!this.babaplay){
@@ -226,22 +229,6 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
 
   fastForward() {
     this.gameService.fastForward(this.game, this.roundNumber.nativeElement.value).subscribe(() => this.fastForwardModal.close());
-  }
-
-  setShipsDraggable(draggable: boolean) {
-    this.dragulaService.setOptions('first-bag', {
-      moves: function(el, source, handle, sibling) {
-        return draggable;
-      }
-    });
-  }
-
-  setStonesDraggable(draggable: boolean) {
-    this.dragulaService.setOptions('second-bag', {
-      moves: function(el, source, handle, sibling) {
-        return draggable;
-      }
-    });
   }
 
 }

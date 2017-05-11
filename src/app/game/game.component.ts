@@ -70,6 +70,9 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
     this.Music.volume = 0.2;
     this.Music.loop = true;
     this.Music.muted = true;
+    this.Music.src= '/assets/musik/-Egyptian_music.mp3';
+    this.Music.load();
+    this.Music.play();
   }
 
   ngOnChanges(){
@@ -189,13 +192,6 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
     this.toastyService.info(toastOptions);
   }
 
-  static addClass(el: any, name: string) {
-    el.className = el.className ? [el.className, name].join(' ') : name;
-  }
-
-  static removeClass(el: any, name: string) {
-    el.className = el.className.replace(new RegExp('(?:^|\\s+)' + name + '(?:\\s+|$)', 'g'), '');
-  }
   private toggleSidebar() {
     this._opened = !this._opened;
   }

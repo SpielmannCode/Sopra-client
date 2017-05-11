@@ -6,7 +6,7 @@
       <app-ship class="shipsize1" [stones]="pyramidSite.dockedShip.stones" [game]="game" [isDocked]="true"></app-ship>
   </div>
 
-  <div id="PyramidDock" class="Dockleft" [dragula]='"first-bag"' *ngIf="pyramidSite.dockedShip === null && dockOpen"></div>
+  <div id="PyramidDock" class="Dockleft" [dragula]='"first-bag"' *ngIf="pyramidSite.dockedShip === null && dockOpen" [ngClass]="{'drop-border': showBorder }"></div>
 
   <img src="/assets/Images/Site_boards/Pyramids.png" alt="Pyramid">
 
@@ -29,7 +29,7 @@
   </div>
 
   <div id="PyramidLevel1" class="PyramidLevel1">
-    <div  *ngFor="let stone of pyramidSite.stones; let i = index;" id="PyramidLevel1Stone{{i+1}}" class="PyramidStone">
+    <div  *ngFor="let stone of pyramidSite.stones; let i = index;" id="PyramidLevel1Stone{{i+1}}" class="PyramidStone" [@stoneEnter]="'in'">
       <ng-container *ngIf="i < 9">
         <app-stone [stoneColor]="stone"></app-stone>
       </ng-container>
@@ -45,7 +45,7 @@
   </div>
 
   <div id="PyramidLevel2" class="PyramidLevel2">
-    <div *ngFor="let stone of pyramidSite.stones; let i = index;" id="PyramidLevel2Stone{{i+9}}" class="PyramidStone">
+    <div *ngFor="let stone of pyramidSite.stones; let i = index;" id="PyramidLevel2Stone{{i+9}}" class="PyramidStone" [@stoneEnter]="'in'">
       <ng-container *ngIf="i >= 0 && i < 4">
         <app-stone [stoneColor]="pyramidSite.stones[i+9]"></app-stone>
       </ng-container>
@@ -59,7 +59,7 @@
     </div>
   </div>
 
-  <div *ngFor="let stone of pyramidSite.stones; let i = index;" id="PyramidLevel3Stone1" class="PyramidStone">
+  <div *ngFor="let stone of pyramidSite.stones; let i = index;" id="PyramidLevel3Stone1" class="PyramidStone" [@stoneEnter]="'in'">
     <ng-container >
       <app-stone [stoneColor]="pyramidSite.stones[i+13]"></app-stone>
     </ng-container>

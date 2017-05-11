@@ -1,7 +1,7 @@
 <div id="whole">
   <app-header></app-header>
-  <button *ngIf="!Music.muted" class="btn-basic" (click)="toggleAudio()" style="position: absolute; top: -800px; left:0px; z-index: 30; font-size: 12px ">Mute</button>
-  <button *ngIf="Music.muted"  class="btn-basic" (click)="toggleAudio()" style="position: absolute; top: -800px; left:0px; z-index: 30; font-size: 12px ">Unmute</button>
+  <button *ngIf="!Music.muted" class="btn-basic" (click)="toggleAudio()" style="position: absolute; top: -800px; left:0px; z-index: 30; font-size: 12px "><img src="/assets/Images/icons/speakerfull.png" style="width: 12px"></button>
+  <button *ngIf="Music.muted"  class="btn-basic" (click)="toggleAudio()" style="position: absolute; top: -800px; left:0px; z-index: 30; font-size: 12px "><img src="/assets/Images/icons/speaker.png" style="width: 12px"></button>
   <app-playingfield [game]="game" [timerPercentage]="timerPercentage"></app-playingfield>
   <app-statsboard [game]="game"></app-statsboard>
   <ng2-toasty class="text-center center bg-white"></ng2-toasty>
@@ -22,20 +22,72 @@
   </ng-sidebar-container>
 </div>
 
-<modal #rankingModal>
+<modal #rankingModal
+       [hideCloseButton]="true"
+       [closeOnEscape]="false"
+       [closeOnOutsideClick]="false">
   <modal-header>
-  <h1 id="header1">Final Ranking</h1>
+    <div class=" text-center">
+      <h1 id="header1">Final Ranking</h1>
+    </div>
 </modal-header>
   <modal-content>
-    <p id="r1">Rank 1: {{rank1}}</p>
-    <p id="r2">Rank 2: {{rank2}}</p>
-    <p id="r3" *ngIf="game && game.playerCountSetting > 2">Rank 3: {{rank3}}</p>
-    <p id="r4" *ngIf="game && game.playerCountSetting > 3">Rank 4: {{rank4}}</p>
-    <a class="btn-basic inline" (click)="restartGame()">Restart</a>
-    <a class="btn-basic inline" (click)="leaveGame()">Leave</a>
+    <table *ngIf="game && game.playerCountSetting === 4" class="table ">
+      <tr id="r1">
+        <th>Rank 1:</th>
+        <th>{{rank1}}</th>
+        <th><img src="/assets/Images/icons/medal21600.png"alt="Medal" height="24px"></th>
+      </tr>
+      <tr id="r2">
+        <td>Rank 2:</td>
+        <td>{{rank2}}</td>
+        <td></td>
+      </tr>
+      <tr id="r3" >
+        <td>Rank 3:</td>
+        <td>{{rank3}}</td>
+        <td></td>
+      </tr>
+      <tr id="r4" >
+        <td>Rank 4:</td>
+        <td>{{rank4}}</td>
+        <td></td>
+      </tr>
+    </table>
+    <table *ngIf="game && game.playerCountSetting === 3" class="table ">
+      <tr id="r1">
+        <th>Rank 1:</th>
+        <th>{{rank1}}</th>
+        <th><img src="/assets/Images/icons/medal21600.png"alt="Medal" height="24px"></th>
+      </tr>
+      <tr id="r2">
+        <td>Rank 2:</td>
+        <td>{{rank2}}</td>
+        <td></td>
+      </tr>
+      <tr id="r3" >
+        <td>Rank 3:</td>
+        <td>{{rank3}}</td>
+        <td></td>
+      </tr>
+    </table>
+    <table *ngIf="game && game.playerCountSetting === 2" class="table ">
+      <tr id="r1">
+        <th>Rank 1:</th>
+        <th>{{rank1}}</th>
+        <th><img src="/assets/Images/icons/medal21600.png"alt="Medal" height="24px"></th>
+      </tr>
+      <tr id="r2">
+        <td>Rank 2:</td>
+        <td>{{rank2}}</td>
+        <td></td>
+      </tr>
+    </table>
   </modal-content>
   <modal-footer>
-
+    <div class="text-center">
+      <a class="btn-basic inline" (click)="leaveGame()">Leave</a>
+    </div>
   </modal-footer>
 </modal>
 

@@ -20,6 +20,7 @@ export class LobbyComponent implements OnInit, OnDestroy {
   gameObservable;
   gamesObservable;
   gameId;
+  Music = new Audio();
 
   constructor(protected userService: UserService,
               protected gameService: GameService,
@@ -37,9 +38,15 @@ export class LobbyComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.getGames();
 
-    this.gamesObservable = Observable.interval(5000).subscribe(() => {
+    this.gamesObservable = Observable.interval(3000).subscribe(() => {
       this.getGames();
     });
+    this.Music.volume = 0.1;
+    this.Music.loop = true;
+    this.Music.muted = false;
+    this.Music.src= '/assets/musik/-Egyptian_music.mp3';
+    this.Music.load();
+    this.Music.play();
   }
 
   ngOnDestroy() {
@@ -75,9 +82,20 @@ export class LobbyComponent implements OnInit, OnDestroy {
   selectGame(game: Game) {
     this.selectedGame = game;
   }
+  toggleAudio() {
+    if(this.Music.muted ){
+      this.Music.muted = false;
+    }
+    else {
+      this.Music.muted = true;
+    }
+  }
 
   createGame() {
     let currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
+    if(!this.Music.muted){
+      this.toggleAudio();
+    }
 
     this.gameService.createGame(this.createGameForm.value, currentUserToken)
       .subscribe(res => {
@@ -90,10 +108,14 @@ export class LobbyComponent implements OnInit, OnDestroy {
           this.gameService.changeSettings(game).subscribe(() => this.router.navigateByUrl('/lobby/' + game.id));
         })
       });
+
   }
 
   addPlayer(game: Game) {
     let currentUserToken = JSON.parse(localStorage.getItem('currentUser')).token;
+    if(!this.Music.muted){
+      this.toggleAudio();
+    }
 
     this.gameService.addPlayer(game, currentUserToken)
       .subscribe(() => {
