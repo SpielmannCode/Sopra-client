@@ -126,7 +126,8 @@ html, body {
 
 .draggable-border {
   border-radius: 50%;
-  box-shadow: 0 0 4px #73D216;
+  box-shadow: 0 0 1px #73D216;
+  background-color: rgba(255,255,255, 0.8);
   animation: 1.5s neon4 ease-in-out infinite alternate;
 }
 
@@ -224,6 +225,7 @@ html, body {
 
 /* active state */
 .group input:focus ~ .bar:before,
+.group input:focus ~dropi .bar:before,
 .group input:focus ~ .bar:after {
   width:50%;
 }
@@ -287,28 +289,28 @@ html, body {
 
 @-webkit-keyframes neon4 {
   from {
-    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #73D216, 0 0 35px #73D216, 0 0 40px #73D216, 0 0 50px #73D216, 0 0 75px #73D216;
+    box-shadow: 0 0 5px rgba(255,255,255, 0.5), 0 0 10px rgba(255,255,255, 0.5), 0 0 15px rgba(255,255,255, 0.5), 0 0 20px rgba(255,255,255, 0.5), 0 0 35px rgba(255,255,255, 0.5), 0 0 40px rgba(255,255,255, 0.5), 0 0 50px rgba(255,255,255, 0.5), 0 0 75px rgba(255,255,255, 0.5);
   }
   to {
-    box-shadow: 0 0 2.5px #fff, 0 0 5px #fff, 0 0 7.5px #fff, 0 0 10px #73D216, 0 0 17.5px #73D216, 0 0 20px #73D216, 0 0 25px #73D216, 0 0 37.5px #73D216;
+    box-shadow: 0 0 2.5px rgba(255,255,255, 0.5), 0 0 5px rgba(255,255,255, 0.5), 0 0 7.5px #fff, 0 0 10px rgba(255,255,255, 0.5), 0 0 17.5px rgba(255,255,255, 0.5), 0 0 20px rgba(255,255,255, 0.5), 0 0 25px rgba(255,255,255, 0.5), 0 0 37.5px rgba(255,255,255, 0.5);
   }
 }
 
 @-moz-keyframes neon4 {
   from {
-    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #73D216, 0 0 35px #73D216, 0 0 40px #73D216, 0 0 50px #73D216, 0 0 75px #73D216;
+    box-shadow: 0 0 5px rgba(255,255,255, 0.5), 0 0 10px rgba(255,255,255, 0.5), 0 0 15px rgba(255,255,255, 0.5), 0 0 20px rgba(255,255,255, 0.5), 0 0 35px rgba(255,255,255, 0.5), 0 0 40px rgba(255,255,255, 0.5), 0 0 50px rgba(255,255,255, 0.5), 0 0 75px rgba(255,255,255, 0.5);
   }
   to {
-    box-shadow: 0 0 2.5px #fff, 0 0 5px #fff, 0 0 7.5px #fff, 0 0 10px #73D216, 0 0 17.5px #73D216, 0 0 20px #73D216, 0 0 25px #73D216, 0 0 37.5px #73D216;
+    box-shadow: 0 0 2.5px rgba(255,255,255, 0.5), 0 0 5px rgba(255,255,255, 0.5), 0 0 7.5px rgba(255,255,255, 0.5), 0 0 10px rgba(255,255,255, 0.5), 0 0 17.5px rgba(255,255,255, 0.5), 0 0 20px rgba(255,255,255, 0.5), 0 0 25px rgba(255,255,255, 0.5), 0 0 37.5px rgba(255,255,255, 0.5);
   }
 }
 
 @keyframes neon4 {
   from {
-    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #73D216, 0 0 35px #73D216, 0 0 40px #73D216, 0 0 50px #73D216, 0 0 75px #73D216;
+    box-shadow: 0 0 5px rgba(255,255,255, 0.5), 0 0 10px rgba(255,255,255, 0.5), 0 0 15px rgba(255,255,255, 0.5), 0 0 20px rgba(255,255,255, 0.5), 0 0 35px rgba(255,255,255, 0.5), 0 0 40px rgba(255,255,255, 0.5), 0 0 50px rgba(255,255,255, 0.5), 0 0 75px rgba(255,255,255, 0.5);
   }
   to {
-    box-shadow: 0 0 2.5px #fff, 0 0 5px #fff, 0 0 7.5px #fff, 0 0 10px #73D216, 0 0 17.5px #73D216, 0 0 20px #73D216, 0 0 25px #73D216, 0 0 37.5px #73D216;
+    box-shadow: 0 0 2.5px rgba(255,255,255, 0.5), 0 0 5px rgba(255,255,255, 0.5), 0 0 7.5px rgba(255,255,255, 0.5), 0 0 10px rgba(255,255,255, 0.5), 0 0 17.5px rgba(255,255,255, 0.5), 0 0 20px rgba(255,255,255, 0.5), 0 0 25px rgba(255,255,255, 0.5), 0 0 37.5px rgba(255,255,255, 0.5);
   }
 }
 
