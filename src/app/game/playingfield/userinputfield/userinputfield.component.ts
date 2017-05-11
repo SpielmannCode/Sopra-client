@@ -39,7 +39,13 @@ export class UserinputfieldComponent implements OnInit, OnChanges {
   }
 
   isPlayerTurn() {
-    return this.currentUserToken === this.game.players[this.game.currentPlayerIndex].token;
+
+    if (this.game.players[this.game.currentPlayerIndex].token) {
+      return this.currentUserToken === this.game.players[this.game.currentPlayerIndex].token;
+    } else {
+      return false;
+    }
+
   }
 
   showStatus() {

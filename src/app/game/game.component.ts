@@ -155,7 +155,10 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   leaveGame() {
-    this.gameService.removePlayer(this.game, this.userToken).subscribe(() => this.router.navigateByUrl('/lobby'));
+    this.gameService.removePlayer(this.game, this.userToken).subscribe(() => {
+      this.router.navigate(['/lobby']);
+      window.location.reload();
+    });
   }
   toggleAudio() {
     if (this.Music.muted ){
