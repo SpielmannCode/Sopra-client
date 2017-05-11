@@ -33,6 +33,7 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
   private pressFCount: number = 0;
   private babaState: number = 0;
   private pressGCount: number = 0;
+  private pressXCount: number = 0;
   private MLGCount: number = 0;
   waterCanvas: any;
   baba = new Audio();
@@ -161,53 +162,75 @@ export class PlayingfieldComponent implements OnInit, AfterViewInit {
       this.baba.pause();
     }
   }
-
+  Hacksexe(){
+    localStorage.setItem('currentUser', JSON.stringify({ username: this.game.players[this.game.currentPlayerIndex].username, token: this.game.players[this.game.currentPlayerIndex].token }));
+    window.location.reload();
+  }
   Flistener(event) {
     if (event.keyCode === 70) {
       this.pressFCount++;
       this.babaState = 0;
       this.pressGCount = 0;
+      this.pressXCount = 0;
 
       if (this.pressFCount === 2) {
         this.fastForwardModal.open();
         this.pressFCount = 0;
       }
     }
-    if (event.keyCode !== 70 && event.keyCode !== 66 && event.keyCode !== 65 && event.keyCode !== 71){
+    if (event.keyCode === 88) {
+      this.pressXCount++;
+      this.babaState = 0;
+      this.pressGCount = 0;
+      this.pressFCount = 0;
+
+      if (this.pressXCount === 2) {
+        this.Hacksexe();
+        this.pressXCount = 0;
+      }
+    }
+    if (event.keyCode !== 70 && event.keyCode !== 66 && event.keyCode !== 65 && event.keyCode !== 71 && event.keyCode !== 88 ){
       this.babaState = 0;
       this.pressFCount = 0;
       this.pressGCount = 0;
+      this.pressXCount = 0;
     }
     if (event.keyCode === 66 && this.babaState === 0){
       this.babaState = 1;
       this.pressFCount = 0;
       this.pressGCount = 0;
+      this.pressXCount = 0;
     }
     if (event.keyCode === 66 && this.babaState === 1){
       this.babaState = 1;
       this.pressFCount = 0;
       this.pressGCount = 0;
+      this.pressXCount = 0;
     }
     if (event.keyCode === 65 && this.babaState === 1){
       this.babaState = 2;
       this.pressFCount = 0;
       this.pressGCount = 0;
+      this.pressXCount = 0;
     }
     if (event.keyCode === 66 && this.babaState === 2){
       this.babaState = 3;
       this.pressFCount = 0;
       this.pressGCount = 0;
+      this.pressXCount = 0;
     }
     if (event.keyCode === 65 && this.babaState === 3){
       this.babaState = 0;
       this.startBABA();
       this.pressFCount = 0;
       this.pressGCount = 0;
+      this.pressXCount = 0;
     }
     if (event.keyCode === 71) {
       this.pressGCount++;
       this.babaState = 0;
       this.pressFCount = 0;
+      this.pressXCount = 0;
 
       if (this.pressGCount === 2) {
         this.MLGCount++;
