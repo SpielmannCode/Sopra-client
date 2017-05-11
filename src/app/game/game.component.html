@@ -32,54 +32,63 @@
     </div>
 </modal-header>
   <modal-content>
-    <table *ngIf="game && game.playerCountSetting === 4" class="table ">
+    <table *ngIf="game && game.playerCountSetting === 4" class="table1 table">
       <tr id="r1">
         <th>Rank 1:</th>
         <th>{{rank1}}</th>
+        <th>{{rank1p}}</th>
         <th><img src="/assets/Images/icons/medal21600.png"alt="Medal" height="24px"></th>
       </tr>
       <tr id="r2">
         <td>Rank 2:</td>
         <td>{{rank2}}</td>
+        <th>{{rank2p}}</th>
         <td></td>
       </tr>
       <tr id="r3" >
         <td>Rank 3:</td>
         <td>{{rank3}}</td>
+        <th>{{rank3p}}</th>
         <td></td>
       </tr>
       <tr id="r4" >
         <td>Rank 4:</td>
         <td>{{rank4}}</td>
+        <th>{{rank4p}}</th>
         <td></td>
       </tr>
     </table>
-    <table *ngIf="game && game.playerCountSetting === 3" class="table ">
+    <table *ngIf="game && game.playerCountSetting === 3" class="table1 table">
       <tr id="r1">
         <th>Rank 1:</th>
         <th>{{rank1}}</th>
+        <th>{{rank1p}}</th>
         <th><img src="/assets/Images/icons/medal21600.png"alt="Medal" height="24px"></th>
       </tr>
       <tr id="r2">
         <td>Rank 2:</td>
         <td>{{rank2}}</td>
+        <th>{{rank2p}}</th>
         <td></td>
       </tr>
       <tr id="r3" >
         <td>Rank 3:</td>
         <td>{{rank3}}</td>
+        <th>{{rank3p}}</th>
         <td></td>
       </tr>
     </table>
-    <table *ngIf="game && game.playerCountSetting === 2" class="table ">
+    <table *ngIf="game && game.playerCountSetting === 2" class="table1 table ">
       <tr id="r1">
         <th>Rank 1:</th>
         <th>{{rank1}}</th>
+        <th>{{rank1p}}</th>
         <th><img src="/assets/Images/icons/medal21600.png"alt="Medal" height="24px"></th>
       </tr>
       <tr id="r2">
         <td>Rank 2:</td>
         <td>{{rank2}}</td>
+        <th>{{rank2p}}</th>
         <td></td>
       </tr>
     </table>
