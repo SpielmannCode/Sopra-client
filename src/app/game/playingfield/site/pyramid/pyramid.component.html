@@ -29,7 +29,7 @@
   </div>
 
   <div id="PyramidLevel1" class="PyramidLevel1">
-    <div  *ngFor="let stone of pyramidSite.stones; let i = index;" id="PyramidLevel1Stone{{i+1}}" class="PyramidStone" [@stoneEnter]="'in'">
+    <div  *ngFor="let stone of pyramidSite.stones; let i = index;" id="PyramidLevel1Stone{{i+1}}" class="PyramidStone" [@stoneEnter]="i < 9">
       <ng-container *ngIf="i < 9">
         <app-stone [stoneColor]="stone"></app-stone>
       </ng-container>
@@ -45,11 +45,13 @@
   </div>
 
   <div id="PyramidLevel2" class="PyramidLevel2">
-    <div *ngFor="let stone of pyramidSite.stones; let i = index;" id="PyramidLevel2Stone{{i+9}}" class="PyramidStone" [@stoneEnter]="'in'">
-      <ng-container *ngIf="i >= 0 && i < 4">
-        <app-stone [stoneColor]="pyramidSite.stones[i+9]"></app-stone>
-      </ng-container>
-    </div>
+    <ng-container *ngFor="let stone of pyramidSite.stones; let i = index;">
+      <div id="PyramidLevel2Stone{{i+9}}" class="PyramidStone" *ngIf="pyramidSite.stones[i+9]" [@stoneEnter]="pyramidSite.stones[i+9]">
+        <ng-container *ngIf="i >= 0 && i < 4">
+          <app-stone [stoneColor]="pyramidSite.stones[i+9]"></app-stone>
+        </ng-container>
+      </div>
+    </ng-container>
   </div>
 
   <!--Third Level-->
@@ -59,9 +61,9 @@
     </div>
   </div>
 
-  <div *ngFor="let stone of pyramidSite.stones; let i = index;" id="PyramidLevel3Stone1" class="PyramidStone" [@stoneEnter]="'in'">
-    <ng-container >
-      <app-stone [stoneColor]="pyramidSite.stones[i+13]"></app-stone>
-    </ng-container>
-  </div>
+  <ng-container *ngFor="let stone of pyramidSite.stones; let i = index;">
+    <div id="PyramidLevel3Stone1" class="PyramidStone" *ngIf="pyramidSite.stones[i+13]" [@stoneEnter]="pyramidSite.stones[i+13]">
+        <app-stone [stoneColor]="pyramidSite.stones[i+13]"></app-stone>
+    </div>
+  </ng-container>
 </div>

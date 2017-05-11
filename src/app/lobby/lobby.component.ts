@@ -43,8 +43,8 @@ export class LobbyComponent implements OnInit, OnDestroy {
     });
     this.Music.volume = 0.1;
     this.Music.loop = true;
-    this.Music.muted = false;
-    this.Music.src= '/assets/musik/-Egyptian_music.mp3';
+    this.Music.muted = true;
+    this.Music.src= '/assets/musik/AncientEgyptianMusic-ImhoteptheHighPriest.mp3';
     this.Music.load();
     this.Music.play();
   }
