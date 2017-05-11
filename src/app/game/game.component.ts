@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit,ViewChild, OnChanges} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild, OnChanges} from '@angular/core';
 import {UserService} from '../shared/services/user.service';
 import {User} from '../shared/models/user';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -6,9 +6,9 @@ import {GameService} from '../shared/services/game.service';
 import {Game} from '../shared/models/game';
 import {Observable, Subscription} from 'rxjs/Rx';
 import {ToastyService, ToastyConfig, ToastOptions, ToastData} from 'ng2-toasty';
-import {CardstackComponent} from "./statsboard/cardstack/cardstack.component";
-import {MoveService} from "../shared/services/move.service";
-import {ModalModule} from "ng2-modal";
+import {CardstackComponent} from './statsboard/cardstack/cardstack.component';
+import {MoveService} from '../shared/services/move.service';
+import {ModalModule} from 'ng2-modal';
 
 
 @Component({
@@ -22,15 +22,20 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
   protected game: Game;
   protected gameObservable: Subscription;
   private userToken;
-  private _opened: boolean = false;
+  private _opened = false;
   rank1: string;
   rank2: string;
   rank3: string;
   rank4: string;
+  rank1p: string;
+  rank2p: string;
+  rank3p: string;
+  rank4p: string;
+
   private currentRound;
   private currentState;
   protected timerPercentage;
-  private pressFCount: number = 0;
+  private pressFCount = 0;
   Music = new Audio();
 
   @ViewChild('rankingModal') rankingModal;
@@ -39,13 +44,13 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
               protected gameService: GameService,
               protected moveService: MoveService,
               protected route: ActivatedRoute,
-              private toastyService:ToastyService,
+              private toastyService: ToastyService,
               private router: Router,
               private toastyConfig: ToastyConfig) {
   }
 
   ngOnInit() {
-    let self = this;
+    const self = this;
     this.userToken = JSON.parse(localStorage.getItem('currentUser')).token;
 
     // get users from secure api end point
@@ -66,11 +71,11 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
 
     this.rankingModal.open();
     this.rankingModal.close();
-    this.currentState = "MARKET";
+    this.currentState = 'MARKET';
     this.Music.volume = 0.2;
     this.Music.loop = true;
     this.Music.muted = true;
-    this.Music.src= '/assets/musik/-Egyptian_music.mp3';
+    this.Music.src = '/assets/musik/-Egyptian_music.mp3';
     this.Music.load();
     this.Music.play();
   }
@@ -95,16 +100,20 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
             this.addTurnToast();
           }
 
-          if(this.game.status==='FINISHED'){
-            this.rank1= this.game.players[this.game.rankingArray[0]].username + " " + this.game.players[this.game.rankingArray[0]].points +" " + "Points";
-            this.rank2= this.game.players[this.game.rankingArray[1]].username + " "+ this.game.players[this.game.rankingArray[1]].points +" " + "Points";
+          if (this.game.status === 'FINISHED'){
+            this.rank1 = this.game.players[this.game.rankingArray[0]].username ;
+            this.rank2 = this.game.players[this.game.rankingArray[1]].username ;
+            this.rank1p = this.game.players[this.game.rankingArray[0]].points + " Points" ;
+            this.rank2p =  this.game.players[this.game.rankingArray[1]].points + " Points" ;
 
-            if(this.game.playerCountSetting>2) {
-              this.rank3 = this.game.players[this.game.rankingArray[2]].username + " "+ this.game.players[this.game.rankingArray[2]].points +" " + "Points";
+            if (this.game.playerCountSetting > 2) {
+              this.rank3 = this.game.players[this.game.rankingArray[2]].username ;
+              this.rank3p =  this.game.players[this.game.rankingArray[2]].points + " Points" ;
             }
-            if(this.game.playerCountSetting>3) {
+            if (this.game.playerCountSetting > 3) {
 
-              this.rank4 = this.game.players[this.game.rankingArray[3]].username + " " + this.game.players[this.game.rankingArray[3]].points +" " + "Points";
+              this.rank4 = this.game.players[this.game.rankingArray[3]].username ;
+              this.rank4p =  this.game.players[this.game.rankingArray[3]].points + " Points" ;
             }
 
             this.rankingModal.open();
@@ -118,15 +127,15 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
           }
           if (this.game.logicState !== this.currentState) {
             this.currentState = this.game.logicState;
-            if(this.currentState === "NORMAL"){
+            if (this.currentState === 'NORMAL'){
               this.Music.pause();
-              this.Music.src= '/assets/musik/-Egyptian_music.mp3';
+              this.Music.src = '/assets/musik/-Egyptian_music.mp3';
               this.Music.load();
               this.Music.play();
             }
-            else if(this.currentState === "MARKET"){
+            else if (this.currentState === 'MARKET'){
               this.Music.pause();
-              this.Music.src= '/assets/musik/marketsoundeffect.mp3';
+              this.Music.src = '/assets/musik/marketsoundeffect.mp3';
               this.Music.load();
               this.Music.play();
             }
@@ -152,7 +161,7 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
     });
   }
   toggleAudio() {
-    if(this.Music.muted ){
+    if (this.Music.muted ){
       this.Music.muted = false;
     }
     else {
@@ -166,28 +175,28 @@ export class GameComponent implements OnInit, OnDestroy, OnChanges {
 
   addTurnToast() {
 
-    let toastOptions:ToastOptions;
+    let toastOptions: ToastOptions;
     if (this.game.logicState === 'NORMAL'){
       toastOptions = {
-        title: "Your Turn!",
+        title: 'Your Turn!',
         showClose: true,
         timeout: 6000,
         theme: 'material',
-        onAdd: (toast:ToastData) => {
+        onAdd: (toast: ToastData) => {
         },
-        onRemove: function(toast:ToastData) {
+        onRemove: function(toast: ToastData) {
         }
       };
     }
     else if (this.game.logicState === 'MARKET'){
       toastOptions = {
-        title: "Choose a Market Card!",
+        title: 'Choose a Market Card!',
         showClose: true,
         timeout: 6000,
         theme: 'material',
-        onAdd: (toast:ToastData) => {
+        onAdd: (toast: ToastData) => {
         },
-        onRemove: function(toast:ToastData) {
+        onRemove: function(toast: ToastData) {
         }
       };
     }

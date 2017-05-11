@@ -8,6 +8,7 @@
   border-color: saddlebrown;
   border-style: groove;
   border-radius: 5px;
+  z-index: 100000000000;
 }
 
 app-card {

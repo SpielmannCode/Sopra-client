@@ -84,4 +84,15 @@ modal a {
 modal a:hover {
   color: #fff;
 }
-
+.table1{
+  table-layout: fixed;
+}
+.rankingModal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 8000;
+  background-image: url("/assets/Images/papyrus-wallpapers.jpeg");
+}
