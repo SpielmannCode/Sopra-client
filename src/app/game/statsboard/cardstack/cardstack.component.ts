@@ -341,6 +341,10 @@ export class CardstackComponent implements OnInit, OnChanges {
         if (this.game.gameBoard.availableShips[this.shipIndex].stones.length - 1 <= stoneCount) {
           let shipId = parseInt(stonePos[1]) + 1;
           document.getElementById('ship' + shipId).classList.remove('donotdrag');
+        } else {
+          CardstackComponent.playCardMode = false;
+          this.addCardToast('Not sailable');
+          return;
         }
 
         this.addCardToast('Sail the ship to a site');
