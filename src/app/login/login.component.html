@@ -14,7 +14,7 @@
       <h2 class="form-signin-heading">Choose a username</h2>
 
       <div class="group center">
-        <input id="username" type="text" required (keydown.enter)="login()" [(ngModel)]="user.username">
+        <input id="username" type="text" required (keydown.enter)="login()" [(ngModel)]="user.username" maxlength="10">
         <span class="highlight"></span>
         <span class="bar"></span>
         <label for="username" class="center">Username</label>
